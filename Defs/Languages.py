@@ -16,6 +16,7 @@ def langUkrainian():
     uk.install()
 
 def langSpanish():
+    """Install Spanish Language."""
     es = gettext.translation('hiddeneye',localedir='./locale', languages=['es'])
     es.install()
 
