@@ -16,9 +16,10 @@ languageSelector()
 
 
 def checkConnection(host='https://google.com'): #Connection check
+    system('clear')
     try:
         urlopen(host)
-        print(_("{0}Successful connection!{1}").format(GREEN, DEFAULT))
+        print(_("{0}HURRAY!! Internet is available.. We can Continue{1}").format(GREEN, DEFAULT))
         return True
     except:
         return False
@@ -29,7 +30,7 @@ if checkConnection() == False:
         |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
         |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
 
-                    {0}[{1}!{0}]{1} Network error. Verify your connection.\n
+          {0}[{1}!{0}]{1} ^Network error^. Verify your Internet connection.\n
 ''').format(RED, DEFAULT))
         exit(0)
 	
