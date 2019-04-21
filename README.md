@@ -3,7 +3,10 @@
 </p>
 
 <p align="center">
-      Modern phishing tool with advanced functionality 
+      Modern Phishing Tool With Advanced Functionality 
+</p>
+<p align="center">
+     PHISHING | KEYLOGGER | INFORMATION_COLLECTOR | ALL_IN_ONE_TOOL | SOCIALENGINEERING  
 </p>
 
 <p align="center"> 
@@ -11,11 +14,6 @@
   [![Codacy Badge](https://api.codacy.com/project/badge/Grade/cd8aa9a99b5b4afd84e19a98b7b30211)](https://app.codacy.com/app/DarkSecDevelopers/HiddenEye?utm_source=github.com&utm_medium=referral&utm_content=DarkSecDevelopers/HiddenEye&utm_campaign=Badge_Grade_Dashboard)
 </p>
 
-<p align="center">
- NOW WE HAVE ADDED KEYLOGGER WITH THE PHISHING PAGES // VICTIM DEVICE INFO ALSO AVAILABLE
- 
- 
-</p>
 
 
 ### DEVELOPERS:-
@@ -25,6 +23,10 @@
 4) UNDEADSEC (https://github.com/UndeadSec)
 5) Micrafast (https://github.com/Micrafast)
 6) ___________ (WAITING FOR YOU)
+
+### SCREENSHOT (TERMUX-Android)
+![Shot](https://github.com/DarkSecDevelopers/HiddenEye/blob/master/Screenshot.png)
+
 
 ## CREDIT:-
 * Anonud4y ( I don't remember if i have done Anything )
@@ -44,8 +46,6 @@
 * **Black Arch**
 * **TERMUX (For Android Users)**
 
-### SCREENSHOT
-![Shot](https://github.com/DarkSecDevelopers/HiddenEye/blob/master/Screenshot.png)
 
 ### PREREQUISITES ( Please verify if you have installed )
 * Python 3
@@ -184,7 +184,7 @@ git clone -b Termux-Support-Branch https://github.com/DarkSecDevelopers/HiddenEy
    - Traditional DropBox Login Page
  
  **29) eBay PHISHING:**
-    - Traditional eBay Login Page
+   - Traditional eBay Login Page
  
  **30) MySpace PHISHING:**
    - Traditional Myspace Login Page
@@ -194,6 +194,7 @@ git clone -b Termux-Support-Branch https://github.com/DarkSecDevelopers/HiddenEy
  
  **32) Shopify PHISHING:**
    - Traditional Shopify Login Page
+ 
  **33) Verizon PHISHING:**
    - Traditional Verizon Login Page
    
