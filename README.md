@@ -165,7 +165,7 @@ git clone -b Termux-Support-Branch https://github.com/DarkSecDevelopers/HiddenEy
 
 
 ### SCREENSHOT
-![Shot](https://github.com/DarkSecDevelopers/HiddenEye/blob/dev/Sceenshot.png)
+![Shot](https://github.com/DarkSecDevelopers/HiddenEye/blob/dev/Screenshot.png)
 
 ## DISCLAIMER
 <p align="center">
