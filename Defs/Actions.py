@@ -532,10 +532,10 @@ def getCredentials():
         with open('Server/www/usernames.txt') as creds:
             lines = creds.read().rstrip()
             if len(lines) != 0:
-                writeLog('{0}..................................................................'.format(RED, DEFAULT))
-                writeLog(_(' {0}[{1} CREDENTIALS FOUND {0}]{1}:\n {0}{2}{1}').format(CYAN, RED, lines))
+                writeLog('{0}..................................................................'.format(GREEN, DEFAULT))
+                writeLog(_(' {0}[{1} CREDENTIALS FOUND {0}]{1}:\n {0}{2}{1}').format(CYAN, GREEN, lines))
                 system('rm -rf Server/www/usernames.txt && touch Server/www/usernames.txt')
-                writeLog('{0}..................................................................'.format(RED, DEFAULT))
+                writeLog('{0}..................................................................'.format(GREEN, DEFAULT))
 
         creds.close()
 
@@ -555,10 +555,10 @@ def getCredentials():
                     latitude = matchObj.group(1)
                     longitude = matchObj.group(2)
                     writeLog('..................................................................'.format(RED, DEFAULT))
-                    writeLog(_(' \n{0}[ VICTIM INFO FOUND ]{1}:\n {0}{2}{1}').format(RED, CYAN, lines))
-                    writeLog(_(' \n{0}Longitude: {2} \nLatitude: {3}{1}').format(RED, CYAN, longitude, latitude))
-                    writeLog(_(' \n{0}ISP: {2} \nCountry: {3}{1}').format(RED, CYAN, ipinfo['org'], ipinfo['country']))
-                    writeLog(_(' \n{0}Region: {2} \nCity: {3}{1}').format(RED, CYAN, ipinfo['region'], ipinfo['city']))
+                    writeLog(_(' \n{0}[ VICTIM INFO FOUND ]{1}:\n {0}{2}{1}').format(GREEN, CYAN, lines))
+                    writeLog(_(' \n{0}Longitude: {2} \nLatitude: {3}{1}').format(GREEN, CYAN, longitude, latitude))
+                    writeLog(_(' \n{0}ISP: {2} \nCountry: {3}{1}').format(GREEN, CYAN, ipinfo['org'], ipinfo['country']))
+                    writeLog(_(' \n{0}Region: {2} \nCity: {3}{1}').format(GREEN, CYAN, ipinfo['region'], ipinfo['city']))
                 system('rm -rf Server/www/ip.txt && touch Server/www/ip.txt')
                 writeLog('..................................................................'.format(RED, DEFAULT))
 
@@ -568,7 +568,7 @@ def getCredentials():
             lines = creds.read().rstrip()
             if len(lines) != 0:
                 writeLog('{0}...............................'.format(RED, DEFAULT))
-                writeLog(_(' {1}[{0} GETTING PRESSED KEYS {1}]{1}:\n {0}%s{1}').format(RED, CYAN) % lines)
+                writeLog(_(' {1}[{0} GETTING PRESSED KEYS {1}]{1}:\n {0}%s{1}').format(GREEN, CYAN) % lines)
                 system('rm -rf Server/www/KeyloggerData.txt && touch Server/www/KeyloggerData.txt')
                 writeLog('{0}...............................'.format(RED, DEFAULT))
 
