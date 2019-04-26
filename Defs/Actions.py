@@ -496,6 +496,7 @@ def addkeylogger():
          sleep(2)
          
 def runServer():
+    system("fuser -k 1111/tcp")
     system("cd Server/www/ && php -S 127.0.0.1:1111 > /dev/null &")
     
     
