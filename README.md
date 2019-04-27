@@ -24,7 +24,7 @@
 5) Micrafast (https://github.com/Micrafast)
 6) ___________ (WAITING FOR YOU)
 
-### SCREENSHOT (TERMUX-Android)
+### SCREENSHOT (Android-Userland)
 ![Shot](https://github.com/DarkSecDevelopers/HiddenEye/blob/master/Screenshot.png)
 
 
