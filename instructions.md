@@ -87,11 +87,11 @@ When kali will run it'll ask for password type the ssh password.Then do su.After
 
 ```
 ```
-apt install python3 && python3-pip && unzip && php
+apt install python3 && python3-pip && unzip && php && git
 
 ```
 ```
-pip3 install -r requirements.txt
+git clone https://github.com/DarkSecDevelopers/HiddenEye.git
 
 ```
 ```
@@ -103,6 +103,9 @@ chmod 777 HiddenEye.py
 
 ```
 ```
-python3 HiddenEye.py
+pip3 install -r requirements.txt
 
+```
+```
+python3 HiddenEye.py
 ```
