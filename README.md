@@ -44,7 +44,7 @@
 * **Arch Linux**
 * **Manjaro XFCE Edition 17.1.12**
 * **Black Arch**
-* **TERMUX (For Android Users)**
+* **Userland app (For Android Users)**
 
 
 ### PREREQUISITES ( Please verify if you have installed )
