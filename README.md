@@ -65,14 +65,12 @@
 - You can now Deploy Keyloggers With (Y/N) option.
 - Major issues fixed.
 
-**4) TERMUX-SUPPORT-BRANCH ADDED**
-- We care about Android Users, As Termux doesn't have 'sudo' command as default, So we have created another branch of HiddenEye For Our Termux Users.
-[CHECK HERE](https://github.com/DarkSecDevelopers/HiddenEye/tree/Termux-Support-Branch)
-- Termux Users Please Clone With This command
-```
-git clone -b Termux-Support-Branch https://github.com/DarkSecDevelopers/HiddenEye.git
+**4) Android Users**
+- We care about Android Users, so you have to download an app if you want to use it on android.click the image to download it
+                                                      <a href="https://play.google.com/store/apps/details?id=tech.ula">
+<img src="https://camo.githubusercontent.com/bdaf711a93d64d0bb5e5abfc346a8b84ea47f164/68747470733a2f2f706c61792e676f6f676c652e636f6d2f696e746c2f656e5f75732f6261646765732f696d616765732f67656e657269632f656e2d706c61792d62616467652e706e67">
+</a>
 
-```
 
 **5) NEW LOOK PROVIDED**
 - NOW FOCUS EASILY ON TASKS...
