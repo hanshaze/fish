@@ -70,28 +70,28 @@ sudo ./HiddenEye.py
 
 ```
 
-### RUNNING (For Android users in Termux)
+### RUNNING (For Android users)
 
 ```
-First install { Termux } from Playstore.
-
-```
-
-```
-After opening Follow below commands One by one
+Install userland app from playstore.
 
 ```
 
 ```
-pkg install git python php curl openssh grep
+Set up app and install kali from app.Set ssh username(anyname) and password. 
+
+```
+
+```
+When kali will run it'll ask for password type the ssh password.Then do su.After that kali will run on your device wothout root and do apt update For more info read here https://null-byte.wonderhowto.com/how-to/android-for-hackers-turn-android-phone-into-hacking-device-without-root-0189649/
 
 ```
 ```
-pip3 install wget
+apt install python3 && python3-pip && unzip && php
 
 ```
 ```
-git clone -b Termux-Support-Branch https://github.com/DarkSecDevelopers/HiddenEye.git
+pip3 install -r requirements.txt
 
 ```
 ```
@@ -103,26 +103,6 @@ chmod 777 HiddenEye.py
 
 ```
 ```
-python HiddenEye.py
-
-or
-
-./HiddenEye.py
-
-```
-### Running (One Code installation in Termux)
-
-
-```
-First install { Termux } from Playstore.
-
-```
-
-```
-After opening Copy and run this Single Command.
-
-```
-```
-pkg install git python php curl openssh grep && pip3 install wget && git clone -b Termux-Support-Branch https://github.com/DarkSecDevelopers/HiddenEye.git && cd HiddenEye && chmod 777 HiddenEye.py && python HiddenEye.py
+python3 HiddenEye.py
 
 ```
