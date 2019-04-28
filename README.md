@@ -1,3 +1,5 @@
+[![BuiltWithLove](https://forthebadge.com/images/badges/built-with-love.svg)]()
+
 <p align="center">
   <img src="logo.png">  
 </p>
@@ -7,16 +9,14 @@
 </p>
 <p align="center">
      PHISHING | KEYLOGGER | INFORMATION_COLLECTOR | ALL_IN_ONE_TOOL | SOCIALENGINEERING  
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/cd8aa9a99b5b4afd84e19a98b7b30211)](https://app.codacy.com/app/DarkSecDevelopers/HiddenEye?utm_source=github.com&utm_medium=referral&utm_content=DarkSecDevelopers/HiddenEye&utm_campaign=Badge_Grade_Dashboard)
+[![Open Source Love](https://badges.frapsoft.com/os/v3/open-source.svg?v=102)](https://github.com/darksecdevelopers)
+[![GitHub version](https://d25lcipzij17d.cloudfront.net/badge.svg?id=gh&type=6&v=0.2.7&x2=0)](https://github.com/DarkSecDevelopers/HiddenEye/releases)
+
 </p>
 
-<p align="center"> 
-  
-  [![Codacy Badge](https://api.codacy.com/project/badge/Grade/cd8aa9a99b5b4afd84e19a98b7b30211)](https://app.codacy.com/app/DarkSecDevelopers/HiddenEye?utm_source=github.com&utm_medium=referral&utm_content=DarkSecDevelopers/HiddenEye&utm_campaign=Badge_Grade_Dashboard)
-</p>
-
-
-
-### DEVELOPERS:-
+[![Made By Hipsters](https://forthebadge.com/images/badges/built-by-hipsters.svg)]()
 1) ANONUD4Y (https://github.com/An0nUD4Y)
 2) USAMA ABDUL SATTAR (https://github.com/usama7628674)
 3) sTiKyt (https://github.com/sTiKyt)
