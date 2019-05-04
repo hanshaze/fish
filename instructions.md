@@ -69,8 +69,9 @@ sudo python3 HiddenEye.py
 sudo ./HiddenEye.py    
 
 ```
+## FOR ANDROID USERS
 
-### RUNNING (For Android users)
+### 1) INSTALLING IN (USERLAND APP)
 
 ```
 Install userland app from playstore.
@@ -108,4 +109,60 @@ pip3 install -r requirements.txt
 ```
 ```
 python3 HiddenEye.py
+```
+### 2) INSTALLING IN (TERMUX APP)
+
+```
+First install { Termux } from Playstore.
+
+```
+
+```
+After opening Follow below commands One by one
+
+```
+
+```
+pkg install git python php curl openssh grep
+
+```
+```
+pip3 install wget
+
+```
+```
+git clone -b Termux-Support-Branch https://github.com/DarkSecDevelopers/HiddenEye.git
+
+```
+```
+cd HiddenEye
+
+```
+```
+chmod 777 HiddenEye.py
+
+```
+```
+python HiddenEye.py
+
+or
+
+./HiddenEye.py
+
+```
+### ONE LINE COMMAND TO INSTALL IN TERMUX(ANDROID). Just copy/paste this single command and hit Enter .. ALL DONE
+
+
+```
+First install { Termux } from Playstore.
+
+```
+
+```
+After opening Copy and run this Single Command.
+
+```
+```
+pkg install git python php curl openssh grep && pip3 install wget && git clone -b Termux-Support-Branch https://github.com/DarkSecDevelopers/HiddenEye.git && cd HiddenEye && chmod 777 HiddenEye.py && python HiddenEye.py
+
 ```
