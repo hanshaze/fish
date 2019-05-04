@@ -9,8 +9,10 @@
 </p>
 <p align="center">
      PHISHING | KEYLOGGER | INFORMATION_COLLECTOR | ALL_IN_ONE_TOOL | SOCIALENGINEERING  
+<p>
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/cd8aa9a99b5b4afd84e19a98b7b30211)](https://app.codacy.com/app/DarkSecDevelopers/HiddenEye?utm_source=github.com&utm_medium=referral&utm_content=DarkSecDevelopers/HiddenEye&utm_campaign=Badge_Grade_Dashboard)
+</p>
+
 [![Open Source Love](https://badges.frapsoft.com/os/v3/open-source.svg?v=102)](https://github.com/darksecdevelopers)
 [![GitHub version](https://d25lcipzij17d.cloudfront.net/badge.svg?id=gh&type=6&v=0.2.7&x2=0)](https://github.com/DarkSecDevelopers/HiddenEye/releases)
 
@@ -33,7 +35,7 @@
 * Usama ( A Most active Developer)
 * sTiKyt ( Guy Who recustomized everything )
 * UNDEADSEC (For His wonderful repo socialfish which motivated us a lot)
-* TheLinuxChoice ( https://github.com/thelinuxchoice) ( For His Tools Phishing Pages ) 
+* TheLinuxChoice ( For His Tools Phishing Pages ) 
 
 ### TESTED ON FOLLOWING:-
 * **Kali Linux - Rolling Edition**
@@ -65,14 +67,21 @@
 - You can now Deploy Keyloggers With (Y/N) option.
 - Major issues fixed.
 
-**4) Android Users**
-- We care about Android Users, so you have to download an app(Userland) if you want to use it on android.click the image to download it
-                                                      <a href="https://play.google.com/store/apps/details?id=tech.ula">
-<img src="https://camo.githubusercontent.com/bdaf711a93d64d0bb5e5abfc346a8b84ea47f164/68747470733a2f2f706c61792e676f6f676c652e636f6d2f696e746c2f656e5f75732f6261646765732f696d616765732f67656e657269632f656e2d706c61792d62616467652e706e67">
-</a>
-  <p>To read more how to set up userland app read <a href="https://null-byte.wonderhowto.com/how-to/android-for-hackers-turn-android-phone-into-hacking-device-without-root-0189649/">here</a></p> 
+**4) ANDROID SUPPORT**
+- We care about Android Users, So now we have came with two ways to run HiddenEye in Android Devices.
 
+**(A) UserLand App**
+- You Have to Download UserLand App. [Click Here](https://play.google.com/store/apps/details?id=tech.ula) To Download it.
+- To read more how to set up userland app Read <a href="https://null-byte.wonderhowto.com/how-to/android-for-hackers-turn-android-phone-into-hacking-device-without-root-0189649/">HERE</a></p> 
 
+**(B) Termux App**
+  - You Have to Download Termux App. [Click Here](https://play.google.com/store/apps/details?id=com.termux) To Download it.
+  - For Further instruction [Check Instructions](https://github.com/DarkSecDevelopers/HiddenEye/blob/master/instructions.md)
+  - Termux Users Clone With This Command , Unless Errors may occur during Running.
+```
+git clone -b Termux-Support-Branch https://github.com/DarkSecDevelopers/HiddenEye.git
+
+```
 **5) NEW LOOK PROVIDED**
 - NOW FOCUS EASILY ON TASKS...
 
