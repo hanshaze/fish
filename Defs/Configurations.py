@@ -1,8 +1,9 @@
-#Primitive config
+# Primitive config
 import configparser
 import os
 
-def createConfig(path = "Settings.ini"):
+
+def createConfig(path="Settings.ini"):
     config = configparser.ConfigParser()
     config.add_section("Settings")
     config.add_section("Defaults")
@@ -10,13 +11,16 @@ def createConfig(path = "Settings.ini"):
     config.set("Settings", "DidBackground", "True")
     config.set("Defaults", "webPage", "Facebook")
     config.set("Defaults", "additionalOption", "1")
+    config.set("Defaults", "theme", "anaglyph")
     with open(path, 'w') as configFile:
         config.write(configFile)
 
-def readConfig(path = "Settings.ini"):
+
+def readConfig(path="Settings.ini"):
     config = configparser.ConfigParser()
     config.read(path)
     return config
+
 
 def ifSettingsNotExists():
     if not os.path.exists("Settings.ini"):
