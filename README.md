@@ -84,6 +84,7 @@ git clone -b Termux-Support-Branch https://github.com/DarkSecDevelopers/HiddenEy
 ```
 **5) NEW LOOK PROVIDED**
 - NOW FOCUS EASILY ON TASKS...
+- CUSTOMIZE APP WITH YOUR OWN THEMES
 
 **6) SERVEO URL TYPE SELECTION AVAILABLE NOW**
 - Major issues with serveo is fixed.
