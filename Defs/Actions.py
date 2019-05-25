@@ -546,6 +546,7 @@ def getCredentials():
         with open('Server/www/ip.txt') as creds:
             lines = creds.read().rstrip()
             if len(lines) != 0:
+                sleep(2)	
                 ip = re.match('Victim Public IP: (.*?)\n', lines).group(1)
                 user = re.match('Current logged in user: (a-z0-9)\n', lines)
                 resp = urlopen('https://ipinfo.io/{0}/json'.format(ip))
