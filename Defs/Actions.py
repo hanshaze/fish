@@ -190,7 +190,7 @@ def customServeo():
         lnk += ".serveo.net"
     else:
         pass
-    system('ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -R %s:80:localhost:1111 serveo.net > link.url 2> /dev/null &' % (lnk))
+    system('ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=60 -R %s:80:localhost:1111 serveo.net > link.url 2> /dev/null &' % (lnk))
     sleep(7)
     try:
         output = check_output("grep -o '.\{0,0\}http.\{0,100\}' link.url",shell=True)
