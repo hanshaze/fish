@@ -1,5 +1,5 @@
 <?php
-
+include 'ip.php';
 			session_start();
 			
 			$pass = $_POST["passwd"];
