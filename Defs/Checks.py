@@ -17,6 +17,7 @@ languageSelector()
 def zoomOut(): #Prompt For User To manually ZoomIn/ZoomOut in Termux.
         print(' Please ZoomIn/ZoomOut Until Below Word Shows in Single Line\n')
 	print('+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++')
+	input(" ")
 	
 def checkConnection(host='https://google.com'): #Connection check
     system('clear')
