@@ -17,7 +17,7 @@ languageSelector()
 def checkConnection(host='https://google.com'): #Connection check
     system('clear')
     try:
-        urlopen(host, timeout=5)
+        urlopen(host, timeout=10)
         print(_("{0}HURRAY!! Internet is available.. We can Continue{1}").format(GREEN, DEFAULT))
         return True
     except:
