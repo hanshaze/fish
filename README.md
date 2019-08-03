@@ -217,7 +217,10 @@ git clone -b Termux-Support-Branch https://github.com/DarkSecDevelopers/HiddenEy
    
  **34) Yandex PHISHING:**
    - Traditional Yandex Login Page
-
+   
+ **35) Reddit PHISHING:**
+   - Old Login Page
+   - New Login Page
 </p>
 
 <h3>Ascii error fix</h3>
