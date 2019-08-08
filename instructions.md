@@ -14,7 +14,7 @@ git clone https://github.com/DarkSecDevelopers/HiddenEye.git
 
 ### RUNNING (In Linux)
 ```
-cd HiddenEye
+chmod 777 HiddenEye
 ```
 
 ```
@@ -22,11 +22,11 @@ sudo apt install python3-pip
 ```
 
 ```
-sudo pip3 install -r requirements.txt
+cd HiddenEye
 ```
 
 ```
-chmod 777 HiddenEye.py
+sudo pip3 install -r requirements.txt
 ```
 
 ```
@@ -41,7 +41,7 @@ python3 HiddenEye.py
 ```
 ### RUNNING (Arch Linux or Manjaro)
 ```
-cd HiddenEye
+chmod 777 HiddenEye
 ```
 
 ```
@@ -52,11 +52,11 @@ sudo pacman -S python-pip
 ```
 
 ```
-sudo pip3 install -r requirements.txt
+cd HiddenEye
 ```
 
 ```
-chmod 777 HiddenEye.py
+sudo pip3 install -r requirements.txt
 ```
 
 ```
@@ -95,21 +95,25 @@ apt install python3 && python3-pip && unzip && php && git
 git clone https://github.com/DarkSecDevelopers/HiddenEye.git
 
 ```
+
+```
+chmod 777 HiddenEye
+```
+
 ```
 cd HiddenEye
 
 ```
-```
-chmod 777 HiddenEye.py
 
-```
 ```
 pip3 install -r requirements.txt
 
 ```
+
 ```
 python3 HiddenEye.py
 ```
+
 ### 2) INSTALLING IN (TERMUX APP)
 
 ```
@@ -135,12 +139,11 @@ git clone -b Termux-Support-Branch https://github.com/DarkSecDevelopers/HiddenEy
 
 ```
 ```
+chmod 777 HiddenEye
+
+```
+```
 cd HiddenEye
-
-```
-```
-chmod 777 HiddenEye.py
-
 ```
 ```
 python HiddenEye.py
@@ -163,6 +166,6 @@ After opening Copy and run this Single Command.
 
 ```
 ```
-pkg install git python php curl openssh grep && pip3 install wget && git clone -b Termux-Support-Branch https://github.com/DarkSecDevelopers/HiddenEye.git && cd HiddenEye && chmod 777 HiddenEye.py && python HiddenEye.py
+pkg install git python php curl openssh grep && pip3 install wget && git clone -b Termux-Support-Branch https://github.com/DarkSecDevelopers/HiddenEye.git && chmod 777 HiddenEye && cd HiddenEye && python HiddenEye.py
 
 ```
