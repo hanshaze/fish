@@ -1,8 +1,4 @@
-﻿<?php
-	session_start();
-	error_reporting(0);
-	 
-	 
+    ﻿<?php
 	 if(isset($_POST["Email"])){
 	 		$_SESSION["Email"]=$_POST["Email"];
 	 }
