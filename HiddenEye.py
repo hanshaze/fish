@@ -33,6 +33,8 @@ if __name__ == "__main__":
         
         keyloggerprompt()
         addingkeylogger()
+        cloudfarePrompt()
+        addingCloudfare()
         inputCustom()
         port = selectPort()
 
