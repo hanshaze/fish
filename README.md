@@ -14,7 +14,8 @@
 </p>
 
 [![Open Source Love](https://badges.frapsoft.com/os/v3/open-source.svg?v=102)](https://github.com/darksecdevelopers)
-[![GitHub version](https://d25lcipzij17d.cloudfront.net/badge.svg?id=gh&type=6&v=0.2.7&x2=0)](https://github.com/DarkSecDevelopers/HiddenEye/releases)
+[![GitHub version](https://d25lcipzij17d.cloudfront.net/badge.svg?id=gh&type=6&v=0.3.1&x2=0)](https://github.com/DarkSecDevelopers/HiddenEye/releases)
+[![Open Source Helpers](https://www.codetriage.com/darksecdevelopers/hiddeneye/badges/users.svg)](https://www.codetriage.com/darksecdevelopers/hiddeneye)
 
 </p>
 
