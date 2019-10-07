@@ -9,9 +9,8 @@ python:
   - "nightly"  # nightly build
 before_install:
 # command to install dependencies
-  - sudo env "PATH=$PATH"
   - chmod a+x HiddenEye.py
 install:
   - pip3 install -r requirements.txt
 # command to run tests
-script: sudo ./HiddenEye.py  
+script: sudo env "PATH=$PATH" ./HiddenEye.py  
