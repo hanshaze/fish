@@ -9,7 +9,7 @@ python:
   - "nightly"  # nightly build
 before_install:
 # command to install dependencies
-  - export PATH=$(echo $PATH | tr ':' "\n" | sed '/\/opt\/python/d' | tr "\n" ":" | sed "s|::|:|g")
+  - sudo env "PATH=$PATH"
   - chmod a+x HiddenEye.py
 install:
   - pip3 install -r requirements.txt
