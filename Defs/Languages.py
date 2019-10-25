@@ -26,6 +26,7 @@ def langEnglish():
 
 def langItalian():
     it = gettext.translation('hiddeneye',localedir='./locale', languages=['it'])
+    it.install()
 
 def checkAndSetLanguage():
     language = readConfig().get("Settings", "Language")
