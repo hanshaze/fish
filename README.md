@@ -14,7 +14,7 @@
 </p>
 
 [![Open Source Love](https://badges.frapsoft.com/os/v3/open-source.svg?v=102)](https://github.com/darksecdevelopers)
-[![GitHub version](https://d25lcipzij17d.cloudfront.net/badge.svg?id=gh&type=6&v=0.3.1&x2=0)](https://github.com/DarkSecDevelopers/HiddenEye/releases)
+[![GitHub version](https://d25lcipzij17d.cloudfront.net/badge.svg?id=gh&type=6&v=0.3.2&x2=0)](https://github.com/DarkSecDevelopers/HiddenEye/releases)
 [![Open Source Helpers](https://www.codetriage.com/darksecdevelopers/hiddeneye/badges/users.svg)](https://www.codetriage.com/darksecdevelopers/hiddeneye)
 
 </p>
@@ -27,6 +27,12 @@
 4) UNDEADSEC (https://github.com/UndeadSec)
 5) Micrafast (https://github.com/Micrafast)
 6) ___________ (WAITING FOR YOU)
+
+# AVAILABLE TUNNELLING OPTIONS**
+1) LOCALXPOSE (https://localxpose.io)
+2) SERVEO (https://serveo.net/)
+3) NGROK (https://ngrok.com/)
+
 
 # SCREENSHOT (Android-Userland)
 ![Shot](https://github.com/DarkSecDevelopers/HiddenEye/blob/master/Screenshot.png)
