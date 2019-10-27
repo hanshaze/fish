@@ -24,6 +24,9 @@ def langEnglish():
     en = gettext.translation('hiddeneye',localedir='./locale', languages=['en'])
     en.install()
 
+def langItalian():
+    it = gettext.translation('hiddeneye',localedir='./locale', languages=['it'])
+    it.install()
 
 def checkAndSetLanguage():
     language = readConfig().get("Settings", "Language")
@@ -36,6 +39,8 @@ def checkAndSetLanguage():
         langUkrainian()
     elif language == "es":
         langSpanish()
+    elif language == "it":
+        langItalian()
     else:
         langEnglish()
 
@@ -52,5 +57,7 @@ def languageSelector():
                     langUkrainian()
                 elif arg in["es", "spain", "spanish", "es_ES"]:
                     langSpanish()
+                elif arg in["it", "italia", "italiano", "it_IT"]:
+                    langItalian()
         else:
             exit

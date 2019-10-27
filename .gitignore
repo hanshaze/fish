@@ -10,3 +10,9 @@ Server
 Settings\.ini
 
 ngrok\.url
+
+# Local Moltivie's virtual env
+env
+
+# Ignore vscode folder
+.vscode
