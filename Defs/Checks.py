@@ -52,6 +52,25 @@ def checkNgrok(): #Ngrok check
         system('rm -Rf ' + filename)
         system('clear')
 
+def checkLocalxpose(): #Localxpose check
+    if path.isfile('Server/loclx') == False:  #Is Localxpose downloaded?
+        print(_('[*] Localxpose Not Found !!'))
+        print(_('[*] Downloading Localxpose...'))
+        if 'Android' in str(check_output(('uname', '-a'))) or 'arm' in str(check_output(('uname', '-a'))):
+            filename = 'loclx-linux-arm.zip'
+        else:
+            ostype = systemos().lower()
+            if architecture()[0] == '64bit':
+                filename = 'loclx-linux-amd64.zip'.format(ostype)
+            else:
+                filename = 'loclx-linux-386.zip'.format(ostype)
+        url = 'https://lxpdownloads.sgp1.digitaloceanspaces.com/cli/'+filename
+        download(url)
+        system('unzip loclx*.zip && rm loclx*.zip')
+        system('mv loclx* loclx')
+        system('mv loclx Server/')
+        system('clear')
+        
 def checkPermissions():
         if systemos() == 'Linux':
             if os.getuid() == 0:

