@@ -228,6 +228,9 @@ git clone -b Termux-Support-Branch https://github.com/DarkSecDevelopers/HiddenEy
  **35) Reddit PHISHING:**
    - Old Login Page
    - New Login Page
+
+ **36) Subito&#46;it PHISHING:**
+   - Traditional Subito&#46;it Login Page
 </p>
 
 <h3>Ascii error fix</h3>
