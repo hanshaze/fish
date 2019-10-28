@@ -367,7 +367,7 @@ def mainMenu():
  {2} ██   ██ ██ ██    ██ ██    ██ ██      ██  ████  {3}██         ██    ██      {1}
  {2} ██   ██ ██ ██████   ██████   ███████ ██   ███  {3}███████    ██    ███████ {1}
 
-                                                     v{3}0{1}.{3}3{1}.{3}2{1} BY:DARKSEC{2}
+                                                     v{3}0{1}.{3}4{1}.{3}0{1} BY:DARKSEC{2}
              {3}[{2} Modern Phishing Tool With Advanced Functionality {3}]
 {3}[{2} PHISHING-KEYLOGGER-INFORMATION COLLECTOR-ALL_IN_ONE_TOOL-SOCIALENGINEERING {3}]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~''').format(MAIN3, MAIN4, MAIN2, MAIN0))
