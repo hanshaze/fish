@@ -231,6 +231,9 @@ git clone -b Termux-Support-Branch https://github.com/DarkSecDevelopers/HiddenEy
 
  **36) Subito&#46;it PHISHING:**
    - Traditional Subito&#46;it Login Page
+
+ **37) PlayStation PHISHING:**
+   - Traditional PlayStation Login Page
 </p>
 
 <h3>Ascii error fix</h3>
