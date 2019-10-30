@@ -88,7 +88,7 @@ When kali will run it'll ask for password type the ssh password.Then do su.After
 
 ```
 ```
-sudo apt install python3 && python3-pip && unzip && php && git
+sudo apt install python3 python3-pip unzip php git
 
 ```
 ```
