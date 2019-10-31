@@ -349,7 +349,7 @@ def runMainMenu(): #menu where user select what they wanna use
         print (_("{0}**{2} PHP NOT FOUND: \n {0}~{1} Please install PHP and run me again.http://www.php.net/").format(MAIN2, MAIN4, MAIN0))
 
     for i in range(101):
-        sleep(0.02)
+        sleep(0.005)
         stdout.write("\r")
         stdout.write(_("{0}[{1}*{0}]{1} HiddenEye is Opening. Please Wait...{2}%").format(MAIN0, MAIN4, i))
         stdout.flush()
@@ -368,24 +368,23 @@ def mainMenu():
  {2} ███████ ██ ██    ██ ██    ██ ███████ ██ ██ ██  {3}███████   ████   ███████ {1}
  {2} ██   ██ ██ ██    ██ ██    ██ ██      ██  ████  {3}██         ██    ██      {1}
  {2} ██   ██ ██ ██████   ██████   ███████ ██   ███  {3}███████    ██    ███████ {1}
-
-                                                     v{3}0{1}.{3}4{1}.{3}0{1} BY:DARKSEC{2}
+                                                      {3}[{1}v{3}0{1}.{3}4{1}.{3}0{3}]{1} BY:DARKSEC{2}
              {3}[{2} Modern Phishing Tool With Advanced Functionality {3}]
 {3}[{2} PHISHING-KEYLOGGER-INFORMATION COLLECTOR-ALL_IN_ONE_TOOL-SOCIALENGINEERING {3}]
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~''').format(MAIN3, MAIN4, MAIN2, MAIN0))
+________________________________________________________________________________''').format(MAIN3, MAIN4, MAIN2, MAIN0))
     print (_("------------------------\nSELECT ANY ATTACK VECTOR FOR YOUR VICTIM:\n------------------------").format(MAIN0, MAIN2))
     print (_(" {0}[{1}1{0}]{1} Facebook        {0}[{1}13{0}]{1} Steam          {0}[{1}25{0}]{1} Badoo           {0}[{1}37{0}]{1} PlayStation").format(MAIN0, MAIN2))
-    print (_(" {0}[{1}2{0}]{1} Google          {0}[{1}14{0}]{1} VK             {0}[{1}26{0}]{1} CryptoCurrency                              ").format(MAIN0, MAIN2))
-    print (_(" {0}[{1}3{0}]{1} LinkedIn        {0}[{1}15{0}]{1} iCloud         {0}[{1}27{0}]{1} DevianArt                                   ").format(MAIN0, MAIN2))
-    print (_(" {0}[{1}4{0}]{1} GitHub          {0}[{1}16{0}]{1} GitLab         {0}[{1}28{0}]{1} DropBox                                     ").format(MAIN0, MAIN2))
-    print (_(" {0}[{1}5{0}]{1} StackOverflow   {0}[{1}17{0}]{1} Netflix        {0}[{1}29{0}]{1} eBay                                        ").format(MAIN0, MAIN2))
-    print (_(" {0}[{1}6{0}]{1} WordPress       {0}[{1}18{0}]{1} Origin         {0}[{1}30{0}]{1} MySpace                                     ").format(MAIN0, MAIN2))
-    print (_(" {0}[{1}7{0}]{1} Twitter         {0}[{1}19{0}]{1} Pinterest      {0}[{1}31{0}]{1} PayPal                                      ").format(MAIN0, MAIN2))                 
-    print (_(" {0}[{1}8{0}]{1} Instagram       {0}[{1}20{0}]{1} ProtonMail     {0}[{1}32{0}]{1} Shopify                                     ").format(MAIN0, MAIN2))
-    print (_(" {0}[{1}9{0}]{1} Snapchat        {0}[{1}21{0}]{1} Spotify        {0}[{1}33{0}]{1} Verizon                                     ").format(MAIN0, MAIN2))
-    print (_(" {0}[{1}10{0}]{1} Yahoo          {0}[{1}22{0}]{1} Quora          {0}[{1}34{0}]{1} Yandex                                      ").format(MAIN0, MAIN2))
-    print (_(" {0}[{1}11{0}]{1} Twitch         {0}[{1}23{0}]{1} PornHub        {0}[{1}35{0}]{1} Reddit                                      ").format(MAIN0, MAIN2))
-    print (_(" {0}[{1}12{0}]{1} Microsoft      {0}[{1}24{0}]{1} Adobe          {0}[{1}36{0}]{1} Subito.it                                   ").format(MAIN0, MAIN2))
+    print (_(" {0}[{1}2{0}]{1} Google          {0}[{1}14{0}]{1} VK             {0}[{1}26{0}]{1} CryptoCurrency").format(MAIN0, MAIN2))
+    print (_(" {0}[{1}3{0}]{1} LinkedIn        {0}[{1}15{0}]{1} iCloud         {0}[{1}27{0}]{1} DevianArt ").format(MAIN0, MAIN2))
+    print (_(" {0}[{1}4{0}]{1} GitHub          {0}[{1}16{0}]{1} GitLab         {0}[{1}28{0}]{1} DropBox  ").format(MAIN0, MAIN2))
+    print (_(" {0}[{1}5{0}]{1} StackOverflow   {0}[{1}17{0}]{1} Netflix        {0}[{1}29{0}]{1} eBay  ").format(MAIN0, MAIN2))
+    print (_(" {0}[{1}6{0}]{1} WordPress       {0}[{1}18{0}]{1} Origin         {0}[{1}30{0}]{1} MySpace ").format(MAIN0, MAIN2))
+    print (_(" {0}[{1}7{0}]{1} Twitter         {0}[{1}19{0}]{1} Pinterest      {0}[{1}31{0}]{1} PayPal ").format(MAIN0, MAIN2))                 
+    print (_(" {0}[{1}8{0}]{1} Instagram       {0}[{1}20{0}]{1} ProtonMail     {0}[{1}32{0}]{1} Shopify").format(MAIN0, MAIN2))
+    print (_(" {0}[{1}9{0}]{1} Snapchat        {0}[{1}21{0}]{1} Spotify        {0}[{1}33{0}]{1} Verizon ").format(MAIN0, MAIN2))
+    print (_(" {0}[{1}10{0}]{1} Yahoo          {0}[{1}22{0}]{1} Quora          {0}[{1}34{0}]{1} Yandex ").format(MAIN0, MAIN2))
+    print (_(" {0}[{1}11{0}]{1} Twitch         {0}[{1}23{0}]{1} PornHub        {0}[{1}35{0}]{1} Reddit ").format(MAIN0, MAIN2))
+    print (_(" {0}[{1}12{0}]{1} Microsoft      {0}[{1}24{0}]{1} Adobe          {0}[{1}36{0}]{1} Subito.it ").format(MAIN0, MAIN2))
     
     option = input(_("{0}HiddenEye >>>  {1}").format(MAIN0, MAIN2))
     if option == '1':
