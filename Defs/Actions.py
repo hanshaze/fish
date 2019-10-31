@@ -388,8 +388,6 @@ def mainMenu():
     print (_(" {0}[{1}12{0}]{1} Microsoft      {0}[{1}24{0}]{1} Adobe          {0}[{1}36{0}]{1} Subito.it").format(MAIN0, MAIN2))
     print (_("                                                                 {0}[{1}37{0}]{1} PlayStation").format(MAIN0, MAIN2))
     
-    
-    print (_(" {0}[{1}37{0}]{1} PlayStation        ").format(MAIN0, MAIN2))
     option = input(_("{0}HiddenEye >>>  {1}").format(MAIN0, MAIN2))
     if option == '1':
         loadModule('Facebook')
