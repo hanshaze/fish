@@ -53,7 +53,8 @@
 * **Arch Linux**
 * **Manjaro XFCE Edition 17.1.12**
 * **Black Arch**
-* **Userland app (For Android Users)**
+* **Userland App (For Android Users)**
+* **Termux App (For Android Users)**
 
 
 ### PREREQUISITES ( Please verify if you have installed )
@@ -107,6 +108,14 @@ git clone -b Termux-Support-Branch https://github.com/DarkSecDevelopers/HiddenEy
 **7) LARGE COLLECTION OF PHISHING PAGES ADDED**
 - Pages are taken from various tool including ShellPhish , Blackeye , SocialFish .
 
+**8) CAPTURED DATA BACKUP**
+- Backup of Data can be Found At (Server/CapturedData).
+
+**9) EMAIL SUPPORT ADDED**
+- Captured Data can be Easily send to Any Email Address (Using Gmail SMTP).
+- It Require User's Gmail Username And Password.
+- GMAIL 2FA SHOULD BE DISABLED IN ORDER TO USE GMAIL SMTP.
+- LESS SECURED APPS SHOULD BE TURNED ON (https://myaccount.google.com/lesssecureapps).
 
 ## FOR FURTHER INSTALLATION PROCEDURE - [(CHECK INSTRUCTIONS)](https://github.com/DarkSecDevelopers/HiddenEye/blob/master/instructions.md)
 
