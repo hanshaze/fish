@@ -1,8 +1,8 @@
 import subprocess
 import ctypes
-from os import *
+from os import system, getuid, path
 from time import sleep
-from urllib.request import urlopen, urlretrieve
+import requests
 from platform import system as systemos, architecture
 from subprocess import check_output
 from Defs.Languages import *
@@ -16,12 +16,13 @@ languageSelector()
 def checkConnection(host='https://google.com'):  # Connection check
     system('clear')
     try:
-        urlopen(host, timeout=10)
-        print("{0}HURRAY!! Internet is available.. We can Continue{1}".format(
-            GREEN, DEFAULT))
-        print("\n\n{0}Wait! Checking for Neccesary Packages{1}...\n ".format(
-            GREEN, DEFAULT))
-        return True
+        req = requests.get(host, timeout=10)
+        if req.status_code == 200:
+            print("{0}HURRAY!! Internet is available.. We can Continue{1}".format(
+                GREEN, DEFAULT))
+            print("\n\n{0}Wait! Checking for Neccesary Packages{1}...\n ".format(
+                GREEN, DEFAULT))
+            return True
     except:
         return False
 
@@ -50,7 +51,9 @@ def checkNgrok():  # Ngrok check
             else:
                 filename = 'ngrok-stable-{0}-386.zip'.format(ostype)
         url = 'https://bin.equinox.io/c/4VmDzA7iaHb/' + filename
-        urlretrieve(url, filename)
+        req = requests.get(url)
+        with open(filename, "wb") as file_obj:
+            file_obj.write(req.content)
         system('unzip ' + filename)
         system('mv ngrok Server/ngrok')
         system('rm ' + filename)
@@ -70,7 +73,9 @@ def checkLocalxpose():  # Localxpose check
             else:
                 filename = 'loclx-linux-386.zip'.format(ostype)
         url = 'https://lxpdownloads.sgp1.digitaloceanspaces.com/cli/'+filename
-        urlretrieve(url, "loclx-linux-download.zip")
+        req = requests.get(url)
+        with open("loclx-linux-download.zip", "wb") as file_obj:
+            file_obj.write(req.content)
         system('unzip loclx-linux-download.zip && rm loclx-linux-download.zip')
         system('mv loclx-linux-* loclx && mv loclx Server/')
         system('clear')
@@ -81,7 +86,9 @@ def checkbinaryLT():  # LocalTunnel Binary File check.
         print('[*] LocalTunnel Binary File Not Found !!')
         print('[*] Downloading LocalTunnel...')
         url = "https://www.wa4e.com/downloads/lt-linux.zip"
-        urlretrieve(url, "lt-linux.zip")
+        req = requests.get(url)
+        with open("lt-linux.zip", "wb") as file_obj:
+            file_obj.write(req.content)
         system("unzip lt-linux.zip && rm lt-linux.zip")
         system("mv lt* lt && mv lt Server/lt ")
         system('clear')
