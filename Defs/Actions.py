@@ -290,6 +290,7 @@ def runOpenport(port):
 def manageOpenporturl(port): # Its all about How we generate a url from openport, & How we used grep & curl to get a url to shown on final panel of script.
 	print("\n{0}[{1}*{0}] {0}Please Be Calm , We are Working To get a Openport URL For You.{1}".format(MAIN0, MAIN4))
 	sleep(2)
+	system('rm filename.txt')
 	try:
 		system('openport -K && openport %s > openport.txt &' % (port)) # Running openport server and putting the process in background using (&) and writing the output to a txt file.
 		print('[*] Openport Server Running in Background.. Please wait.')
@@ -314,7 +315,7 @@ def manageOpenporturl(port): # Its all about How we generate a url from openport
 
 		
 		# Creating a curl request to start the tunnel from the verification link, And grabing the whole content of the HTML page ( To get tunnel link .)
-		system('rm filename.txt && touch filename.txt')
+		system('touch filename.txt')
 		with open('filename.txt', 'r') as f:
 			read_data = f.read()
 		c = read_data.replace('', ' -o urlindex.txt')
