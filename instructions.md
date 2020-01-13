@@ -30,6 +30,10 @@ sudo pip3 install -r requirements.txt
 ```
 
 ```
+sudo pip3 install requests
+```
+
+```
 python3 HiddenEye.py
 
 ```
@@ -106,7 +110,7 @@ cd HiddenEye
 ```
 
 ```
-pip3 install -r requirements.txt
+pip3 install -r requirements.txt && pip3 install requests
 
 ```
 
@@ -140,6 +144,10 @@ chmod 777 HiddenEye
 ```
 
 ```
+pip install requests
+```
+
+```
 cd HiddenEye
 ```
 ```
@@ -163,6 +171,6 @@ After opening Copy and run this Single Command.
 
 ```
 ```
-pkg install git python php curl openssh grep && git clone -b Termux-Support-Branch https://github.com/DarkSecDevelopers/HiddenEye.git && chmod 777 HiddenEye && cd HiddenEye && python HiddenEye.py
+pkg install git python php curl openssh grep && git clone -b Termux-Support-Branch https://github.com/DarkSecDevelopers/HiddenEye.git && chmod 777 HiddenEye && cd HiddenEye && pip install -r requirements.txt && pip install requests && python HiddenEye.py
 
 ```
