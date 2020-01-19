@@ -13,6 +13,7 @@ installGetText()
 languageSelector()
 
 
+
 def checkConnection(host='https://google.com'):  # Connection check
     system('clear')
     try:
@@ -37,11 +38,42 @@ if checkConnection() == False:
 '''.format(RED, DEFAULT))
     exit()
 
+def verCheck():
+    system('clear')
+    print("{1}[{0}>{1}] {0}Checking For Updates{2}...".format(GREEN, RED, DEFAULT ))
+    ver_url = 'https://raw.githubusercontent.com/darksecdevelopers/hiddeneye/master/version.txt'
+    ver_rqst = requests.get(ver_url)
+    ver_sc = ver_rqst.status_code
+    if ver_sc == 200:
+        with open('version.txt') as f:
+            ver_current = f.read()
+            ver_current = ver_current.strip()
+            github_ver = ver_rqst.text
+            github_ver = github_ver.strip()
+        if ver_current == github_ver:
+            print("{1}[{0}+{1}] {0}[Up-To-Date]- {2}v {3}".format(GREEN, RED, DEFAULT, github_ver))
+            sleep(3)
+        else:
+            print("{1}[{0}>{1}] {0}Their Is A Newer Version Available{2}.\n".format(GREEN, RED, DEFAULT))
+            print("{1}[{0}+{1}] {0}[Current]- {2}v {3}\n{1}[{0}+{1}] {0}[Available]- {2}v.{4}".format(GREEN, RED, DEFAULT, ver_current, github_ver)) 
+            print("{1}[{0}>{1}] {1}Updating To The Latest Version {0}[v {3}]... \n{1}[{0}>{1}] {0}Please Wait\n".format(GREEN, RED, DEFAULT, github_ver))
+            system("git clean -d -f > /dev/null && git pull -f > /dev/null")
+            with open('version.txt') as f:
+                ver_current = f.read()
+                ver_current = ver_current.strip()
+            print("{1}[{0}>{1}] {0}Version Status After Update.{2}.\n".format(GREEN, RED, DEFAULT))
+            print("{1}[{0}+{1}] {0}[Current]- {2}v {3}\n{1}[{0}+{1}] {0}[Available]- {2}v.{4}".format(GREEN, RED, DEFAULT, ver_current, github_ver))
+            sleep(5)
+            system("clear")
+    else:
+        print('{1}[{0}^{1}] {0}Failed To Get Update [Status:{1}{3}{0}]\n'.format(GREEN, RED, DEFAULT))
+
+     
 def checkPHP(): # PHP installation Check
 	if 256 != system('which php > /dev/null'):  # Checking if user have PHP
-		print(" {2}* {0}PHP INSTALLATION FOUND".format(MAIN2, MAIN4, MAIN0))
+		print(" {2}* {0}PHP INSTALLATION FOUND".format(GREEN, DEFAULT, RED))
 	else:
-		print("{0}**{2} PHP NOT FOUND\n {0}** {2} Installing PHP... ".format(MAIN2, MAIN4, MAIN0))
+		print("{0}**{2} PHP NOT FOUND\n {0}** {2} Installing PHP... ".format(RED, GREEN, DEFAULT))
 		system('apt-get install php > /dev/null')
 
 

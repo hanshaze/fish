@@ -612,6 +612,9 @@ def runMainMenu():  # menu where user select what they wanna use
 
 def mainMenu():
     system('clear')
+    with open('version.txt') as f:
+        ver_current = f.read()
+        version = ver_current.strip()
     print('''
 
  {2} ██   ██ ██ ██████   ██████   ███████ ███   ██  {3}███████ ██    ██ ███████ {1}
@@ -619,10 +622,10 @@ def mainMenu():
  {2} ███████ ██ ██    ██ ██    ██ ███████ ██ ██ ██  {3}███████   ████   ███████ {1}
  {2} ██   ██ ██ ██    ██ ██    ██ ██      ██  ████  {3}██         ██    ██      {1}
  {2} ██   ██ ██ ██████   ██████   ███████ ██   ███  {3}███████    ██    ███████ {1}
-                                                      {3}[{1}v{3}0{1}.{3}5{1}.{3}2{3}]{1} BY:DARKSEC{2}
+                                                      {3}[{1}v {4}{3}]{1} BY:DARKSEC{2}
              {3}[{2} Modern Phishing Tool With Advanced Functionality {3}]
 {3}[{2} PHISHING-KEYLOGGER-INFORMATION COLLECTOR-ALL_IN_ONE_TOOL-SOCIALENGINEERING {3}]
-________________________________________________________________________________'''.format(MAIN3, MAIN4, MAIN2, MAIN0))
+________________________________________________________________________________'''.format(MAIN3, MAIN4, MAIN2, MAIN0, version))
     print("------------------------\nSELECT ANY ATTACK VECTOR FOR YOUR VICTIM:\n------------------------".format(MAIN0, MAIN2))
     print(" {0}[{1}01{0}]{1} Facebook       {0}[{1}13{0}]{1} Steam          {0}[{1}25{0}]{1} Badoo           {0}[{1}37{0}]{1} PlayStation".format(MAIN0, MAIN2))
     print(" {0}[{1}02{0}]{1} Google         {0}[{1}14{0}]{1} VK             {0}[{1}26{0}]{1} CryptoCurrency  {0}[{1}38{0}]{1} Xbox".format(
@@ -1050,7 +1053,6 @@ def emailPrompt3(port):  # Ask user to start sending credentials to recipient Em
         sleep(1)
         system('clear')
         return emailPrompt3(port)
-
 
 def endMessage(port):  # Message when HiddenEye exit
     choice = input(
