@@ -178,6 +178,7 @@ def checkbinaryLT():  # LocalTunnel Binary File check.
 
 
 def checkLT():  # Ask to install npm,node.js,localtunnel(packages).
+    system('cd Server && chmod 777 * -R')
     if 256 == system('which lt > /dev/null'):
         system('clear')
         print("{0}[{1}?{0}] Do You Want To Install LOCALTUNNEL(Tunneling Service) Packages.\n{0}[{1}*{0}]{1} May take time , Skip if not wants to use LocalTunnel(Package Version).".format(RED, GREEN, DEFAULT))
