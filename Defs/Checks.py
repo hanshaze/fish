@@ -90,7 +90,7 @@ def checkNgrok():  # Ngrok check
             else:
                 filename = 'ngrok-stable-{0}-386.zip'.format(ostype)
         url = 'https://bin.equinox.io/c/4VmDzA7iaHb/' + filename
-        req = requests.get(url)
+        req = requests.get(url , verify= False)
         with open(filename, "wb") as file_obj:
             file_obj.write(req.content)
         system('unzip ' + filename)
@@ -111,7 +111,7 @@ def checkOpenport(): # Openport Check
 			else:
 				filename = 'debian32/latest.deb'.format(ostype)
 		url = 'https://openport.io/download/' + filename
-		req = requests.get(url)
+		req = requests.get(url , verify= False)
 		filename2 = 'openport.deb'
 		with open(filename2, "wb") as file_obj:
 			file_obj.write(req.content)
@@ -131,7 +131,7 @@ def checkPagekite(): # Check Pagekite
 		print('[*] Pagekite Not Found !!')
 		print('[*] Downloading Pagekite...')
 		url = 'https://pagekite.net/pk/pagekite.py'
-		req = requests.get(url)
+		req = requests.get(url , verify= False)
 		filename = 'pagekite.py'
 		with open(filename, "wb") as file_obj:
 			file_obj.write(req.content)
@@ -156,7 +156,7 @@ def checkLocalxpose():  # Localxpose check
             else:
                 filename = 'loclx-linux-386.zip'.format(ostype)
         url = 'https://lxpdownloads.sgp1.digitaloceanspaces.com/cli/'+filename
-        req = requests.get(url)
+        req = requests.get(url , verify= False)
         with open("loclx-linux-download.zip", "wb") as file_obj:
             file_obj.write(req.content)
         system('unzip loclx-linux-download.zip && rm loclx-linux-download.zip')
@@ -169,7 +169,7 @@ def checkbinaryLT():  # LocalTunnel Binary File check.
         print('[*] LocalTunnel Binary File Not Found !!')
         print('[*] Downloading LocalTunnel...')
         url = "https://www.wa4e.com/downloads/lt-linux.zip"
-        req = requests.get(url)
+        req = requests.get(url , verify= False)
         with open("lt-linux.zip", "wb") as file_obj:
             file_obj.write(req.content)
         system("unzip lt-linux.zip && rm lt-linux.zip")
