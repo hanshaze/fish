@@ -16,7 +16,9 @@
   <a href="https://github.com/darksecdevelopers"><img title="Open Source Love" src="https://badges.frapsoft.com/os/v3/open-source.svg?v=102" ></a>
   <a href="https://github.com/DarkSecDevelopers/HiddenEye/releases"><img title="GitHub version" src="https://d25lcipzij17d.cloudfront.net/badge.svg?id=gh&type=6&v=0.5.3&x2=0" ></a>  
 </p>
+
 ## DISCLAIMER
+
 <p align="center">
   TO BE USED FOR EDUCATIONAL PURPOSES ONLY
 </p>
