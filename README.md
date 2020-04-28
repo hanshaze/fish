@@ -16,6 +16,15 @@
   <a href="https://github.com/darksecdevelopers"><img title="Open Source Love" src="https://badges.frapsoft.com/os/v3/open-source.svg?v=102" ></a>
   <a href="https://github.com/DarkSecDevelopers/HiddenEye/releases"><img title="GitHub version" src="https://d25lcipzij17d.cloudfront.net/badge.svg?id=gh&type=6&v=0.5.3&x2=0" ></a>  
 </p>
+## DISCLAIMER
+<p align="center">
+  TO BE USED FOR EDUCATIONAL PURPOSES ONLY
+</p>
+
+The use of the HiddenEye & its resources/phishing-pages is **COMPLETE RESPONSIBILITY of the END-USER**. Developers assume NO liability and are NOT responsible for any misuse or damage caused by this program. Also we inform you that some of your your actions may be **ILLEGAL** and you **CAN NOT** use this software to hurt person or company without **WRITTEN PERMISSION** from them.
+
+
+
 
 # DEVELOPERS & CONTRIBUTORS
 
@@ -146,14 +155,3 @@ git clone -b Termux-Support-Branch https://github.com/DarkSecDevelopers/HiddenEy
   `After that reboot your machine. Then open terminal and run the command: "locale"`
 
   `There you will see "en_US.UTF-8" which is the default language. Instead of POSIX.`
-
-## DISCLAIMER
-<p align="center">
-  TO BE USED FOR EDUCATIONAL PURPOSES ONLY
-</p>
-
-The use of the HiddenEye & its resources/phishing-pages is COMPLETE RESPONSIBILITY of the END-USER. Developers assume NO liability and are NOT responsible for any misuse or damage caused by this program. Please read [LICENSE](LICENSE).
-
-
-
-
