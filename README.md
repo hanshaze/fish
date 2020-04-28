@@ -135,8 +135,6 @@ git clone -b Termux-Support-Branch https://github.com/DarkSecDevelopers/HiddenEy
 ## [Check This](https://youtu.be/InSdtLhZzk4) Demonstration video to know How (Location) Social-Engineering-Tool Works.
  
 ## FOR FURTHER INSTALLATION PROCEDURE - [(CHECK INSTRUCTIONS)](https://github.com/DarkSecDevelopers/HiddenEye/blob/master/instructions.md)
-
-## TEST/CHECK ALL AVAILABLE PHISHING PAGES - [(TEST/CHECK HERE)](https://github.com/DarkSecDevelopers/HiddenEye/blob/master/Test-Phishing/README.md)
 </p>
 
 <h3>Ascii error fix</h3>
