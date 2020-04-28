@@ -152,7 +152,7 @@ git clone -b Termux-Support-Branch https://github.com/DarkSecDevelopers/HiddenEy
   TO BE USED FOR EDUCATIONAL PURPOSES ONLY
 </p>
 
-The use of the HiddenEye is COMPLETE RESPONSIBILITY of the END-USER. Developers assume NO liability and are NOT responsible for any misuse or damage caused by this program. Please read [LICENSE](LICENSE).
+The use of the HiddenEye & its resources/phishing-pages is COMPLETE RESPONSIBILITY of the END-USER. Developers assume NO liability and are NOT responsible for any misuse or damage caused by this program. Please read [LICENSE](LICENSE).
 
 
 
