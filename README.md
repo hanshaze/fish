@@ -45,9 +45,8 @@ The use of the HiddenEye & its resources/phishing-pages is **COMPLETE RESPONSIBI
 2) SERVEO (https://serveo.net/)
 3) NGROK (https://ngrok.com/)
 4) LOCALTUNNEL (Package Version) (https://localtunnel.me)
-5) LOCALTUNNEL (Binary Version) (https://www.wa4e.com/downloads/)
-6) OPENPORT (https://openport.io/)
-7) PAGEKITE (https://pagekite.net/)
+5) OPENPORT (https://openport.io/)
+6) PAGEKITE (https://pagekite.net/)
 
 # SCREENSHOT (Android-Userland)
 ![Shot](https://github.com/DarkSecDevelopers/HiddenEye/blob/master/Screenshot.png)
@@ -140,12 +139,14 @@ git clone -b Termux-Support-Branch https://github.com/DarkSecDevelopers/HiddenEy
 
 **11) TOOLS ADDED**
 
-**A) LOCATION (Accurately Locate Smartphones using Social Engineering) (Taken From https://github.com/thewhiteh4t/seeker)**
+**A) LOCATION (Accurately Locate Smartphones using Social Engineering) (Thanks To https://github.com/thewhiteh4t/seeker)**
   - NEAR YOU (By @thewhiteh4t )
   - GDRIVE (By @thewhiteh4t)
 ## [Check This](https://youtu.be/InSdtLhZzk4) Demonstration video to know How (Location) Social-Engineering-Tool Works.
  
 ## FOR FURTHER INSTALLATION PROCEDURE - [(CHECK INSTRUCTIONS)](https://github.com/DarkSecDevelopers/HiddenEye/blob/master/instructions.md)
+
+## BACKUP REPOSITORY AVAILABLE AT GITLAB - [(CHECK HERE)](https://gitlab.com/an0nud4y/HiddenEye)
 </p>
 
 <h3>Ascii error fix</h3>
