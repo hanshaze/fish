@@ -38,7 +38,7 @@ if checkConnection() == False:
 
 def verCheck(): #Version Check For Latest Updates.
     print("\n{1}[{0}>{1}] {0}Checking For Updates{2}...".format(GREEN, RED, DEFAULT ))
-    ver_url = 'https://gitlab.com/An0nUD4Y/hiddeneye/-/raw/master/version.txt'
+    ver_url = 'https://raw.githubusercontent.com/darksecdevelopers/hiddeneye/master/version.txt'
     ver_rqst = requests.get(ver_url)
     ver_sc = ver_rqst.status_code
     if ver_sc == 200:
