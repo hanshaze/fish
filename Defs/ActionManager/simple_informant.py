@@ -1,23 +1,10 @@
-from Defs.ThemeManager.theme import default_palette
 from Defs.ImportManager.unsorted_will_be_replaced import run_command, wait
-from Defs.EmailManager.email_prompt import captured_data_email_request
-from Defs.ActionManager.Server.server_menu import server_selection
+import Defs.ThemeManager.theme as theme
+import Defs.FeatureManager.EmailManager.email_prompt as email_prompt
+import Defs.ActionManager.Server.server_menu as server_menu
 
 
-def terms_of_service_message():  # menu where user select what they wanna use
-    # Terms Of Service
-    wait(6)
-    run_command('clear')
-    orange  = '\033[33m'
-    blue  = '\033[34m'
-    purple  = '\033[35m'
-    red  = '\033[31m'
-    print("\n\n\n              {1}WITH GREAT {0}POWER {2}- {1}COMES GREAT {0}RESPONSIBILITY      ".format(red, purple, blue))
-    
-    if input("\n\n\n\n{2}[{1}!{2}]{3} Do you agree to use this tool for educational/testing purposes only? {1}({0}Y{1}/{2}N{1})\n{2}HiddenEye >>> {0}".format(default_palette[2], default_palette[4], default_palette[0], orange)).upper() != 'Y':
-        run_command('clear')
-        print("\n\n[ {0}YOU ARE NOT AUTHORIZED TO USE THIS TOOL.YOU CAN ONLY USE IT FOR EDUCATIONAL PURPOSE.!{1} ]\n\n".format(default_palette[0], default_palette[4]))
-        exit()
+default_palette = theme.default_palette
 
 def exit_message(port):  # Message when HiddenEye exit
     choice = input(
@@ -25,9 +12,9 @@ def exit_message(port):  # Message when HiddenEye exit
     if choice == 'R' or choice == 'r':
         run_command('sudo python3 HiddenEye.py')
     elif choice == 'M' or choice == 'm':
-        captured_data_email_request(port)
+        email_prompt.captured_data_email_confirmation(port)
     elif choice == 'S' or choice == 's':
-    	server_selection(port)
+    	server_menu.server_selection(port)
     elif choice == 'X' or choice == 'x':
         run_command('clear')
         print('''
@@ -45,6 +32,21 @@ def exit_message(port):  # Message when HiddenEye exit
     else:
         run_command('clear')
         return exit_message(port)
+
+def terms_of_service_message():  # menu where user select what they wanna use
+    # Terms Of Service
+    wait(6)
+    run_command('clear')
+    orange  = '\033[33m'
+    blue  = '\033[34m'
+    purple  = '\033[35m'
+    red  = '\033[31m'
+    print("\n\n\n              {1}WITH GREAT {0}POWER {2}- {1}COMES GREAT {0}RESPONSIBILITY      ".format(red, purple, blue))
+    
+    if input("\n\n\n\n{2}[{1}!{2}]{3} Do you agree to use this tool for educational/testing purposes only? {1}({0}Y{1}/{2}N{1})\n{2}HiddenEye >>> {0}".format(default_palette[2], default_palette[4], default_palette[0], orange)).upper() != 'Y':
+        run_command('clear')
+        print("\n\n[ {0}YOU ARE NOT AUTHORIZED TO USE THIS TOOL.YOU CAN ONLY USE IT FOR EDUCATIONAL PURPOSE.!{1} ]\n\n".format(default_palette[0], default_palette[4]))
+        exit()
 
 def module_loading_message(module):  # This one just show text..
     print('''\n {0}[{1}*{0}] SELECT ANY ONE MODE...{0}\n--------------------------------'''.format(default_palette[0], default_palette[2]))

