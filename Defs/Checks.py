@@ -5,12 +5,8 @@ from time import sleep
 import requests
 from platform import system as systemos, architecture
 from subprocess import check_output
-from Defs.Languages import *
 
 RED, GREEN, DEFAULT = '\033[91m', '\033[1;32m', '\033[0m'
-
-installGetText()
-languageSelector()
 
 
 
