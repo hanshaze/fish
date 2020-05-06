@@ -15,15 +15,6 @@ from Defs.Configurations import readConfig, ifSettingsNotExists
 from Defs.Languages import *
 
 
-installGetText()
-languageSelector()
-ifSettingsNotExists()
-config = readConfig()
-
-
-colorTheme = colorSelector()
-MAIN0, MAIN1, MAIN2, MAIN3, MAIN4 = colorTheme[0], colorTheme[
-    1], colorTheme[2], colorTheme[3],  colorTheme[4]
 
 
 
@@ -39,58 +30,7 @@ MAIN0, MAIN1, MAIN2, MAIN3, MAIN4 = colorTheme[0], colorTheme[
 
 
 
-def loadModule(module):  # This one just show text..
-    print('''\n {0}[{1}*{0}] SELECT ANY ONE MODE...{0}\n--------------------------------'''.format(MAIN0, MAIN2))
 
-
-def inputCustom():  # Question where user can input custom web-link
-    system('clear')
-    print('''{1}
-        _  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
-        |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
-        |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
-        {0}http://github.com/darksecdevelopers
-        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ PUT YOUR REDIRECTING URL HERE ] {0}\n-------------------------------'''.format(MAIN0, MAIN2))
-    print(
-        '''\n{1}**{0}(Do not leave it blank. Unless Errors may occur)'''.format(MAIN2, MAIN4))
-    print(
-        '''\n{0}[{1}*{0}]{0}Insert a custom redirect url:'''.format(MAIN0, MAIN4))
-    custom = input('''\n{0}REDIRECT HERE>>> {2}'''.format(MAIN0, MAIN4, MAIN2))
-    if 'http://' in custom or 'https://' in custom:
-        pass
-    else:
-        custom = 'http://' + custom
-
-    if path.exists('Server/www/js/location.js'): # For Location (gdrive) Template Redirection. 
-        with open('Server/www/js/location.js') as f: 
-            read_data = f.read()
-        c = read_data.replace('<CUSTOM>', custom)
-        f = open('Server/www/js/location.js', 'w')
-        f.write(c)
-        f.close()
-
-    if path.exists('Server/www/post.php') and path.exists('Server/www/login.php'):
-        with open('Server/www/login.php') as f:
-            read_data = f.read()
-        c = read_data.replace('<CUSTOM>', custom)
-        f = open('Server/www/login.php', 'w')
-        f.write(c)
-        f.close()
-
-        with open('Server/www/post.php') as f:
-            read_data = f.read()
-        c = read_data.replace('<CUSTOM>', custom)
-        f = open('Server/www/post.php', 'w')
-        f.write(c)
-        f.close()
-
-    else:
-        with open('Server/www/login.php') as f:
-            read_data = f.read()
-        c = read_data.replace('<CUSTOM>', custom)
-        f = open('Server/www/login.php', 'w')
-        f.write(c)
-        f.close()
 
 
 def emailPrompt():
