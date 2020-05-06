@@ -935,7 +935,7 @@ def emailConfig():
             '\n\n{0}[{1}SUCCESS{0}]{0}: Created Config File & Saved To (Defs/Send_Email/Config.py)'.format(MAIN0, MAIN4))
 
 
-def cloudfarePrompt():
+def cloudflarePrompt():
 
     system('clear')
     print('''{1}
