@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 #
-# HiddenEye by https://github.com/DarkSecDevelopers
+# HiddenEye by https://dark-sec-official.com
 #
 
 from Defs.Languages import *
@@ -39,7 +39,7 @@ if __name__ == "__main__":
 
         keyloggerprompt()
         addingkeylogger()
-        cloudfarePrompt()
+        cloudflarePrompt()
         emailPrompt()
         inputCustom()
         port = selectPort()
