@@ -4,7 +4,7 @@
 #
 
 from Defs.Languages import *
-from Defs.Actions import *
+from Defs.Actions import cloudflarePrompt
 from Defs.Configurations import *
 from Defs.Checks import *
 import multiprocessing
