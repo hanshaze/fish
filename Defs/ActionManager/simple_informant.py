@@ -103,3 +103,8 @@ def port_selector():  # Question where user must select port
             return choice
     except:
         return port_selector()
+
+def remove_readonly(func, path, _):
+    "Clear the readonly bit and reattempt the removal"
+    chmod(path, stat.S_IWRITE)
+    func(path)
