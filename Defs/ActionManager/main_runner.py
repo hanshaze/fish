@@ -1,4 +1,4 @@
-from Defs.ImportManager.unsorted_will_be_replaced import run_command, webpage_set, wait, path, rmtree, pathlib_Path, copyfile
+from Defs.ImportManager.unsorted_will_be_replaced import run_command, webpage_set, wait, path, rmtree, pathlib_Path, copyfile, chmod, mkdir, remove
 import Defs.ThemeManager.theme as theme
 import Defs.ActionManager.simple_informant as simple_informant
 
