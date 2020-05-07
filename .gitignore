@@ -12,3 +12,5 @@ Defs/FeatureManager/EmailManager/__pycache__/
 Defs/ImportManager/__pycache__/
 
 Defs/ThemeManager/__pycache__/
+
+*.deb
