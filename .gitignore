@@ -22,3 +22,5 @@ Defs/Send_Email/attachments/usernames.txt
 
 # Ignore created files by Xbox WebPage
 WebPages/xbox/ip.txt
+
+openport.deb
