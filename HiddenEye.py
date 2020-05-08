@@ -43,6 +43,7 @@ if __name__ == "__main__":
         ##############
         server_runner.start_server(port)
         server_menu.server_selection(port)
+        
 
         multiprocessing.Process(target=server_runner.start_server, args=(port,)).start()
         simple_informant.credentials_collector(port)
