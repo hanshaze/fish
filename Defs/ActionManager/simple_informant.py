@@ -1,4 +1,4 @@
-from Defs.ImportManager.unsorted_will_be_replaced import run_command, wait, chmod, stat, pathlib_Path, copyfile
+from Defs.ImportManager.unsorted_will_be_replaced import run_command, wait, chmod, stat, pathlib_Path, copyfile, socket
 import Defs.ThemeManager.theme as theme
 import Defs.FeatureManager.EmailManager.email_prompt as email_prompt
 import Defs.ActionManager.Server.server_menu as server_menu
