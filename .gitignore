@@ -38,3 +38,7 @@ Server/pagekite.py
 Server/.localxpose_updatecktime
 
 Server/www/
+
+Defs/FeatureManager/EmailManager/attachments/KeyloggerData.txt
+
+Server/CapturedData/KeyloggerData.txt
