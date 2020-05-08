@@ -84,7 +84,13 @@ def start_ngrok(port):
 
 
 def start_serveo(port):
-    
+    def is_online():
+        serveo = requests.get("http://serveo.net")
+        if "temporarily disabled" in serveo.text:
+            return False
+        else:
+            return True
+
     def random(port):
         run_command('clear')
         print('''
