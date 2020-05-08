@@ -9,9 +9,8 @@ exit_server_www = chdir("../..")
 
 
 def set_php(host = '127.0.0.1', port = 80):
-    #run_background_command(["php", "-S", "{0}:{1}".format(host, port), "-t", "Server/www"], stdout=DEVNULL, stderr=DEVNULL)
     run_command(['killall','-2','php'], stdout=DEVNULL, stderr=DEVNULL)
-    run_background_command(["php", "-S", "{0}:{1}".format(host, port), "-t", "Server/www"])
+    run_background_command(["php", "-S", "{0}:{1}".format(host, port), "-t", "Server/www"], stdout=DEVNULL, stderr=DEVNULL)
 def set_port(port = 80):
     run_background_command(["fuser", "-k", "{0}/tcp".format(port)], stdout=DEVNULL, stderr=DEVNULL)
 
