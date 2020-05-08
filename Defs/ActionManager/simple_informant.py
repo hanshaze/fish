@@ -137,3 +137,11 @@ def remove_readonly(func, path, _):
     "Clear the readonly bit and reattempt the removal"
     chmod(path, stat.S_IWRITE)
     func(path)
+
+
+def get_ip_addr():
+    try: 
+        host_ip = socket.gethostbyname(socket.gethostname()) 
+    except: 
+        print("Unable to get Hostname and IP") 
+        return host_ip
