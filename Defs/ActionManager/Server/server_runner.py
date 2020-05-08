@@ -2,7 +2,7 @@ from Defs.ImportManager.unsorted_will_be_replaced import run_command, run_backgr
 import Defs.ThemeManager.theme as theme
 import Defs.ActionManager.Server.server_menu as server_menu
 import Defs.ActionManager.simple_informant as simple_informant
-
+#import os #DELETEIT
 default_palette = theme.default_palette
 enter_server_www = chdir("Server/www")
 exit_server_www = chdir("../..")
