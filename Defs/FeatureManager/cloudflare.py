@@ -1,4 +1,4 @@
-from Defs.ImportManager.unsorted_will_be_replaced import wait, run_command
+from Defs.ImportManager.unsorted_will_be_replaced import wait, run_command, pathlib_Path, replace, copyfile, chmod
 import Defs.ThemeManager.theme as theme
 
 default_palette = theme.default_palette
