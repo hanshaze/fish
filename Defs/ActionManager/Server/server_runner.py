@@ -9,18 +9,19 @@ exit_server_www = chdir("../..")
 
 
 def set_php(host = '127.0.0.1', port = 80):
-    run_background_command(["php", "-S", "{0}:{1}".format(host, port)], stdout=DEVNULL, stderr=DEVNULL)
-
+    #run_background_command(["php", "-S", "{0}:{1}".format(host, port), "-t", "Server/www"], stdout=DEVNULL, stderr=DEVNULL)
+    run_command(['killall','-2','php'], stdout=DEVNULL, stderr=DEVNULL)
+    run_background_command(["php", "-S", "{0}:{1}".format(host, port), "-t", "Server/www"])
 def set_port(port = 80):
     run_background_command(["fuser", "-k", "{0}/tcp".format(port)], stdout=DEVNULL, stderr=DEVNULL)
 
 def start_server(port = 80):
     #run_command(["fuser", "-k", "{0}/tcp".format(port), ">", "/dev/null", "2>&1"**/])
-    set_port
-    enter_server_www
+    set_port(port)
+    #enter_server_www
     #run_command(["php", "-S", "127.0.0.1:{0}".format(port), ">", "/dev/null", "2>&1", "&"])
-    set_php(port)
-    exit_server_www
+    set_php(port=port)
+    #exit_server_www
 
 def start_localhost(port):
     run_command('clear')
