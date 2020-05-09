@@ -1,3 +1,7 @@
+#            DEPRECATED FILE             #
+#      DONT WRITE ANY NEW CODE HERE      #
+#                 NEVER                  #
+# WILL BE REPLACED AND DELETED VERY SOON #
 import subprocess
 import ctypes
 from os import system, getuid, path
