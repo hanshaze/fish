@@ -42,3 +42,7 @@ Server/www/
 Defs/FeatureManager/EmailManager/attachments/KeyloggerData.txt
 
 Server/CapturedData/KeyloggerData.txt
+
+Defs/LocalizationManager/__pycache__/
+
+Defs/LocalizationManager/lang_action_manager/__pycache__/
