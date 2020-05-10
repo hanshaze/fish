@@ -33,6 +33,8 @@ lang_start_main_menu = {
       ['{0}[{1}11{0}]{1} Twitch',        '{0}[{1}23{0}]{1} PornHub',    '{0}[{1}35{0}]{1} Reddit'],
       ['{0}[{1}12{0}]{1} Microsoft',     '{0}[{1}24{0}]{1} Adobe',      '{0}[{1}36{0}]{1} Subito.it']],
     "additional_modules" : _("\n{0}ADDITIONAL-TOOLS:".format(default_palette[0])),
+    "additional_modules_list" : 
+    [ [_('{0}[{1}0A{0}]{1} Get Victim Location')]],
 }
 
              
