@@ -64,6 +64,11 @@ lang_start_phishing_page = {
     "gdrive_suggestion" : _('{0}[{1}*{0}]{1} {0}Tip: {1}Use Google Drive File Url as Custom Url while asked.').format(default_palette[0], default_palette[4])
 }
 
+lang_custom_redirecting_url = {
+    "enter_redirecting_url_header" : _('{0}\n-------------------------------\n{1}[ PUT YOUR REDIRECTING URL HERE ] {0}\n-------------------------------').format(default_palette[0], default_palette[2]),
+    "enter_redirecting_url_prompt" : _('\n{0}[{1}*{0}]Insert a custom redirect url:').format(default_palette[0], default_palette[4]),
+    "redirect_here" : _('\n{0}REDIRECT HERE>>> {1}').format(default_palette[0], default_palette[2])
+}
              
 #
 #

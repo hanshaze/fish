@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2020-05-10 17:44+0300\n"
+"POT-Creation-Date: 2020-05-10 18:04+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -185,5 +185,28 @@ msgstr ""
 #:
 #: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_main_runner.py:64
 msgid "{0}[{1}*{0}]{1} {0}Tip: {1}Use Google Drive File Url as Custom Url while asked."
+msgstr ""
+
+#:
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_main_runner.py:68
+msgid ""
+"{0}\n"
+"-------------------------------\n"
+"{1}[ PUT YOUR REDIRECTING URL HERE ] {0}\n"
+"-------------------------------"
+msgstr ""
+
+#:
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_main_runner.py:69
+msgid ""
+"\n"
+"{0}[{1}*{0}]Insert a custom redirect url:"
+msgstr ""
+
+#:
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_main_runner.py:70
+msgid ""
+"\n"
+"{0}REDIRECT HERE>>> {1}"
 msgstr ""
 
