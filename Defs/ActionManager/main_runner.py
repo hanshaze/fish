@@ -392,9 +392,9 @@ def enter_custom_redirecting_url():  # Question where user can input custom web-
     print(global_localization.hidden_eye_logo)
     print(global_localization.official_website_link)
     print(global_localization.by_darksec)
-    print(localization.lang_custom_redirecting_url["enter_redirecting_url_header"])
-    print(localization.lang_custom_redirecting_url["enter_redirecting_url_prompt"])
-    custom = input(localization.lang_custom_redirecting_url["redirect_here"])
+    print(localization.lang_enter_custom_redirecting_url["enter_redirecting_url_header"])
+    print(localization.lang_enter_custom_redirecting_url["enter_redirecting_url_prompt"])
+    custom = input(localization.lang_enter_custom_redirecting_url["redirect_here"])
     if 'http://' in custom or 'https://' in custom:
         pass
     else:
