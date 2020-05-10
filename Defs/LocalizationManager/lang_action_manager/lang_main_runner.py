@@ -35,6 +35,7 @@ lang_start_main_menu = {
     "additional_modules" : _("\n{0}ADDITIONAL-TOOLS:".format(default_palette[0])),
     "additional_modules_list" : 
     [ [_('{0}[{1}0A{0}]{1} Get Victim Location')]],
+    "operation_mode" : _("\nOperation mode:\n"),
 }
 
              
