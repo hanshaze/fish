@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2020-05-10 16:07+0300\n"
+"POT-Creation-Date: 2020-05-10 17:44+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -144,5 +144,46 @@ msgstr ""
 #:
 #: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_main_runner.py:54
 msgid "{0}[{1}2{0}]{1} GDRIVE (Asks For Location Permission To redirect GDRIVE)"
+msgstr ""
+
+#:
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_main_runner.py:59
+msgid ""
+"\n"
+" {0}[{1}*{0}]{1} Custom Folder Directory is {0}WebPages/{page}"
+msgstr ""
+
+#:
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_main_runner.py:60
+msgid ""
+"\n"
+" {0}[{1}*{0}]{1} Please Read The manual.txt File Available At {0}[WebPages/{page}]"
+msgstr ""
+
+#:
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_main_runner.py:61
+msgid ""
+"\n"
+" {0}[{1}*{0}]{1} If You Have Set Up The Files Correctly, {0}Press Enter To continue."
+msgstr ""
+
+#:
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_main_runner.py:62
+msgid ""
+"\n"
+" {0}[{1}*{0}]{1} Copying Your Files To Server/www Folder..."
+msgstr ""
+
+#:
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_main_runner.py:63
+msgid ""
+"\n"
+"{0}[{1}*{0}]{1} PLEASE USE TUNNELS/URL WITH '{0}https{1}' \n"
+"{0}[{1}*{0}]{1} Browsers Trusts only Https Links To Share Location\n"
+msgstr ""
+
+#:
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_main_runner.py:64
+msgid "{0}[{1}*{0}]{1} {0}Tip: {1}Use Google Drive File Url as Custom Url while asked."
 msgstr ""
 
