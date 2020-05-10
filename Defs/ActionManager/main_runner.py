@@ -218,10 +218,13 @@ def start_main_menu():
     
     #Below Are Tools And Above Are Phishing Modules..
 
-    elif option == 'A' or option == 'a':
+    elif option == '0A':
         module_loading_message('LOCATION')
-        customOption = input(
-            "\nOperation mode:\n {0}[{1}1{0}]{1} NEAR YOU (Webpage Looks Like Legitimate)\n {0}[{1}2{0}]{1} GDRIVE (Asks For Location Permission To redirect GDRIVE) \n\n{0}HiddenEye >>> {1}".format(default_palette[0], default_palette[2]))
+        #customOption = input(
+        #    "\nOperation mode:\n \n\n{0}HiddenEye >>> {1}".format(default_palette[0], default_palette[2]))
+        print(localization.lang_start_main_menu["operation_mode"])
+        print_sorted_as_menu(localization.lang_start_main_menu["additional_module_location_operation_modes"])
+        customOption = input(global_localization.input_line)
         start_phishing_page('LOCATION', customOption)
 
     else:
