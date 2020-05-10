@@ -1,4 +1,4 @@
-#Contains all ActionManager/main_runner.py strings
+#Contains all ActionManager/main_runner.py translation strings
 import Defs.ThemeManager.theme as theme
 from Defs.LocalizationManager.localization import _
 
