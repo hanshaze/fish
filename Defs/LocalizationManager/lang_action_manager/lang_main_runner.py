@@ -18,7 +18,7 @@ lang_start_main_menu = {
     "features_summary" : _("{1}[{0} PHISHING-KEYLOGGER-INFORMATION COLLECTOR-ALL_IN_ONE_TOOL-SOCIALENGINEERING {1}]").format(default_palette[2], default_palette[0]),
     "down_line" : "{0}________________________________________________________________________________".format(default_palette[0]),
     "attack_vector_message" : _("------------------------\nSELECT ANY ATTACK VECTOR:\n------------------------"),
-    "phishing_modules_header" : _("\n{0}PHISHING-MODULES:".format(default_palette[0])),
+    "phishing_modules_header" : _("\n{0}PHISHING-MODULES:").format(default_palette[0]),
     "phishing_modules_list" : 
     [ ['{0}[{1}01{0}]{1} Facebook',      '{0}[{1}13{0}]{1} Steam',      '{0}[{1}25{0}]{1} Badoo',          '{0}[{1}37{0}]{1} PlayStation'],
       ['{0}[{1}02{0}]{1} Google',        '{0}[{1}14{0}]{1} VK',         '{0}[{1}26{0}]{1} CryptoCurrency', '{0}[{1}38{0}]{1} Xbox'],
@@ -32,7 +32,7 @@ lang_start_main_menu = {
       ['{0}[{1}10{0}]{1} Yahoo',         '{0}[{1}22{0}]{1} Quora',      '{0}[{1}34{0}]{1} Yandex'],
       ['{0}[{1}11{0}]{1} Twitch',        '{0}[{1}23{0}]{1} PornHub',    '{0}[{1}35{0}]{1} Reddit'],
       ['{0}[{1}12{0}]{1} Microsoft',     '{0}[{1}24{0}]{1} Adobe',      '{0}[{1}36{0}]{1} Subito.it']],
-    "additional_modules" : _("\n{0}ADDITIONAL-TOOLS:".format(default_palette[0])),
+    "additional_modules" : _("\n{0}ADDITIONAL-TOOLS:").format(default_palette[0]),
     "additional_modules_list" : 
     [ [_('{0}[{1}0A{0}]{1} Get Victim Location')]],
     "operation_mode" : _("\nOperation mode:\n"),
