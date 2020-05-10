@@ -18,6 +18,7 @@ lang_start_main_menu = {
     "features_summary" : _("{1}[{0} PHISHING-KEYLOGGER-INFORMATION COLLECTOR-ALL_IN_ONE_TOOL-SOCIALENGINEERING {1}]").format(default_palette[2], default_palette[0]),
     "down_line" : "{0}________________________________________________________________________________".format(default_palette[0])
     "attack_vector_message" : _("------------------------\nSELECT ANY ATTACK VECTOR:\n------------------------"),
+    "phishing_modules_header" : _("\n{0}PHISHING-MODULES:".format(default_palette[0])),
 }
 
              
