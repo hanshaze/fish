@@ -87,7 +87,7 @@ def terms_of_service_message():  # menu where user select what they wanna use
         return True
             
 def module_loading_message(module):  # This one just show text..
-    print('''\n {0}[{1}*{0}] SELECT ANY ONE MODE...{0}\n--------------------------------'''.format(default_palette[0], default_palette[2]))
+    print(localization.lang_module_loading_message["select_any_mode"])
 
 
 def credentials_collector(port):
