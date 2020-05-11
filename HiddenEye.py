@@ -4,8 +4,6 @@
 #    This is free software, and you are welcome to redistribute it
 #    under certain conditions; you can read LICENSE for details.
 #
-
-
 from Defs.Checks import *
 from os import system, environ
 import Defs.ActionManager.main_runner as main_runner
@@ -20,9 +18,13 @@ import sys
 import ssl
 
 
+simple_informant.license_handler()
+agreement = simple_informant.terms_of_service_message()
+if agreement != True:
+    exit()
+
 if(not environ.get('PYTHONHTTPSVERIFY', "") and getattr(ssl, '_create_unverified_context', None)):
     ssl._create_default_https_context = ssl._create_unverified_context
-
 
 checkPermissions()
 checkConnection()
