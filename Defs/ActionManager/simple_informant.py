@@ -1,3 +1,10 @@
+#
+#    HiddenEye  Copyright (C) 2020  DarkSec https://dark-sec-official.com
+#    This program comes with ABSOLUTELY NO WARRANTY; for details read LICENSE.
+#    This is free software, and you are welcome to redistribute it
+#    under certain conditions; you can read LICENSE for details.
+#
+
 from Defs.ImportManager.unsorted_will_be_replaced import run_command, wait, chmod, stat, pathlib_Path, copyfile, socket
 import Defs.ThemeManager.theme as theme
 import Defs.FeatureManager.EmailManager.email_prompt as email_prompt
