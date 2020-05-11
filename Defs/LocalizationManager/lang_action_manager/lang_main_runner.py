@@ -56,8 +56,8 @@ lang_start_main_menu = {
 
 }
 lang_start_phishing_page = {
-    "custom_folder_directory" : _('\n {0}[{1}*{0}]{1} Custom Folder Directory is {0}WebPages/{page}').format(default_palette[0], default_palette[4]),
-    "manual_reading_suggestion" : _('\n {0}[{1}*{0}]{1} Please Read The manual.txt File Available At {0}[WebPages/{page}]').format(default_palette[0], default_palette[4]),
+    "custom_folder_directory" : _('\n {0}[{1}*{0}]{1} Custom Folder Directory is {0}WebPages/{page}').format(default_palette[0], default_palette[4], page = 'page'),
+    "manual_reading_suggestion" : _('\n {0}[{1}*{0}]{1} Please Read The manual.txt File Available At {0}[WebPages/{page}]').format(default_palette[0], default_palette[4], page = 'page'),
     "press_enter_to_contunue_if_setup_correctly" : _('\n {0}[{1}*{0}]{1} If You Have Set Up The Files Correctly, {0}Press Enter To continue.').format(default_palette[0], default_palette[4]),
     "copying_your_files" : _('\n {0}[{1}*{0}]{1} Copying Your Files To Server/www Folder...').format(default_palette[0], default_palette[4]),
     "https_suggestion" : _("\n{0}[{1}*{0}]{1} PLEASE USE TUNNELS/URL WITH '{0}https{1}' \n{0}[{1}*{0}]{1} Browsers Trusts only Https Links To Share Location\n").format(default_palette[0], default_palette[4]),
