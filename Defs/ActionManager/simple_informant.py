@@ -170,14 +170,21 @@ def log_writer(ctx):  # Writing log
 
 def port_selector():  # Question where user must select port
     run_command('clear')
-    print('''
-        {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
-        |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
-        |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
-        {0}http://github.com/darksecdevelopers
-        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ WEBSERVER PORT SELECTION ]{1}!! {0}\n-------------------------------'''.format(default_palette[0], default_palette[2]))
-    print("\n {0}[{1}*{0}]{0}Select Any Available Port [1-65535]:{1}".format(default_palette[0], default_palette[4]))
-    choice = input(" \n{0}HiddenEye >>> {1}".format(default_palette[0], default_palette[2]))
+    #print('''
+    #    {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
+    #    |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
+    #    |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
+    #    {0}http://github.com/darksecdevelopers
+    #    {0}** BY:DARKSEC ** \n\n-------------------------------
+    # )
+    print(global_localization.hidden_eye_logo)
+    print(global_localization.official_website_link)
+    print(global_localization.by_darksec)
+    print(global_localization.line_of_dots)
+    print(localization.lang_port_selector["website_port_selection"])
+    print(localization.lang_port_selector["select_any_available_port"])
+    print(localization.lang_port_selector["port_suggestion"])
+    choice = input(global_localization.input_line)
     try:
         if (int(choice) > 65535 or int(choice) < 1):
             return selectPort()
