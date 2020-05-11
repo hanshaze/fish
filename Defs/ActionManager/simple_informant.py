@@ -29,10 +29,7 @@ def license_handler():
     else:
         eula.touch(mode=0o777, exist_ok=True)
         eula = open('eula.txt', 'w')
-        eula.write("""
-        # To Accept EULA set eula to True
-        # Don't accept EULA if you didn't read LICENSE
-        eula = False""")
+        eula.write(localization.write_eula + "eula = False")
         eula.close()
         print('Please accept EULA.')
         return False
@@ -74,19 +71,16 @@ def terms_of_service_message():  # menu where user select what they wanna use
     agreement = license_handler()
     if agreement == False:
         print(localization.lang_terms_of_service_message["GPL_3.0"])
-        print("              {0}WITH GREAT POWER {1}- {0}COMES GREAT RESPONSIBILITY      ".format(default_palette[0], default_palette[2]))
-        print("{0}Do you accept {1}license{0}?".format(default_palette[2], default_palette[0]))
-        print("{0}Enter: {1} Yes, i do {0} to confirm.".format(default_palette[2], default_palette[0]))
+        print(localization.lang_terms_of_service_message["great_power_great_responsibility"])
+        print(localization.lang_terms_of_service_message["do_you_accept_license"])
+        print(localization.lang_terms_of_service_message["enter_this_to_confirm"])
         agreement = input(global_localization.input_line)
-        if "Yes, i do" not in agreement:
-            print("{0}You are {1}not allowed {0}to use this app without accepting license.".format(default_palette[2], default_palette[0]))
+        if localization.text_to_confirm_license not in agreement:
+            print(localization.lang_terms_of_service_message["you_are_not_allowed"])
             exit()
         else:
             eula = open('eula.txt', 'w')
-            eula.write("""
-            # To Accept EULA set eula to True
-            # Don't accept EULA if you didn't read LICENSE
-            eula = True""")
+            eula.write(localization.write_eula  +"eula = True")
             eula.close()
             return True
     else:

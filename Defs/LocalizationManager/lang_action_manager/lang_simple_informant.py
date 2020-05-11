@@ -11,6 +11,13 @@ import Defs.ThemeManager.theme as theme
 from Defs.LocalizationManager.localization import _
 
 default_palette = theme.default_palette
+text_to_confirm_license = _('Yes, i do')
+write_eula = _("""
+            # To Accept EULA set eula to True
+            # Don't accept EULA if you didn't read LICENSE
+            
+            """)
+
 
 lang_exit_message = {
     "choice" : _('\n{0}[{1}?{0}] Re-run(r) : Exit(x) : Send Email(m) : SelectServer(s)\n\n >> {2}').format(default_palette[0], default_palette[4], default_palette[2]),
@@ -24,7 +31,10 @@ lang_exit_message = {
 }
 
 lang_terms_of_service_message = {
-    
+    "great_power_great_responsibility" : _("              {0}WITH GREAT POWER {1}- {0}COMES GREAT RESPONSIBILITY      ").format(default_palette[0], default_palette[2]),
+    "do_you_accept_license" : _("{0}Do you accept {1}license{0}?").format(default_palette[2], default_palette[0]),
+    "enter_this_to_confirm" : _("{0}Enter: {1}{text_to_confirm}{0} to confirm.").format(default_palette[2], default_palette[0], text_to_confirm = text_to_confirm_license),
+    "you_are_not_allowed" : _("{0}You are {1}not allowed {0}to use this app without accepting license.").format(default_palette[2], default_palette[0]),
     "GPL_3.0" : _("""
                       GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
