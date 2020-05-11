@@ -11,6 +11,8 @@ import Defs.ThemeManager.theme as theme
 from Defs.LocalizationManager.localization import _
 
 default_palette = theme.default_palette
+
+
 text_to_confirm_license = _('Yes, i do')
 write_eula = _("""
             # To Accept EULA set eula to True
