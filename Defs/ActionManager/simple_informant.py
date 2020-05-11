@@ -14,6 +14,30 @@ import Defs.LocalizationManager.lang_global_usage as global_localization
 
 default_palette = theme.default_palette
 
+def license_handler():
+    eula = pathlib_Path("eula.txt")
+    
+    if eula.exists():
+        eula = eula.open('r')
+        with open('eula.txt', 'r') as f:
+            if 'eula = True' in f.read():
+                print('Found your license agreement, proceeding...')
+                return True
+            else:
+                print('Please read and accept license.')
+                return False
+    else:
+        eula.touch(mode=0o777, exist_ok=True)
+        eula = open('eula.txt', 'w')
+        eula.write("""
+        # To Accept EULA set eula to True
+        # Don't accept EULA if you didn't read LICENSE
+        eula = False""")
+        eula.close()
+        print('Please accept EULA.')
+        return False
+
+
 def exit_message(port = 80):  # Message when HiddenEye exit
     choice = input(localization.lang_exit_message["choice"])
     choice.lower()
@@ -41,19 +65,33 @@ def exit_message(port = 80):  # Message when HiddenEye exit
 
 def terms_of_service_message():  # menu where user select what they wanna use
     # Terms Of Service
-    wait(6)
-    run_command('clear')
-    orange  = '\033[33m'
-    blue  = '\033[34m'
-    purple  = '\033[35m'
-    red  = '\033[31m'
-    print("\n\n\n              {1}WITH GREAT {0}POWER {2}- {1}COMES GREAT {0}RESPONSIBILITY      ".format(red, purple, blue))
+   # print("\n\n\n              {1}WITH GREAT {0}POWER {2}- {1}COMES GREAT {0}RESPONSIBILITY      ".format(red, purple, blue))
     
-    if input("\n\n\n\n{2}[{1}!{2}]{3} Do you agree to use this tool for educational/testing purposes only? {1}({0}Y{1}/{2}N{1})\n{2}HiddenEye >>> {0}".format(default_palette[2], default_palette[4], default_palette[0], orange)).upper() != 'Y':
-        run_command('clear')
-        print("\n\n[ {0}YOU ARE NOT AUTHORIZED TO USE THIS TOOL.YOU CAN ONLY USE IT FOR EDUCATIONAL PURPOSE.!{1} ]\n\n".format(default_palette[0], default_palette[4]))
-        exit()
-
+    #if input("\n\n\n\n{2}[{1}!{2}]{3} Do you agree to use this tool for educational/testing purposes only? {1}({0}Y{1}/{2}N{1})\n{2}HiddenEye >>> {0}".format(default_palette[2], default_palette[4], default_palette[0], orange)).upper() != 'Y':
+    #    run_command('clear')
+    #    print("\n\n[ {0}YOU ARE NOT AUTHORIZED TO USE THIS TOOL.YOU CAN ONLY USE IT FOR EDUCATIONAL PURPOSE.!{1} ]\n\n".format(default_palette[0], default_palette[4]))
+    #    exit()
+    agreement = license_handler()
+    if agreement == False:
+        print(localization.lang_terms_of_service_message["GPL_3.0"])
+        print("              {0}WITH GREAT POWER {1}- {0}COMES GREAT RESPONSIBILITY      ".format(default_palette[0], default_palette[2]))
+        print("{0}Do you accept {1}license{0}?".format(default_palette[2], default_palette[0]))
+        print("{0}Enter: {1} Yes, i do {0} to confirm.".format(default_palette[2], default_palette[0]))
+        agreement = input(global_localization.input_line)
+        if "Yes, i do" not in agreement:
+            print("{0}You are {1}not allowed {0}to use this app without accepting license.".format(default_palette[2], default_palette[0]))
+            exit()
+        else:
+            eula = open('eula.txt', 'w')
+            eula.write("""
+            # To Accept EULA set eula to True
+            # Don't accept EULA if you didn't read LICENSE
+            eula = True""")
+            eula.close()
+            return True
+    else:
+        return True
+            
 def module_loading_message(module):  # This one just show text..
     print('''\n {0}[{1}*{0}] SELECT ANY ONE MODE...{0}\n--------------------------------'''.format(default_palette[0], default_palette[2]))
 
