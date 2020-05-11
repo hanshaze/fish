@@ -194,7 +194,7 @@ def port_selector():  # Question where user must select port
         return port_selector()
 
 def remove_readonly(func, path, _):
-    "Clear the readonly bit and reattempt the removal"
+    "Clear the readonly bit"
     chmod(path, stat.S_IWRITE)
     func(path)
 
@@ -203,5 +203,5 @@ def get_ip_addr():
     try: 
         host_ip = socket.gethostbyname(socket.gethostname()) 
     except: 
-        print("Unable to get Hostname and IP") 
+        print(localization.lang_get_ip_addr["unable_to_get_ip"]) 
         return host_ip
