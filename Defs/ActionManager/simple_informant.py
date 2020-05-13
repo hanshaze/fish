@@ -211,3 +211,37 @@ def global_message():
     print(global_localization.official_website_link)
     print(global_localization.by_darksec)
     print(global_localization.line_of_dots)
+
+
+def verify_connection(host='https://dark-sec-official.com'):  # Connection check
+    run_command('clear')
+    try:
+        req = requests.get(host, timeout=25)
+        if req.status_code == 200:
+            print(localization.lang_verify_connection["connected"])
+            pass
+    except:
+        print(localization.lang_verify_connection["disconnected"])
+        print(global_localization.hidden_eye_logo)
+        print(localization.lang_verify_connection["verify_your_connection"])
+        exit()
+
+def check_permissions():
+
+    if platform_os() != "Windows":
+        if getuid() == 0:
+            print(localization.lang_check_permissions["permissions_granted"])
+        else:
+            print(localization.lang_check_permissions["permissions_denied"])
+            exit()
+    else:
+        print(localization.lang_check_permissions["windows_warning"])
+        exit()
+
+def check_php():
+    try:
+        try_to_run_command(['php', '-v'])
+        print(localization.lang_check_php["found"])
+    except:
+        print(localization.lang_check_php["not-found"])
+        exit()
