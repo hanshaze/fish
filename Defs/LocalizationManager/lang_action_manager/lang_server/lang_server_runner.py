@@ -27,7 +27,10 @@ lang_start_ngrok = {
 
 lang_start_serveo = {
     "serveo_random_server" : _('\n{0}[ RANDOM SERVEO URL ]{1}!! {0}\n-------------------------------').format(default_palette[0], default_palette[2]),
+    "server_custom_server" : _('\n{0}[ CUSTOM SERVEO URL ]{1}!! {0}\n-------------------------------').format(default_palette[0], default_palette[2]),
     "send_this_url_suggestion" : _('\n{0}[{1}!{0}]{1} SEND THIS SERVEO URL TO TARGETS').format(default_palette[0], default_palette[4]),
+    "make_url_simmilar_to_real_suggestion" : _('\n{0}[{1}!{0}]{1} YOU CAN MAKE YOUR URL SIMILAR TO ORIGINAL.').format(default_palette[0], default_palette[4]),
+    "insert_custom_subdomain" : _('\n{0}Insert a custom subdomain for serveo').format(default_palette[0], default_palette[2]),
     "serveo_url" : _('\n{0}[{1}*{0}]{1} SERVEO URL: {2}').format(default_palette[0], default_palette[4], default_palette[3])
 
 }

