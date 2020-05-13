@@ -14,11 +14,29 @@ default_palette = theme.default_palette
 
 
 text_to_confirm_license = _('Yes, i do')
+
 write_eula = _("""
             # To Accept EULA set eula to True
             # Don't accept EULA if you didn't read LICENSE
             
             """)
+
+lang_check_php = {
+  "found" : _('\n {0}[{1}*{0}] PHP has been found. Proceeding.').format(default_palette[0], default_palette[2]),
+  "not-found" : _('\n {0}[{1}*{0}] Unable to find PHP, please install PHP and try again.').format(default_palette[0], default_palette[2])
+}
+
+lang_check_permissions = {
+  "permissions_granted" : _('{0}Permissions granted!').format(default_palette[0]),
+  "permissions_denied" : _('{0}Permissions denied! Please run as {1}sudo{0}').format(default_palette[0], default_palette[2]),
+  "windows_warning" : _("\n{0}[{1}!{0}] {1}Windows systems {0}aren't compatible yet. Make sure you're using a  {1}Linux/GNU{0} system.").format(default_palette[0], default_palette[2])
+}
+
+lang_verify_connection = {
+  "connected" : _('\n {0}[{1}*{0}] INTERNET - {1}[CONNECTED]').format(default_palette[0], default_palette[2]),
+  "disconnected" : _('\n {0}[{1}*{0}] INTERNET - {1}[DISCONNECTED]').format(default_palette[0], default_palette[2]),
+  "verify_your_connection" : _('\n{0}[{1}!{0}] Network error. Please verify your internet connection.').format(default_palette[2], default_palette[0])
+}
 
 lang_module_loading_message = {
   "select_any_mode" : _('\n {0}[{1}*{0}] SELECT ANY MODE...{0}\n--------------------------------').format(default_palette[0], default_palette[2])
