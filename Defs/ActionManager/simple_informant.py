@@ -14,6 +14,7 @@ import Defs.LocalizationManager.lang_global_usage as global_localization
 
 default_palette = theme.default_palette
 
+
 def license_handler():
     eula = pathlib_Path("eula.txt")
     
@@ -40,10 +41,10 @@ def exit_message(port = 80):  # Message when HiddenEye exit
     choice.lower()
     if choice == 'r':
         run_command(['sudo', 'python3', 'HiddenEye.py'])
-    elif choice ==  'm':
+    elif choice == 'm':
         email_prompt.captured_data_email_confirmation(port)
-    elif choice ==  's':
-    	server_menu.server_selection(port)
+    elif choice == 's':
+        server_menu.server_selection(port)
     elif choice == 'x':
         run_command('clear')
         print(global_localization.hidden_eye_logo)
@@ -69,7 +70,7 @@ def terms_of_service_message():  # menu where user select what they wanna use
     #    print("\n\n[ {0}YOU ARE NOT AUTHORIZED TO USE THIS TOOL.YOU CAN ONLY USE IT FOR EDUCATIONAL PURPOSE.!{1} ]\n\n".format(default_palette[0], default_palette[4]))
     #    exit()
     agreement = license_handler()
-    if agreement == False:
+    if not agreement:
         print(localization.lang_terms_of_service_message["GPL_3.0"])
         print(localization.lang_terms_of_service_message["great_power_great_responsibility"])
         print(localization.lang_terms_of_service_message["do_you_accept_license"])
@@ -186,7 +187,7 @@ def port_selector():  # Question where user must select port
     print(localization.lang_port_selector["port_suggestion"])
     choice = input(global_localization.input_line)
     try:
-        if (int(choice) > 65535 or int(choice) < 1):
+        if int(choice) > 65535 or int(choice) < 1:
             return selectPort()
         else:
             return choice
