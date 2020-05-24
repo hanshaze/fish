@@ -12,6 +12,7 @@ import Defs.ActionManager.simple_informant as simple_informant
 import Defs.LocalizationManager.lang_action_manager.lang_main_runner as localization
 import Defs.LocalizationManager.lang_global_usage as global_localization
 import os
+import time
 
 default_palette = theme.default_palette
 module_loading_message = simple_informant.module_loading_message
@@ -384,7 +385,10 @@ def start_phishing_page(page, custom_option):  # Phishing pages selection menu
         input(localization.lang_start_phishing_page["press_enter_to_contunue_if_setup_correctly"])
 
     else:
-        simple_informant.exit_message(port)
+        run_command('clear')
+        print("Please choose a valid option")
+        time.sleep(1)
+        start_main_menu()
 
 def enter_custom_redirecting_url():  # Question where user can input custom web-link
     run_command('clear')
