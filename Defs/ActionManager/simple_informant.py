@@ -200,13 +200,6 @@ def remove_readonly(func, path, _):
     func(path)
 
 
-def get_ip_addr():
-    try: 
-        host_ip = socket.gethostbyname(socket.gethostname()) 
-    except: 
-        print(localization.lang_get_ip_addr["unable_to_get_ip"]) 
-        return host_ip
-
 def global_message():
     print(global_localization.hidden_eye_logo)
     print(global_localization.official_website_link)

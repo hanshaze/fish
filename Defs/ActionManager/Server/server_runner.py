@@ -45,7 +45,7 @@ def start_localhost(port):
    # '')
     simple_informant.global_message()
     print(localization.lang_start_localhost["localhost_server"])
-    host = simple_informant.get_ip_addr
+    host = "127.0.0.1"
     print(localization.lang_start_localhost["your_localhost_is"] + host)
     set_port()
     #run_command("cd Server/www/ 
