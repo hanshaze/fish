@@ -40,3 +40,5 @@ Defs/LocalizationManager/lang_action_manager/__pycache__/
 eula.txt
 
 Defs/LocalizationManager/lang_action_manager/lang_server/__pycache__/
+
+Server/www/
