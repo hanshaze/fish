@@ -120,8 +120,7 @@ def start_serveo(port):
         serveo = requests.get("http://serveo.net")
         if "temporarily disabled" in serveo.text:
             return False
-        else:
-            return True
+        return True
 
     def random(port):
         run_command('clear')
@@ -228,8 +227,8 @@ def start_serveo(port):
         #    {0}http://github.com/darksecdevelopers
         #    {0}** BY:DARKSEC ** \n\n-------------------------------
 
-        # 
-        # 
+        #
+        #
         #  '''.format(default_palette[0], default_palette[2]))
         simple_informant.global_message()
         print(localization.lang_start_serveo["serveo_url_option_selection"])
@@ -410,7 +409,6 @@ def start_openport(port):
             read_data = f.read()
             if 'openport.io/l/' in read_data:
                 print('{0}[{1}*{0}] {1}Got Activation Link...'.format(default_palette[0], default_palette[4]))
-                pass
             else:
                 print('{0}[{1}^{0}] {1}Failed To Get Openport Activation Link... '.format(default_palette[0],
                                                                                           default_palette[4]))
