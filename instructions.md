@@ -5,7 +5,7 @@ sudo pacman -S hidden-eye
 ```
 to run just use
 ```
-sudo hidden-eye
+sudo hiddeneye
 ```
 ### CLONE
 ```
@@ -15,25 +15,17 @@ git clone https://github.com/DarkSecDevelopers/HiddenEye.git
 ### RUNNING (In Linux)
 ```
 chmod 777 HiddenEye
-```
 
-```
 sudo apt install python3-pip
-```
 
-```
 cd HiddenEye
-```
 
-```
 sudo pip3 install -r requirements.txt
-```
 
-```
 sudo pip3 install requests
-```
 
-```
+sudo pip3 install pyngrok
+
 python3 HiddenEye.py
 
 ```
@@ -46,24 +38,17 @@ python3 HiddenEye.py
 ### RUNNING (Arch Linux or Manjaro)
 ```
 chmod 777 HiddenEye
-```
 
-```
 sudo pacman -Syu
-```
-```
-sudo pacman -S python-pip
-```
 
-```
+sudo pacman -S python-pip,
+
 cd HiddenEye
-```
 
-```
 sudo pip3 install -r requirements.txt
-```
 
-```
+sudo pip3 install pyngrok
+
 sudo python3 HiddenEye.py
 
 ```
