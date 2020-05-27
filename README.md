@@ -110,7 +110,7 @@ The use of the HiddenEye & its resources/phishing-pages is **COMPLETE RESPONSIBI
 
 **(B) Termux App**
   - You Have to Download Termux App. [Click Here](https://play.google.com/store/apps/details?id=com.termux) To Download it.
-  - For Further instruction [Check Instructions](https://github.com/DarkSecDevelopers/HiddenEye/blob/master/instructions.md)
+  - For Further instruction [Check Instructions](https://github.com/DarkSecDevelopers/HiddenEye/wiki/Installation-Instructions)
   - Termux Users Clone With This Command , Unless Errors may occur during Running.
 ```
 git clone -b Termux-Support-Branch https://github.com/DarkSecDevelopers/HiddenEye.git
