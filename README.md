@@ -148,7 +148,7 @@ git clone -b Termux-Support-Branch https://github.com/DarkSecDevelopers/HiddenEy
   - GDRIVE (By @thewhiteh4t)
 ## [Check This](https://youtu.be/InSdtLhZzk4) Demonstration video to know How (Location) Social-Engineering-Tool Works.
  
-## FOR FURTHER INSTALLATION PROCEDURE - [(CHECK INSTRUCTIONS)](https://github.com/DarkSecDevelopers/HiddenEye/blob/master/instructions.md)
+## FOR FURTHER INSTALLATION PROCEDURE - [(CHECK INSTRUCTIONS)](https://github.com/DarkSecDevelopers/HiddenEye/wiki/Installation-Instructions)
 
 ## BACKUP REPOSITORY AVAILABLE AT GITLAB - [(CHECK HERE)](https://gitlab.com/an0nud4y/HiddenEye)
 </p>
