@@ -1,17 +1,4 @@
-
-Defs/__pycache__/
-
-Defs/ActionManager/__pycache__/
-
-Defs/ActionManager/Server/__pycache__/
-
-Defs/FeatureManager/__pycache__/
-
-Defs/FeatureManager/EmailManager/__pycache__/
-
-Defs/ImportManager/__pycache__/
-
-Defs/ThemeManager/__pycache__/
+*.pyc
 
 *.deb
 
@@ -33,12 +20,4 @@ Defs/FeatureManager/EmailManager/attachments/KeyloggerData.txt
 
 Server/CapturedData/KeyloggerData.txt
 
-Defs/LocalizationManager/__pycache__/
-
-Defs/LocalizationManager/lang_action_manager/__pycache__/
-
 eula.txt
-
-Defs/LocalizationManager/lang_action_manager/lang_server/__pycache__/
-
-Server/www/
