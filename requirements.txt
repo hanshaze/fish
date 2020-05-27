@@ -1,2 +1,4 @@
+
 requests==2.23.0
-pyngrok==2.1.6
+pyngrok==2.1.7
+
