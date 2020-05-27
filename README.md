@@ -40,6 +40,7 @@ The use of the HiddenEye & its resources/phishing-pages is **COMPLETE RESPONSIBI
 5) Micrafast (https://github.com/Micrafast)
 6) Moltivie (https://github.com/Moltivie)
 7) endbehavi0r (https://github.com/endbehavi0r)
+8) DarkMidus (https://github.com/DarkMidus)
 8) ___________ (WAITING FOR YOU)
 
 # AVAILABLE TUNNELLING OPTIONS**
