@@ -14,8 +14,13 @@ import Defs.ActionManager.simple_informant as simple_informant
 import Defs.LocalizationManager.lang_action_manager.lang_server.lang_server_runner as localization
 import Defs.LocalizationManager.lang_global_usage as global_localization
 import Defs.ActionManager.main_runner as main_runner
+import os
 
 default_palette = theme.default_palette
+try:
+    os.mkdir("Server/www")
+except FileExistsError:
+    pass
 enter_server_www = chdir("Server/www")
 exit_server_www = chdir("../..")
 
