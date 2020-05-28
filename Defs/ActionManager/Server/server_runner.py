@@ -7,7 +7,7 @@
 
 
 from Defs.ImportManager.unsorted_will_be_replaced import run_command, run_background_command, wait, ngrok, requests, \
-    regular_expression, check_output, CalledProcessError, chdir, chmod, DEVNULL, PIPE, pathlib_Path
+    regular_expression, check_output, CalledProcessError, chdir, chmod, DEVNULL, PIPE, path
 import Defs.ThemeManager.theme as theme
 import Defs.ActionManager.Server.server_menu as server_menu
 import Defs.ActionManager.simple_informant as simple_informant
@@ -83,7 +83,7 @@ def start_localhost(port):
 
 
 def start_ngrok(port):
-    ngrok.DEFAULT_CONFIG_PATH = pathlib_Path(".config/ngrok.yml")
+    ngrok.DEFAULT_CONFIG_PATH = path.join(".config/ngrok.yml")
     run_command(['killall', '-2', 'ngrok'], stdout=DEVNULL, stderr=DEVNULL)
     run_command('clear')
     # print('''
