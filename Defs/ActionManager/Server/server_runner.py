@@ -83,7 +83,8 @@ def start_localhost(port):
 
 
 def start_ngrok(port):
-    ngrok.DEFAULT_CONFIG_PATH = path.join(".config/ngrok.yml")
+    ngrok.DEFAULT_CONFIG_PATH = ".config/ngrok.yml"
+    # ngrok.set_auth_token("<NGROK_AUTH_TOKEN>") # Will be easier to input later
     run_command(['killall', '-2', 'ngrok'], stdout=DEVNULL, stderr=DEVNULL)
     run_command('clear')
     # print('''
@@ -98,7 +99,7 @@ def start_ngrok(port):
     # run_command(['./Server/ngrok http {0}'.format(port)], stdout=DEVNULL, stderr=DEVNULL)
     ##chmod('Server', 0o777)
     ##run_command(['Server/ngrok', 'http {0}'.format(port)],stdout=DEVNULL, stderr=DEVNULL)
-    ngrok.connect(port)
+    ngrok.connect(port=int(port))
     # currentDirectory = os.getcwd() #DELETE
     # print(currentDirectory) #DELETE
     while True:
