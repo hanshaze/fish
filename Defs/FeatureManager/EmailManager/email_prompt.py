@@ -8,12 +8,12 @@
 
 from Defs.ImportManager.unsorted_will_be_replaced import run_command, wait, path, system, getpass, base64, copyfile
 import Defs.ThemeManager.theme as theme
-import Defs.ActionManager.simple_informant as simple_informant
 
 default_palette = theme.default_palette
 
 def captured_data_email_prompt():
     run_command('clear')
+    import Defs.ActionManager.simple_informant as simple_informant
     print('''{1}
         _  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
         |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}

