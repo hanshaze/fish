@@ -7,21 +7,14 @@
 
 
 from Defs.ImportManager.unsorted_will_be_replaced import run_command, webpage_set, wait, path, rmtree, pathlib_Path, copyfile, chmod, mkdir, remove
-import Defs.ThemeManager.theme as theme
 import Defs.ActionManager.simple_informant as simple_informant
 import Defs.LocalizationManager.lang_action_manager.lang_main_runner as localization
 import Defs.LocalizationManager.lang_global_usage as global_localization
+from Defs.LocalizationManager.helper import print_sorted_as_menu
 import os
 import time
 
-default_palette = theme.default_palette
 module_loading_message = simple_informant.module_loading_message
-
-def print_sorted_as_menu(sorting_list):
-    col_width = max(len(word) for row in sorting_list for word in row) + 2
-    for row in sorting_list:
-        print("".join(word.ljust(col_width) for word in row).format(default_palette[0], default_palette[2]))
-
 
 def start_main_menu():
     run_command('clear')

