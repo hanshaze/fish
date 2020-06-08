@@ -1,0 +1,4 @@
+console_ui: false
+update: true
+log_level: info
+log_format: term
