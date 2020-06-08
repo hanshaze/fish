@@ -194,15 +194,23 @@ def verify_connection(host='https://dark-sec-official.com'):  # Connection check
 
 def check_permissions():
 
-    if platform_os() != "Windows":
+  #  if platform_os() != "Windows":
+  #      if getuid() == 0:
+  #          print(localization.lang_check_permissions["permissions_granted"])
+  #      else:
+  #         print(localization.lang_check_permissions["permissions_denied"])
+  #          exit()
+  #  else:
+  #     print(localization.lang_check_permissions["windows_warning"])
+  #      exit()
+## Everything above will be replaced ##
+
+    if check_platform("system") == "Linux":
         if getuid() == 0:
             print(localization.lang_check_permissions["permissions_granted"])
         else:
             print(localization.lang_check_permissions["permissions_denied"])
             exit()
-    else:
-        print(localization.lang_check_permissions["windows_warning"])
-        exit()
 
 def check_php():
     try:
