@@ -221,6 +221,13 @@ def check_php():
         exit()
 
 def check_platform(required_data):
+    """Checks system for specific platform related data and returns requested value. 
+
+    Args:
+        required_data (string): accepts "system" or "architecture"
+    Returns:
+        string: data requested by required_data, Returns all if required_data isn't specified.
+    """
     system = platform.system()
     architecture = platform.machine()
     if required_data == "system":
