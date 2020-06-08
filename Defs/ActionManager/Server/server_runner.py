@@ -21,7 +21,6 @@ except FileExistsError:
     pass
 enter_server_www = chdir("Server/www")
 exit_server_www = chdir("../..")
-
 default_palette = theme.default_palette
 
 
