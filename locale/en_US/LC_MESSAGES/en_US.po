@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2020-05-11 14:09+0300\n"
-"PO-Revision-Date: 2020-05-11 14:10+0300\n"
+"POT-Creation-Date: 2020-06-09 02:44+0300\n"
+"PO-Revision-Date: 2020-06-09 02:48+0300\n"
 "Last-Translator: sTiKyt <stikyt@protonmail.com>\n"
 "Language-Team: \n"
 "Language: en\n"
@@ -91,8 +91,9 @@ msgstr ""
 "{0}[{1}2{0}]{1} Advanced Phishing-Poll Ranking Method(Poll_mode/login_with)"
 
 #: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_main_runner.py:49
-msgid "{0}[{1}4{0}]{1} Facebook Phising-Messenger Credentials(messenger_mode)"
-msgstr "{0}[{1}4{0}]{1} Facebook Phising-Messenger Credentials(messenger_mode)"
+msgid "{0}[{1}4{0}]{1} Facebook Phishing-Messenger Credentials(messenger_mode)"
+msgstr ""
+"{0}[{1}4{0}]{1} Facebook Phishing-Messenger Credentials(messenger_mode)"
 
 #: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_main_runner.py:51
 msgid "{0}[{1}3{0}]{1} New Google Web"
@@ -114,8 +115,8 @@ msgstr ""
 "{0}[{1}4{0}]{1} Instagram Verified Badge Attack (Lure To Get Blue Badge)"
 
 #: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_main_runner.py:55
-msgid "{0}[{1}2{0}]{1} Instagram Autoliker Phising (To Lure The Users)"
-msgstr "{0}[{1}2{0}]{1} Instagram Autoliker Phising (To Lure The Users)"
+msgid "{0}[{1}2{0}]{1} Instagram Autoliker Phishing (To Lure The Users)"
+msgstr "{0}[{1}2{0}]{1} Instagram Autoliker Phishing (To Lure The Users)"
 
 #: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_main_runner.py:55
 msgid "{0}[{1}5{0}]{1} Instafollower (Lure To Get More Followers)"
@@ -231,11 +232,223 @@ msgstr ""
 "\n"
 "{0}REDIRECT HERE>>> {1}"
 
-#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_simple_informant.py:14
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_server/lang_server_runner.py:14
+msgid ""
+"{0}[ HOSTING SERVER SELECTION ]{1}! {0}\n"
+"-------------------------------"
+msgstr ""
+"{0}[ HOSTING SERVER SELECTION ]{1}! {0}\n"
+"-------------------------------"
+
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_server/lang_server_runner.py:15
+msgid ""
+"\n"
+" {0}[{1}*{0}]{0}Select Any Available Server:{1}"
+msgstr ""
+"\n"
+" {0}[{1}*{0}]{0}Select Any Available Server:{1}"
+
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_server/lang_server_runner.py:24
+msgid ""
+"\n"
+"{0}[ LOCALHOST SERVER ]{1}! {0}\n"
+"-------------------------------"
+msgstr ""
+"\n"
+"{0}[ LOCALHOST SERVER ]{1}! {0}\n"
+"-------------------------------"
+
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_server/lang_server_runner.py:25
+msgid "Your Localhost is "
+msgstr "Your Localhost is "
+
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_server/lang_server_runner.py:26
+msgid ""
+"\n"
+"[*] Starting Server On Address:: {0}:{1}"
+msgstr ""
+"\n"
+"[*] Starting Server On Address:: {0}:{1}"
+
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_server/lang_server_runner.py:27
+msgid ""
+"\n"
+"{0}[ RUNNING LOCALHOST SERVER ]{1}! {0}\n"
+"-------------------------------"
+msgstr ""
+"\n"
+"{0}[ RUNNING LOCALHOST SERVER ]{1}! {0}\n"
+"-------------------------------"
+
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_server/lang_server_runner.py:28
+msgid ""
+"\n"
+"{0}[{1}!{0}]{1} SEND THIS URL TO TARGETS ON SAME NETWORK"
+msgstr ""
+"\n"
+"{0}[{1}!{0}]{1} SEND THIS URL TO TARGETS ON SAME NETWORK"
+
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_server/lang_server_runner.py:29
+msgid ""
+"\n"
+"{0}[{1}*{0}]{1} Localhost URL: {2}http://"
+msgstr ""
+"\n"
+"{0}[{1}*{0}]{1} Localhost URL: {2}http://"
+
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_server/lang_server_runner.py:33
+msgid ""
+"\n"
+"{0}[ NGROK SERVER ]{1}! {0}\n"
+"-------------------------------"
+msgstr ""
+"\n"
+"{0}[ NGROK SERVER ]{1}! {0}\n"
+"-------------------------------"
+
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_server/lang_server_runner.py:34
+msgid ""
+"\n"
+"{0}[{1}!{0}]{1} SEND THIS NGROK URL TO TARGETS"
+msgstr ""
+"\n"
+"{0}[{1}!{0}]{1} SEND THIS NGROK URL TO TARGETS"
+
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_server/lang_server_runner.py:35
+msgid ""
+"\n"
+"{0}[{1}*{0}]{1} NGROK URL: {2}"
+msgstr ""
+"\n"
+"{0}[{1}*{0}]{1} NGROK URL: {2}"
+
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_server/lang_server_runner.py:39
+msgid ""
+"\n"
+"{0}[ RANDOM SERVEO URL ]{1}! {0}\n"
+"-------------------------------"
+msgstr ""
+"\n"
+"{0}[ RANDOM SERVEO URL ]{1}! {0}\n"
+"-------------------------------"
+
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_server/lang_server_runner.py:40
+msgid ""
+"\n"
+"{0}[ CUSTOM SERVEO URL ]{1}! {0}\n"
+"-------------------------------"
+msgstr ""
+"\n"
+"{0}[ CUSTOM SERVEO URL ]{1}! {0}\n"
+"-------------------------------"
+
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_server/lang_server_runner.py:41
+msgid ""
+"\n"
+"{0}[{1}!{0}]{1} SEND THIS SERVEO URL TO TARGETS"
+msgstr ""
+"\n"
+"{0}[{1}!{0}]{1} SEND THIS SERVEO URL TO TARGETS"
+
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_server/lang_server_runner.py:42
+msgid ""
+"\n"
+"{0}[{1}!{0}]{1} YOU CAN MAKE YOUR URL SIMILAR TO ORIGINAL."
+msgstr ""
+"\n"
+"{0}[{1}!{0}]{1} YOU CAN MAKE YOUR URL SIMILAR TO ORIGINAL."
+
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_server/lang_server_runner.py:43
+msgid ""
+"\n"
+"{0}Insert a custom subdomain for serveo"
+msgstr ""
+"\n"
+"{0}Insert a custom subdomain for serveo"
+
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_server/lang_server_runner.py:44
+msgid ""
+"\n"
+"{0}[{1}*{0}]{1} SERVEO URL: {2}"
+msgstr ""
+"\n"
+"{0}[{1}*{0}]{1} SERVEO URL: {2}"
+
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_server/lang_server_runner.py:45
+msgid ""
+"\n"
+"{0}FAILED TO GET THIS DOMAIN."
+msgstr ""
+"\n"
+"{0}FAILED TO GET THIS DOMAIN."
+
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_server/lang_server_runner.py:46
+msgid ""
+"\n"
+"{0}CUSTOM URL MAY BE NOT VALID or ALREADY OCCUPIED BY SOMEONE ELSE."
+msgstr ""
+"\n"
+"{0}CUSTOM URL MAY BE NOT VALID or ALREADY OCCUPIED BY SOMEONE ELSE."
+
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_server/lang_server_runner.py:47
+msgid ""
+"\n"
+"{0}[{1}!{0}]TRY TO SELECT ANOTHER CUSTOM DOMAIN{1} (GOING BACK)..."
+msgstr ""
+"\n"
+"{0}[{1}!{0}]TRY TO SELECT ANOTHER CUSTOM DOMAIN{1} (GOING BACK)..."
+
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_server/lang_server_runner.py:48
+msgid ""
+"\n"
+"{0}[ SERVEO URL TYPE SELECTION ]{1}! {0}\n"
+"-------------------------------"
+msgstr ""
+"\n"
+"{0}[ SERVEO URL TYPE SELECTION ]{1}! {0}\n"
+"-------------------------------"
+
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_server/lang_server_runner.py:49
+msgid ""
+"\n"
+"{0}[{1}!{0}]{1}Serveo Drops The Connection Whenever Detects Phishing. Be "
+"careful."
+msgstr ""
+"\n"
+"{0}[{1}!{0}]{1}Serveo Drops The Connection Whenever Detects Phishing. Be "
+"careful."
+
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_server/lang_server_runner.py:50
+msgid ""
+"\n"
+"{0}[{1}*{0}]{0}CHOOSE SERVEO URL TYPE TO GENERATE PHISHING LINK:{1}"
+msgstr ""
+"\n"
+"{0}[{1}*{0}]{0}CHOOSE SERVEO URL TYPE TO GENERATE PHISHING LINK:{1}"
+
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_server/lang_server_runner.py:54
+msgid ""
+"{0}[{1}1{0}]Serveo is {1}DOWN{0} now, do you want to select another option? "
+"{1}Y{0}/{1}n{0}"
+msgstr ""
+"{0}[{1}1{0}]Serveo is {1}DOWN{0} now, do you want to select another option? "
+"{1}Y{0}/{1}n{0}"
+
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_server/lang_server_runner.py:58
+msgid ""
+"\n"
+"{0}[ RANDOM LOCALXPOSE URL ]{1}! {0}\n"
+"-------------------------------"
+msgstr ""
+"\n"
+"{0}[ RANDOM LOCALXPOSE URL ]{1}! {0}\n"
+"-------------------------------"
+
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_simple_informant.py:16
 msgid "Yes, i do"
 msgstr "Yes, i do"
 
-#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_simple_informant.py:15
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_simple_informant.py:18
 msgid ""
 "\n"
 "            # To Accept EULA set eula to True\n"
@@ -249,162 +462,220 @@ msgstr ""
 "            \n"
 "            "
 
-#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_simple_informant.py:22
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_simple_informant.py:25
 msgid ""
 "\n"
-" {0}[{1}*{0}] SELECT ANY MODE...{0}\n"
-"--------------------------------"
+" {0}[{1}*{0}] PHP has been found. Proceeding."
 msgstr ""
 "\n"
-" {0}[{1}*{0}] SELECT ANY MODE...{0}\n"
-"--------------------------------"
+" {0}[{1}*{0}] PHP has been found. Proceeding."
+
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_simple_informant.py:26
+msgid ""
+"\n"
+" {0}[{1}*{0}] Unable to find PHP, please install PHP and try again."
+msgstr ""
+"\n"
+" {0}[{1}*{0}] Unable to find PHP, please install PHP and try again."
 
 #: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_simple_informant.py:30
-msgid ""
-"\n"
-"{0}[ WEBSERVER PORT SELECTION ]{1}! {0}\n"
-"-------------------------------"
-msgstr ""
-"\n"
-"{0}[ WEBSERVER PORT SELECTION ]{1}! {0}\n"
-"-------------------------------"
+msgid "{0}Permissions granted!"
+msgstr "{0}Permissions granted!"
 
 #: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_simple_informant.py:31
-msgid ""
-"\n"
-" {0}[{1}*{0}]Select Port [1-65535]:{1}"
-msgstr ""
-"\n"
-" {0}[{1}*{0}]Select Port [1-65535]:{1}"
+msgid "{0}Permissions denied! Please run as {1}sudo{0}"
+msgstr "{0}Permissions denied! Please run as {1}sudo{0}"
 
 #: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_simple_informant.py:32
 msgid ""
 "\n"
-" {0}[{1}*{0} We suggest using ports between [{1}1024{0}-{1}65535{0}] but you "
-"still able to choose any ports you want."
+"{0}[{1}!{0}] {1}Windows systems {0}aren't compatible yet. Make sure you're "
+"using a  {1}Linux/GNU{0} system."
 msgstr ""
 "\n"
-" {0}[{1}*{0} We suggest using ports between [{1}1024{0}-{1}65535{0}] but you "
-"still able to choose any ports you want."
+"{0}[{1}!{0}] {1}Windows systems {0}aren't compatible yet. Make sure you're "
+"using a  {1}Linux/GNU{0} system."
 
 #: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_simple_informant.py:36
 msgid ""
 "\n"
-"{0}[{1}?{0}] Re-run(r) : Exit(x) : Send Email(m) : SelectServer(s)\n"
-"\n"
-" >> {2}"
+" {0}[{1}*{0}] INTERNET - {1}[CONNECTED]"
 msgstr ""
 "\n"
-"{0}[{1}?{0}] Re-run(r) : Exit(x) : Send Email(m) : SelectServer(s)\n"
-"\n"
-" >> {2}"
+" {0}[{1}*{0}] INTERNET - {1}[CONNECTED]"
 
 #: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_simple_informant.py:37
 msgid ""
-"{1}  [[*]] {0}You always can help to improve this tool and support us. {0}"
+"\n"
+" {0}[{1}*{0}] INTERNET - {1}[DISCONNECTED]"
 msgstr ""
-"{1}  [[*]] {0}You always can help to improve this tool and support us. {0}"
+"\n"
+" {0}[{1}*{0}] INTERNET - {1}[DISCONNECTED]"
 
 #: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_simple_informant.py:38
-msgid "{0}[{1}!{0}] If any phishing page got broken, please let us know."
-msgstr "{0}[{1}!{0}] If any phishing page got broken, please let us know."
-
-#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_simple_informant.py:39
-msgid "{0}[{1}!{0}] You can create issue or pull request on our GitHub page."
-msgstr "{0}[{1}!{0}] You can create issue or pull request on our GitHub page."
-
-#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_simple_informant.py:40
 msgid ""
-"{0}[{1}!{0}] We are not responsible for anything you do with this tool, "
-"please review license agreement when you have some time. \n"
-"{0}[{1}!{0}] We know everyone skips it and just agrees, but please, don't "
-"act so irresponsible with any software you use."
+"\n"
+"{0}[{1}!{0}] Network error. Please verify your internet connection."
 msgstr ""
-"{0}[{1}!{0}] We are not responsible for anything you do with this tool, "
-"please review license agreement when you have some time. \n"
-"{0}[{1}!{0}] We know everyone skips it and just agrees, but please, don't "
-"act so irresponsible with any software you use."
-
-#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_simple_informant.py:41
-msgid ""
-"{0}[{1}!{0}] Our website has forum, please visit it, we want to build great "
-"community for all of you, we are always happy to have your help."
-msgstr ""
-"{0}[{1}!{0}] Our website has forum, please visit it, we want to build great "
-"community for all of you, we are always happy to have your help."
+"\n"
+"{0}[{1}!{0}] Network error. Please verify your internet connection."
 
 #: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_simple_informant.py:42
 msgid ""
-"{0}[{1}!{0}] If you want to support us with finances - visit our patreon "
-"page: (here_will_be_link_soon)"
-msgstr ""
-"{0}[{1}!{0}] If you want to support us with finances - visit our patreon "
-"page: (here_will_be_link_soon)"
-
-#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_simple_informant.py:43
-msgid ""
-"{0}[{1}!{0}] You help us even when you just use this tool. Everyone at {1}"
-"DarkSec{0} happy to have you, thank you very much! Have a nice day!"
-msgstr ""
-"{0}[{1}!{0}] You help us even when you just use this tool. Everyone at {1}"
-"DarkSec{0} happy to have you, thank you very much! Have a nice day!"
-
-#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_simple_informant.py:47
-msgid ""
-"{0}[{1}*{0}]{1} Waiting For Target Interaction. Keep Eyes On Requests Coming "
-"From Target ... \n"
-"{2}"
-"________________________________________________________________________________\n"
-msgstr ""
-"{0}[{1}*{0}]{1} Waiting For Target Interaction. Keep Eyes On Requests Coming "
-"From Target ... \n"
-"{2}"
-"________________________________________________________________________________\n"
-
-#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_simple_informant.py:48
-msgid ""
 "\n"
-" {0}[{1} CREDENTIALS FOUND {0}]{1}:\n"
+" {0}[{1}*{0}] SELECT ANY MODE...{0}\n"
+"--------------------------------"
 msgstr ""
 "\n"
-" {0}[{1} CREDENTIALS FOUND {0}]{1}:\n"
-
-#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_simple_informant.py:49
-msgid ""
-"\n"
-" {0}[{1} DEVICE DETAILS FOUND {0}]{1}:\n"
-msgstr ""
-"\n"
-" {0}[{1} DEVICE DETAILS FOUND {0}]{1}:\n"
+" {0}[{1}*{0}] SELECT ANY MODE...{0}\n"
+"--------------------------------"
 
 #: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_simple_informant.py:50
 msgid ""
 "\n"
+"{0}[ WEBSERVER PORT SELECTION ]{1}! {0}\n"
+"-------------------------------"
+msgstr ""
+"\n"
+"{0}[ WEBSERVER PORT SELECTION ]{1}! {0}\n"
+"-------------------------------"
+
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_simple_informant.py:51
+msgid ""
+"\n"
+" {0}[{1}*{0}]Select Port [1-65535]:{1}"
+msgstr ""
+"\n"
+" {0}[{1}*{0}]Select Port [1-65535]:{1}"
+
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_simple_informant.py:52
+msgid ""
+"\n"
+" {0}[{1}*{0} We suggest using ports between [{1}1024{0}-{1}65535{0}] but you "
+"still able to choose any ports you want."
+msgstr ""
+"\n"
+" {0}[{1}*{0} We suggest using ports between [{1}1024{0}-{1}65535{0}] but you "
+"still able to choose any ports you want."
+
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_simple_informant.py:56
+msgid ""
+"\n"
+"{0}[{1}?{0}] Re-run(r) : Exit(x) : Send Email(m) : SelectServer(s)\n"
+"\n"
+" >> {2}"
+msgstr ""
+"\n"
+"{0}[{1}?{0}] Re-run(r) : Exit(x) : Send Email(m) : SelectServer(s)\n"
+"\n"
+" >> {2}"
+
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_simple_informant.py:57
+msgid ""
+"{1}  [[*]] {0}You always can help to improve this tool and support us. {0}"
+msgstr ""
+"{1}  [[*]] {0}You always can help to improve this tool and support us. {0}"
+
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_simple_informant.py:58
+msgid "{0}[{1}!{0}] If any phishing page got broken, please let us know."
+msgstr "{0}[{1}!{0}] If any phishing page got broken, please let us know."
+
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_simple_informant.py:59
+msgid "{0}[{1}!{0}] You can create issue or pull request on our GitHub page."
+msgstr "{0}[{1}!{0}] You can create issue or pull request on our GitHub page."
+
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_simple_informant.py:60
+msgid ""
+"{0}[{1}!{0}] We are not responsible for anything you do with this tool, "
+"please review license agreement when you have some time. \n"
+"{0}[{1}!{0}] We know everyone skips it and just agrees, but please, don't "
+"act so irresponsible with any software you use."
+msgstr ""
+"{0}[{1}!{0}] We are not responsible for anything you do with this tool, "
+"please review license agreement when you have some time. \n"
+"{0}[{1}!{0}] We know everyone skips it and just agrees, but please, don't "
+"act so irresponsible with any software you use."
+
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_simple_informant.py:61
+msgid ""
+"{0}[{1}!{0}] Our website has forum, please visit it, we want to build great "
+"community for all of you, we are always happy to have your help."
+msgstr ""
+"{0}[{1}!{0}] Our website has forum, please visit it, we want to build great "
+"community for all of you, we are always happy to have your help."
+
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_simple_informant.py:62
+msgid ""
+"{0}[{1}!{0}] If you want to support us with finances - visit our patreon "
+"page: (here_will_be_link_soon)"
+msgstr ""
+"{0}[{1}!{0}] If you want to support us with finances - visit our patreon "
+"page: (here_will_be_link_soon)"
+
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_simple_informant.py:63
+msgid ""
+"{0}[{1}!{0}] You help us even when you just use this tool. Everyone at {1}"
+"DarkSec{0} happy to have you, thank you very much! Have a nice day!"
+msgstr ""
+"{0}[{1}!{0}] You help us even when you just use this tool. Everyone at {1}"
+"DarkSec{0} happy to have you, thank you very much! Have a nice day!"
+
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_simple_informant.py:67
+msgid ""
+"{0}[{1}*{0}]{1} Waiting For Target Interaction. Keep Eyes On Requests Coming "
+"From Target ... \n"
+"{2}"
+"________________________________________________________________________________\n"
+msgstr ""
+"{0}[{1}*{0}]{1} Waiting For Target Interaction. Keep Eyes On Requests Coming "
+"From Target ... \n"
+"{2}"
+"________________________________________________________________________________\n"
+
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_simple_informant.py:68
+msgid ""
+"\n"
+" {0}[{1} CREDENTIALS FOUND {0}]{1}:\n"
+msgstr ""
+"\n"
+" {0}[{1} CREDENTIALS FOUND {0}]{1}:\n"
+
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_simple_informant.py:69
+msgid ""
+"\n"
+" {0}[{1} DEVICE DETAILS FOUND {0}]{1}:\n"
+msgstr ""
+"\n"
+" {0}[{1} DEVICE DETAILS FOUND {0}]{1}:\n"
+
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_simple_informant.py:70
+msgid ""
+"\n"
 " {1}[{0} GETTING PRESSED KEYS {1}]{1}:\n"
 msgstr ""
 "\n"
 " {1}[{0} GETTING PRESSED KEYS {1}]{1}:\n"
 
-#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_simple_informant.py:54
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_simple_informant.py:74
 msgid ""
 "              {0}WITH GREAT POWER {1}- {0}COMES GREAT RESPONSIBILITY      "
 msgstr ""
 "              {0}WITH GREAT POWER {1}- {0}COMES GREAT RESPONSIBILITY      "
 
-#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_simple_informant.py:55
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_simple_informant.py:75
 msgid "{0}Do you accept {1}license{0}?"
 msgstr "{0}Do you accept {1}license{0}?"
 
-#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_simple_informant.py:56
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_simple_informant.py:76
 msgid "{0}Enter: {1}{text_to_confirm}{0} to confirm."
 msgstr "{0}Enter: {1}{text_to_confirm}{0} to confirm."
 
-#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_simple_informant.py:57
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_simple_informant.py:77
 msgid "{0}You are {1}not allowed {0}to use this app without accepting license."
 msgstr ""
 "{0}You are {1}not allowed {0}to use this app without accepting license."
 
-#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_simple_informant.py:58
+#: HiddenEye/Defs/LocalizationManager/lang_action_manager/lang_simple_informant.py:78
 msgid ""
 "\n"
 "                      GNU GENERAL PUBLIC LICENSE\n"
