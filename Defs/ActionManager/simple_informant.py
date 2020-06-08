@@ -219,3 +219,13 @@ def check_php():
     except:
         print(localization.lang_check_php["not-found"])
         exit()
+
+def check_platform(required_data):
+    system = platform.system()
+    architecture = platform.machine()
+    if required_data == "system":
+        return system
+    elif required_data == "architecture":
+        return architecture
+    else:
+        return "System: {0}, Architecture: {1}".format(system, architecture)
