@@ -5,7 +5,7 @@
 #    under certain conditions; you can read LICENSE for details.
 #
 
-from Defs.ImportManager.unsorted_will_be_replaced import requests, getuid, platform_os, run_command, try_to_run_command, wait, chmod, stat, pathlib_Path, copyfile, socket
+from Defs.ImportManager.unsorted_will_be_replaced import requests, getuid, platform, run_command, try_to_run_command, wait, chmod, stat, pathlib_Path, copyfile, socket, regular_expression
 import Defs.ThemeManager.theme as theme
 import Defs.FeatureManager.EmailManager.email_prompt as email_prompt
 import Defs.ActionManager.Server.server_runner as server_runner
