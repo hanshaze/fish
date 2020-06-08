@@ -53,3 +53,7 @@ lang_start_serveo = {
       ['{0}[{1}2{0}]{1}Random URL {0}(Generates Random url)'] ],
     "serveo_is_down" : _('{0}[{1}1{0}]Serveo is {1}DOWN{0} now, do you want to select another option? {1}Y{0}/{1}n{0}').format(default_palette[0], default_palette[2])
 }
+
+lang_start_localxpose = {
+    "localxpose_random_server" : _('\n{0}[ RANDOM LOCALXPOSE URL ]{1}! {0}\n-------------------------------').format(default_palette[0], default_palette[2])
+}
