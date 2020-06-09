@@ -173,6 +173,11 @@ def log_writer(ctx):  # Writing log
     print(ctx)
 
 def port_selector():  # Requests port input from user
+    """Asks user to input number between 1 and 65535.
+
+    Returns:
+        string: Returns any number entered if it's between 1 and 65535, if it's not - asks for number again.
+    """
     run_command('clear')
     print(global_localization.hidden_eye_logo)
     print(global_localization.official_website_link)
