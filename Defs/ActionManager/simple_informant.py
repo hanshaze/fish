@@ -16,6 +16,11 @@ default_palette = theme.default_palette
 
 
 def license_handler():
+    """ Checks if eula.txt exists, creates one if it doesn't. Checks if "eula = True" is inside.
+
+    Returns:
+        boolean: Returns True if "eula = True" is inside eula.txt, False by default.
+    """
     eula = pathlib_Path("eula.txt")
     
     if eula.exists():
