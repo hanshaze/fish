@@ -42,6 +42,14 @@ def license_handler():
 
 
 def exit_message(port = 80):  # Message when HiddenEye exit
+    """Displays preconfigured message when HiddenEye execution ends or user tries to leave app.
+
+    Args:
+        port (int, optional): Will be used as port value if custom one isn't provided. Needed in case user decides to restart app again. Defaults to 80.
+
+    Returns:
+        method: If no option is selected, exit message returns to self and gets shown again.
+    """
     choice = input(localization.lang_exit_message["choice"])
     choice.lower()
     if choice == 'r':
