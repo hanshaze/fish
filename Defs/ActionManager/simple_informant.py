@@ -98,7 +98,8 @@ def terms_of_service_message():
     else:
         return True
             
-def module_loading_message(module):  # This one just show text..
+def module_loading_message():  # This one just show text..
+    """Prints "Select any mode" message.  """
     print(localization.lang_module_loading_message["select_any_mode"])
 
 
