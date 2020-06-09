@@ -75,6 +75,11 @@ def exit_message(port = 80):  # Message when HiddenEye exit
         return exit_message(port)
 
 def terms_of_service_message():  
+    """Requests user to provide agreement to license provided. 
+
+    Returns:
+        boolean: Always returns True, if user doesn't accept agreement - proceeds to exit()
+    """
     agreement = license_handler()
     if not agreement:
         print(localization.lang_terms_of_service_message["GPL_3.0"])
