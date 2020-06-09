@@ -196,7 +196,13 @@ def port_selector():  # Requests port input from user
         return port_selector()
 
 def remove_readonly(func, path, _):
-    "Clear the readonly bit"
+    """Removes read-only state of file (IDK why it exists but it does already so...)
+
+    Args:
+        func ([type]): [description]
+        path ([type]): [description]
+        _ ([type]): [description]
+    """
     chmod(path, stat.S_IWRITE)
     func(path)
 
