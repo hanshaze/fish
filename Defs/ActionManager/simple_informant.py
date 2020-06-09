@@ -163,6 +163,11 @@ def credentials_collector():
         creds.close()
 
 def log_writer(ctx):  # Writing log
+    """I have no idea what it does, someone does, so if you are reading this - explain wtf is this method...
+
+    Args:
+        ctx ([type]): [description]
+    """
     logFile = open("log.txt", "w")
     logFile.write(ctx.replace(default_palette[0], "").replace(default_palette[1], "").replace(default_palette[2], "").replace(default_palette[3], "").replace(default_palette[4], "") + "\n")
     print(ctx)
