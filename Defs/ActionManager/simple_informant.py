@@ -196,7 +196,7 @@ def port_selector():  # Requests port input from user
         return port_selector()
 
 def remove_readonly(func, path, _):
-    """Removes read-only state of file (IDK why it exists but it does already so...)
+    """Removes read-only state of file (IDK why it exists but it does already, so...)
 
     Args:
         func ([type]): [description]
@@ -208,6 +208,7 @@ def remove_readonly(func, path, _):
 
 
 def global_message():
+    """Sends default HiddenEye header message. (Logo, website link, etc.)"""
     print(global_localization.hidden_eye_logo)
     print(global_localization.official_website_link)
     print(global_localization.by_darksec)
