@@ -6,7 +6,7 @@
 #
 
 
-from Defs.ImportManager.unsorted_will_be_replaced import BytesIO, ZipFile, run_command, url_request, run_background_command, wait, ngrok, requests, regular_expression, check_output, CalledProcessError, chdir, chmod, DEVNULL, PIPE, path, pathlib_Path
+from Defs.ImportManager.unsorted_will_be_replaced import BytesIO, ZipFile, run_command, url_request, run_background_command, wait, ngrok, ngrok_conf, requests, regular_expression, check_output, CalledProcessError, chdir, chmod, DEVNULL, PIPE, path, pathlib_Path
 
 import Defs.ThemeManager.theme as theme
 import Defs.LocalizationManager.lang_action_manager.lang_server.lang_server_runner as localization
