@@ -39,6 +39,7 @@ lang_verify_connection = {
 }
 
 lang_module_loading_message = {
+  "is_loaded" : _('{0} IS LOADED...{0}\n--------------------------------').format(default_palette[0], default_palette[2]),
   "select_any_mode" : _('\n {0}[{1}*{0}] SELECT ANY MODE...{0}\n--------------------------------').format(default_palette[0], default_palette[2])
 }
 
