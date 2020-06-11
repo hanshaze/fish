@@ -12,7 +12,7 @@ from time import sleep as wait
 from os import path, system, chmod, stat, mkdir, remove, chdir, replace, getuid
 from shutil import rmtree, copyfile
 from pathlib import Path as pathlib_Path
-from pyngrok import ngrok
+from pyngrok import conf as ngrok_conf, ngrok
 import re as regular_expression
 import getpass, base64, socket, requests
 import platform
