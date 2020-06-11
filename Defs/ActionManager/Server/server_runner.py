@@ -113,7 +113,10 @@ def start_localhost(port):
 
 
 def start_ngrok(port):
-    ngrok.DEFAULT_CONFIG_PATH = ".config/ngrok.yml"
+    #ngrok.DEFAULT_CONFIG_PATH = ".config/ngrok.yml"
+    # ngrok_conf.DEFAULT_NGROK_CONFIG_PATH = ".config/ngrok.yml" # Prabably way to go, but i'm not sure yet...
+    
+    ngrok_conf.PyngrokConfig(config_path=".config/ngrok.yml")
    
     run_command(['killall', '-2', 'ngrok'], stdout=DEVNULL, stderr=DEVNULL)
     run_command('clear')
