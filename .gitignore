@@ -27,3 +27,5 @@ Server/www/
 External_Software/
 
 *.mo
+
+venv/
