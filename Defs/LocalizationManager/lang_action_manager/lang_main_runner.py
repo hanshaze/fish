@@ -27,7 +27,7 @@ lang_start_main_menu = {
     "down_line" : "{0}________________________________________________________________________________".format(default_palette[0]),
     "attack_vector_message" : _("------------------------\nSELECT ANY ATTACK VECTOR:\n------------------------"),
     "phishing_modules_header" : _("\n{0}PHISHING-MODULES:").format(default_palette[0]),
-    "phishing_modules_list" : 
+    "phishing_modules_list" :
     [ ['{0}[{1}01{0}]{1} Facebook',      '{0}[{1}13{0}]{1} Steam',      '{0}[{1}25{0}]{1} Badoo',          '{0}[{1}37{0}]{1} PlayStation'],
       ['{0}[{1}02{0}]{1} Google',        '{0}[{1}14{0}]{1} VK',         '{0}[{1}26{0}]{1} CryptoCurrency', '{0}[{1}38{0}]{1} Xbox'],
       ['{0}[{1}03{0}]{1} LinkedIn',      '{0}[{1}15{0}]{1} iCloud',     '{0}[{1}27{0}]{1} DevianArt',      '{0}[{1}39{0}]{1} CUSTOM(1)'],
@@ -41,7 +41,7 @@ lang_start_main_menu = {
       ['{0}[{1}11{0}]{1} Twitch',        '{0}[{1}23{0}]{1} PornHub',    '{0}[{1}35{0}]{1} Reddit'],
       ['{0}[{1}12{0}]{1} Microsoft',     '{0}[{1}24{0}]{1} Adobe',      '{0}[{1}36{0}]{1} Subito.it']],
     "additional_modules" : _("\n{0}ADDITIONAL-TOOLS:").format(default_palette[0]),
-    "additional_modules_list" : 
+    "additional_modules_list" :
     [ [_('{0}[{1}0A{0}]{1} Get Target Location')]],
     "operation_mode" : _("\nOperation mode:\n"),
     "facebook_operation_modes" :
@@ -66,7 +66,7 @@ lang_start_main_menu = {
 lang_start_phishing_page = {
     "custom_folder_directory" : _('\n {0}[{1}*{0}]{1} Custom Folder Directory is {0}WebPages/{page}').format(default_palette[0], default_palette[4], page = 'page'),
     "manual_reading_suggestion" : _('\n {0}[{1}*{0}]{1} Please Read The manual.txt File Available At {0}[WebPages/{page}]').format(default_palette[0], default_palette[4], page = 'page'),
-    "press_enter_to_contunue_if_setup_correctly" : _('\n {0}[{1}*{0}]{1} If You Have Set Up The Files Correctly, {0}Press Enter To continue.').format(default_palette[0], default_palette[4]),
+    "press_enter_to_continue_if_setup_correctly" : _('\n {0}[{1}*{0}]{1} If You Have Set Up The Files Correctly, {0}Press Enter To continue.').format(default_palette[0], default_palette[4]),
     "copying_your_files" : _('\n {0}[{1}*{0}]{1} Copying Your Files To Server/www Folder...').format(default_palette[0], default_palette[4]),
     "https_suggestion" : _("\n{0}[{1}*{0}]{1} PLEASE USE TUNNELS/URL WITH '{0}https{1}' \n{0}[{1}*{0}]{1} Browsers Trusts only Https Links To Share Location\n").format(default_palette[0], default_palette[4]),
     "gdrive_suggestion" : _('{0}[{1}*{0}]{1} {0}Tip: {1}Use Google Drive File Url as Custom Url while asked.').format(default_palette[0], default_palette[4])
@@ -77,6 +77,6 @@ lang_enter_custom_redirecting_url = {
     "enter_redirecting_url_prompt" : _('\n{0}[{1}*{0}]Insert a custom redirect url:').format(default_palette[0], default_palette[4]),
     "redirect_here" : _('\n{0}REDIRECT HERE>>> {1}').format(default_palette[0], default_palette[2])
 }
-             
+
 #
 #

