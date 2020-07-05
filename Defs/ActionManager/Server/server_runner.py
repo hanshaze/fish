@@ -7,7 +7,6 @@
 
 
 from Defs.ImportManager.unsorted_will_be_replaced import BytesIO, ZipFile, run_command, url_request, run_background_command, wait, ngrok, ngrok_conf, requests, regular_expression, check_output, CalledProcessError, chdir, chmod, DEVNULL, PIPE, path, pathlib_Path
-
 import Defs.ThemeManager.theme as theme
 import Defs.LocalizationManager.lang_action_manager.lang_server.lang_server_runner as localization
 import Defs.LocalizationManager.lang_global_usage as global_localization
@@ -155,7 +154,6 @@ def start_serveo(port):
             print(localization.lang_start_serveo[
                   "serveo_url"] + url + default_palette[4])
         except CalledProcessError:
-
             wait(4)
             run_command('clear')
             return random(port)
@@ -169,21 +167,14 @@ def start_serveo(port):
         print(localization.lang_start_serveo[
               "make_url_simmilar_to_real_suggestion"])
         print(localization.lang_start_serveo["insert_custom_subdomain"])
-
         lnk = input(global_localization.input_line)
-        if not ".serveo.net" in lnk:
-            lnk += ".serveo.net"
-        else:
-            pass
-        run_command(
+        run_background_command(
             ['ssh', '-o', 'StrictHostKeyChecking=no', '-o', 'ServerAliveInterval=60', '-o', 'ServerAliveCountMax=60',
              '-R', '{0}:80:localhost:{1}'.format(lnk, port), 'serveo.net', '>', 'link.url'], stdout=DEVNULL,
             stderr=DEVNULL)
+        lnk += ".serveousercontent.com"
         wait(7)
         try:
-            output = check_output(
-                "grep -o '.\{0,0\}http.\{0,100\}' link.url", shell=True)
-            url = output.decode("utf-8")
             run_command('clear')
             print(global_localization.hidden_eye_logo)
             print(global_localization.official_website_link)
@@ -194,7 +185,7 @@ def start_serveo(port):
             print(localization.lang_start_localhost[
                   "localhost_url"] + '127.0.0.1:' + port)
             print(localization.lang_start_serveo[
-                  "serveo_url"] + url + default_palette[4])
+                  "serveo_url"] + lnk + default_palette[4])
 
             print("\n")
 
