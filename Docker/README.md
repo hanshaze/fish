@@ -28,7 +28,7 @@ Run docker-compose
 ```bash
 docker-compose up --build -d
 ```
-*_Don't need redirection of ports 'cause the container is exposed to internet_* <br>
+'_Don not need redirection of ports 'cause the container is exposed to internet_' <br>
 Verify of the container is running with:
 
 ```bash

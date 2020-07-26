@@ -10,6 +10,7 @@ RUN apt-get install --no-install-recommends -y git && \
     apt-get install -y python3-pip && \
     apt-get install --no-install-recommends -y php && \
     apt-get update && \
+    apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
 RUN git clone https://github.com/DarkSecDevelopers/HiddenEye
