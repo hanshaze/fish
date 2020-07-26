@@ -13,9 +13,7 @@ RUN apt-get update
 
 RUN apt-get install -y --no-install-recommends python3.7 && \
     apt-get install -y python3-pip && \
-    apt-get install --no-install-recommends -y php
-
-RUN apt-get update && \
+    apt-get install --no-install-recommends -y php && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
