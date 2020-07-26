@@ -5,7 +5,7 @@ WORKDIR /home/
 
 RUN apt-get update
 
-RUN apt-get install -y git && \
+RUN apt-get install --no-install-recommends -y git && \
     apt-get install --no-install-recommends -y python3.7 && \
     apt-get install -y python3-pip && \
     apt-get install --no-install-recommends -y php && \
