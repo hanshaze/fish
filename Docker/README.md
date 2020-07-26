@@ -4,6 +4,12 @@
 ![dockercompose](https://img.shields.io/badge/Docker_Compose-v1.25.4-orange?style=plastic&logo=docker)
 ![Maintainer](https://img.shields.io/badge/Maintainer-Equinockx-success?style=plastic&logo=terraform)
 
+
+# Runnin within container
+
+![running](https://github.com/MoisesTapia/HiddenEye/blob/Docker/Docker/images/start.png)
+![link](https://github.com/MoisesTapia/HiddenEye/blob/Docker/Docker/images/URL.png)
+
 # Requeriments
 
 - [X] Docker
@@ -22,17 +28,20 @@ Run docker-compose
 ```bash
 docker-compose up --build -d
 ```
+*_Don't need redirecciones of ports 'cause the container is exposed to internet_* <br>
 Verify of the container is running with:
 
 ```bash
 docker-compose ps
 ```
+![ps](https://github.com/MoisesTapia/HiddenEye/blob/Docker/Docker/images/ps.png)
 
 Executing HiddenEye inside of container
 
 ```bash
 docker-compose exec hidden python3 HiddenEye.py
 ```
+![exec](https://github.com/MoisesTapia/HiddenEye/blob/Docker/Docker/images/executing.png)
 
 # Persist Data
 
