@@ -1,4 +1,5 @@
 FROM debian:10
+LABEL maintaner="Equinockx moisestapia741@gmail.com"
 
 WORKDIR /home/
 
