@@ -17,4 +17,5 @@ services:
             - $PWD/WebPages:/home/WebPages
         networks:
             - internet
+        restart: always
 
