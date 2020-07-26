@@ -40,6 +40,7 @@ When we make or buils the service with `docker-compose up --build -d` this persi
 If you add the new Template in `WbeTemplate` this will be reflected in the container and yoi can use it.
 
 To add WebTemplate you juste need add them in this folder and done
+- [X] `equinockx~/Webtemplate$ cp * Docker/Webtemplate`
 - [X] WebTemplate
 
 # First Start the services
