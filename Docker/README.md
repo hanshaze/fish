@@ -46,7 +46,7 @@ docker-compose exec hidden python3 HiddenEye.py
 # Persist Data
 
 When we make or buils the service with `docker-compose up --build -d` this persist the data templates in the same folder `WebTemplate`.
-If you add the new Template in `WbeTemplate` this will be reflected in the container and yoi can use it.
+If you add the new Template in `WbeTemplate` this will be reflected in the container and you can use it.
 
 To add WebTemplate you juste need add them in this folder and done
 - [X] `equinockx~/Webtemplate$ cp * Docker/Webtemplate`
