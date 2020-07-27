@@ -14,7 +14,7 @@ services:
         stdin_open: true
         tty: true
         volumes: 
-            - $PWD/../WebPages:/home/HiddenEye/WebPages
+            - $PWD/WebPages:/home/WebPages
         networks:
             - internet
         restart: always
