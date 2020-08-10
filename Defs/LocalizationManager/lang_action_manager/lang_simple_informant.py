@@ -71,10 +71,10 @@ lang_port_selector = {
     _("\n{0}[ WEBSERVER PORT SELECTION ]{1}! {0}\n-------------------------------"
       ).format(default_palette[0], default_palette[2]),
     "select_any_available_port":
-    _("\n {0}[{1}*{0}]Select Port [1-65535]:{1}").format(
+    _("\n {0}[{1}*{0}] Select Port [1-65535]:{1}").format(
         default_palette[0], default_palette[4]),
     "port_suggestion":
-    _("\n {0}[{1}*{0} We suggest using ports between [{1}1024{0}-{1}65535{0}] but you still able to choose any ports you want."
+    _("\n {0}[{1}*{0}] We suggest using ports between [{1}1024{0}-{1}65535{0}] but you still able to choose any ports you want."
       ).format(default_palette[0], default_palette[4]),
 }
 

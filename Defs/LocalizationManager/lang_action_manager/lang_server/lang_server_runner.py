@@ -111,7 +111,7 @@ lang_start_serveo = {
       ).format(default_palette[0], default_palette[2]),
 }
 
-lang_start_localxpose = {
+lang_rand_localxpose = {
     "localxpose_random_server":
     _("\n{0}[ RANDOM LOCALXPOSE URL ]{1}! {0}\n-------------------------------"
       ).format(default_palette[0], default_palette[2])

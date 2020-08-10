@@ -14,13 +14,10 @@ from Defs.ImportManager.unsorted_will_be_replaced import copyfile
 from Defs.ImportManager.unsorted_will_be_replaced import getuid
 from Defs.ImportManager.unsorted_will_be_replaced import pathlib_Path
 from Defs.ImportManager.unsorted_will_be_replaced import platform
-from Defs.ImportManager.unsorted_will_be_replaced import regular_expression
 from Defs.ImportManager.unsorted_will_be_replaced import requests
 from Defs.ImportManager.unsorted_will_be_replaced import run_command
-from Defs.ImportManager.unsorted_will_be_replaced import socket
 from Defs.ImportManager.unsorted_will_be_replaced import stat
 from Defs.ImportManager.unsorted_will_be_replaced import try_to_run_command
-from Defs.ImportManager.unsorted_will_be_replaced import wait
 
 default_palette = theme.default_palette
 
@@ -33,7 +30,6 @@ def license_handler():
     """
     eula = pathlib_Path("eula.txt")
     if eula.exists():
-        eula = eula.open("r")
         with open("eula.txt", "r") as f:
             if "eula = True" in f.read():
                 print("Found your license agreement, proceeding...")
@@ -53,8 +49,8 @@ def license_handler():
 def exit_message(port=80):  # Message when HiddenEye exit
     """Displays preconfigured message when HiddenEye execution ends or user tries to leave app.
 
-    Args:
-        port (int, optional): Will be used as port value if custom one isn't provided. Needed in case user decides to restart app again. Defaults to 80.
+    Args: port (int, optional): Will be used as port value if custom one isn't provided. Needed in case user decides
+    to restart app again. Defaults to 80.
 
     Returns:
         method: If no option is selected, exit message returns to self and gets shown again.
@@ -95,9 +91,7 @@ def terms_of_service_message():
     agreement = license_handler()
     if not agreement:
         print(localization.lang_terms_of_service_message["GPL_3.0"])
-        print(
-            localization.
-                lang_terms_of_service_message["great_power_great_responsibility"])
+        print(localization.lang_terms_of_service_message["great_power_great_responsibility"])
         print(localization.
               lang_terms_of_service_message["do_you_accept_license"])
         print(localization.
@@ -209,8 +203,8 @@ def log_writer(ctx):  # Writing log
     Args:
         ctx ([type]): [description]
     """
-    logFile = open("log.txt", "w")
-    logFile.write(
+    log_file = open("log.txt", "w")
+    log_file.write(
         ctx.replace(default_palette[0], "").replace(
             default_palette[1], "").replace(default_palette[2], "").replace(
             default_palette[3], "").replace(default_palette[4], "") + "\n")

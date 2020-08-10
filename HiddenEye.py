@@ -6,10 +6,7 @@
 #
 import multiprocessing
 import ssl
-import sys
 from os import environ
-from os import system
-
 import Defs.ActionManager.main_runner as main_runner
 import Defs.ActionManager.Server.server_runner as server_runner
 import Defs.ActionManager.simple_informant as simple_informant
