@@ -286,11 +286,11 @@ def start_localxpose(port):
     else:
         if simple_informant.check_platform(
                 "system") == "Linux" and simple_informant.check_platform(
-                    "architecture" == "x86_64"):
+                    "architecture" is "x86_64"):
             localxpose_url = "https://lxpdownloads.sgp1.digitaloceanspaces.com/cli/loclx-linux-amd64.zip"
         elif simple_informant.check_platform(
                 "system") == "Linux" and simple_informant.check_platform(
-                    "architecture" == "aarch64"):
+                    "architecture" is "aarch64"):
             localxpose_url = "https://lxpdownloads.sgp1.digitaloceanspaces.com/cli/loclx-linux-arm64.zip"
         with url_request.urlopen(localxpose_url) as loclxzip:
             with ZipFile(BytesIO(loclxzip.read())) as zip_file:
