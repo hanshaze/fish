@@ -4,7 +4,7 @@ networks:
     internet:
         driver: bridge
 
-services: 
+services:
 
     hidden:
         container_name: hidden
@@ -13,9 +13,7 @@ services:
         command: python3 HiddenEye.py
         stdin_open: true
         tty: true
-        volumes: 
-            - $PWD/WebPages:/home/WebPages
-        networks:
-            - internet
+        volumes: $PWD/WebPages:/home/WebPages
+        networks: internet
         restart: always
 
