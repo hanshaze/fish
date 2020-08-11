@@ -12,15 +12,12 @@ import Defs.ThemeManager.theme as theme
 from Defs.ActionManager import simple_informant
 from Defs.ImportManager.unsorted_will_be_replaced import BytesIO
 from Defs.ImportManager.unsorted_will_be_replaced import CalledProcessError
-from Defs.ImportManager.unsorted_will_be_replaced import chdir
 from Defs.ImportManager.unsorted_will_be_replaced import check_output
 from Defs.ImportManager.unsorted_will_be_replaced import chmod
 from Defs.ImportManager.unsorted_will_be_replaced import DEVNULL
 from Defs.ImportManager.unsorted_will_be_replaced import ngrok
 from Defs.ImportManager.unsorted_will_be_replaced import ngrok_conf
 from Defs.ImportManager.unsorted_will_be_replaced import path
-from Defs.ImportManager.unsorted_will_be_replaced import pathlib_Path
-from Defs.ImportManager.unsorted_will_be_replaced import PIPE
 from Defs.ImportManager.unsorted_will_be_replaced import regular_expression
 from Defs.ImportManager.unsorted_will_be_replaced import requests
 from Defs.ImportManager.unsorted_will_be_replaced import run_background_command
@@ -34,8 +31,7 @@ try:
     os.mkdir("Server/www")
 except FileExistsError:
     pass
-enter_server_www = chdir("Server/www")
-exit_server_www = chdir("../..")
+
 default_palette = theme.default_palette
 
 
@@ -106,7 +102,6 @@ def start_localhost(port):
     print(localization.lang_start_localhost["your_localhost_is"] + host)
     set_port()
 
-    enter_server_www
     set_php(host, port)
     print(localization.lang_start_localhost["starting_server_on_addr"] +
           "{0}:{1}".format(host, port))
