@@ -5,6 +5,7 @@
 #    under certain conditions; you can read LICENSE for details.
 #
 import base64
+import stat
 import getpass
 import platform
 import re as regular_expression
@@ -18,7 +19,6 @@ from os import mkdir
 from os import path
 from os import remove
 from os import replace
-from os import stat
 from os import system
 from pathlib import Path as pathlib_Path
 from shutil import copyfile
