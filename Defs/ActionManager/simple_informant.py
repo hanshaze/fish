@@ -231,7 +231,7 @@ def port_selector():  # Requests port input from user
             return port_selector()
         else:
             return choice
-    except:
+    except ValueError:
         return port_selector()
 
 
@@ -263,7 +263,7 @@ def verify_connection(
         if req.status_code == 200:
             print(localization.lang_verify_connection["connected"])
             pass
-    except:
+    except ConnectionError:
         print(global_localization.hidden_eye_logo)
         print(localization.lang_verify_connection["disconnected"])
         print(localization.lang_verify_connection["verify_your_connection"])
@@ -304,19 +304,16 @@ def check_php():
     try:
         try_to_run_command(["php", "-v"])
         print(localization.lang_check_php["found"])
-    except:
+    except ModuleNotFoundError:
         print(localization.lang_check_php["not-found"])
         exit()
 
 
-def check_platform(required_data):
-    """Checks system for specific platform related data and returns requested value.
-
-    Args:
-        required_data (string): accepts "system" or "architecture"
-    Returns:
-        string: data requested by required_data, Returns all if required_data isn't specified.
-    """
+def check_platform(required_data: str):
+    """ Checks system for specific platform related data and returns requested value.
+    :param required_data: accepts "system" or "architecture"
+    :type required_data: requires string input
+    :return: returns data specified as required_data, Returns all if required_data isn't specified """
     system = platform.system()
     architecture = platform.machine()
     if required_data == "system":
