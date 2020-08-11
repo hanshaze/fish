@@ -243,7 +243,7 @@ def remove_readonly(func, path, _):
         path ([type]): [description]
         _ ([type]): [description]
     """
-    chmod(path, stat.S_IWRITE)
+    chmod(path, mode=stat.S_IWRITE)
     func(path)
 
 
