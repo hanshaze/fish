@@ -14,16 +14,10 @@ import Defs.ActionManager.simple_informant as simple_informant
 import Defs.FeatureManager.feature_prompt as prompt
 from controllers.EULA_controller import EULAController
 
-# simple_informant.license_handler()
-# agreement = simple_informant.terms_of_service_message()
-# if not agreement:
-#     exit()
-# TODO replace everything above
 if EULAController().check_eula_existence() is False:
     EULAController().generate_new_eula()
 if EULAController().check_eula_confirmation() is False:
     exit()
-# FIXME new code above
 
 
 if not environ.get("PYTHONHTTPSVERIFY", "") and getattr(

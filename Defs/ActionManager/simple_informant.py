@@ -21,31 +21,6 @@ from Defs.ImportManager.unsorted_will_be_replaced import try_to_run_command
 
 default_palette = theme.default_palette
 
-
-def license_handler():
-    """ Checks if eula.txt exists, creates one if it doesn't. Checks if "eula = True" is inside.
-
-    Returns:
-        boolean: Returns True if "eula = True" is inside eula.txt, False by default.
-    """
-    eula = pathlib_Path("eula.txt")
-    if eula.exists():
-        with open("eula.txt", "r") as f:
-            if "eula = True" in f.read():
-                print("Found your license agreement, proceeding...")
-                return True
-            else:
-                print("Please read and accept license.")
-                return False
-    else:
-        eula.touch(mode=0o777, exist_ok=True)
-        eula = open("eula.txt", "w")
-        eula.write(localization.write_eula + "eula = False")
-        eula.close()
-        print("Please accept EULA.")
-        return False
-
-
 def exit_message(port=80):  # Message when HiddenEye exit
     """Displays preconfigured message when HiddenEye execution ends or user tries to leave app.
 
