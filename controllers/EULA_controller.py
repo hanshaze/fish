@@ -58,9 +58,9 @@ class EULAController:
             eula_temp_input.write(eula_temp_data)
             eula_temp_input.close()
             print(EULAView().EULA_messages["eula_was_just_accepted"])
-            sleep(3.5)
+            sleep(1.5)
             pass
         else:
             print(EULAView().EULA_messages["eula_was_just_rejected"])
-            sleep(3.5)
+            sleep(1.5)
             exit()
