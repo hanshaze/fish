@@ -1,7 +1,4 @@
 <p align="right">
-<a href="README.md">English description</a> | Описание на русском
-</p>
-<p align="right">
 English description | <a href="README_RU.md">Описание на русском</a>
 </p>
 <p align="left">
