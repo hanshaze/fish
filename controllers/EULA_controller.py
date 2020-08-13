@@ -1,6 +1,7 @@
 import pathlib
-from os import chmod
 import stat
+from os import chmod
+
 from views.EULA_view import EULAView
 
 
