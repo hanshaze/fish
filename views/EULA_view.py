@@ -1,4 +1,7 @@
-from gettext import gettext as _
+from controllers.localization_controller import LocalizationController
+
+# noinspection PyProtectedMember
+_ = LocalizationController()._
 
 
 class EULAView:
