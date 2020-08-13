@@ -17,7 +17,7 @@ from controllers.EULA_controller import EULAController
 if EULAController().check_eula_existence() is False:
     EULAController().generate_new_eula()
 if EULAController().check_eula_confirmation() is False:
-    exit()
+    EULAController().confirm_eula()
 
 
 if not environ.get("PYTHONHTTPSVERIFY", "") and getattr(
