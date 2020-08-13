@@ -19,9 +19,9 @@ if EULAController().check_eula_existence() is False:
 if EULAController().check_eula_confirmation() is False:
     EULAController().confirm_eula()
 
-if not environ.get("PYTHONHTTPSVERIFY", "") and getattr(
-        ssl, "_create_unverified_context", None):
-    ssl._create_default_https_context = ssl._create_unverified_context
+# if not environ.get("PYTHONHTTPSVERIFY", "") and getattr(
+#         ssl, "_create_unverified_context", None):
+#     ssl._create_default_https_context = ssl._create_unverified_context
 
 simple_informant.check_permissions()
 # verCheck() # For now it's useless, i'll rewrite it later, after release.
