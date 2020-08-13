@@ -23,3 +23,9 @@ Server/CapturedData/KeyloggerData.txt
 eula.txt
 
 Server/www/
+
+External_Software/
+
+*.mo
+
+venv/
