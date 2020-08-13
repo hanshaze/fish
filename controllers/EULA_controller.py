@@ -26,12 +26,10 @@ class EULAController:
         text_license = self.license.read()
         with open(str(self.eula), "w+") as temp_eula:
             chmod(self.eula, 0o777)
-            temp_eula.write(
-                "{0}\n{1}".format(
-                    EULAView().EULA_messages["eula_start_of_file_unconfirmed"],
-                    text_license,
-                )
-            )
+            temp_eula.write("{0}\n{1}".format(
+                EULAView().EULA_messages["eula_start_of_file_unconfirmed"],
+                text_license,
+            ))
             temp_eula.close()
 
     def check_eula_confirmation(self):
@@ -45,7 +43,9 @@ class EULAController:
 
     def confirm_eula(self):
         # FIXME replace those strings with View entries
-        print(f"{self.license.read()}\nGreat Power Comes With Great Responsibility")
+        print(
+            f"{self.license.read()}\nGreat Power Comes With Great Responsibility"
+        )
         print(
             "\nThe use of the HiddenEye & its resources/phishing-pages is COMPLETE RESPONSIBILITY of the END-USER."
         )

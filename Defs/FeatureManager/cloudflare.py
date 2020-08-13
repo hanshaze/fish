@@ -28,9 +28,6 @@ def add_cloudfare():
         print("Unable to find index file, skipping...")
         return
     copyfile("WebPages/cloudflare.html", "Server/www/index.html")
-    print(
-        "\n{0}[{1}#{0}]CLOUDFARE FAKE PAGE{0} ADDED...".format(
-            default_palette[0], default_palette[4]
-        )
-    )
+    print("\n{0}[{1}#{0}]CLOUDFARE FAKE PAGE{0} ADDED...".format(
+        default_palette[0], default_palette[4]))
     wait(1)

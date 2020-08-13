@@ -5,7 +5,6 @@
 #    under certain conditions; you can read LICENSE for details.
 #
 
-
 default_palette = [
     "\033[91m",
     "\033[46m",
