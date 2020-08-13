@@ -295,13 +295,13 @@ def verify_connection(
             verify_connection()
 
 
-def check_permissions():
-    if check_platform("system") == "Linux":
-        if getuid() == 0:
-            print(localization.lang_check_permissions["permissions_granted"])
-        else:
-            print(localization.lang_check_permissions["permissions_denied"])
-            exit()
+# def check_permissions():
+#     if check_platform("system") == "Linux":
+#         if getuid() == 0:
+#             print(localization.lang_check_permissions["permissions_granted"])
+#         else:
+#             print(localization.lang_check_permissions["permissions_denied"])
+#             exit()
 
 
 def check_php():
