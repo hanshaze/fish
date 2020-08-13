@@ -1,3 +1,9 @@
+<p align="right">
+<a href="README.md">English description</a> | Описание на русском
+</p>
+<p align="right">
+English description | <a href="README_RU.md">Описание на русском</a>
+</p>
 <p align="left">
   <a><img title="Built With Love" src="https://forthebadge.com/images/badges/built-with-love.svg" ></a>
  </p>
@@ -43,7 +49,7 @@ The use of the HiddenEye & its resources/phishing-pages is **COMPLETE RESPONSIBI
 8) DarkMidus (https://github.com/DarkMidus)
 8) ___________ (WAITING FOR YOU)
 
-# AVAILABLE TUNNELLING OPTIONS**
+# AVAILABLE TUNNELLING OPTIONS
 0) LOCALHOST 
 1) LOCALXPOSE (https://localxpose.io)
 2) SERVEO (https://serveo.net/)
