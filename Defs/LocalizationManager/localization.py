@@ -4,10 +4,8 @@
 #    This is free software, and you are welcome to redistribute it
 #    under certain conditions; you can read LICENSE for details.
 #
-
-
 import gettext
 
-gettext.bindtextdomain('HiddenEye', 'locale')
-gettext.textdomain('HiddenEye')
+gettext.bindtextdomain("HiddenEye", "locale")
+gettext.textdomain("HiddenEye")
 _ = gettext.gettext

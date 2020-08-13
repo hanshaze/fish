@@ -5,11 +5,11 @@
 #    under certain conditions; you can read LICENSE for details.
 #
 import base64
-import stat
 import getpass
 import platform
 import re as regular_expression
 import socket
+import stat
 from distutils.dir_util import copy_tree as webpage_set
 from io import BytesIO
 from os import chdir

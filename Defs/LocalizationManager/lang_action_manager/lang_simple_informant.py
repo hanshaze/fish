@@ -48,11 +48,11 @@ lang_verify_connection = {
     _("\n{0}[{1}!{0}] Network error. You are disconnected from the internet.").
     format(default_palette[2], default_palette[0]),
     "continue_warning":
-    _("\n{0}[{1}*{0}] Many features of HiddenEye will not work without internet connection.").format(
-        default_palette[2], default_palette[0]),
+    _("\n{0}[{1}*{0}] Many features of HiddenEye will not work without internet connection."
+      ).format(default_palette[2], default_palette[0]),
     "continue_confirmation":
-        _("\n{0}[{1}*{0}] Are you sure you'd like to continue. (Y/N)").format(
-            default_palette[2], default_palette[0])
+    _("\n{0}[{1}*{0}] Are you sure you'd like to continue. (Y/N)").format(
+        default_palette[2], default_palette[0]),
 }
 
 lang_module_loading_message = {

@@ -4,16 +4,15 @@
 #    This is free software, and you are welcome to redistribute it
 #    under certain conditions; you can read LICENSE for details.
 #
+from time import sleep
 
-
-import Defs.LocalizationManager.lang_feature_manager.lang_feature_prompt as feature_localization
-import Defs.LocalizationManager.lang_global_usage as global_localization
-from Defs.ImportManager.unsorted_will_be_replaced import run_command
-import Defs.ThemeManager.theme as theme
 import Defs.FeatureManager.cloudflare as cloudflare
 import Defs.FeatureManager.EmailManager.email_prompt as email_prompt
 import Defs.FeatureManager.keylogger as keylogger
-from time import sleep
+import Defs.LocalizationManager.lang_feature_manager.lang_feature_prompt as feature_localization
+import Defs.LocalizationManager.lang_global_usage as global_localization
+import Defs.ThemeManager.theme as theme
+from Defs.ImportManager.unsorted_will_be_replaced import run_command
 
 default_palette = theme.default_palette
 
@@ -43,4 +42,3 @@ def feature_prompt():
             print(global_localization.invalid_option)
             sleep(3)
             feature_prompt()
-

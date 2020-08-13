@@ -4,10 +4,10 @@
 #    This is free software, and you are welcome to redistribute it
 #    under certain conditions; you can read LICENSE for details.
 #
-
 import multiprocessing
 import ssl
 from os import environ
+
 import Defs.ActionManager.main_runner as main_runner
 import Defs.ActionManager.Server.server_runner as server_runner
 import Defs.ActionManager.simple_informant as simple_informant
@@ -18,7 +18,6 @@ if EULAController().check_eula_existence() is False:
     EULAController().generate_new_eula()
 if EULAController().check_eula_confirmation() is False:
     EULAController().confirm_eula()
-
 
 if not environ.get("PYTHONHTTPSVERIFY", "") and getattr(
         ssl, "_create_unverified_context", None):
@@ -45,7 +44,7 @@ if __name__ == "__main__":
         server_runner.server_selection(port)
 
         multiprocessing.Process(target=server_runner.start_server,
-                                args=(port,)).start()
+                                args=(port, )).start()
         simple_informant.credentials_collector()
 
     except KeyboardInterrupt:
