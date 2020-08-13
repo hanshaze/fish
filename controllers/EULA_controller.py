@@ -43,10 +43,13 @@ class EULAController:
                 return False
 
     def confirm_eula(self):
-        print(f'{self.license.read()}\n{EULAView().EULA_messages["eula_power_and_responsibility_message"]}\n')
+        print(
+            f'{self.license.read()}\n{EULAView().EULA_messages["eula_power_and_responsibility_message"]}\n')
         print(EULAView().EULA_messages["eula_full_disclaimer"])
-        print(f'{EULAView().EULA_messages["eula_do_you_accept"]} \n\n{EULAView().EULA_messages["eula_enter_to_continue"]}\n')
-        answer = input(EULAView().EULA_messages["eula_input_prompt"]).lower().replace(" ", "")
+        print(
+            f'{EULAView().EULA_messages["eula_do_you_accept"]} \n\n{EULAView().EULA_messages["eula_enter_to_continue"]}\n')
+        answer = input(
+            EULAView().EULA_messages["eula_input_prompt"]).lower().replace(" ", "")
         if answer == "iaccepteula":
             eula_temp_input = open(self.eula, "rt")
             eula_temp_data = eula_temp_input.read().replace(
