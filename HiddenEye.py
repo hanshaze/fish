@@ -13,7 +13,7 @@ import Defs.ActionManager.Server.server_runner as server_runner
 import Defs.ActionManager.simple_informant as simple_informant
 import Defs.FeatureManager.feature_prompt as prompt
 from controllers.EULA_controller import EULAController
-
+from controllers.connection_controller import ConnectionController
 if EULAController().check_eula_existence() is False:
     EULAController().generate_new_eula()
 if EULAController().check_eula_confirmation() is False:
@@ -27,7 +27,7 @@ if EULAController().check_eula_confirmation() is False:
 # verCheck() # For now it's useless, i'll rewrite it later, after release.
 simple_informant.check_php()  # FIXME we have to replace PHP with Python
 # checkLocalxpose()
-simple_informant.verify_connection()
+ConnectionController().verify_connection()
 # checkOpenport()
 # checkPagekite()
 # checkLT()
