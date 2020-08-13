@@ -23,7 +23,7 @@ if EULAController().check_eula_confirmation() is False:
 #         ssl, "_create_unverified_context", None):
 #     ssl._create_default_https_context = ssl._create_unverified_context
 
-simple_informant.check_permissions()
+# simple_informant.check_permissions()
 # verCheck() # For now it's useless, i'll rewrite it later, after release.
 simple_informant.check_php()
 # checkLocalxpose()
