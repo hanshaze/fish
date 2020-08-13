@@ -20,19 +20,20 @@ pull_requests: true
 
 comments: false
 
-statuses:
-  differences: true
-  no_differences: true
-  error: true
+statuses: true
 
-request_review: none
+request_review: author
 
 labels: []
 
 ignore_labels:
   - restyled-ignore
 
-restylers_version: "20200615"
+restylers_version: "master"
 
 restylers:
-  - "*"
+  - autopep8
+  - black
+  - isort
+  - reorder-python-imports
+  - whitespace
