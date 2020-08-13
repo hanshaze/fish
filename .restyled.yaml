@@ -32,8 +32,8 @@ ignore_labels:
 restylers_version: "master"
 
 restylers:
-  - autopep8
   - black
+  - autopep8
   - isort
   - reorder-python-imports
   - whitespace
