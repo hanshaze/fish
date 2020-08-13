@@ -32,7 +32,6 @@ ignore_labels:
 restylers_version: "master"
 
 restylers:
-  - black
   - autopep8
   - isort
   - reorder-python-imports
