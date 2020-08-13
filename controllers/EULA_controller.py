@@ -25,7 +25,7 @@ class EULAController:
         text_license = self.license.read()
         with open(str(self.eula), 'w+') as temp_eula:
             chmod(self.eula, 0o777)
-            temp_eula.write("{0}\n{1}".format(EULAView().EULA_messages["eula_start_of_file"], text_license))
+            temp_eula.write("{0}\n{1}".format(EULAView().EULA_messages["eula_start_of_file_unconfirmed"], text_license))
             temp_eula.close()
 
     def check_eula_confirmation(self):
