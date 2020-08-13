@@ -17,7 +17,9 @@
   <a href="https://github.com/DarkSecDevelopers/HiddenEye/releases"><img title="GitHub version" src="https://d25lcipzij17d.cloudfront.net/badge.svg?id=gh&type=6&v=1.0.0&x2=0" ></a>  
   <a href="https://www.codefactor.io/repository/github/darksecdevelopers/hiddeneye"><img src="https://www.codefactor.io/repository/github/darksecdevelopers/hiddeneye/badge" alt="CodeFactor" /></a>
   <a href="https://www.codacy.com/manual/DarkSecDevelopers/HiddenEye?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=DarkSecDevelopers/HiddenEye&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/af9fadca3cfc4de19232d0840988e121"/></a>
-  <a href="https://app.fossa.com/projects/git%2Bgithub.com%2FDarkSecDevelopers%2FHiddenEye?ref=badge_shield" alt="FOSSA Status"><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2FDarkSecDevelopers%2FHiddenEye.svg?type=shield"/></a>
+  <a href="https://app.fossa.com/projects/git%2Bgithub.com%2FDarkSecDevelopers%2FHiddenEye?ref=badge_shield><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2FDarkSecDevelopers%2FHiddenEye.svg?type=shield"/></a>
+  <a href="https://github.com/psf/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg"></a>
+  <a href="https://www.python.org/dev/peps/pep-0008/"><img title="PEP8" src="https://img.shields.io/badge/code%20style-pep8-orange.svg"></a>
 </p>
 
 ## DISCLAIMER
