@@ -25,7 +25,7 @@ if EULAController().check_eula_confirmation() is False:
 
 # simple_informant.check_permissions()
 # verCheck() # For now it's useless, i'll rewrite it later, after release.
-simple_informant.check_php()
+simple_informant.check_php()  # FIXME we have to replace PHP with Python
 # checkLocalxpose()
 simple_informant.verify_connection()
 # checkOpenport()
