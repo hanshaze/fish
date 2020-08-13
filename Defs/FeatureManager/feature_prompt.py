@@ -43,4 +43,3 @@ def feature_prompt():
             print(global_localization.invalid_option)
             sleep(3)
             feature_prompt()
-
