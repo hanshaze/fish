@@ -1,6 +1,7 @@
 import pathlib
 import stat
 from os import chmod
+from time import sleep
 
 from views.EULA_view import EULAView
 
@@ -44,21 +45,21 @@ class EULAController:
     def confirm_eula(self):
         # FIXME replace those strings with View entries
         print(
-            f"{self.license.read()}\nGreat Power Comes With Great Responsibility"
+            f"{self.license.read()}\nGreat Power Comes With Great Responsibility\n"
         )
         print(
-            "\nThe use of the HiddenEye & its resources/phishing-pages is COMPLETE RESPONSIBILITY of the END-USER."
+            "The use of the HiddenEye & its resources/phishing-pages is COMPLETE RESPONSIBILITY of the END-USER."
         )
         print(
-            "\nDevelopers assume NO liability and are NOT responsible for any damage caused by this program."
+            "Developers assume NO liability and are NOT responsible for any damage caused by this program."
         )
         print(
-            "\nAlso we want to inform you that some of your actions may be ILLEGAL and you CAN NOT use this "
+            "Also we want to inform you that some of your actions may be ILLEGAL and you CAN NOT use this"
         )
         print(
-            "\nsoftware to test device, company or any other type of target without WRITTEN PERMISSION from them."
+            "software to test device, company or any other type of target without WRITTEN PERMISSION from them."
         )
-        print('\nDo you accept EULA? \nEnter: "I accept EULA" to continue')
+        print('Do you accept EULA? \n\nEnter: "I accept EULA" to continue\n')
         answer = input("HiddenEye EULA>> ").lower().replace(" ", "")
         if answer == "iaccepteula":
             eula_temp_input = open(self.eula, "rt")
@@ -70,8 +71,10 @@ class EULAController:
             eula_temp_input = open(self.eula, "wt")
             eula_temp_input.write(eula_temp_data)
             eula_temp_input.close()
+            print(EULAView().EULA_messages["eula_was_just_accepted"])
+            sleep(3.5)
             pass
-            # TODO add "thanks for confirmation" View entry
         else:
+            print(EULAView().EULA_messages["eula_was_just_rejected"])
+            sleep(3.5)
             exit()
-            # TODO add "you are not allowed to use HiddenEye" View entry

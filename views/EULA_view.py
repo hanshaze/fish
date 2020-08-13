@@ -11,4 +11,6 @@ class EULAView:
             "eula_is_invalid": _("EULA is not valid"),
             "eula_start_of_file_unconfirmed": _("# Please read and accept EULA below\n eula = False"),
             "eula_start_of_file_confirmed": _("# Please read and accept EULA below\n eula = True"),
+            "eula_was_just_accepted": _("You accepted EULA, you can enjoy your HiddenEye experience"),
+            "eula_was_just_rejected": _("You rejected EULA, you are not allowed to use HiddenEye")
         }
