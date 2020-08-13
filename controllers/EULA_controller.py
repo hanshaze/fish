@@ -5,10 +5,10 @@ from views.EULA_view import EULAView
 
 
 class EULAController:
-    def __init__(self, confirmation_text: str = 'eula = True'):
+    def __init__(self, confirmation_text: str = "eula = True"):
         self.eula = "eula.txt"
         self.confirmation_text = confirmation_text
-        self.license = open("LICENSE", 'r')
+        self.license = open("LICENSE", "r")
 
     def check_eula_existence(self):
         """
@@ -23,14 +23,18 @@ class EULAController:
     def generate_new_eula(self):
         pathlib.Path(str(self.eula)).touch(exist_ok=True)
         text_license = self.license.read()
-        with open(str(self.eula), 'w+') as temp_eula:
+        with open(str(self.eula), "w+") as temp_eula:
             chmod(self.eula, 0o777)
-            temp_eula.write("{0}\n{1}".format(
-                EULAView().EULA_messages["eula_start_of_file_unconfirmed"], text_license))
+            temp_eula.write(
+                "{0}\n{1}".format(
+                    EULAView().EULA_messages["eula_start_of_file_unconfirmed"],
+                    text_license,
+                )
+            )
             temp_eula.close()
 
     def check_eula_confirmation(self):
-        with open(self.eula, 'r') as file:
+        with open(self.eula, "r") as file:
             if self.confirmation_text in file.read():
                 print(EULAView().EULA_messages["eula_is_confirmed"])
                 return True
@@ -40,17 +44,27 @@ class EULAController:
 
     def confirm_eula(self):
         # FIXME replace those strings with View entries
-        print(f'{self.license.read()}\nGreat Power Comes With Great Responsibility')
-        print('\nThe use of the HiddenEye & its resources/phishing-pages is COMPLETE RESPONSIBILITY of the END-USER.')
-        print('\nDevelopers assume NO liability and are NOT responsible for any damage caused by this program.')
-        print('\nAlso we want to inform you that some of your actions may be ILLEGAL and you CAN NOT use this ')
-        print('\nsoftware to test device, company or any other type of target without WRITTEN PERMISSION from them.')
+        print(f"{self.license.read()}\nGreat Power Comes With Great Responsibility")
+        print(
+            "\nThe use of the HiddenEye & its resources/phishing-pages is COMPLETE RESPONSIBILITY of the END-USER."
+        )
+        print(
+            "\nDevelopers assume NO liability and are NOT responsible for any damage caused by this program."
+        )
+        print(
+            "\nAlso we want to inform you that some of your actions may be ILLEGAL and you CAN NOT use this "
+        )
+        print(
+            "\nsoftware to test device, company or any other type of target without WRITTEN PERMISSION from them."
+        )
         print('\nDo you accept EULA? \nEnter: "I accept EULA" to continue')
         answer = input("HiddenEye EULA>> ").lower().replace(" ", "")
         if answer == "iaccepteula":
             eula_temp_input = open(self.eula, "rt")
-            eula_temp_data = eula_temp_input.read().replace(EULAView(
-            ).EULA_messages["eula_start_of_file_unconfirmed"], EULAView().EULA_messages["eula_start_of_file_confirmed"])
+            eula_temp_data = eula_temp_input.read().replace(
+                EULAView().EULA_messages["eula_start_of_file_unconfirmed"],
+                EULAView().EULA_messages["eula_start_of_file_confirmed"],
+            )
             eula_temp_input.close()
             eula_temp_input = open(self.eula, "wt")
             eula_temp_input.write(eula_temp_data)
