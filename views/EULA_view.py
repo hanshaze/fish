@@ -10,4 +10,5 @@ class EULAView:
             "eula_not_found": _("EULA isn't found\n Generated new EULA"),
             "eula_is_invalid": _("EULA is not valid"),
             "eula_start_of_file_unconfirmed": _("# Please read and accept EULA below\n eula = False"),
+            "eula_start_of_file_confirmed": _("# Please read and accept EULA below\n eula = True")
         }

@@ -36,3 +36,25 @@ class EULAController:
             else:
                 print(EULAView().EULA_messages["eula_is_not_confirmed"])
                 return False
+
+    def confirm_eula(self):
+        # FIXME replace those strings with View entries
+        print(f'{self.license.read()}\nGreat Power Comes With Great Responsibility')
+        print('\nThe use of the HiddenEye & its resources/phishing-pages is COMPLETE RESPONSIBILITY of the END-USER.')
+        print('\nDevelopers assume NO liability and are NOT responsible for any damage caused by this program.')
+        print('\nAlso we want to inform you that some of your actions may be ILLEGAL and you CAN NOT use this ')
+        print('\nsoftware to test device, company or any other type of target without WRITTEN PERMISSION from them.')
+        print('\nDo you accept EULA? \nEnter: "I accept EULA" to continue')
+        answer = input("HiddenEye EULA>> ").lower().replace(" ", "")
+        if answer == "iaccepteula":
+            eula_temp_input = open(self.eula, "rt")
+            eula_temp_data = eula_temp_input.read().replace(EULAView().EULA_messages["eula_start_of_file_unconfirmed"], EULAView().EULA_messages["eula_start_of_file_confirmed"])
+            eula_temp_input.close()
+            eula_temp_input = open(self.eula, "wt")
+            eula_temp_input.write(eula_temp_data)
+            eula_temp_input.close()
+            pass
+            # TODO add "thanks for confirmation" View entry
+        else:
+            exit()
+            # TODO add "you are not allowed to use HiddenEye" View entry
