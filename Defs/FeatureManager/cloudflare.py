@@ -4,13 +4,13 @@
 #    This is free software, and you are welcome to redistribute it
 #    under certain conditions; you can read LICENSE for details.
 #
-
-
 import Defs.ThemeManager.theme as theme
-from Defs.ImportManager.unsorted_will_be_replaced import (chmod, copyfile,
-                                                          pathlib_Path,
-                                                          replace, run_command,
-                                                          wait)
+from Defs.ImportManager.unsorted_will_be_replaced import chmod
+from Defs.ImportManager.unsorted_will_be_replaced import copyfile
+from Defs.ImportManager.unsorted_will_be_replaced import pathlib_Path
+from Defs.ImportManager.unsorted_will_be_replaced import replace
+from Defs.ImportManager.unsorted_will_be_replaced import run_command
+from Defs.ImportManager.unsorted_will_be_replaced import wait
 
 default_palette = theme.default_palette
 
