@@ -14,3 +14,9 @@ class NgrokController:
         self._tunnels = None
         self._ngrok_url = None
 
+    def close_latest_connection(self):
+        try:
+            self._model.disconnect(self._ngrok_url)
+        except self._exceptions.PyngrokError:
+            print("Can't find any latest connections.")  # FIXME replace with View entry
+            pass
