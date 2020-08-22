@@ -119,15 +119,15 @@ def start_localhost(port):
 
 
 def start_ngrok(port):
-    ngrok_conf.PyngrokConfig(config_path=".config/ngrok.yml")
-    run_command(["killall", "-2", "ngrok"], stdout=DEVNULL, stderr=DEVNULL)
-    run_command("clear")
+    ngrok_conf.PyngrokConfig(config_path=".config/ngrok.yml") #TODO done
+    run_command(["killall", "-2", "ngrok"], stdout=DEVNULL, stderr=DEVNULL)#TODO done
+    run_command("clear")#TODO done
     print(global_localization.hidden_eye_logo)
     print(global_localization.official_website_link)
     print(global_localization.by_darksec)
     print(global_localization.line_of_dots)
     print(localization.lang_start_ngrok["ngrok_server"])
-    ngrok.connect(port=int(port))
+    ngrok.connect(port=int(port))#TODO done
     while True:
         wait(2)
         ngrok_tunnels = ngrok.get_tunnels()
