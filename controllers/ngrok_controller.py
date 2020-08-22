@@ -20,3 +20,6 @@ class NgrokController:
         except self._exceptions.PyngrokError:
             print("Can't find any latest connections.")  # FIXME replace with View entry
             pass
+
+    def maintain_default_config(self):
+        self._installer.install_default_config(self._config_path)
