@@ -5,13 +5,17 @@ import logging
 import mimetypes
 import os
 
-from pip._vendor import requests
 from pip._vendor.requests.models import CONTENT_CHUNK_SIZE
 
 from pip._internal.cli.progress_bars import DownloadProgressProvider
+from pip._internal.exceptions import NetworkConnectionError
 from pip._internal.models.index import PyPI
 from pip._internal.network.cache import is_from_cache
-from pip._internal.network.utils import response_chunks
+from pip._internal.network.utils import (
+    HEADERS,
+    raise_for_status,
+    response_chunks,
+)
 from pip._internal.utils.misc import (
     format_size,
     redact_auth_from_url,
@@ -132,31 +136,8 @@ def _get_http_response_filename(resp, link):
 def _http_get_download(session, link):
     # type: (PipSession, Link) -> Response
     target_url = link.url.split('#', 1)[0]
-    resp = session.get(
-        target_url,
-        # We use Accept-Encoding: identity here because requests
-        # defaults to accepting compressed responses. This breaks in
-        # a variety of ways depending on how the server is configured.
-        # - Some servers will notice that the file isn't a compressible
-        #   file and will leave the file alone and with an empty
-        #   Content-Encoding
-        # - Some servers will notice that the file is already
-        #   compressed and will leave the file alone and will add a
-        #   Content-Encoding: gzip header
-        # - Some servers won't notice anything at all and will take
-        #   a file that's already been compressed and compress it again
-        #   and set the Content-Encoding: gzip header
-        # By setting this to request only the identity encoding We're
-        # hoping to eliminate the third case. Hopefully there does not
-        # exist a server which when given a file will notice it is
-        # already compressed and that you're not asking for a
-        # compressed file and will then decompress it before sending
-        # because if that's the case I don't think it'll ever be
-        # possible to make this work.
-        headers={"Accept-Encoding": "identity"},
-        stream=True,
-    )
-    resp.raise_for_status()
+    resp = session.get(target_url, headers=HEADERS, stream=True)
+    raise_for_status(resp)
     return resp
 
 
@@ -187,7 +168,8 @@ class Downloader(object):
         # type: (Link) -> Download
         try:
             resp = _http_get_download(self._session, link)
-        except requests.HTTPError as e:
+        except NetworkConnectionError as e:
+            assert e.response is not None
             logger.critical(
                 "HTTP error %s while getting %s", e.response.status_code, link
             )

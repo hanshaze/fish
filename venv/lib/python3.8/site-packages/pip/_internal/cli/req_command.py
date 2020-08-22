@@ -13,6 +13,7 @@ from pip._internal.cli import cmdoptions
 from pip._internal.cli.base_command import Command
 from pip._internal.cli.command_context import CommandContextMixIn
 from pip._internal.exceptions import CommandError, PreviousBuildDirError
+from pip._internal.index.collector import LinkCollector
 from pip._internal.index.package_finder import PackageFinder
 from pip._internal.models.selection_prefs import SelectionPreferences
 from pip._internal.network.download import Downloader
@@ -25,11 +26,7 @@ from pip._internal.req.constructors import (
     install_req_from_req_string,
 )
 from pip._internal.req.req_file import parse_requirements
-from pip._internal.req.req_set import RequirementSet
-from pip._internal.self_outdated_check import (
-    make_link_collector,
-    pip_self_version_check,
-)
+from pip._internal.self_outdated_check import pip_self_version_check
 from pip._internal.utils.temp_dir import tempdir_kinds
 from pip._internal.utils.typing import MYPY_CHECK_RUNNING
 
@@ -260,7 +257,7 @@ class RequirementCommand(IndexGroupCommand):
         # The long import name and duplicated invocation is needed to convince
         # Mypy into correctly typechecking. Otherwise it would complain the
         # "Resolver" class being redefined.
-        if 'resolver' in options.unstable_features:
+        if '2020-resolver' in options.features_enabled:
             import pip._internal.resolution.resolvelib.resolver
             return pip._internal.resolution.resolvelib.resolver.Resolver(
                 preparer=preparer,
@@ -274,6 +271,7 @@ class RequirementCommand(IndexGroupCommand):
                 force_reinstall=force_reinstall,
                 upgrade_strategy=upgrade_strategy,
                 py_version_info=py_version_info,
+                lazy_wheel='fast-deps' in options.features_enabled,
             )
         import pip._internal.resolution.legacy.resolver
         return pip._internal.resolution.legacy.resolver.Resolver(
@@ -296,15 +294,12 @@ class RequirementCommand(IndexGroupCommand):
         options,          # type: Values
         finder,           # type: PackageFinder
         session,          # type: PipSession
-        check_supported_wheels=True,  # type: bool
     ):
         # type: (...) -> List[InstallRequirement]
         """
         Parse command-line arguments into the corresponding requirements.
         """
-        requirement_set = RequirementSet(
-            check_supported_wheels=check_supported_wheels
-        )
+        requirements = []  # type: List[InstallRequirement]
         for filename in options.constraints:
             for parsed_req in parse_requirements(
                     filename,
@@ -313,26 +308,26 @@ class RequirementCommand(IndexGroupCommand):
                 req_to_add = install_req_from_parsed_requirement(
                     parsed_req,
                     isolated=options.isolated_mode,
+                    user_supplied=False,
                 )
-                req_to_add.is_direct = True
-                requirement_set.add_requirement(req_to_add)
+                requirements.append(req_to_add)
 
         for req in args:
             req_to_add = install_req_from_line(
                 req, None, isolated=options.isolated_mode,
                 use_pep517=options.use_pep517,
+                user_supplied=True,
             )
-            req_to_add.is_direct = True
-            requirement_set.add_requirement(req_to_add)
+            requirements.append(req_to_add)
 
         for req in options.editables:
             req_to_add = install_req_from_editable(
                 req,
+                user_supplied=True,
                 isolated=options.isolated_mode,
                 use_pep517=options.use_pep517,
             )
-            req_to_add.is_direct = True
-            requirement_set.add_requirement(req_to_add)
+            requirements.append(req_to_add)
 
         # NOTE: options.require_hashes may be set if --require-hashes is True
         for filename in options.requirements:
@@ -342,13 +337,12 @@ class RequirementCommand(IndexGroupCommand):
                 req_to_add = install_req_from_parsed_requirement(
                     parsed_req,
                     isolated=options.isolated_mode,
-                    use_pep517=options.use_pep517
+                    use_pep517=options.use_pep517,
+                    user_supplied=True,
                 )
-                req_to_add.is_direct = True
-                requirement_set.add_requirement(req_to_add)
+                requirements.append(req_to_add)
 
         # If any requirement has hash options, enable hash checking.
-        requirements = requirement_set.all_requirements
         if any(req.has_hash_options for req in requirements):
             options.require_hashes = True
 
@@ -392,7 +386,7 @@ class RequirementCommand(IndexGroupCommand):
         :param ignore_requires_python: Whether to ignore incompatible
             "Requires-Python" values in links. Defaults to False.
         """
-        link_collector = make_link_collector(session, options=options)
+        link_collector = LinkCollector.create(session, options=options)
         selection_prefs = SelectionPreferences(
             allow_yanked=True,
             format_control=options.format_control,
