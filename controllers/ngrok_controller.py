@@ -30,3 +30,6 @@ class NgrokController:
 
     def establish_connection(self, port='80'):
         self._model.connect(port=port, name='HiddenEye Connection', pyngrok_config=self._config_path)
+
+    def obtain_tunnels(self):
+        self._tunnels = self._model.get_tunnels()
