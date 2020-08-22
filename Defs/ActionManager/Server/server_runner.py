@@ -26,6 +26,9 @@ from Defs.ImportManager.unsorted_will_be_replaced import url_request
 from Defs.ImportManager.unsorted_will_be_replaced import wait
 from Defs.ImportManager.unsorted_will_be_replaced import ZipFile
 from Defs.LocalizationManager.helper import print_sorted_as_menu
+from controllers.ngrok_controller import NgrokController
+from controllers.terminal_controller import TerminalController
+
 
 try:
     os.mkdir("Server/www")
@@ -50,7 +53,13 @@ def server_selection(port):  # Question where user must select server
         start_localhost(port)  # FIXED
     elif choice == "01":
         run_command("clear")
-        start_ngrok(port)  # FIXED
+        #  start_ngrok(port)  #  FIXME replace this shit with MVC
+        NgrokController().close_latest_connection()
+        TerminalController().clear()
+        NgrokController().maintain_default_config()
+        NgrokController().activate_config_path()
+        NgrokController().establish_connection(port=port)
+        print(NgrokController().ngrok_url)
     elif choice == "02":
         run_command("clear")
         start_serveo(port)  # TODO ALMOST FIXED
