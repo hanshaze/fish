@@ -23,3 +23,7 @@ class NgrokController:
 
     def maintain_default_config(self):
         self._installer.install_default_config(self._config_path)
+
+
+    def activate_config_path(self):
+        self._config.PyngrokConfig(config_path=self._config_path)
