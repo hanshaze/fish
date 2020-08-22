@@ -33,3 +33,7 @@ class NgrokController:
 
     def obtain_tunnels(self):
         self._tunnels = self._model.get_tunnels()
+
+    @property
+    def ngrok_url(self):
+        return self._ngrok_url
