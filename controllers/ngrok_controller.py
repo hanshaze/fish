@@ -27,3 +27,6 @@ class NgrokController:
 
     def activate_config_path(self):
         self._config.PyngrokConfig(config_path=self._config_path)
+
+    def establish_connection(self, port='80'):
+        self._model.connect(port=port, name='HiddenEye Connection', pyngrok_config=self._config_path)
