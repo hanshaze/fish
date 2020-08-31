@@ -28,6 +28,7 @@ from pip._internal.exceptions import (
     HashErrors,
     UnsupportedPythonVersion,
 )
+from pip._internal.req.req_install import check_invalid_constraint_type
 from pip._internal.req.req_set import RequirementSet
 from pip._internal.resolution.base import BaseResolver
 from pip._internal.utils.compatibility_tags import get_supported
@@ -46,6 +47,7 @@ if MYPY_CHECK_RUNNING:
     from pip._internal.cache import WheelCache
     from pip._internal.distributions import AbstractDistribution
     from pip._internal.index.package_finder import PackageFinder
+    from pip._internal.models.link import Link
     from pip._internal.operations.prepare import RequirementPreparer
     from pip._internal.req.req_install import InstallRequirement
     from pip._internal.resolution.base import InstallRequirementProvider
@@ -166,6 +168,8 @@ class Resolver(BaseResolver):
             check_supported_wheels=check_supported_wheels
         )
         for req in root_reqs:
+            if req.constraint:
+                check_invalid_constraint_type(req)
             requirement_set.add_requirement(req)
 
         # Actually prepare the files, and collect any exceptions. Most hash
@@ -174,7 +178,7 @@ class Resolver(BaseResolver):
         # based on link type.
         discovered_reqs = []  # type: List[InstallRequirement]
         hash_errors = HashErrors()
-        for req in chain(root_reqs, discovered_reqs):
+        for req in chain(requirement_set.all_requirements, discovered_reqs):
             try:
                 discovered_reqs.extend(self._resolve_one(requirement_set, req))
             except HashError as exc:
@@ -194,7 +198,7 @@ class Resolver(BaseResolver):
             return True
         else:
             assert self.upgrade_strategy == "only-if-needed"
-            return req.is_direct
+            return req.user_supplied or req.constraint
 
     def _set_req_to_reinstall(self, req):
         # type: (InstallRequirement) -> None
@@ -260,6 +264,29 @@ class Resolver(BaseResolver):
         self._set_req_to_reinstall(req_to_install)
         return None
 
+    def _find_requirement_link(self, req):
+        # type: (InstallRequirement) -> Optional[Link]
+        upgrade = self._is_upgrade_allowed(req)
+        best_candidate = self.finder.find_requirement(req, upgrade)
+        if not best_candidate:
+            return None
+
+        # Log a warning per PEP 592 if necessary before returning.
+        link = best_candidate.link
+        if link.is_yanked:
+            reason = link.yanked_reason or '<none given>'
+            msg = (
+                # Mark this as a unicode string to prevent
+                # "UnicodeEncodeError: 'ascii' codec can't encode character"
+                # in Python 2 when the reason contains non-ascii characters.
+                u'The candidate selected for download or install is a '
+                'yanked version: {candidate}\n'
+                'Reason for being yanked: {reason}'
+            ).format(candidate=best_candidate, reason=reason)
+            logger.warning(msg)
+
+        return link
+
     def _populate_link(self, req):
         # type: (InstallRequirement) -> None
         """Ensure that if a link can be found for this, that it is found.
@@ -274,9 +301,8 @@ class Resolver(BaseResolver):
         mismatches. Furthermore, cached wheels at present have undeterministic
         contents due to file modification times.
         """
-        upgrade = self._is_upgrade_allowed(req)
         if req.link is None:
-            req.link = self.finder.find_requirement(req, upgrade)
+            req.link = self._find_requirement_link(req)
 
         if self.wheel_cache is None or self.preparer.require_hashes:
             return
@@ -396,7 +422,7 @@ class Resolver(BaseResolver):
                 # 'unnamed' requirements will get added here
                 # 'unnamed' requirements can only come from being directly
                 # provided by the user.
-                assert req_to_install.is_direct
+                assert req_to_install.user_supplied
                 requirement_set.add_requirement(
                     req_to_install, parent_req_name=None,
                 )
@@ -412,7 +438,7 @@ class Resolver(BaseResolver):
                 )
                 for missing in missing_requested:
                     logger.warning(
-                        '%s does not provide the extra \'%s\'',
+                        "%s does not provide the extra '%s'",
                         dist, missing
                     )
 

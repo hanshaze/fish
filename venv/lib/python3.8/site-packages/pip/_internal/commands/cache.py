@@ -24,13 +24,13 @@ class CacheCommand(Command):
 
     Subcommands:
 
-        dir: Show the cache directory.
-        info: Show information about the cache.
-        list: List filenames of packages stored in the cache.
-        remove: Remove one or more package from the cache.
-        purge: Remove all items from the cache.
+    - dir: Show the cache directory.
+    - info: Show information about the cache.
+    - list: List filenames of packages stored in the cache.
+    - remove: Remove one or more package from the cache.
+    - purge: Remove all items from the cache.
 
-        <pattern> can be a glob expression or a package name.
+    ``<pattern>`` can be a glob expression or a package name.
     """
 
     ignore_require_venv = True
@@ -59,8 +59,9 @@ class CacheCommand(Command):
 
         # Determine action
         if not args or args[0] not in handlers:
-            logger.error("Need an action ({}) to perform.".format(
-                ", ".join(sorted(handlers)))
+            logger.error(
+                "Need an action (%s) to perform.",
+                ", ".join(sorted(handlers)),
             )
             return ERROR
 
