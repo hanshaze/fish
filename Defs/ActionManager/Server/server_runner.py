@@ -17,6 +17,9 @@ from Defs.ImportManager.unsorted_will_be_replaced import chmod
 from Defs.ImportManager.unsorted_will_be_replaced import DEVNULL
 from Defs.ImportManager.unsorted_will_be_replaced import ngrok
 from Defs.ImportManager.unsorted_will_be_replaced import ngrok_conf
+from Defs.ImportManager.unsorted_will_be_replaced import check_process
+from Defs.ImportManager.unsorted_will_be_replaced import kill
+from Defs.ImportManager.unsorted_will_be_replaced import signal
 from Defs.ImportManager.unsorted_will_be_replaced import path
 from Defs.ImportManager.unsorted_will_be_replaced import regular_expression
 from Defs.ImportManager.unsorted_will_be_replaced import requests
@@ -128,9 +131,12 @@ def start_localhost(port):
 
 
 def start_ngrok(port):
-    ngrok_conf.PyngrokConfig(config_path=".config/ngrok.yml") #TODO done
-    run_command(["killall", "-2", "ngrok"], stdout=DEVNULL, stderr=DEVNULL)#TODO done
-    run_command("clear")#TODO done
+    ngrok_conf.PyngrokConfig(config_path=".config/ngrok.yml")
+    pid = check_process("ngrok")
+    for p in pid:
+        kill(p, signal.SIGKILL)
+    # continue
+    run_command("clear")
     print(global_localization.hidden_eye_logo)
     print(global_localization.official_website_link)
     print(global_localization.by_darksec)

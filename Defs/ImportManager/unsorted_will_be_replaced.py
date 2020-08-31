@@ -20,6 +20,7 @@ from os import path
 from os import remove
 from os import replace
 from os import system
+from os import kill
 from pathlib import Path as pathlib_Path
 from shutil import copyfile
 from shutil import rmtree
@@ -33,7 +34,10 @@ from subprocess import Popen as run_background_command
 from time import sleep as wait
 from urllib import request as url_request
 from zipfile import ZipFile
+from pgrep import pgrep as check_process
 
 import requests
+import signal
 from pyngrok import conf as ngrok_conf
 from pyngrok import ngrok
+
