@@ -10,7 +10,7 @@ exclude:
 
 changed_paths:
   maximum: 1000
-  outcome: error
+  outcome: skip
 
 remote_files: []
 
