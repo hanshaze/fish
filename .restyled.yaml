@@ -1,0 +1,38 @@
+# See https://github.com/restyled-io/restyled.io/wiki/Configuring-Restyled
+
+enabled: true
+
+exclude:
+  - "**/*.patch"
+  - "**/node_modules/**/*"
+  - "**/vendor/**/*"
+  - ".github/workflows/**/*" # https://github.com/restyled-io/restyler/issues/73
+
+changed_paths:
+  maximum: 1000
+  outcome: skip
+
+remote_files: []
+
+auto: false
+
+pull_requests: true
+
+comments: false
+
+statuses: true
+
+request_review: author
+
+labels: []
+
+ignore_labels:
+  - restyled-ignore
+
+restylers_version: "master"
+
+restylers:
+  - autopep8
+  - isort
+  - reorder-python-imports
+  - whitespace
