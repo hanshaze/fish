@@ -1,3 +1,8 @@
+# DUT TO BAD CODE AND HUGE AMOUNT OF ISSUES THIS VERSION OF HIDDEN EYE IS NOT GOING TO BE MAINTAINED ANYMORE! NEW VERSION OF HIDDENEYE IS GOING TO BE HERE: 
+# https://github.com/Open-Security-Group-OSG/HiddenEyeReborn
+
+
+
 <p align="right">
 English description | <a href="README_RU.md">Описание на русском</a>
 </p>
