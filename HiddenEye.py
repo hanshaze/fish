@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 #
 #    HiddenEye  Copyright (C) 2020  DarkSec https://dark-sec-official.com
 #    This program comes with ABSOLUTELY NO WARRANTY; for details read LICENSE.

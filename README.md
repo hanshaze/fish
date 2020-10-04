@@ -1,7 +1,3 @@
-# DUT TO BAD CODE AND HUGE AMOUNT OF ISSUES THIS VERSION OF HIDDEN EYE IS NOT GOING TO BE MAINTAINED ANYMORE! NEW VERSION OF HIDDENEYE IS GOING TO BE HERE: 
-# https://github.com/Open-Security-Group-OSG/HiddenEyeReborn
-
-
 
 <p align="right">
 English description | <a href="README_RU.md">Описание на русском</a>
@@ -62,6 +58,7 @@ software to test person or company without **WRITTEN PERMISSION** from them.
 4. LOCALTUNNEL (Package Version) (https://localtunnel.me)
 5. OPENPORT (https://openport.io/)
 6. PAGEKITE (https://pagekite.net/)
+7. LOCALHOST.RUN (https://localhost.run)
 
 # SCREENSHOT (Android-Userland)
 
@@ -93,7 +90,6 @@ software to test person or company without **WRITTEN PERMISSION** from them.
 
 - Python 3.\*
 - PHP
-- sudo
 - pyngrok
 
 # FOUND A BUG ? / HAVE ANY ISSUE ? :- (Read This)
@@ -142,12 +138,13 @@ software to test person or company without **WRITTEN PERMISSION** from them.
   Download it.
 - For Further instruction
   [Check Instructions](https://github.com/DarkSecDevelopers/HiddenEye/wiki/Installation-Instructions)
-- Termux Users Clone With This Command , Unless Errors may occur during Running.
+
 
 ```
-git clone -b Termux-Support-Branch https://github.com/DarkSecDevelopers/HiddenEye.git
+git clone https://github.com/DarkSecDevelopers/HiddenEye.git
 
 ```
+- Termux Users, to use ngrok, either turn on mobile hotspot, or pkg install proot then termux-chroot ./HiddenEye.py.
 
 **5) NEW LOOK PROVIDED**
 

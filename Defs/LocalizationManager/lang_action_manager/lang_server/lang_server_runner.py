@@ -23,13 +23,16 @@ lang_server_selection = {
         ],
         [
             "{0}[{1}01{0}]{1}Ngrok",
-            "{0}[{1}05{0}]{1}OpenPort (not working now)"
+            "{0}[{1}05{0}]{1}OpenPort  (not working now)"
         ],
         [
-            "{0}[{1}02{0}]{1}Serveo",
+            "{0}[{1}02{0}]{1}Serveo (Host Down)",
             "{0}[{1}06{0}]{1}Pagekite (not working now)"
         ],
-        ["{0}[{1}03{0}]{1}Localxpose (not working now)"],
+        [
+            "{0}[{1}03{0}]{1}Localhost.run  (not working now)",
+            "{0}[{1}07{0}]{1}Localxpose (not working now)"
+        ]
     ],
 }
 
@@ -115,4 +118,17 @@ lang_rand_localxpose = {
     "localxpose_random_server":
     _("\n{0}[ RANDOM LOCALXPOSE URL ]{1}! {0}\n-------------------------------"
       ).format(default_palette[0], default_palette[2])
+}
+
+lang_start_localhostrun = {
+    "localhostrun_server":
+    _("\n{0}[ LOCALHOST.RUN SERVER ]{1}! {0}\n-------------------------------").format(
+        default_palette[0], default_palette[2]),
+    "send_this_url_suggestion":
+    _("\n{0}[{1}!{0}]{1} SEND THIS LOCALHOST.RUN URL TO TARGETS").format(
+        default_palette[0], default_palette[2]),
+    "localhostrun_url":
+    _("\n{0}[{1}*{0}]{1} Localhost.run URL: {2}").format(default_palette[0],
+                                                 default_palette[2],
+                                                 default_palette[3]),
 }

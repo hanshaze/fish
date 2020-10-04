@@ -18,7 +18,7 @@ from Defs.ImportManager.unsorted_will_be_replaced import requests
 from Defs.ImportManager.unsorted_will_be_replaced import run_command
 from Defs.ImportManager.unsorted_will_be_replaced import stat
 from Defs.ImportManager.unsorted_will_be_replaced import try_to_run_command
-
+import subprocess
 default_palette = theme.default_palette
 
 
@@ -58,7 +58,10 @@ def exit_message(port=80):  # Message when HiddenEye exit
     choice = input(localization.lang_exit_message["choice"])
     choice.lower()
     if choice == "r":
-        run_command(["sudo", "python3", "HiddenEye.py"])
+        command=["sudo", "python3", "HiddenEye.py"]
+        if subprocess.getstatusoutput('which sudo')[0] !=0:
+            command.pop(0)
+        run_command(command)
     elif choice == "m":
         email_prompt.captured_data_email_confirmation(port)
     elif choice == "s":

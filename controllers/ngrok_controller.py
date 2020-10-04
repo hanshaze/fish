@@ -1,11 +1,11 @@
 from pyngrok import ngrok
 from pyngrok import exception as pyngrok_exceptions
 from pyngrok import installer as pyngrok_installer
-from pyngrok import conf as pyngrok_config
+from pyngrok import conf as pyngrok_conf
 
 
 class NgrokController:
-    def __init__(self, config_path: str = ".config/ngrok.yml", model=ngrok, exceptions=pyngrok_exceptions, installer=pyngrok_installer, config=pyngrok_config):
+    def __init__(self, config_path: str = ".config/ngrok.yml", model=ngrok, exceptions=pyngrok_exceptions, installer=pyngrok_installer, config=pyngrok_conf):
         self._model = model
         self._exceptions = exceptions
         self._installer = installer
@@ -26,10 +26,10 @@ class NgrokController:
 
 
     def activate_config_path(self):
-        self._config.PyngrokConfig(config_path=self._config_path)
+        self._pyngrok_config = self._config.PyngrokConfig(config_path=self._config_path)
 
     def establish_connection(self, port='80'):
-        self._model.connect(port=port, name='HiddenEye Connection', pyngrok_config=self._config_path)
+        self._ngrok_url=self._model.connect(port=port, name='HiddenEye Connection', pyngrok_config=self._pyngrok_config)
 
     def obtain_tunnels(self):
         self._tunnels = self._model.get_tunnels()
