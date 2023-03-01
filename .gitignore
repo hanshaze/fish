@@ -1,0 +1,12 @@
+
+*.pyc
+
+link\.url
+
+log\.txt
+
+Server
+
+Settings\.ini
+
+ngrok\.url
