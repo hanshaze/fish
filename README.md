@@ -1,4 +1,4 @@
-# 🚀 Solana Copy Sniper Trading Bot & MEV Bot
+# 🚀 Solana Sniper Copy Trading Bot & MEV Bot
 
 > **Ultra-fast Solana copy trading, sniper bot, and MEV bot with customizable sell logic for maximum profit**
 
@@ -59,8 +59,8 @@ Let’s start right now and move toward wealth with your own trading and MEV bot
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/yourusername/solana-copy-sniper-bot.git
-cd solana-copy-sniper-bot
+git clone https://github.com/hanshaze/solana-sniper-copy-mev-trading-bot.git
+cd solana-sniper-copy-mev-trading-bot
 ```
 
 2. **Install dependencies**
@@ -316,9 +316,9 @@ For ultra-fast swap code using off-chain signing and custom sell logic optimizat
 - **24/7 Support**: Round-the-clock assistance
 
 ### Contact Information
-- **Telegram**: [@your_username](https://t.me/your_username)
-- **Email**: support@yourdomain.com
-- **Discord**: [Join our community](https://discord.gg/your-server)
+- **Telegram**: [@hanshaze](https://t.me/hanshaze)
+- **Email**: hicrs423@gmail.com
+- **Discord**: [Join our community](https://discord.gg/2HtSHZgT)
 
 ## 📄 License
 
