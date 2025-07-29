@@ -1,27 +1,46 @@
-# 🚀 Solana Sniper Copy Trading Bot & MEV Bot
+# 🚀 Solana Copy Sniper Trading Bot & MEV Bot
 
 > **Ultra-fast Solana copy trading, sniper bot, and MEV bot with customizable sell logic for maximum profit**
 
 [![Solana](https://img.shields.io/badge/Solana-3.5.0-blue.svg)](https://solana.com/)
 [![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
+[![Rust](https://img.shields.io/badge/Rust-1.70+-orange.svg)](https://rust-lang.org/)
 [![Telegram](https://img.shields.io/badge/Telegram-Bot-blue.svg)](https://telegram.org/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 ## 🌟 Overview
+> **Ready to take your trading to the next level?**  
+If you use this repo, you get a battle-tested, ultra-fast Solana trading bot that you can fully customize for your own strategies.  
+**Add your own logic, automate your trades, and maximize your profits with professional-grade speed and reliability.**
 
-**Solana Copy Sniper Trading Bot & MEV Bot** lets you do both copy trading and sniper trading—including copying mint transactions—on the Solana blockchain. With this repo, you can implement copy, sniper, or MEV (Maximal Extractable Value) strategies and fully customize your sell logic to maximize your profit.
+**Want even more?**  
+Hire me for custom development!  
+- I can help you integrate advanced features, optimize your sell logic, or build a fully tailored trading solution for your needs.
+- Get ultra-fast swap code, off-chain signing, and expert support.
 
-That’s the key advantage of this project. If you reach out for support, I can provide you with ultra-fast swap code using off-chain signing and IDL, and help you tailor your sell logic for maximum earnings—including advanced MEV strategies for Solana.
 
-Let’s start right now and move toward wealth with your own trading and MEV bot!
+This repository contains **two powerful implementations** of Solana trading bots:
 
+### 📁 **Node.js Implementation** (`copy sniper bot(node) using gRPC/`)
+- **gRPC-based monitoring** for real-time transaction tracking
+- **Telegram bot integration** for remote control and alerts
+- **Multi-platform support**: PumpSwap, PumpFun, Raydium LaunchLab
+- **Copy trading and sniper functionality** with customizable strategies
+
+### 🦀 **Rust Implementation** (`sniper (Rust) using jito Shred stream/`)
+- **Ultra-high performance** with JITO shred stream processing
+- **Advanced MEV strategies** for maximal extractable value capture
+- **Real-time transaction parsing** and analysis
+- **PostgreSQL integration** for trade logging and analytics
+
+Both implementations provide:
 - **Copy Trading**: Automatically replicate successful trades from other wallets
 - **Sniper Trading**: Execute lightning-fast trades on new token launches
 - **MEV Bot Functionality**: Capture maximal extractable value opportunities on Solana
 - **Customizable Sell Logic**: Implement your own profit-taking strategies
 - **Multi-Platform Support**: Works with PumpSwap, PumpFun, Raydium LaunchLab, and more
-- **Telegram Integration**: Full remote control and monitoring via Telegram
 
+ ## **Telegram**: [@hanshaze](https://t.me/hanshaze)
 ## 🎯 Key Advantages
 
 ### ⚡ Ultra-Fast Execution
@@ -51,16 +70,18 @@ Let’s start right now and move toward wealth with your own trading and MEV bot
 ## 🚀 Quick Start
 
 ### Prerequisites
-- Node.js 18+ installed
+- **For Node.js version**: Node.js 18+ installed
+- **For Rust version**: Rust 1.70+ installed
 - Solana wallet with SOL balance
 - Telegram bot token (optional but recommended)
 
-### Installation
+## 📁 Node.js Implementation
 
-1. **Clone the repository**
+### Installation & Setup
+
+1. **Navigate to the Node.js directory**
 ```bash
-git clone https://github.com/hanshaze/solana-sniper-copy-mev-trading-bot.git
-cd solana-sniper-copy-mev-trading-bot
+cd "copy sniper bot(node) using gRPC"
 ```
 
 2. **Install dependencies**
@@ -96,51 +117,74 @@ LIMIT_BALANCE=0.1
 
 4. **Start the bot**
 ```bash
-node index.js
+npm start
 ```
 
-## 📊 Features
+### Node.js Features
+- **gRPC Transaction Monitoring**: Real-time transaction tracking
+- **Telegram Integration**: Full remote control via Telegram bot
+- **Multi-Platform Support**: PumpSwap, PumpFun, Raydium
+- **Copy Trading**: Automatically replicate successful trades
+- **Sniper Trading**: Lightning-fast execution on new launches
+- **Custom Alert System**: Buy/sell notifications with PnL tracking
 
-### 🔄 Copy Trading
-```javascript
-// Copy trades from successful wallets
-const copyTrade = async (targetWallet, amount) => {
-  // Monitor target wallet for new transactions
-  // Automatically replicate trades with your parameters
-  // Customizable timing and amount scaling
-};
+## 🦀 Rust Implementation
+
+### Installation & Setup
+
+1. **Navigate to the Rust directory**
+```bash
+cd "sniper (Rust) using jito Shred stream"
 ```
 
-### 🎯 Sniper Trading
-```javascript
-// Snipe new token launches
-const snipeToken = async (tokenMint, amount) => {
-  // Ultra-fast execution on new launches
-  // Customizable entry and exit strategies
-  // Real-time price monitoring
-};
+2. **Install Rust dependencies**
+```bash
+cargo build --release
 ```
 
-### 💰 Custom Sell Logic
-```javascript
-// Implement your profit-taking strategy
-const customSellLogic = {
-  stopLoss: 0.05,        // 5% stop loss
-  takeProfit: 0.20,      // 20% take profit
-  trailingStop: 0.10,    // 10% trailing stop
-  timeBasedExit: 3600    // Exit after 1 hour
-};
+3. **Set up PostgreSQL** (required for trade logging)
+```bash
+# Install PostgreSQL and create database
+# Update DB_URL in main.rs if needed
 ```
 
-### 📱 Telegram Integration
-- **Remote Control**: Start/stop bot from anywhere
-- **Real-time Alerts**: Buy/sell notifications with PnL
-- **Balance Monitoring**: Automatic balance checks
-- **Status Dashboard**: Live trading statistics
+4. **Configure environment variables**
+```bash
+# Create .env file with your settings
+RPC_URL=https://api.mainnet-beta.solana.com
+PRIVATE_KEY=your_private_key_here
+WALLET=your_wallet_address
+```
+
+5. **Start the bot**
+```bash
+cargo run --release
+```
+
+### Rust Features
+- **JITO Shred Stream Processing**: Ultra-high performance transaction monitoring
+- **Advanced MEV Strategies**: Sophisticated maximal extractable value capture
+- **Real-time Transaction Parsing**: Detailed analysis of all transactions
+- **PostgreSQL Integration**: Comprehensive trade logging and analytics
+- **Multi-threaded Architecture**: Optimal performance for high-frequency trading
+- **Advanced Error Handling**: Robust recovery and monitoring
+
+## 📊 Features Comparison
+
+| Feature | Node.js Version | Rust Version |
+|---------|----------------|--------------|
+| **Performance** | Fast | Ultra-fast |
+| **Memory Usage** | Higher | Lower |
+| **Setup Complexity** | Easy | Moderate |
+| **Telegram Integration** | ✅ Full | ❌ None |
+| **MEV Strategies** | Basic | Advanced |
+| **Database Integration** | ❌ None | ✅ PostgreSQL |
+| **Transaction Parsing** | Basic | Advanced |
+| **Multi-threading** | Limited | Full |
 
 ## 🛠️ Configuration
 
-### Swap Methods
+### Swap Methods (Node.js)
 Choose your preferred swap method for optimal performance:
 
 | Method | Speed | Cost | Use Case |
@@ -151,7 +195,7 @@ Choose your preferred swap method for optimal performance:
 | `0slot` | Fast | Low | Copy trading |
 | `race` | Very Fast | Medium | Competitive trading |
 
-### Alert Settings
+### Alert Settings (Node.js)
 Customize your Telegram notifications:
 
 ```javascript
@@ -202,7 +246,7 @@ const alertSettings = {
 ## 🔧 Advanced Configuration
 
 ### Multi-Platform Support
-The bot supports multiple Solana trading platforms:
+Both bots support multiple Solana trading platforms:
 
 - **PumpSwap**: High-speed DEX trading
 - **PumpFun**: Meme token trading
@@ -225,7 +269,7 @@ const parsedData = {
 };
 ```
 
-## 📱 Telegram Bot Setup
+## 📱 Telegram Bot Setup (Node.js Only)
 
 ### Quick Setup
 1. Create a Telegram bot with [@BotFather](https://t.me/botfather)
@@ -271,7 +315,7 @@ const parsedData = {
 - **Total Volume**: Total trading volume
 - **Active Positions**: Current open positions
 
-### Alert System
+### Alert System (Node.js)
 - **Buy Alerts**: New position notifications
 - **Sell Alerts**: Exit notifications with PnL
 - **Error Alerts**: Issue notifications
@@ -292,6 +336,19 @@ const parsedData = {
 - **Ultra-fast Swap Code**: Off-chain signing implementation
 
 ## 💡 Pro Tips
+
+### Choosing Between Implementations
+- **Use Node.js version** if you want:
+  - Easy setup and configuration
+  - Telegram integration for remote control
+  - Quick deployment and testing
+  - Basic copy trading and sniper functionality
+
+- **Use Rust version** if you want:
+  - Maximum performance and speed
+  - Advanced MEV strategies
+  - Sophisticated transaction analysis
+  - Professional-grade trading infrastructure
 
 ### Maximizing Profits
 1. **Start Small**: Begin with small amounts to test strategies
@@ -317,8 +374,7 @@ For ultra-fast swap code using off-chain signing and custom sell logic optimizat
 
 ### Contact Information
 - **Telegram**: [@hanshaze](https://t.me/hanshaze)
-- **Email**: hicrs423@gmail.com
-- **Discord**: [Join our community](https://discord.gg/2HtSHZgT)
+
 
 ## 📄 License
 
