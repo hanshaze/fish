@@ -17,19 +17,19 @@ export const token_buy = async (mint, sol_amount, pool_status,  context) => {
     throw new Error("mint is required and was not provided.");
   }
   const currentUTC = new Date();
-  // const txid = await swap("BUY", mint, sol_amount * LAMPORTS_PER_SOL);
-  let txid = "";
+  const txid = await swap("BUY", mint, sol_amount * LAMPORTS_PER_SOL);
+  // let txid = "";
   console.log(chalk.green(`🟢BUY tokenAmount:::${sol_amount} pool_status: ${pool_status} `));
-  if (pool_status == "pumpfun") {
-    txid = await buy_pumpfun(mint, sol_amount * LAMPORTS_PER_SOL, context);
-  } else if (pool_status == "pumpswap") {
+  // if (pool_status == "pumpfun") {
+  //   txid = await buy_pumpfun(mint, sol_amount * LAMPORTS_PER_SOL, context);
+  // } else if (pool_status == "pumpswap") {
    
-    txid = await buy_pumpswap(mint, sol_amount * LAMPORTS_PER_SOL, context.pool);
-  } else if (pool_status == "raydium_launchlab") {
-    txid = await buy_raydium_launchpad(mint, sol_amount * LAMPORTS_PER_SOL, context);
-  } else {
-    txid = await buy_raydium_CPMM(mint, sol_amount * LAMPORTS_PER_SOL);
-  }
+  //   txid = await buy_pumpswap(mint, sol_amount * LAMPORTS_PER_SOL, context.pool);
+  // } else if (pool_status == "raydium_launchlab") {
+  //   txid = await buy_raydium_launchpad(mint, sol_amount * LAMPORTS_PER_SOL, context);
+  // } else {
+  //   txid = await buy_raydium_CPMM(mint, sol_amount * LAMPORTS_PER_SOL);
+  // }
   const endUTC = new Date();
   const timeTaken = endUTC.getTime() - currentUTC.getTime();
   console.log(`⏱️ Total BUY time taken: ${timeTaken}ms (${(timeTaken / 1000).toFixed(2)}s)`);
@@ -45,18 +45,18 @@ export const token_sell = async (mint, tokenAmount, pool_status, isFull, context
     console.log(chalk.red(`🔴SELL tokenAmount:::${tokenAmount} pool_status: ${pool_status} `));
 
     const currentUTC = new Date();
-    let txid = "";
-    if (pool_status == "pumpfun") {
-      txid = await sell_pumpfun(mint, tokenAmount, isFull, context);
-    } else if (pool_status == "pumpswap") {
-      txid = await sell_pumpswap(mint, tokenAmount, context.pool, isFull);
-    } else if (pool_status == "raydium_launchlab") {
-      txid = await sell_raydium_launchpad(mint, tokenAmount, isFull);
-    } else {
-      txid = await sell_raydium_CPMM(mint, tokenAmount, isFull);
-    }
+    // let txid = "";
+    // if (pool_status == "pumpfun") {
+    //   txid = await sell_pumpfun(mint, tokenAmount, isFull, context);
+    // } else if (pool_status == "pumpswap") {
+    //   txid = await sell_pumpswap(mint, tokenAmount, context.pool, isFull);
+    // } else if (pool_status == "raydium_launchlab") {
+    //   txid = await sell_raydium_launchpad(mint, tokenAmount, isFull);
+    // } else {
+    //   txid = await sell_raydium_CPMM(mint, tokenAmount, isFull);
+    // }
 
-    // const txid = await swap("SELL", mint, tokenAmount);
+    const txid = await swap("SELL", mint, tokenAmount);
     const endUTC = new Date();
     const timeTaken = endUTC.getTime() - currentUTC.getTime();
     console.log(`⏱️ Total SELL time taken: ${timeTaken}ms (${(timeTaken / 1000).toFixed(2)}s)`);
