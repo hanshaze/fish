@@ -384,10 +384,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Trading cryptocurrencies involves substantial risk of loss and is not suitable for every investor. The valuation of cryptocurrencies may fluctuate, and, as a result, you may lose more than your original investment. You should not invest money that you cannot afford to lose.**
 
-This bot is for educational and research purposes. Use at your own risk. The developers are not responsible for any financial losses incurred through the use of this software.
+This bot is NOT for educational and research purposes. Use at your own risk. The developers are not responsible for any financial losses incurred through the use of this software without contact to me.
 
 ---
 
 **🚀 Start your journey to profitable trading today!**
 
-*Built with ❤️ for the Solana community*
+*Built with ❤️ for the Solana community and Traders*
