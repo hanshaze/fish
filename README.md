@@ -1,6 +1,10 @@
 # 🚀 Solana Copy Sniper Trading Bot & MEV Bot
 
-> **Ultra-fast Solana copy trading, sniper bot, and MEV bot with customizable sell logic for maximum profit**
+> **Ultra-fast Solana copy trading, Solana sniper bot, and MEV bot with customizable sell logic for maximum profit**
+
+
+### **If you find this project helpful, please show your support by giving it a star 🌟!**  
+#### Your feedback and stars motivate further development and improvements. Thank you!
 
 [![Solana](https://img.shields.io/badge/Solana-3.5.0-blue.svg)](https://solana.com/)
 [![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
@@ -16,7 +20,7 @@ If you use this repo, you get a battle-tested, ultra-fast Solana trading bot tha
 **Want even more?**  
 Hire me for custom development!  
 - I can help you integrate advanced features, optimize your sell logic, or build a fully tailored trading solution for your needs.
-- Get ultra-fast swap code, off-chain signing, and expert support.
+- Get ultra-fast swap code, 0block confirm, off-chain signing, and expert support.
 
 
 This repository contains **two powerful implementations** of Solana trading bots:
