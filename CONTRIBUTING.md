@@ -101,7 +101,7 @@ Never commit `.env` or private keys.
 Open a [GitHub Discussion](https://github.com/hanshaze/solana-sniper-copy-mev-trading-bot/discussions), or contact:
 
 * Telegram: [@hanshaze](https://t.me/hanshaze)
-* Email: [hanshaze@pm.me](mailto:hicrs423@gmail.com)
+* Email: [hicrs423@gmail.com](mailto:hicrs423@gmail.com)
 
 ---
 
@@ -112,14 +112,3 @@ Your contributions directly empower the Solana trading community.
 
 ```
 
----
-
-### ✅ Next Steps
-
-Let me know if you'd like me to:
-- Auto-generate this as a `CONTRIBUTING.md` file
-- Add a GitHub **"Contributing"** page in your Wiki
-- Include this in your README or a `docs/` folder
-
-Would you like `.md` files for this and your wiki next?
-```
