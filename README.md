@@ -28,7 +28,7 @@ This repository contains **two powerful implementations** of Solana trading bots
 ### 📁 **Node.js Implementation** (`copy sniper bot(node) using gRPC/`)
 - **gRPC-based monitoring** for real-time transaction tracking
 - **Telegram bot integration** for remote control and alerts
-- **Multi-platform support**: PumpSwap, PumpFun, Raydium LaunchLab
+- **Multi-platform support**: PumpSwap, PumpFun, Raydium LaunchLab bonk.fun
 - **Copy trading and sniper functionality** with customizable strategies
 
 ### 🦀 **Rust Implementation** (`sniper (Rust) using jito Shred stream/`)
@@ -42,7 +42,7 @@ Both implementations provide:
 - **Sniper Trading**: Execute lightning-fast trades on new token launches
 - **MEV Bot Functionality**: Capture maximal extractable value opportunities on Solana
 - **Customizable Sell Logic**: Implement your own profit-taking strategies
-- **Multi-Platform Support**: Works with PumpSwap, PumpFun, Raydium LaunchLab, and more
+- **Multi-Platform Support**: Works with PumpSwap, PumpFun, Raydium LaunchLab,bonk and more
 
  ## **Telegram**: [@hanshaze](https://t.me/hanshaze)
 ## 🎯 Key Advantages
@@ -67,7 +67,7 @@ Both implementations provide:
 
 ### 🔧 Advanced Features
 - **Transaction Parsing**: Detailed analysis of trade data
-- **Multi-Platform Support**: PumpSwap, PumpFun, Raydium LaunchLab
+- **Multi-Platform Support**: PumpSwap, PumpFun, Raydium, bonk
 - **Error Handling**: Robust error recovery and alerting
 - **Configurable Settings**: Customizable parameters for your strategy
 
@@ -127,7 +127,7 @@ npm start
 ### Node.js Features
 - **gRPC Transaction Monitoring**: Real-time transaction tracking
 - **Telegram Integration**: Full remote control via Telegram bot
-- **Multi-Platform Support**: PumpSwap, PumpFun, Raydium
+- **Multi-Platform Support**: PumpSwap, PumpFun, Raydium, bonk fun
 - **Copy Trading**: Automatically replicate successful trades
 - **Sniper Trading**: Lightning-fast execution on new launches
 - **Custom Alert System**: Buy/sell notifications with PnL tracking
@@ -254,7 +254,7 @@ Both bots support multiple Solana trading platforms:
 
 - **PumpSwap**: High-speed DEX trading
 - **PumpFun**: Meme token trading
-- **Raydium LaunchLab**: Launchpad trading
+- **Raydium LaunchLab /bonk.fun**: Launchpad trading
 - **Raydium**: General DEX trading
 
 ### Transaction Parsing
